@@ -1,3 +1,5 @@
+[![CI](https://github.com/Raphasha27/kirov-dynamics/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphasha27/kirov-dynamics/actions/workflows/ci.yml)
+
 # Kirov Dynamics — Technology Ecosystem
 
 **Practical AI, security, and infrastructure for the African digital economy.**
