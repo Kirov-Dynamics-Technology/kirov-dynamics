@@ -1,438 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kirov Dynamics — Business Operating System for South Africa</title>
-<meta name="description" content="Kirov Dynamics provides integrated problem-solving tools across all business departments — HR, Finance, Sales, Operations, Legal, IT, and more. Built for South African economic growth.">
-<meta name="keywords" content="Kirov Dynamics, business tools South Africa, enterprise platform, HR tools, finance tools, South African economy, business growth, digital transformation">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Kirov Dynamics — Business Operating System for South Africa">
-<meta property="og:description" content="Integrated problem-solving tools across all business departments. Built for SA economic growth.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kirovdynamics.com">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kirov Dynamics — Business Operating System for South Africa">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Kirov Dynamics",
-  "url": "https://kirovdynamics.com",
-  "description": "Integrated business problem-solving platform for South African enterprises. Tools across all departments — HR, Finance, Sales, Operations, Legal, IT, and more.",
-  "foundingDate": "2025",
-  "founder": {
-    "@type": "Person",
-    "name": "Koketso Raphasha",
-    "url": "https://github.com/Raphasha27"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Johannesburg",
-    "addressRegion": "Gauteng",
-    "addressCountry": "South Africa"
-  }
-}
-</script>
-
-<style>
-:root {
-  --primary: #1a1a2e;
-  --secondary: #16213e;
-  --accent: #e94560;
-  --accent2: #0f3460;
-  --gold: #f5c518;
-  --green: #00e676;
-  --text: #e8e8f0;
-  --text2: #a0a0b8;
-  --surface: #111118;
-  --border: #2a2a3a;
-  --radius: 12px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-  background: #0a0a0f;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-/* Nav */
-nav {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-  background: rgba(10,10,15,0.95);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-}
-
-nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #fff;
-  text-decoration: none;
-}
-
-.logo span { color: var(--accent); }
-
-nav a { color: var(--text2); text-decoration: none; font-size: 0.85rem; margin-left: 24px; transition: color 0.2s; }
-nav a:hover { color: var(--text); }
-nav .btn-nav {
-  background: var(--accent);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 6px;
-  margin-left: 24px;
-  font-weight: 600;
-  font-size: 0.82rem;
-}
-
-nav .btn-nav:hover { background: #d63850; }
-
-/* Hero */
-.hero {
-  padding: 80px 0 60px;
-  text-align: center;
-  position: relative;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-
-.hero h1 .highlight { color: var(--accent); }
-.hero h1 .highlight2 { color: var(--gold); }
-
-.hero p {
-  font-size: 1.1rem;
-  color: var(--text2);
-  max-width: 700px;
-  margin: 0 auto 32px;
-}
-
-.hero .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.2s;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: #d63850; transform: translateY(-2px); }
-.btn-outline { background: transparent; color: var(--text); border: 2px solid var(--border); }
-.btn-outline:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-/* Stats bar */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin: 40px 0;
-  padding: 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.stat-item { text-align: center; }
-.stat-item .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
-.stat-item .label { font-size: 0.8rem; color: var(--text2); margin-top: 4px; }
-
-/* Mission */
-.mission {
-  background: linear-gradient(135deg, rgba(233,69,96,0.06), rgba(15,52,96,0.08));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px;
-  margin: 40px 0;
-  text-align: center;
-}
-
-.mission h2 { font-size: 1.6rem; margin-bottom: 12px; }
-.mission p { color: var(--text2); max-width: 700px; margin: 0 auto; font-size: 0.95rem; }
-
-/* Department Tools Grid */
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin: 48px 0 8px;
-  text-align: center;
-}
-
-.section-subtitle {
-  color: var(--text2);
-  text-align: center;
-  margin-bottom: 32px;
-  font-size: 0.95rem;
-}
-
-.departments {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-  margin: 32px 0;
-}
-
-.dept-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  transition: all 0.25s ease;
-  text-decoration: none;
-  color: var(--text);
-  display: block;
-}
-
-.dept-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(233,69,96,0.1);
-}
-
-.dept-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  margin-bottom: 14px;
-}
-
-.dept-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.dept-card p { font-size: 0.85rem; color: var(--text2); margin-bottom: 12px; }
-.dept-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-.dept-tags span {
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(233,69,96,0.1);
-  color: var(--accent);
-}
-
-/* Why SA */
-.why-sa {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px;
-  margin: 40px 0;
-}
-
-.why-sa h2 { font-size: 1.4rem; margin-bottom: 20px; text-align: center; }
-.why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-.why-item { padding: 16px; border-left: 3px solid var(--accent); }
-.why-item h4 { font-size: 1rem; margin-bottom: 6px; }
-.why-item p { font-size: 0.85rem; color: var(--text2); }
-
-/* Footer */
-footer {
-  margin-top: 60px;
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--text2);
-  font-size: 0.85rem;
-}
-
-footer a { color: var(--accent); text-decoration: none; }
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .departments { grid-template-columns: 1fr; }
-  nav .nav-links { display: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirov Dynamics Technology</title>
+  <meta name="description" content="AI, Security, and Infrastructure for the African Digital Economy">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    header { text-align: center; padding: 4rem 0; }
+    h1 { font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: #00ff88; }
+    p { margin-bottom: 1rem; color: #a0a0a0; }
+    .tagline { font-size: 1.1rem; color: #888; margin-top: 0.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .card { background: #111; border: 1px solid #222; border-radius: 12px; padding: 1.5rem; transition: border-color 0.3s; }
+    .card:hover { border-color: #00ff88; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #00d4ff; }
+    .card p { font-size: 0.9rem; color: #888; }
+    .links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+    .links a { color: #00d4ff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #00d4ff; border-radius: 8px; transition: all 0.3s; }
+    .links a:hover { background: #00d4ff; color: #0a0a0a; }
+    footer { text-align: center; padding: 2rem 0; border-top: 1px solid #222; margin-top: 3rem; color: #555; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
-
-<nav>
   <div class="container">
-    <a href="/" class="logo">Kirov <span>Dynamics</span></a>
-    <div class="nav-links">
-      <a href="#departments">Departments</a>
-      <a href="#tools">Tools</a>
-      <a href="#mission">Mission</a>
-      <a href="https://github.com/Raphasha27" target="_blank">GitHub</a>
-      <a href="../index.html" class="btn-nav">Founder Profile</a>
-    </div>
+    <header>
+      <h1>Kirov Dynamics Technology</h1>
+      <p class="tagline">AI, Security, and Infrastructure for the African Digital Economy</p>
+    </header>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>Building cutting-edge technology solutions — from AI-powered security platforms to cloud infrastructure — driving the next wave of digital transformation across Africa.</p>
+    </section>
+
+    <section>
+      <h2>Focus Areas</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AI & Machine Learning</h3>
+          <p>Autonomous agents, AI SDKs, algorithmic research, and NLP models for African languages.</p>
+        </div>
+        <div class="card">
+          <h3>Cybersecurity</h3>
+          <p>SOC platforms, malware analysis, network defense, OSINT, and threat intelligence.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud Infrastructure</h3>
+          <p>Monitoring, observability, secure API gateways, and endpoint agents.</p>
+        </div>
+        <div class="card">
+          <h3>Developer Tools</h3>
+          <p>CLI tools, SDKs, authentication libraries, and vulnerability scanners.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our Ecosystem</h2>
+      <p>Kirov Dynamics encompasses <strong>29 open-source repositories</strong> across AI, security, infrastructure, and developer tooling.</p>
+      <div class="links">
+        <a href="https://github.com/Kirov-Dynamics-Technology">GitHub Organization</a>
+        <a href="https://github.com/Raphasha27">Founder Profile</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>Kirov Dynamics Technology &mdash; 2026</p>
+      <p>Co-founded by @Raphasha27, @KirovDynamicsTechnology, and @DkMash</p>
+    </footer>
   </div>
-</nav>
-
-<section class="hero">
-  <div class="container">
-    <h1>
-      The Business Operating System<br>
-      for <span class="highlight">South Africa</span>'s<br>
-      <span class="highlight2">Economic Growth</span>
-    </h1>
-    <p>
-      Kirov Dynamics provides integrated problem-solving tools across every business department —
-      from HR and Finance to Sales, Operations, Legal, and IT. Built for South African enterprises
-      that want to scale, innovate, and compete globally.
-    </p>
-    <div class="cta-group">
-      <a href="#departments" class="btn btn-primary">Explore Tools</a>
-      <a href="#mission" class="btn btn-outline">Our Mission</a>
-    </div>
-  </div>
-</section>
-
-<div class="container">
-
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="num">8</div>
-    <div class="label">Department Solutions</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">40+</div>
-    <div class="label">Integrated Tools</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">100%</div>
-    <div class="label">SA-Focused</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">1</div>
-    <div class="label">Platform</div>
-  </div>
-</div>
-
-<section class="mission" id="mission">
-  <h2>&#x1F30D; Our Mission: Build Africa's Digital Economy</h2>
-  <p>
-    South African businesses face unique challenges — load shedding, currency volatility, regulatory complexity,
-    skills gaps, and infrastructure constraints. Kirov Dynamics builds purpose-built tools that turn these
-    challenges into competitive advantages. We don't just digitize — we solve.
-  </p>
-</section>
-
-<h2 class="section-title" id="departments">&#x1F3E2; All Department Solutions</h2>
-<p class="section-subtitle">Purpose-built tools for every function of your business</p>
-
-<div class="departments">
-
-  <a href="tools/hr.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(233,69,96,0.12);">&#x1F9D1;&#x200D;&#x1F4BC;</div>
-    <h3>HR & People Operations</h3>
-    <p>Recruitment pipeline, employee lifecycle management, payroll compliance (SARS/UIF/SDL), performance tracking, leave management, and skills development aligned with SA labour law.</p>
-    <div class="dept-tags"><span>BCEA</span><span>EEA</span><span>UIF</span><span>SDL</span><span>Skills Levy</span></div>
-  </a>
-
-  <a href="tools/finance.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(0,230,118,0.12);">&#x1F4B0;</div>
-    <h3>Finance & Accounting</h3>
-    <p>Invoicing, VAT management (SARS eFiling), expense tracking, budgeting, cash flow forecasting, multi-currency support (ZAR focus), tax compliance, and financial reporting.</p>
-    <div class="dept-tags"><span>VAT</span><span>SARS</span><span>IFRS</span><span>Payroll</span><span>Audit</span></div>
-  </a>
-
-  <a href="tools/sales.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(0,210,255,0.12);">&#x1F4C8;</div>
-    <h3>Sales & Marketing</h3>
-    <p>CRM with SA market intelligence, lead scoring, campaign automation, WhatsApp Business API integration, social media scheduling, and analytics for township and urban markets.</p>
-    <div class="dept-tags"><span>CRM</span><span>WhatsApp</span><span>Automation</span><span>Analytics</span></div>
-  </a>
-
-  <a href="tools/operations.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(245,197,24,0.12);">&#x1F69A;</div>
-    <h3>Operations & Logistics</h3>
-    <p>Supply chain management for SA corridors, inventory tracking, fleet management, load shedding impact planning, route optimization, and warehouse management.</p>
-    <div class="dept-tags"><span>Supply Chain</span><span>Inventory</span><span>Logistics</span><span>Load Shedding</span></div>
-  </a>
-
-  <a href="tools/support.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(108,92,231,0.12);">&#x1F4AC;</div>
-    <h3>Customer Support</h3>
-    <p>Multi-channel support (WhatsApp, email, voice), ticket management, SLA engine, knowledge base, chatbot integration, and satisfaction tracking with SA language support.</p>
-    <div class="dept-tags"><span>Ticketing</span><span>SLA</span><span>Chatbot</span><span>WhatsApp</span></div>
-  </a>
-
-  <a href="tools/legal.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(255,145,0,0.12);">&#x2696;&#xFE0F;</div>
-    <h3>Legal & Compliance</h3>
-    <p>Contract management with SA law templates (POPIA, ECTA), regulatory compliance tracking, document workflow, company registration assistance, and POPIA audit tools.</p>
-    <div class="dept-tags"><span>POPIA</span><span>ECTA</span><span>Compliance</span><span>Contracts</span></div>
-  </a>
-
-  <a href="tools/it.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(0,150,255,0.12);">&#x1F4F1;</div>
-    <h3>IT & Engineering</h3>
-    <p>Infrastructure monitoring, deployment pipelines, cybersecurity tools (SOC), cloud cost optimization, backup & DR planning for SA data regulations, and dev tooling.</p>
-    <div class="dept-tags"><span>DevSecOps</span><span>SOC</span><span>Cloud</span><span>Infrastructure</span></div>
-  </a>
-
-  <a href="tools/executive.html" class="dept-card">
-    <div class="dept-icon" style="background:rgba(255,215,0,0.12);">&#x1F4CA;</div>
-    <h3>Executive & Strategy</h3>
-    <p>Business intelligence dashboard, KPI tracking, market analytics (SA industry data), competitor intelligence, board reporting, scenario planning, and investment readiness tools.</p>
-    <div class="dept-tags"><span>BI</span><span>Analytics</span><span>Strategy</span><span>Reporting</span></div>
-  </a>
-
-</div>
-
-<section class="why-sa" id="why-sa">
-  <h2>&#x1F1FF;&#x1F1E6; Built for South Africa, By South Africans</h2>
-  <div class="why-grid">
-    <div class="why-item">
-      <h4>&#x26A1; Load Shedding Resilience</h4>
-      <p>All tools work offline-first. No business interruption during power outages. Sync when back online.</p>
-    </div>
-    <div class="why-item">
-      <h4>&#x1F4B1; ZAR-First Financial Tools</h4>
-      <p>Multi-currency with ZAR at the core. SARS eFiling integration, VAT calculations, UIF/SDL payroll compliance built in.</p>
-    </div>
-    <div class="why-item">
-      <h4>&#x1F310; Offline-First Architecture</h4>
-      <p>Optimized for SA's mobile-first, data-sensitive market. Low bandwidth mode. Works on any device.</p>
-    </div>
-    <div class="why-item">
-      <h4>&#x1F3ED; Township & Urban Markets</h4>
-      <p>Tools designed for the entire SA economy — from Johannesburg boardrooms to township SMMEs.</p>
-    </div>
-    <div class="why-item">
-      <h4>&#x1F6E1;&#xFE0F; POPIA Compliant by Default</h4>
-      <p>All tools built with POPIA compliance at the data layer. Your data stays in South Africa.</p>
-    </div>
-    <div class="why-item">
-      <h4>&#x1F468;&#x200D;&#x1F4BB; Local Skills Development</h4>
-      <p>Built by South African engineers. Skills transfer, mentorship, and internship pipelines included.</p>
-    </div>
-  </div>
-</section>
-
-</div>
-
-<footer>
-  <p>&copy; 2026 <strong>Kirov Dynamics</strong> — Building Africa's Digital Economy</p>
-  <p style="margin-top:6px;">Founded by <a href="../index.html">Koketso Raphasha (Raphasha27)</a> in Johannesburg, South Africa</p>
-  <p style="margin-top:6px; font-size:0.75rem;"><em>Engineering autonomous frameworks, AI-powered security, and offline-first ecosystems for the African digital economy.</em></p>
-</footer>
-
 </body>
 </html>
