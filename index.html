@@ -122,10 +122,8 @@
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .nav-logo img {
-      height:46px; width:auto;
-      background:#fff; padding:5px 12px;
-      border-radius:9px; object-fit:contain; display:block;
+    .nav-logo svg {
+      height:46px; width:auto; display:block;
     }
     .nav-links { display:flex; align-items:center; gap:30px; }
     .nav-links a {
@@ -269,7 +267,7 @@
       background:#fff; padding:8px 16px; border-radius:10px;
       box-shadow:0 4px 20px rgba(0,0,0,0.4);
     }
-    .about-logo-badge img { height:38px; width:auto; display:block; }
+    .about-logo-badge svg { height:38px; width:auto; display:block; }
 
     .about-stats-row {
       position:absolute; bottom:22px; left:22px; right:22px;
@@ -578,7 +576,15 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+      <svg width="170" height="40" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kirov Dynamics Technology">
+        <!-- Shield / Diamond emblem -->
+        <polygon points="20,2 34,10 34,30 20,38 6,30 6,10" fill="#1a3664" stroke="#4a90d9" stroke-width="1.5"/>
+        <polygon points="20,7 29,12.5 29,27.5 20,33 11,27.5 11,12.5" fill="none" stroke="#4a90d9" stroke-width="0.8" opacity="0.5"/>
+        <text x="20" y="24" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="13" fill="#ffffff" letter-spacing="1">KD</text>
+        <!-- Company name -->
+        <text x="44" y="17" font-family="Outfit,sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="0.5">KIROV</text>
+        <text x="44" y="31" font-family="Outfit,sans-serif" font-weight="400" font-size="10" fill="#4a90d9" letter-spacing="2.5">DYNAMICS</text>
+      </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -674,7 +680,12 @@
         >
         <div class="about-img-overlay" aria-hidden="true"></div>
         <div class="about-logo-badge">
-          <img src="assets/images/logo.png" alt="Kirov Dynamics Technology Logo">
+          <svg width="140" height="38" viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kirov Dynamics Technology">
+            <polygon points="19,2 31,9 31,29 19,36 7,29 7,9" fill="#1a3664" stroke="#4a90d9" stroke-width="1.5"/>
+            <text x="19" y="23" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="12" fill="#ffffff" letter-spacing="1">KD</text>
+            <text x="40" y="16" font-family="Outfit,sans-serif" font-weight="800" font-size="12" fill="#1a3664" letter-spacing="0.5">KIROV</text>
+            <text x="40" y="29" font-family="Outfit,sans-serif" font-weight="400" font-size="9.5" fill="#4a90d9" letter-spacing="2">DYNAMICS</text>
+          </svg>
         </div>
         <div class="about-stats-row" aria-hidden="true">
           <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
@@ -1271,7 +1282,13 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+        <svg width="160" height="42" viewBox="0 0 160 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kirov Dynamics Technology" style="margin-bottom:8px">
+          <polygon points="21,2 35,10 35,32 21,40 7,32 7,10" fill="#1a3664" stroke="#4a90d9" stroke-width="1.5"/>
+          <polygon points="21,7 30,12.5 30,29.5 21,35 12,29.5 12,12.5" fill="none" stroke="#4a90d9" stroke-width="0.7" opacity="0.5"/>
+          <text x="21" y="25" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="13" fill="#ffffff" letter-spacing="1">KD</text>
+          <text x="44" y="19" font-family="Outfit,sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="0.5">KIROV</text>
+          <text x="44" y="33" font-family="Outfit,sans-serif" font-weight="400" font-size="10" fill="#4a90d9" letter-spacing="2.5">DYNAMICS</text>
+        </svg>
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
