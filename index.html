@@ -3,75 +3,1514 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kirov Dynamics Technology</title>
-  <meta name="description" content="AI, Security, and Infrastructure for the African Digital Economy">
+  <title>Kirov Dynamics Technology | AI · Cybersecurity · Smart Infrastructure</title>
+  <meta name="description" content="Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure, and government technology for businesses and governments across Africa and the world.">
+  <meta name="keywords" content="AI, cybersecurity, smart infrastructure, GovTech, digital transformation, South Africa, Africa, technology company, software development">
+  <meta property="og:title" content="Kirov Dynamics Technology">
+  <meta property="og:description" content="Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
-    header { text-align: center; padding: 4rem 0; }
-    h1 { font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: #00ff88; }
-    p { margin-bottom: 1rem; color: #a0a0a0; }
-    .tagline { font-size: 1.1rem; color: #888; margin-top: 0.5rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .card { background: #111; border: 1px solid #222; border-radius: 12px; padding: 1.5rem; transition: border-color 0.3s; }
-    .card:hover { border-color: #00ff88; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #00d4ff; }
-    .card p { font-size: 0.9rem; color: #888; }
-    .links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
-    .links a { color: #00d4ff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #00d4ff; border-radius: 8px; transition: all 0.3s; }
-    .links a:hover { background: #00d4ff; color: #0a0a0a; }
-    footer { text-align: center; padding: 2rem 0; border-top: 1px solid #222; margin-top: 3rem; color: #555; font-size: 0.9rem; }
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --bg:          #06080f;
+      --bg-card:     #0d1625;
+      --bg-alt:      #080d18;
+      --primary:     #1a3664;
+      --accent:      #4a90d9;
+      --accent-lite: #6aaee8;
+      --teal:        #00c8f8;
+      --green:       #10d67c;
+      --gold:        #f59e0b;
+      --text:        #f0f4ff;
+      --muted:       #7a9ab8;
+      --border:      rgba(74,144,217,0.18);
+      --glass:       rgba(8,13,24,0.9);
+      --radius:      12px;
+      --radius-lg:   20px;
+      --shadow:      0 8px 40px rgba(0,0,0,0.6);
+      --glow:        0 0 40px rgba(74,144,217,0.2);
+      --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    h1,h2,h3,h4,h5 { font-family:'Outfit',sans-serif; line-height:1.2; }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; height:auto; }
+    button { cursor:pointer; border:none; background:none; font-family:inherit; }
+    ul { list-style:none; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container { max-width:1220px; margin:0 auto; padding:0 28px; }
+
+    .section-tag {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:0.72rem; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color:var(--accent-lite);
+      background:rgba(74,144,217,0.1); border:1px solid var(--border);
+      padding:6px 18px; border-radius:50px; margin-bottom:18px;
+    }
+    .section-tag::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--teal); box-shadow:0 0 8px var(--teal); display:block;
+    }
+
+    .section-title {
+      font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin-bottom:16px;
+      background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .section-sub { font-size:1.05rem; color:var(--muted); line-height:1.75; }
+
+    .divider {
+      width:56px; height:3px; border-radius:3px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      margin:18px 0 30px;
+    }
+    .divider-center { margin:18px auto 30px; }
+
+    .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.65s ease,transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:'Outfit',sans-serif; font-weight:700; font-size:0.9rem;
+      padding:13px 26px; border-radius:var(--radius);
+      transition:var(--transition); cursor:pointer; white-space:nowrap;
+    }
+    .btn-primary {
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff; box-shadow:0 4px 20px rgba(74,144,217,0.35);
+    }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(74,144,217,0.5); }
+    .btn-outline {
+      border:1.5px solid var(--border); color:var(--text);
+      background:rgba(74,144,217,0.05);
+    }
+    .btn-outline:hover { border-color:var(--accent); background:rgba(74,144,217,0.1); transform:translateY(-2px); }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #navbar {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      padding:20px 0; transition:all 0.35s ease;
+    }
+    #navbar.scrolled {
+      padding:12px 0;
+      background:var(--glass);
+      backdrop-filter:blur(24px);
+      border-bottom:1px solid var(--border);
+      box-shadow:0 4px 30px rgba(0,0,0,0.5);
+    }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-logo img {
+      height:46px; width:auto;
+      background:#fff; padding:5px 12px;
+      border-radius:9px; object-fit:contain; display:block;
+    }
+    .nav-links { display:flex; align-items:center; gap:30px; }
+    .nav-links a {
+      font-size:0.88rem; font-weight:500; color:var(--muted);
+      transition:var(--transition); position:relative;
+    }
+    .nav-links a:hover { color:var(--text); }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-4px; left:0; right:0;
+      height:2px; background:var(--accent); border-radius:2px;
+      transform:scaleX(0); transform-origin:left; transition:var(--transition);
+    }
+    .nav-links a:hover::after { transform:scaleX(1); }
+
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:var(--transition); }
+    .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+    .mobile-menu {
+      display:none; position:fixed; inset:0; background:var(--bg-card);
+      z-index:999; flex-direction:column; align-items:center;
+      justify-content:center; gap:28px;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-size:1.25rem; font-weight:700; color:var(--text); transition:var(--transition); }
+    .mobile-menu a:hover { color:var(--accent); }
+    .mobile-close-btn {
+      position:absolute; top:24px; right:28px;
+      font-size:1.4rem; color:var(--muted); cursor:pointer; transition:var(--transition);
+    }
+    .mobile-close-btn:hover { color:var(--text); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #home {
+      position:relative; height:100vh; min-height:680px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+      background-size:cover; background-position:center;
+      filter:brightness(0.3) saturate(0.7);
+    }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(6,8,15,0.85) 0%,rgba(26,54,100,0.35) 50%,rgba(6,8,15,0.88) 100%);
+    }
+    #hero-canvas { position:absolute; inset:0; pointer-events:none; }
+
+    .hero-content {
+      position:relative; z-index:2;
+      text-align:center; max-width:920px; padding:0 28px;
+    }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(74,144,217,0.12); border:1px solid rgba(74,144,217,0.28);
+      padding:9px 22px; border-radius:50px;
+      font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--accent-lite); margin-bottom:28px;
+      animation:fadeInDown 0.8s ease both;
+    }
+    .hero-badge-dot {
+      width:8px; height:8px; border-radius:50%; background:var(--teal);
+      box-shadow:0 0 10px var(--teal); animation:pulse 2s infinite;
+    }
+
+    .hero-title {
+      font-size:clamp(2.6rem,6.5vw,5rem); font-weight:900;
+      line-height:1.08; margin-bottom:26px;
+      animation:fadeInUp 0.9s ease 0.15s both;
+    }
+    .hero-title .line1 { display:block; color:#fff; }
+    .hero-title .line2 {
+      display:block;
+      background:linear-gradient(90deg,var(--accent) 0%,var(--teal) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    .hero-sub {
+      font-size:1.12rem; color:var(--muted); max-width:680px;
+      margin:0 auto 40px; line-height:1.75;
+      animation:fadeInUp 0.9s ease 0.28s both;
+    }
+    .hero-btns {
+      display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+      animation:fadeInUp 0.9s ease 0.42s both; margin-bottom:64px;
+    }
+
+    .hero-stats {
+      display:flex; gap:0; justify-content:center;
+      border-top:1px solid var(--border); padding-top:36px;
+      animation:fadeInUp 0.9s ease 0.55s both;
+      flex-wrap:wrap;
+    }
+    .stat-item {
+      text-align:center; padding:0 36px;
+      border-right:1px solid var(--border);
+    }
+    .stat-item:last-child { border-right:none; }
+    .stat-num {
+      font-family:'Outfit',sans-serif; font-size:2.4rem; font-weight:900;
+      color:var(--accent); display:block; line-height:1;
+    }
+    .stat-label { font-size:0.75rem; color:var(--muted); margin-top:5px; letter-spacing:0.05em; }
+
+    .scroll-hint {
+      position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:6px;
+      animation:scrollBounce 2.5s ease-in-out infinite; z-index:2; color:var(--muted);
+    }
+    .scroll-hint span { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; }
+
+    @keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 55%{transform:translateX(-50%) translateY(10px)} }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-22px)} to{opacity:1;transform:none} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(32px)}  to{opacity:1;transform:none} }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { padding:130px 0; background:var(--bg-alt); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+
+    .about-img-wrap { position:relative; border-radius:var(--radius-lg); }
+    .about-img-wrap img {
+      width:100%; height:510px; object-fit:cover;
+      border-radius:var(--radius-lg); display:block;
+      filter:brightness(0.82) saturate(0.9);
+    }
+    .about-img-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(26,54,100,0.45),transparent 60%);
+      border-radius:var(--radius-lg);
+    }
+    .about-logo-badge {
+      position:absolute; top:22px; left:22px;
+      background:#fff; padding:8px 16px; border-radius:10px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.4);
+    }
+    .about-logo-badge img { height:38px; width:auto; display:block; }
+
+    .about-stats-row {
+      position:absolute; bottom:22px; left:22px; right:22px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+    }
+    .about-stat-box {
+      background:rgba(6,8,15,0.88); backdrop-filter:blur(12px);
+      border:1px solid var(--border); border-radius:10px;
+      padding:14px 10px; text-align:center;
+    }
+    .about-stat-box .num { font-family:'Outfit',sans-serif; font-size:1.35rem; font-weight:900; color:var(--accent); }
+    .about-stat-box .lbl { font-size:0.68rem; color:var(--muted); margin-top:3px; }
+
+    .expertise-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:32px; }
+    .expertise-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:20px; transition:var(--transition);
+    }
+    .expertise-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .expertise-icon { font-size:1.5rem; margin-bottom:8px; }
+    .expertise-card h4 { font-size:0.88rem; font-weight:700; margin-bottom:4px; }
+    .expertise-card p { font-size:0.8rem; color:var(--muted); line-height:1.5; }
+
+    /* ============================================================
+       DIVISIONS
+    ============================================================ */
+    #divisions { padding:130px 0; }
+    .divisions-header { text-align:center; margin-bottom:64px; }
+    .divisions-header .section-sub { max-width:680px; margin:0 auto; }
+
+    .divisions-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:22px;
+    }
+    .division-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:34px;
+      transition:var(--transition); position:relative; overflow:hidden;
+    }
+    .division-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--primary),var(--accent),var(--teal));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease;
+    }
+    .division-card:hover::before { transform:scaleX(1); }
+    .division-card:hover { border-color:rgba(74,144,217,0.35); transform:translateY(-5px); box-shadow:var(--glow); }
+
+    .division-num {
+      font-size:0.7rem; font-weight:800; letter-spacing:0.18em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:14px;
+      opacity:0.7;
+    }
+    .division-icon { font-size:2.4rem; margin-bottom:14px; }
+    .division-card h3 { font-size:1.15rem; font-weight:800; margin-bottom:10px; }
+    .division-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { padding:130px 0; background:var(--bg-alt); }
+
+    .services-tabs {
+      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:50px;
+    }
+    .tab-btn {
+      padding:9px 18px; border-radius:50px; font-size:0.82rem; font-weight:600;
+      background:var(--bg-card); border:1px solid var(--border); color:var(--muted);
+      transition:var(--transition); cursor:pointer;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      border-color:transparent; color:#fff; box-shadow:0 4px 16px rgba(74,144,217,0.3);
+    }
+
+    .tab-panel { display:none; }
+    .tab-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+
+    .service-img { border-radius:var(--radius-lg); overflow:hidden; position:relative; }
+    .service-img img {
+      width:100%; height:400px; object-fit:cover; display:block;
+      border-radius:var(--radius-lg); filter:brightness(0.82) saturate(0.85);
+      transition:transform 0.6s ease;
+    }
+    .service-img:hover img { transform:scale(1.04); }
+    .service-img-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(26,54,100,0.35),transparent 60%);
+      border-radius:var(--radius-lg);
+    }
+
+    .service-info h3 { font-size:1.9rem; font-weight:900; margin-bottom:14px; }
+    .service-info > p { color:var(--muted); margin-bottom:28px; line-height:1.75; }
+
+    .service-list {
+      display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:32px;
+    }
+    .service-list li {
+      display:flex; align-items:center; gap:9px;
+      font-size:0.84rem; color:var(--muted);
+    }
+    .service-list li::before {
+      content:''; width:6px; height:6px; border-radius:50%;
+      background:var(--accent); flex-shrink:0;
+    }
+
+    /* ============================================================
+       INDUSTRIES
+    ============================================================ */
+    #industries { padding:130px 0; }
+    .industries-header { text-align:center; margin-bottom:64px; }
+    .industries-header .section-sub { max-width:640px; margin:0 auto; }
+
+    .industries-photo {
+      width:100%; height:260px; object-fit:cover;
+      border-radius:var(--radius-lg); filter:brightness(0.25) saturate(0.5);
+      margin-bottom:48px; display:block;
+    }
+
+    .industries-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:16px;
+    }
+    .industry-tile {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:24px 16px; text-align:center;
+      transition:var(--transition); cursor:default;
+    }
+    .industry-tile:hover {
+      border-color:var(--accent); transform:translateY(-5px);
+      background:rgba(74,144,217,0.07); box-shadow:var(--glow);
+    }
+    .industry-tile .tile-icon { font-size:1.9rem; display:block; margin-bottom:9px; }
+    .industry-tile .tile-name { font-size:0.78rem; font-weight:600; color:var(--muted); }
+    .industry-tile:hover .tile-name { color:var(--text); }
+
+    /* ============================================================
+       FUTURE PRODUCTS
+    ============================================================ */
+    #solutions { padding:130px 0; background:var(--bg-alt); }
+    .solutions-header { text-align:center; margin-bottom:64px; }
+    .solutions-header .section-sub { max-width:660px; margin:0 auto; }
+
+    .products-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:22px;
+    }
+    .product-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:30px;
+      transition:var(--transition); position:relative; overflow:hidden;
+    }
+    .product-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--teal));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease;
+    }
+    .product-card:hover::after { transform:scaleX(1); }
+    .product-card:hover { border-color:rgba(74,144,217,0.3); transform:translateY(-5px); box-shadow:var(--shadow); }
+
+    .product-badge {
+      display:inline-block; font-size:0.68rem; font-weight:800;
+      letter-spacing:0.1em; text-transform:uppercase;
+      padding:4px 12px; border-radius:50px; margin-bottom:14px;
+      background:rgba(0,200,248,0.08); color:var(--teal); border:1px solid rgba(0,200,248,0.18);
+    }
+    .product-card .product-icon { font-size:1.9rem; display:block; margin-bottom:12px; }
+    .product-card h3 { font-size:1.02rem; font-weight:800; margin-bottom:8px; }
+    .product-card p { font-size:0.83rem; color:var(--muted); line-height:1.6; }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { padding:130px 0; position:relative; overflow:hidden; }
+    #contact::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(26,54,100,0.28) 0%,transparent 70%);
+      pointer-events:none;
+    }
+
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+
+    .contact-details { display:flex; flex-direction:column; gap:22px; margin-top:36px; }
+    .contact-item { display:flex; gap:16px; align-items:flex-start; }
+    .contact-icon {
+      width:48px; height:48px; border-radius:12px; flex-shrink:0;
+      background:rgba(74,144,217,0.08); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center; font-size:1.15rem;
+    }
+    .contact-item h4 { font-size:0.85rem; font-weight:700; margin-bottom:3px; }
+    .contact-item p, .contact-item a { font-size:0.85rem; color:var(--muted); }
+    .contact-item a:hover { color:var(--accent); }
+
+    .social-row { display:flex; gap:10px; margin-top:30px; }
+    .soc-btn {
+      width:44px; height:44px; border-radius:10px; display:flex; align-items:center;
+      justify-content:center; background:var(--bg-card); border:1px solid var(--border);
+      transition:var(--transition); font-size:1.05rem;
+    }
+    .soc-btn:hover { border-color:var(--accent); background:rgba(74,144,217,0.1); transform:translateY(-2px); }
+
+    .contact-form {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:42px;
+    }
+    .contact-form h3 { font-size:1.3rem; font-weight:800; margin-bottom:28px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-group { margin-bottom:18px; }
+    .form-group label {
+      display:block; font-size:0.75rem; font-weight:700; color:var(--muted);
+      margin-bottom:7px; text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width:100%; padding:12px 15px;
+      background:var(--bg); border:1px solid var(--border);
+      border-radius:var(--radius); color:var(--text);
+      font-family:'Inter',sans-serif; font-size:0.88rem;
+      transition:var(--transition); outline:none; appearance:none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,144,217,0.12);
+    }
+    .form-group textarea { resize:vertical; min-height:110px; }
+    .form-group select option { background:var(--bg-card); color:var(--text); }
+    .form-submit { width:100%; font-size:0.95rem; padding:15px; margin-top:6px; justify-content:center; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background:#03050a; border-top:1px solid var(--border); padding:70px 0 32px; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:52px; }
+
+    .footer-brand img {
+      height:42px; background:#fff; padding:5px 12px;
+      border-radius:8px; display:block; margin-bottom:16px; object-fit:contain;
+    }
+    .footer-brand p { font-size:0.84rem; color:var(--muted); line-height:1.7; max-width:270px; }
+
+    .footer-col h4 {
+      font-size:0.8rem; font-weight:800; color:var(--text); margin-bottom:16px;
+      text-transform:uppercase; letter-spacing:0.08em;
+    }
+    .footer-col ul { display:flex; flex-direction:column; gap:10px; }
+    .footer-col ul a { font-size:0.84rem; color:var(--muted); transition:var(--transition); }
+    .footer-col ul a:hover { color:var(--accent); }
+
+    .footer-bottom {
+      border-top:1px solid var(--border); padding-top:26px;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:14px;
+    }
+    .footer-bottom p { font-size:0.78rem; color:var(--muted); }
+    .footer-bottom a { color:var(--accent); }
+    .footer-links { display:flex; gap:22px; }
+    .footer-links a { font-size:0.78rem; color:var(--muted); transition:var(--transition); }
+    .footer-links a:hover { color:var(--text); }
+
+    /* ============================================================
+       SCROLL PROGRESS BAR
+    ============================================================ */
+    #progress-bar {
+      position:fixed; top:0; left:0; height:2px; z-index:2000;
+      background:linear-gradient(90deg,var(--primary),var(--accent),var(--teal));
+      width:0%; transition:width 0.1s linear;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media(max-width:1024px){
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .tab-panel.active { grid-template-columns:1fr; }
+      .service-img { order:-1; }
+    }
+    @media(max-width:900px){
+      .about-grid { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:768px){
+      .nav-links, .nav-cta-btn { display:none !important; }
+      .hamburger { display:flex; }
+      .hero-stats { flex-direction:column; align-items:center; gap:24px; }
+      .stat-item { border-right:none; padding:0; }
+      .form-row { grid-template-columns:1fr; }
+      .expertise-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr; gap:32px; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .service-list { grid-template-columns:1fr; }
+      .about-stats-row { grid-template-columns:1fr; }
+    }
+    @media(max-width:500px){
+      .hero-btns { flex-direction:column; align-items:center; }
+      .hero-title { font-size:2.2rem; }
+      .contact-form { padding:26px; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Kirov Dynamics Technology</h1>
-      <p class="tagline">AI, Security, and Infrastructure for the African Digital Economy</p>
-    </header>
 
-    <section>
-      <h2>Our Mission</h2>
-      <p>Building cutting-edge technology solutions — from AI-powered security platforms to cloud infrastructure — driving the next wave of digital transformation across Africa.</p>
-    </section>
+<!-- Progress bar -->
+<div id="progress-bar"></div>
 
-    <section>
-      <h2>Focus Areas</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>AI & Machine Learning</h3>
-          <p>Autonomous agents, AI SDKs, algorithmic research, and NLP models for African languages.</p>
-        </div>
-        <div class="card">
-          <h3>Cybersecurity</h3>
-          <p>SOC platforms, malware analysis, network defense, OSINT, and threat intelligence.</p>
-        </div>
-        <div class="card">
-          <h3>Cloud Infrastructure</h3>
-          <p>Monitoring, observability, secure API gateways, and endpoint agents.</p>
-        </div>
-        <div class="card">
-          <h3>Developer Tools</h3>
-          <p>CLI tools, SDKs, authentication libraries, and vulnerability scanners.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Our Ecosystem</h2>
-      <p>Kirov Dynamics encompasses <strong>29 open-source repositories</strong> across AI, security, infrastructure, and developer tooling.</p>
-      <div class="links">
-        <a href="https://github.com/Kirov-Dynamics-Technology">GitHub Organization</a>
-        <a href="https://github.com/Raphasha27">Founder Profile</a>
-      </div>
-    </section>
-
-    <footer>
-      <p>Kirov Dynamics Technology &mdash; 2026</p>
-      <p>Co-founded by @Raphasha27, @KirovDynamicsTechnology, and @DkMash</p>
-    </footer>
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
+      <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+    </a>
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary nav-cta-btn">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">✕</button>
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#industries" class="mobile-link">Industries</a>
+  <a href="#solutions" class="mobile-link">Solutions</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="home" aria-label="Hero">
+  <div class="hero-bg" role="img" aria-label="Futuristic technology and earth from space"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-badge" aria-label="Company tagline">
+      <span class="hero-badge-dot" aria-hidden="true"></span>
+      AI &nbsp;·&nbsp; Cybersecurity &nbsp;·&nbsp; Infrastructure &nbsp;·&nbsp; GovTech
+    </div>
+    <h1 class="hero-title">
+      <span class="line1">Powering Africa's</span>
+      <span class="line2">Digital Future</span>
+    </h1>
+    <p class="hero-sub">
+      Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure,
+      and government technology for businesses, municipalities, and enterprises — across Africa and beyond.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-primary" id="hero-explore-btn">Explore Services →</a>
+      <a href="#contact" class="btn btn-outline" id="hero-contact-btn">Start a Project</a>
+    </div>
+    <div class="hero-stats" aria-label="Company statistics">
+      <div class="stat-item">
+        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span>
+        <div class="stat-label">Service Divisions</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="14" aria-label="14 industries served">0</span>
+        <div class="stat-label">Industries Served</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span>
+        <div class="stat-label">GitHub Repositories</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span>
+        <div class="stat-label">SaaS Products in Pipeline</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+          alt="Kirov Dynamics Technology team collaborating in a modern office"
+          loading="lazy"
+        >
+        <div class="about-img-overlay" aria-hidden="true"></div>
+        <div class="about-logo-badge">
+          <img src="assets/images/logo.png" alt="Kirov Dynamics Technology Logo">
+        </div>
+        <div class="about-stats-row" aria-hidden="true">
+          <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
+          <div class="about-stat-box"><div class="num">🌍</div><div class="lbl">Africa-First</div></div>
+          <div class="about-stat-box"><div class="num">360°</div><div class="lbl">Solutions</div></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title" id="about-title">More Than a Software Company</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Founded by <strong>Koketso Raphasha</strong>, Kirov Dynamics Technology is a
+          <strong>technology, AI, cybersecurity, and smart infrastructure company</strong>
+          designed to deliver digital solutions for businesses, governments, and engineering organisations
+          — built for Africa, ready for the world.
+        </p>
+        <p class="section-sub" style="margin-top:16px">
+          Our rare combination of software engineering, AI expertise, government policy understanding,
+          and civil engineering experience positions us to serve across sectors that most technology
+          companies simply cannot reach.
+        </p>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <div class="expertise-icon">💻</div>
+            <h4>Software &amp; AI</h4>
+            <p>Full-stack development, AI systems, cybersecurity, and cloud infrastructure.</p>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">🏛️</div>
+            <h4>Government &amp; Policy</h4>
+            <p>Public sector relationships, procurement strategy, and GovTech delivery.</p>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">🏗️</div>
+            <h4>Civil Engineering</h4>
+            <p>Construction management, infrastructure, and smart engineering solutions.</p>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">🌍</div>
+            <h4>Africa-First Vision</h4>
+            <p>Built to solve the real challenges facing Africa's growing digital economy.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+          <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="about-linkedin-btn">Connect on LinkedIn →</a>
+          <a href="https://github.com/Raphasha27" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="about-github-btn">View GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVISIONS
+============================================================ -->
+<section id="divisions" aria-labelledby="divisions-title">
+  <div class="container">
+    <div class="divisions-header reveal">
+      <span class="section-tag">Our Structure</span>
+      <h2 class="section-title" id="divisions-title">Seven Specialised Divisions</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub">
+        Each division is purpose-built to serve a critical domain — giving our clients integrated,
+        expert solutions across every layer of the digital economy.
+      </p>
+    </div>
+    <div class="divisions-grid">
+      <div class="division-card reveal">
+        <div class="division-num">Division 01</div>
+        <div class="division-icon" aria-hidden="true">🔄</div>
+        <h3>Digital Transformation</h3>
+        <p>Helping businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 02</div>
+        <div class="division-icon" aria-hidden="true">🧠</div>
+        <h3>AI Solutions</h3>
+        <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 03</div>
+        <div class="division-icon" aria-hidden="true">🛡️</div>
+        <h3>Cybersecurity</h3>
+        <p>Protecting digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and comprehensive security awareness programmes.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 04</div>
+        <div class="division-icon" aria-hidden="true">🏗️</div>
+        <h3>Smart Infrastructure</h3>
+        <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 05</div>
+        <div class="division-icon" aria-hidden="true">⚙️</div>
+        <h3>Engineering Technology</h3>
+        <p>Software built specifically for engineers and construction professionals — from site management apps to structural monitoring and construction ERP systems.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 06</div>
+        <div class="division-icon" aria-hidden="true">🏛️</div>
+        <h3>Government Technology</h3>
+        <p>Citizen service portals, permit systems, emergency response platforms, smart city dashboards, and digital document workflows tailored for the public sector.</p>
+      </div>
+      <div class="division-card reveal">
+        <div class="division-num">Division 07</div>
+        <div class="division-icon" aria-hidden="true">💡</div>
+        <h3>Consulting</h3>
+        <p>Expert advisory for digital transformation strategy, AI readiness, cybersecurity maturity, cloud modernisation, and technology architecture reviews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px">
+      <span class="section-tag">What We Build</span>
+      <h2 class="section-title" id="services-title">Comprehensive Service Portfolio</h2>
+      <div class="divider"></div>
+      <p class="section-sub">From AI agents to smart city platforms — we design and deliver technology that drives real-world outcomes.</p>
+    </div>
+
+    <div class="services-tabs reveal" role="tablist" aria-label="Service categories">
+      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">🧠 AI Solutions</button>
+      <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">💻 Software Dev</button>
+      <button class="tab-btn" data-tab="cyber" role="tab" aria-selected="false" aria-controls="tab-cyber" id="tab-btn-cyber">🛡️ Cybersecurity</button>
+      <button class="tab-btn" data-tab="cloud" role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud">☁️ Cloud &amp; DevOps</button>
+      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">📊 Data Services</button>
+      <button class="tab-btn" data-tab="engineering" role="tab" aria-selected="false" aria-controls="tab-engineering" id="tab-btn-engineering">🏗️ Smart Engineering</button>
+      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">🔨 Construction Tech</button>
+      <button class="tab-btn" data-tab="govtech" role="tab" aria-selected="false" aria-controls="tab-govtech" id="tab-btn-govtech">🏛️ GovTech</button>
+      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">🌆 Smart City</button>
+    </div>
+
+    <!-- AI Solutions -->
+    <div class="tab-panel active" id="tab-ai" role="tabpanel" aria-labelledby="tab-btn-ai">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=900&q=80" alt="AI interface and neural network visualization" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>AI Solutions</h3>
+        <p>We build intelligent systems that transform how businesses operate, make decisions, and serve customers. From conversational AI to advanced predictive analytics — engineered for real-world impact.</p>
+        <ul class="service-list" aria-label="AI Solutions services">
+          <li>AI Chatbots &amp; Virtual Assistants</li>
+          <li>AI Call Centre Assistants</li>
+          <li>AI Document Processing</li>
+          <li>Predictive Analytics</li>
+          <li>Business Intelligence</li>
+          <li>Computer Vision Systems</li>
+          <li>AI Surveillance Integration</li>
+          <li>AI Reporting Automation</li>
+          <li>Custom AI Agents</li>
+          <li>Machine Learning Pipelines</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="ai-cta-btn">Discuss Your AI Project →</a>
+      </div>
+    </div>
+
+    <!-- Software Development -->
+    <div class="tab-panel" id="tab-software" role="tabpanel" aria-labelledby="tab-btn-software">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Software development code on multiple screens" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Software Development</h3>
+        <p>We build robust, scalable software tailored to your exact business requirements — from simple websites to full enterprise platforms serving thousands of daily users.</p>
+        <ul class="service-list">
+          <li>Websites &amp; Web Applications</li>
+          <li>Mobile Apps (iOS &amp; Android)</li>
+          <li>Enterprise Systems</li>
+          <li>ERP Systems</li>
+          <li>CRM Systems</li>
+          <li>HR Management Systems</li>
+          <li>Inventory Management</li>
+          <li>Learning Management Systems</li>
+          <li>Healthcare Systems</li>
+          <li>Municipal Systems</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="software-cta-btn">Start Your Build →</a>
+      </div>
+    </div>
+
+    <!-- Cybersecurity -->
+    <div class="tab-panel" id="tab-cyber" role="tabpanel" aria-labelledby="tab-btn-cyber">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Cybersecurity lock and network protection" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Cybersecurity</h3>
+        <p>We provide comprehensive security services to identify vulnerabilities, train your team, and protect your organisation's most critical digital assets against evolving threats.</p>
+        <ul class="service-list">
+          <li>Vulnerability Assessments</li>
+          <li>Penetration Testing</li>
+          <li>Security Audits</li>
+          <li>SOC Dashboards</li>
+          <li>Phishing Simulations</li>
+          <li>Security Awareness Training</li>
+          <li>Incident Response Planning</li>
+          <li>Identity &amp; Access Management</li>
+          <li>Cloud Security</li>
+          <li>Compliance Consulting</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="cyber-cta-btn">Get a Security Assessment →</a>
+      </div>
+    </div>
+
+    <!-- Cloud & DevOps -->
+    <div class="tab-panel" id="tab-cloud" role="tabpanel" aria-labelledby="tab-btn-cloud">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80" alt="Cloud server infrastructure and data centre" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Cloud &amp; DevOps</h3>
+        <p>We design, migrate, and manage cloud infrastructure that is resilient, cost-efficient, and ready to scale — on AWS, Azure, or Google Cloud.</p>
+        <ul class="service-list">
+          <li>Cloud Migration</li>
+          <li>CI/CD Pipelines</li>
+          <li>Kubernetes Orchestration</li>
+          <li>Docker Containerisation</li>
+          <li>AWS Deployments</li>
+          <li>Azure Deployments</li>
+          <li>Google Cloud Deployments</li>
+          <li>Infrastructure Monitoring</li>
+          <li>Disaster Recovery</li>
+          <li>Infrastructure as Code</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="cloud-cta-btn">Modernise Your Infrastructure →</a>
+      </div>
+    </div>
+
+    <!-- Data Services -->
+    <div class="tab-panel" id="tab-data" role="tabpanel" aria-labelledby="tab-btn-data">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Data analytics dashboard with charts and graphs" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Data Services</h3>
+        <p>Turn raw data into strategic intelligence. We build the pipelines, warehouses, and dashboards that give your organisation a genuine data-driven competitive edge.</p>
+        <ul class="service-list">
+          <li>Interactive Dashboards</li>
+          <li>Data Engineering</li>
+          <li>Data Warehousing</li>
+          <li>Business Intelligence</li>
+          <li>Automated Reporting</li>
+          <li>Data Governance</li>
+          <li>ML Pipelines</li>
+          <li>Real-time Analytics</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="data-cta-btn">Unlock Your Data →</a>
+      </div>
+    </div>
+
+    <!-- Smart Engineering -->
+    <div class="tab-panel" id="tab-engineering" role="tabpanel" aria-labelledby="tab-btn-engineering">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Construction site with modern engineering equipment" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Smart Engineering</h3>
+        <p>Bridging the gap between physical infrastructure and digital technology. We create tools that help engineers, builders, and asset managers work smarter and more efficiently.</p>
+        <ul class="service-list">
+          <li>BIM Integration</li>
+          <li>Construction Management Systems</li>
+          <li>Site Management Apps</li>
+          <li>Drone Inspection Platforms</li>
+          <li>Digital Twins</li>
+          <li>Smart Building Systems</li>
+          <li>IoT Monitoring</li>
+          <li>Asset Management</li>
+          <li>Project Tracking</li>
+          <li>Structural Monitoring</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="engineering-cta-btn">Build Smarter →</a>
+      </div>
+    </div>
+
+    <!-- Construction Technology -->
+    <div class="tab-panel" id="tab-construction" role="tabpanel" aria-labelledby="tab-btn-construction">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Construction and building project management" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Construction Technology</h3>
+        <p>We don't compete with construction companies — we build the technology that makes them more efficient, compliant, and competitive in a demanding market.</p>
+        <ul class="service-list">
+          <li>Tender Management Systems</li>
+          <li>Contractor Portals</li>
+          <li>Worker Attendance Systems</li>
+          <li>Safety Inspection Apps</li>
+          <li>Equipment Tracking</li>
+          <li>Fleet Management</li>
+          <li>Procurement Systems</li>
+          <li>Material Inventory</li>
+          <li>Digital Quality Inspections</li>
+          <li>Maintenance Management</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="construction-cta-btn">Digitise Your Site →</a>
+      </div>
+    </div>
+
+    <!-- GovTech -->
+    <div class="tab-panel" id="tab-govtech" role="tabpanel" aria-labelledby="tab-btn-govtech">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80" alt="City government buildings and urban infrastructure" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Government Technology (GovTech)</h3>
+        <p>We understand public sector procurement, ethics, and operations. Our GovTech solutions are purpose-built for municipalities, departments, and government entities.</p>
+        <ul class="service-list">
+          <li>Municipal Management Systems</li>
+          <li>Permit Applications</li>
+          <li>Citizen Service Portals</li>
+          <li>Complaint Management</li>
+          <li>Digital Document Workflows</li>
+          <li>Procurement Tracking</li>
+          <li>Smart City Dashboards</li>
+          <li>Emergency Response Systems</li>
+          <li>Water Monitoring</li>
+          <li>Waste Management Platforms</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="govtech-cta-btn">Transform Public Services →</a>
+      </div>
+    </div>
+
+    <!-- Smart City -->
+    <div class="tab-panel" id="tab-smartcity" role="tabpanel" aria-labelledby="tab-btn-smartcity">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80" alt="Smart city aerial view at night" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Smart City Solutions</h3>
+        <p>We help cities become safer, more sustainable, and more responsive through intelligent data collection, AI analysis, and integrated city management platforms.</p>
+        <ul class="service-list">
+          <li>Traffic Analytics</li>
+          <li>CCTV AI Integration</li>
+          <li>Road Condition Monitoring</li>
+          <li>Flood Prediction Systems</li>
+          <li>Utility Monitoring</li>
+          <li>Environmental Sensors</li>
+          <li>Smart Parking</li>
+          <li>Public Safety Analytics</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="smartcity-cta-btn">Build a Smarter City →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INDUSTRIES
+============================================================ -->
+<section id="industries" aria-labelledby="industries-title">
+  <div class="container">
+    <div class="industries-header reveal">
+      <span class="section-tag">Who We Serve</span>
+      <h2 class="section-title" id="industries-title">Industries We Serve</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub">We are not limited to one market. Our technology reaches across Africa's most critical and fast-growing sectors.</p>
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=70"
+      alt="African city skyline representing the industries we serve"
+      class="industries-photo reveal"
+      loading="lazy"
+    >
+
+    <div class="industries-grid reveal">
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏛️</span><span class="tile-name">Government</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏙️</span><span class="tile-name">Municipalities</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">⛏️</span><span class="tile-name">Mining</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏗️</span><span class="tile-name">Construction</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏦</span><span class="tile-name">Banking</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏥</span><span class="tile-name">Healthcare</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🎓</span><span class="tile-name">Education</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🌾</span><span class="tile-name">Agriculture</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🚚</span><span class="tile-name">Logistics</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏭</span><span class="tile-name">Manufacturing</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🛒</span><span class="tile-name">Retail</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">📡</span><span class="tile-name">Telecoms</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">⚡</span><span class="tile-name">Energy</span></div>
+      <div class="industry-tile"><span class="tile-icon" aria-hidden="true">🏢</span><span class="tile-name">Property</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FUTURE PRODUCTS / SAAS
+============================================================ -->
+<section id="solutions" aria-labelledby="solutions-title">
+  <div class="container">
+    <div class="solutions-header reveal">
+      <span class="section-tag">Future Products</span>
+      <h2 class="section-title" id="solutions-title">SaaS Products in Development</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub">
+        Beyond consulting, we are building proprietary software platforms that will create recurring subscription revenue
+        and serve thousands of organisations across Africa.
+      </p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🏗️</span>
+        <h3>Construction ERP</h3>
+        <p>End-to-end enterprise resource planning built specifically for construction companies — from tendering to final delivery.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🛡️</span>
+        <h3>AI Security Platform</h3>
+        <p>An AI-powered cybersecurity monitoring, threat detection, and incident response platform for enterprises.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">📋</span>
+        <h3>Procurement Platform</h3>
+        <p>Digital procurement management for governments and large organisations — transparent, auditable, and efficient.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🏙️</span>
+        <h3>Municipal ERP</h3>
+        <p>A comprehensive management platform for municipalities covering billing, services, assets, and citizen engagement.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🌾</span>
+        <h3>Smart Farm Platform</h3>
+        <p>IoT and AI-powered precision agriculture management platform for modern African farmers and agribusinesses.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🚛</span>
+        <h3>Fleet Management</h3>
+        <p>Real-time GPS tracking, maintenance scheduling, driver management, and fuel optimisation for any fleet size.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🤝</span>
+        <h3>Contractor Marketplace</h3>
+        <p>Connecting verified contractors with project owners — with built-in compliance, ratings, and payment systems.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🔮</span>
+        <h3>Digital Twin Platform</h3>
+        <p>Create, visualise, and manage real-time digital replicas of physical infrastructure and buildings.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🏢</span>
+        <h3>Smart Building Platform</h3>
+        <p>Integrated energy, security, maintenance, and access management for commercial and residential buildings.</p>
+      </div>
+      <div class="product-card reveal">
+        <span class="product-badge">SaaS · Coming Soon</span>
+        <span class="product-icon" aria-hidden="true">🤖</span>
+        <h3>AI Business Assistant</h3>
+        <p>An enterprise AI assistant that handles reporting, scheduling, document management, and decision support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title" id="contact-title">Let's Build Something Great</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Whether you're a business looking to automate, a municipality wanting to modernise,
+          or an investor exploring opportunities — we'd love to connect.
+        </p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@kirovdynamics.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🌍</div>
+            <div>
+              <h4>Location</h4>
+              <p>South Africa · Serving Africa &amp; Beyond</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer">github.com/Kirov-Dynamics-Technology</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">💼</div>
+            <div>
+              <h4>Founder</h4>
+              <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha — LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="social-row" aria-label="Social media links">
+          <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://raphasha27.github.io/raphasha-dev-portfolio" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Portfolio">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" id="contact-form" novalidate>
+          <h3>Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Koketso" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Raphasha" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@organisation.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="organisation">Organisation</label>
+            <input type="text" id="organisation" name="organisation" placeholder="Your company or municipality" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="service-interest">Service of Interest</label>
+            <select id="service-interest" name="service">
+              <option value="">Select a service...</option>
+              <option>AI Solutions</option>
+              <option>Software Development</option>
+              <option>Cybersecurity</option>
+              <option>Cloud &amp; DevOps</option>
+              <option>Data Services</option>
+              <option>Smart Engineering</option>
+              <option>Construction Technology</option>
+              <option>Government Technology</option>
+              <option>Smart City Solutions</option>
+              <option>Consulting</option>
+              <option>Partnership / Investment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project, challenge, or opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+        <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa.</p>
+        <div class="social-row" style="margin-top:18px">
+          <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">AI Solutions</a></li>
+          <li><a href="#services">Software Development</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">Cloud &amp; DevOps</a></li>
+          <li><a href="#services">Data Services</a></li>
+          <li><a href="#services">Smart Engineering</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#services">Construction Tech</a></li>
+          <li><a href="#services">GovTech</a></li>
+          <li><a href="#services">Smart City</a></li>
+          <li><a href="#solutions">SaaS Products</a></li>
+          <li><a href="#services">Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://raphasha27.github.io/raphasha-dev-portfolio" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kirov Dynamics Technology. All rights reserved. Built for Africa. 🌍</p>
+      <div class="footer-links">
+        <a href="https://github.com/Kirov-Dynamics-Technology/kirov-dynamics" target="_blank" rel="noopener noreferrer">Source Code</a>
+        <a href="https://github.com/Kirov-Dynamics-Technology/kirov-dynamics/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---- SCROLL PROGRESS ---- */
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrolled / total * 100) + '%';
+  }, { passive: true });
+
+  /* ---- NAVBAR SCROLL ---- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- MOBILE MENU ---- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileClose = document.getElementById('mobile-close');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---- HERO CANVAS PARTICLES ---- */
+  (function() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], animFrame;
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function Particle() { this.reset(); }
+    Particle.prototype.reset = function() {
+      this.x     = Math.random() * W;
+      this.y     = Math.random() * H;
+      this.vx    = (Math.random() - 0.5) * 0.35;
+      this.vy    = (Math.random() - 0.5) * 0.35;
+      this.r     = Math.random() * 1.8 + 0.4;
+      this.alpha = Math.random() * 0.45 + 0.08;
+    };
+    Particle.prototype.update = function() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    };
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(74,144,217,' + this.alpha + ')';
+      ctx.fill();
+    };
+
+    for (var i = 0; i < 90; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var dx = particles[a].x - particles[b].x;
+          var dy = particles[a].y - particles[b].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.strokeStyle = 'rgba(74,144,217,' + (0.07 * (1 - dist / 130)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(function(p) { p.update(); p.draw(); });
+      drawLines();
+      animFrame = requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Pause when tab hidden for performance
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) { cancelAnimationFrame(animFrame); }
+      else { animate(); }
+    });
+  })();
+
+  /* ---- INTERSECTION OBSERVER — REVEAL ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
+      if (entry.isIntersecting) {
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, Math.min(i * 70, 350));
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(function(el) { revealObserver.observe(el); });
+
+  /* ---- COUNTER ANIMATION ---- */
+  var counters = document.querySelectorAll('.stat-num[data-target]');
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.dataset.target, 10);
+        var current = 0;
+        var step = Math.max(1, Math.ceil(target / 45));
+        var interval = setInterval(function() {
+          current = Math.min(current + step, target);
+          el.textContent = current + '+';
+          if (current >= target) clearInterval(interval);
+        }, 38);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(function(el) { counterObserver.observe(el); });
+
+  /* ---- SERVICE TABS ---- */
+  var tabBtns   = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = btn.dataset.tab;
+      tabBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      tabPanels.forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      var panel = document.getElementById('tab-' + target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ---- CONTACT FORM (simulation — replace with Formspree or similar) ---- */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('form-submit-btn');
+    var originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    // Replace this timeout with actual fetch to Formspree:
+    // fetch('https://formspree.io/f/YOUR_FORM_ID', { method:'POST', body: new FormData(this) })
+    setTimeout(function() {
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = 'linear-gradient(135deg,#155a32,#10d67c)';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.background = '';
+        document.getElementById('contact-form').reset();
+      }, 3200);
+    }, 1500);
+  });
+</script>
 </body>
 </html>
