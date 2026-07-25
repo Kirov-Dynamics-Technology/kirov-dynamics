@@ -288,11 +288,56 @@
     #industries { padding:120px 0; }
     .industries-header { text-align:center; margin-bottom:52px; }
     .industries-photo { width:100%; height:320px; object-fit:cover; border-radius:var(--radius-lg); margin-bottom:52px; display:block; filter:brightness(0.5) saturate(0.7); }
-    .industries-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:12px; }
-    .industry-tile { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:22px 12px; text-align:center; transition:var(--transition); cursor:default; }
-    .industry-tile:hover { border-color:var(--sa-gold); transform:translateY(-4px); box-shadow:0 0 24px rgba(255,184,28,0.15); }
-    .tile-icon { display:block; font-size:1.7rem; margin-bottom:8px; color:var(--sa-gold); }
-    .tile-name { font-size:0.75rem; font-weight:600; color:var(--muted); letter-spacing:0.04em; }
+    .industries-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:14px; }
+    /* Sector cards with background images */
+    .sector-card {
+      position:relative; border-radius:var(--radius); overflow:hidden;
+      height:170px; cursor:default;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease, border-color 0.3s ease;
+      background:#0d1625;
+    }
+    .sector-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(170deg, rgba(6,8,15,0.15) 0%, rgba(6,8,15,0.72) 60%, rgba(6,8,15,0.95) 100%);
+      z-index:1; transition:opacity 0.35s ease;
+    }
+    .sector-card:hover { transform:translateY(-7px) scale(1.03); border-color:var(--sa-gold); box-shadow:0 16px 40px rgba(0,0,0,0.5), 0 0 28px rgba(255,184,28,0.22); }
+    .sector-card:hover::before { opacity:0.6; }
+    .sector-bg {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; display:block;
+      transition:transform 0.5s ease, filter 0.4s ease;
+      filter:brightness(0.45) saturate(0.8);
+    }
+    .sector-card:hover .sector-bg { transform:scale(1.08); filter:brightness(0.55) saturate(1.1); }
+    .sector-content {
+      position:relative; z-index:2;
+      display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+      height:100%; padding:14px 10px 16px;
+      text-align:center;
+    }
+    .sector-emoji {
+      font-size:2.1rem; line-height:1; margin-bottom:9px;
+      filter:drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+      transition:transform 0.3s ease;
+    }
+    .sector-card:hover .sector-emoji { transform:scale(1.15) translateY(-3px); }
+    .sector-name {
+      font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:700;
+      color:#fff; letter-spacing:0.07em; text-transform:uppercase;
+      text-shadow:0 1px 4px rgba(0,0,0,0.8);
+      transition:color 0.3s ease;
+    }
+    .sector-card:hover .sector-name { color:var(--sa-gold); }
+    .sector-badge {
+      position:absolute; top:10px; right:10px; z-index:3;
+      width:7px; height:7px; border-radius:50%;
+      background:var(--sa-gold); opacity:0;
+      box-shadow:0 0 8px var(--sa-gold);
+      transition:opacity 0.3s ease;
+    }
+    .sector-card:hover .sector-badge { opacity:1; }
 
     /* ============================================================
        SA CITIES
@@ -397,6 +442,7 @@
       .divisions-grid { grid-template-columns:repeat(2,1fr); }
       .products-grid { grid-template-columns:repeat(3,1fr); }
       .industries-grid { grid-template-columns:repeat(4,1fr); }
+    .sector-card { height:150px; }
       .impact-grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:900px) {
@@ -416,7 +462,8 @@
       .hero-stats { grid-template-columns:repeat(2,1fr); }
       .divisions-grid { grid-template-columns:1fr; }
       .products-grid { grid-template-columns:1fr 1fr; }
-      .industries-grid { grid-template-columns:repeat(3,1fr); }
+      .industries-grid { grid-template-columns:repeat(2,1fr); }
+    .sector-card { height:130px; }
       .cities-grid { grid-template-columns:1fr; }
       .footer-grid { grid-template-columns:1fr; }
       .footer-bottom { flex-direction:column; text-align:center; }
@@ -588,7 +635,8 @@
         <h2 class="section-title" id="about-title">More Than a Software Company</h2>
         <div class="divider"></div>
         <p class="section-sub">
-          Founded by <strong>Koketso Raphasha</strong> in South Africa, Kirov Dynamics Technology is a
+          Co-founded by <strong>Dakalo Mashau</strong> (Founder) and <strong>Koketso Raphasha</strong>
+          (Co-founder, Lead Tech &amp; Project Manager) in South Africa, Kirov Dynamics Technology is a
           <strong>technology, AI, cybersecurity, and smart infrastructure company</strong>
           purpose-built to solve the real challenges facing African businesses, municipalities, and governments.
         </p>
@@ -856,22 +904,149 @@
       <div class="divider divider-center"></div>
       <p class="section-sub" style="margin:0 auto">Not limited to one market. Our technology reaches across South Africa and Africa's most critical and fast-growing sectors.</p>
     </div>
-    <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1600&q=70" alt="Cape Town South Africa aerial view" class="industries-photo reveal" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=70" alt="Diverse African technology team collaborating" class="industries-photo reveal" loading="lazy">
     <div class="industries-grid reveal">
-      <div class="industry-tile"><span class="tile-icon">▣</span><span class="tile-name">Government</span></div>
-      <div class="industry-tile"><span class="tile-icon">⊞</span><span class="tile-name">Municipalities</span></div>
-      <div class="industry-tile"><span class="tile-icon">◈</span><span class="tile-name">Mining</span></div>
-      <div class="industry-tile"><span class="tile-icon">◎</span><span class="tile-name">Construction</span></div>
-      <div class="industry-tile"><span class="tile-icon">◇</span><span class="tile-name">Banking</span></div>
-      <div class="industry-tile"><span class="tile-icon">⬡</span><span class="tile-name">Healthcare</span></div>
-      <div class="industry-tile"><span class="tile-icon">▦</span><span class="tile-name">Education</span></div>
-      <div class="industry-tile"><span class="tile-icon">⊕</span><span class="tile-name">Agriculture</span></div>
-      <div class="industry-tile"><span class="tile-icon">⟳</span><span class="tile-name">Logistics</span></div>
-      <div class="industry-tile"><span class="tile-icon">⚙</span><span class="tile-name">Manufacturing</span></div>
-      <div class="industry-tile"><span class="tile-icon">◉</span><span class="tile-name">Retail</span></div>
-      <div class="industry-tile"><span class="tile-icon">◫</span><span class="tile-name">Telecoms</span></div>
-      <div class="industry-tile"><span class="tile-icon">⚡</span><span class="tile-name">Energy</span></div>
-      <div class="industry-tile"><span class="tile-icon">▤</span><span class="tile-name">Property</span></div>
+
+      <!-- Government -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=70" alt="Government" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏛️</span>
+          <span class="sector-name">Government</span>
+        </div>
+      </div>
+
+      <!-- Municipalities -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=70" alt="Municipalities" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏙️</span>
+          <span class="sector-name">Municipalities</span>
+        </div>
+      </div>
+
+      <!-- Mining -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&q=70" alt="Mining" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">⛏️</span>
+          <span class="sector-name">Mining</span>
+        </div>
+      </div>
+
+      <!-- Construction -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=70" alt="Construction" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏗️</span>
+          <span class="sector-name">Construction</span>
+        </div>
+      </div>
+
+      <!-- Banking -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=70" alt="Banking" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏦</span>
+          <span class="sector-name">Banking</span>
+        </div>
+      </div>
+
+      <!-- Healthcare -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=600&q=70" alt="Healthcare" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏥</span>
+          <span class="sector-name">Healthcare</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=70" alt="Education" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🎓</span>
+          <span class="sector-name">Education</span>
+        </div>
+      </div>
+
+      <!-- Agriculture -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=70" alt="Agriculture" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🌾</span>
+          <span class="sector-name">Agriculture</span>
+        </div>
+      </div>
+
+      <!-- Logistics -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=70" alt="Logistics" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🚚</span>
+          <span class="sector-name">Logistics</span>
+        </div>
+      </div>
+
+      <!-- Manufacturing -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=600&q=70" alt="Manufacturing" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏭</span>
+          <span class="sector-name">Manufacturing</span>
+        </div>
+      </div>
+
+      <!-- Retail -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=70" alt="Retail" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🛍️</span>
+          <span class="sector-name">Retail</span>
+        </div>
+      </div>
+
+      <!-- Telecoms -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=70" alt="Telecoms" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">📡</span>
+          <span class="sector-name">Telecoms</span>
+        </div>
+      </div>
+
+      <!-- Energy -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=70" alt="Energy" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">⚡</span>
+          <span class="sector-name">Energy</span>
+        </div>
+      </div>
+
+      <!-- Property -->
+      <div class="sector-card">
+        <div class="sector-badge"></div>
+        <img class="sector-bg" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=70" alt="Property" loading="lazy">
+        <div class="sector-content">
+          <span class="sector-emoji">🏢</span>
+          <span class="sector-name">Property</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -972,7 +1147,7 @@
         "We build technology that serves communities — because <em>Umuntu ngumuntu ngabantu</em>:
         a person is a person through other people."
       </blockquote>
-      <p class="vision-attribution">— Koketso Raphasha, Founder · Kirov Dynamics Technology · South Africa</p>
+      <p class="vision-attribution">— Dakalo Mashau, Founder &amp; Koketso Raphasha, Co-founder · Kirov Dynamics Technology · South Africa</p>
       <div class="ubuntu-text">
         <div class="ubuntu-card">
           <span class="ubuntu-icon">⊕</span>
@@ -1022,7 +1197,7 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">◈</div>
-            <div><h4>Founder</h4><a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha — LinkedIn</a></div>
+            <div><h4>Co-founder, Lead Tech &amp; PM</h4><a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha — LinkedIn</a></div>
           </div>
         </div>
         <div class="social-row" style="margin-top:32px">
@@ -1074,7 +1249,7 @@
             <span class="f-sub">Technology</span>
           </div>
         </div>
-        <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for South Africa and Africa's Digital Economy. Founded by Koketso Raphasha. Proudly South African. Built for Africa.</p>
+        <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for South Africa and Africa's Digital Economy. Founded by Dakalo Mashau. Co-founded by Koketso Raphasha (Lead Tech &amp; Project Manager). Proudly South African. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
