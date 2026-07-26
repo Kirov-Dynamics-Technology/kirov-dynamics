@@ -174,7 +174,7 @@
     }
     .hero-overlay {
       position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(6,8,15,0.85) 0%,rgba(26,54,100,0.35) 50%,rgba(6,8,15,0.88) 100%);
+      background:linear-gradient(135deg,rgba(6,8,15,0.6) 0%,rgba(26,54,100,0.15) 50%,rgba(6,8,15,0.65) 100%);
     }
     #hero-canvas { position:absolute; inset:0; pointer-events:none; }
 
@@ -322,9 +322,9 @@
     }
     .division-card-bg {
       position:absolute; inset:0; background-size:cover; background-position:center;
-      opacity:0.08; transition:opacity 0.5s ease; pointer-events:none; z-index:0;
+      opacity:0.35; transition:opacity 0.5s ease; pointer-events:none; z-index:0;
     }
-    .division-card:hover .division-card-bg { opacity:0.18; }
+    .division-card:hover .division-card-bg { opacity:0.6; }
     .division-card > *:not(.division-card-bg) { position:relative; z-index:1; }
     .division-card::before {
       content:''; position:absolute; top:0; left:0; right:0; height:3px;
@@ -422,7 +422,7 @@
       position:absolute; inset:0;
       background-size:cover; background-position:center;
       transition:transform 0.55s ease, opacity 0.3s ease;
-      opacity:0.55; z-index:0;
+      opacity:0.75; z-index:0;
     }
     .industry-tile::after {
       content:''; position:absolute; inset:0;
@@ -430,7 +430,7 @@
       z-index:1;
     }
     .industry-tile:hover { border-color:var(--accent); box-shadow:var(--glow); }
-    .industry-tile:hover .industry-tile-bg { transform:scale(1.08); opacity:0.72; }
+    .industry-tile:hover .industry-tile-bg { transform:scale(1.08); opacity:0.95; }
     .industry-tile .tile-icon { font-size:1.8rem; display:block; margin-bottom:5px; position:relative; z-index:2; }
     .industry-tile .tile-name { font-size:0.76rem; font-weight:700; color:#fff; position:relative; z-index:2; text-shadow:0 1px 4px rgba(0,0,0,0.6); }
     .industry-tile:hover .tile-name { color:var(--teal); }
@@ -620,7 +620,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:46px; width:auto; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:85px; width:auto; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3); background:#fff; padding:2px;">
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -786,49 +786,7 @@
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 01</div>
-        <div class="division-icon" aria-hidden="true">­ƒÆ╗</div>
-        <h3>Digital Transformation</h3>
-        <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 02</div>
-        <div class="division-icon" aria-hidden="true">­ƒñû</div>
-        <h3>AI Solutions</h3>
-        <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages ÔÇö from AI chatbots to custom machine learning pipelines for African markets.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 03</div>
-        <div class="division-icon" aria-hidden="true">­ƒöÉ</div>
-        <h3>Cybersecurity</h3>
-        <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 04</div>
-        <div class="division-icon" aria-hidden="true">­ƒÅÖ´©Å</div>
-        <h3>Smart Infrastructure</h3>
-        <p>Integrating digital technology with physical infrastructure ÔÇö BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 05</div>
-        <div class="division-icon" aria-hidden="true">ÔÜÖ´©Å</div>
-        <h3>Engineering Technology</h3>
-        <p>Software built for South African engineers and construction professionals ÔÇö site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 06</div>
-        <div class="division-icon" aria-hidden="true">­ƒÅø´©Å</div>
-        <h3>Government Technology</h3>
-        <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 07</div>
-        <div class="division-icon" aria-hidden="true">­ƒÄ»</div>
+        <div class="division-icon" aria-hidden="true"><i data-lucide="target"></i></div>
         <h3>Consulting</h3>
         <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
       </div>
@@ -1630,6 +1588,11 @@
     }, 1500);
   });
 </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
 
