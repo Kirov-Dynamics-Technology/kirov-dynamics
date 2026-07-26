@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kirov Dynamics Technology | AI ┬À Cybersecurity ┬À Smart Infrastructure</title>
+  <title>Kirov Dynamics Technology | AI · Cybersecurity · Smart Infrastructure</title>
   <meta name="description" content="Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure, and government technology for businesses and governments across Africa and the world.">
   <meta name="keywords" content="AI, cybersecurity, smart infrastructure, GovTech, digital transformation, South Africa, Africa, technology company, software development">
   <meta property="og:title" content="Kirov Dynamics Technology">
@@ -123,7 +123,7 @@
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
-      height:52px; width:auto; display:block;
+      height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5); width:auto; display:block;
       filter: drop-shadow(0 2px 8px rgba(74,144,217,0.25));
     }
     .nav-links { display:flex; align-items:center; gap:30px; }
@@ -168,9 +168,9 @@
     }
     .hero-bg {
       position:absolute; inset:0;
-      background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+      background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');
       background-size:cover; background-position:center;
-      filter:brightness(0.3) saturate(0.7);
+      filter:brightness(0.6) saturate(1.1);
     }
     .hero-overlay {
       position:absolute; inset:0;
@@ -326,11 +326,7 @@
     }
     .division-card:hover .division-card-bg { opacity:0.18; }
     .division-card > *:not(.division-card-bg) { position:relative; z-index:1; }
-    .division-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:3px;
-      background:linear-gradient(90deg,var(--primary),var(--accent),var(--teal));
-      transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease; z-index:2;
-    }
+    .division-card::before { content:'''; position:absolute; inset:0; background:rgba(6,8,15,0.5); transition:var(--transition); z-index:0; }
     .division-card:hover::before { transform:scaleX(1); }
     .division-card:hover { border-color:rgba(74,144,217,0.35); transform:translateY(-5px); box-shadow:var(--glow); }
 
@@ -620,7 +616,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:46px; width:auto; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -639,7 +635,7 @@
 
 <!-- Mobile Navigation -->
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">Ô£ò</button>
+  <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">✕</button>
   <a href="#home" class="mobile-link">Home</a>
   <a href="#about" class="mobile-link">About</a>
   <a href="#services" class="mobile-link">Services</a>
@@ -657,14 +653,14 @@
   <div class="hero-overlay"></div>
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-  <div class="hero-content">
-    <!-- Large logo ÔÇö hero section only -->
+  <div class="hero-content">`r`n    <div class="hero-logo-wrap" style="margin-top: 80px;">`r`n      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" width="380">`r`n    </div>
+    <!-- Large logo — hero section only -->
     <div class="hero-logo-wrap">
       <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" width="380">
     </div>
     <div class="hero-badge" aria-label="Company tagline">
       <span class="hero-badge-dot" aria-hidden="true"></span>
-      AI &nbsp;┬À&nbsp; Cybersecurity &nbsp;┬À&nbsp; Infrastructure &nbsp;┬À&nbsp; GovTech
+      AI &nbsp;·&nbsp; Cybersecurity &nbsp;·&nbsp; Infrastructure &nbsp;·&nbsp; GovTech
     </div>
     <h1 class="hero-title">
       <span class="line1">Powering Africa's</span>
@@ -672,10 +668,10 @@
     </h1>
     <p class="hero-sub">
       Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure,
-      and government technology for businesses, municipalities, and enterprises ÔÇö across Africa and beyond.
+      and government technology for businesses, municipalities, and enterprises — across Africa and beyond.
     </p>
     <div class="hero-btns">
-      <a href="#services" class="btn btn-primary" id="hero-explore-btn">Explore Services ÔåÆ</a>
+      <a href="#services" class="btn btn-primary" id="hero-explore-btn">Explore Services →</a>
       <a href="#contact" class="btn btn-outline" id="hero-contact-btn">Start a Project</a>
     </div>
     <div class="hero-stats" aria-label="Company statistics">
@@ -719,13 +715,10 @@
           loading="lazy"
         >
         <div class="about-img-overlay" aria-hidden="true"></div>
-        <div class="about-logo-badge">
-          <img src="assets/images/logo.png" alt="Kirov Dynamics Technology Logo">
-        </div>
         <div class="about-stats-row" aria-hidden="true">
           <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
-          <div class="about-stat-box"><div class="num">­ƒîì</div><div class="lbl">Africa-First</div></div>
-          <div class="about-stat-box"><div class="num">360┬░</div><div class="lbl">Solutions</div></div>
+          <div class="about-stat-box"><div class="num">🌍</div><div class="lbl">Africa-First</div></div>
+          <div class="about-stat-box"><div class="num">360°</div><div class="lbl">Solutions</div></div>
         </div>
       </div>
 
@@ -737,7 +730,7 @@
           Founded by <strong>Koketso Raphasha</strong>, Kirov Dynamics Technology is a
           <strong>technology, AI, cybersecurity, and smart infrastructure company</strong>
           designed to deliver digital solutions for businesses, governments, and engineering organisations
-          ÔÇö built for Africa, ready for the world.
+          — built for Africa, ready for the world.
         </p>
         <p class="section-sub" style="margin-top:16px">
           Our rare combination of software engineering, AI expertise, government policy understanding,
@@ -746,17 +739,17 @@
         </p>
         <div class="expertise-grid">
           <div class="expertise-card">
-            <div class="expertise-icon">­ƒÆ╗</div>
+            <div class="expertise-icon">💻</div>
             <h4>Software &amp; AI</h4>
             <p>Full-stack development, AI systems, cybersecurity, and cloud infrastructure.</p>
           </div>
           <div class="expertise-card">
-            <div class="expertise-icon">­ƒÅø´©Å</div>
+            <div class="expertise-icon">🏛️</div>
             <h4>Government &amp; Policy</h4>
             <p>Public sector relationships, procurement strategy, and GovTech delivery.</p>
           </div>
           <div class="expertise-card">
-            <div class="expertise-icon">­ƒÅù´©Å</div>
+            <div class="expertise-icon">🏗️</div>
             <h4>Civil Engineering</h4>
             <p>Construction management, infrastructure, and smart engineering solutions.</p>
           </div>
@@ -767,7 +760,7 @@
           </div>
         </div>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
-          <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="about-linkedin-btn">Connect on LinkedIn ÔåÆ</a>
+          <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="about-linkedin-btn">Connect on LinkedIn →</a>
           <a href="https://github.com/Raphasha27" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="about-github-btn">View GitHub</a>
         </div>
       </div>
@@ -785,7 +778,7 @@
       <h2 class="section-title" id="divisions-title">Seven Specialised Divisions</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">
-        Each division is purpose-built to serve a critical domain ÔÇö giving our clients integrated,
+        Each division is purpose-built to serve a critical domain — giving our clients integrated,
         expert solutions across every layer of the digital economy.
       </p>
     </div>
@@ -793,49 +786,49 @@
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 01</div>
-        <div class="division-icon" aria-hidden="true">­ƒÆ╗</div>
+        <div class="division-icon" aria-hidden="true">💻</div>
         <h3>Digital Transformation</h3>
         <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 02</div>
-        <div class="division-icon" aria-hidden="true">­ƒñû</div>
+        <div class="division-icon" aria-hidden="true">🤖</div>
         <h3>AI Solutions</h3>
-        <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages ÔÇö from AI chatbots to custom machine learning pipelines for African markets.</p>
+        <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines for African markets.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 03</div>
-        <div class="division-icon" aria-hidden="true">­ƒöÉ</div>
+        <div class="division-icon" aria-hidden="true">🔐</div>
         <h3>Cybersecurity</h3>
         <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 04</div>
-        <div class="division-icon" aria-hidden="true">­ƒÅÖ´©Å</div>
+        <div class="division-icon" aria-hidden="true">🏙️</div>
         <h3>Smart Infrastructure</h3>
-        <p>Integrating digital technology with physical infrastructure ÔÇö BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
+        <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 05</div>
-        <div class="division-icon" aria-hidden="true">ÔÜÖ´©Å</div>
+        <div class="division-icon" aria-hidden="true">⚙️</div>
         <h3>Engineering Technology</h3>
-        <p>Software built for South African engineers and construction professionals ÔÇö site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
+        <p>Software built for South African engineers and construction professionals — site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 06</div>
-        <div class="division-icon" aria-hidden="true">­ƒÅø´©Å</div>
+        <div class="division-icon" aria-hidden="true">🏛️</div>
         <h3>Government Technology</h3>
         <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-num">Division 07</div>
-        <div class="division-icon" aria-hidden="true">­ƒÄ»</div>
+        <div class="division-icon" aria-hidden="true">🎯</div>
         <h3>Consulting</h3>
         <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
       </div>
@@ -852,19 +845,19 @@
       <span class="section-tag">What We Build</span>
       <h2 class="section-title" id="services-title">Comprehensive Service Portfolio</h2>
       <div class="divider"></div>
-      <p class="section-sub">From AI agents to smart city platforms ÔÇö we design and deliver technology that drives real-world outcomes.</p>
+      <p class="section-sub">From AI agents to smart city platforms — we design and deliver technology that drives real-world outcomes.</p>
     </div>
 
     <div class="services-tabs reveal" role="tablist" aria-label="Service categories">
-      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">­ƒºá AI Solutions</button>
-      <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">­ƒÆ╗ Software Dev</button>
-      <button class="tab-btn" data-tab="cyber" role="tab" aria-selected="false" aria-controls="tab-cyber" id="tab-btn-cyber">­ƒøí´©Å Cybersecurity</button>
-      <button class="tab-btn" data-tab="cloud" role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud">Ôÿü´©Å Cloud &amp; DevOps</button>
-      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">­ƒôè Data Services</button>
-      <button class="tab-btn" data-tab="engineering" role="tab" aria-selected="false" aria-controls="tab-engineering" id="tab-btn-engineering">­ƒÅù´©Å Smart Engineering</button>
-      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">­ƒö¿ Construction Tech</button>
-      <button class="tab-btn" data-tab="govtech" role="tab" aria-selected="false" aria-controls="tab-govtech" id="tab-btn-govtech">­ƒÅø´©Å GovTech</button>
-      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">­ƒîå Smart City</button>
+      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">🧠 AI Solutions</button>
+      <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">💻 Software Dev</button>
+      <button class="tab-btn" data-tab="cyber" role="tab" aria-selected="false" aria-controls="tab-cyber" id="tab-btn-cyber">🛡️ Cybersecurity</button>
+      <button class="tab-btn" data-tab="cloud" role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud">☁️ Cloud &amp; DevOps</button>
+      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">📊 Data Services</button>
+      <button class="tab-btn" data-tab="engineering" role="tab" aria-selected="false" aria-controls="tab-engineering" id="tab-btn-engineering">🏗️ Smart Engineering</button>
+      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">🔨 Construction Tech</button>
+      <button class="tab-btn" data-tab="govtech" role="tab" aria-selected="false" aria-controls="tab-govtech" id="tab-btn-govtech">🏛️ GovTech</button>
+      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">🏙️ Smart City</button>
     </div>
 
     <!-- AI Solutions -->
@@ -875,7 +868,7 @@
       </div>
       <div class="service-info">
         <h3>AI Solutions</h3>
-        <p>We build intelligent systems that transform how businesses operate, make decisions, and serve customers. From conversational AI to advanced predictive analytics ÔÇö engineered for real-world impact.</p>
+        <p>We build intelligent systems that transform how businesses operate, make decisions, and serve customers. From conversational AI to advanced predictive analytics — engineered for real-world impact.</p>
         <ul class="service-list" aria-label="AI Solutions services">
           <li>AI Chatbots &amp; Virtual Assistants</li>
           <li>AI Call Centre Assistants</li>
@@ -888,7 +881,7 @@
           <li>Custom AI Agents</li>
           <li>Machine Learning Pipelines</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="ai-cta-btn">Discuss Your AI Project ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="ai-cta-btn">Discuss Your AI Project →</a>
       </div>
     </div>
 
@@ -900,7 +893,7 @@
       </div>
       <div class="service-info">
         <h3>Software Development</h3>
-        <p>We build robust, scalable software tailored to your exact business requirements ÔÇö from simple websites to full enterprise platforms serving thousands of daily users.</p>
+        <p>We build robust, scalable software tailored to your exact business requirements — from simple websites to full enterprise platforms serving thousands of daily users.</p>
         <ul class="service-list">
           <li>Websites &amp; Web Applications</li>
           <li>Mobile Apps (iOS &amp; Android)</li>
@@ -913,7 +906,7 @@
           <li>Healthcare Systems</li>
           <li>Municipal Systems</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="software-cta-btn">Start Your Build ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="software-cta-btn">Start Your Build →</a>
       </div>
     </div>
 
@@ -938,7 +931,7 @@
           <li>Cloud Security</li>
           <li>Compliance Consulting</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="cyber-cta-btn">Get a Security Assessment ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="cyber-cta-btn">Get a Security Assessment →</a>
       </div>
     </div>
 
@@ -950,7 +943,7 @@
       </div>
       <div class="service-info">
         <h3>Cloud &amp; DevOps</h3>
-        <p>We design, migrate, and manage cloud infrastructure that is resilient, cost-efficient, and ready to scale ÔÇö on AWS, Azure, or Google Cloud.</p>
+        <p>We design, migrate, and manage cloud infrastructure that is resilient, cost-efficient, and ready to scale — on AWS, Azure, or Google Cloud.</p>
         <ul class="service-list">
           <li>Cloud Migration</li>
           <li>CI/CD Pipelines</li>
@@ -963,7 +956,7 @@
           <li>Disaster Recovery</li>
           <li>Infrastructure as Code</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="cloud-cta-btn">Modernise Your Infrastructure ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="cloud-cta-btn">Modernise Your Infrastructure →</a>
       </div>
     </div>
 
@@ -986,7 +979,7 @@
           <li>ML Pipelines</li>
           <li>Real-time Analytics</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="data-cta-btn">Unlock Your Data ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="data-cta-btn">Unlock Your Data →</a>
       </div>
     </div>
 
@@ -1011,7 +1004,7 @@
           <li>Project Tracking</li>
           <li>Structural Monitoring</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="engineering-cta-btn">Build Smarter ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="engineering-cta-btn">Build Smarter →</a>
       </div>
     </div>
 
@@ -1023,7 +1016,7 @@
       </div>
       <div class="service-info">
         <h3>Construction Technology</h3>
-        <p>We don't compete with construction companies ÔÇö we build the technology that makes them more efficient, compliant, and competitive in a demanding market.</p>
+        <p>We don't compete with construction companies — we build the technology that makes them more efficient, compliant, and competitive in a demanding market.</p>
         <ul class="service-list">
           <li>Tender Management Systems</li>
           <li>Contractor Portals</li>
@@ -1036,7 +1029,7 @@
           <li>Digital Quality Inspections</li>
           <li>Maintenance Management</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="construction-cta-btn">Digitise Your Site ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="construction-cta-btn">Digitise Your Site →</a>
       </div>
     </div>
 
@@ -1061,7 +1054,7 @@
           <li>Water Monitoring</li>
           <li>Waste Management Platforms</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="govtech-cta-btn">Transform Public Services ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="govtech-cta-btn">Transform Public Services →</a>
       </div>
     </div>
 
@@ -1084,7 +1077,7 @@
           <li>Smart Parking</li>
           <li>Public Safety Analytics</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" id="smartcity-cta-btn">Build a Smarter City ÔåÆ</a>
+        <a href="#contact" class="btn btn-primary" id="smartcity-cta-btn">Build a Smarter City →</a>
       </div>
     </div>
   </div>
@@ -1112,59 +1105,59 @@
     <div class="industries-grid reveal">
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅø´©Å</span><span class="tile-name">Government</span>
+        <span class="tile-icon" aria-hidden="true">🏛️</span><span class="tile-name">Government</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅÖ´©Å</span><span class="tile-name">Municipalities</span>
+        <span class="tile-icon" aria-hidden="true">🏙️</span><span class="tile-name">Municipalities</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">ÔøÅ´©Å</span><span class="tile-name">Mining</span>
+        <span class="tile-icon" aria-hidden="true">⛏️</span><span class="tile-name">Mining</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅù´©Å</span><span class="tile-name">Construction</span>
+        <span class="tile-icon" aria-hidden="true">🏗️</span><span class="tile-name">Construction</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅª</span><span class="tile-name">Banking</span>
+        <span class="tile-icon" aria-hidden="true">🏦</span><span class="tile-name">Banking</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒ®║</span><span class="tile-name">Healthcare</span>
+        <span class="tile-icon" aria-hidden="true">🏥</span><span class="tile-name">Healthcare</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÄô</span><span class="tile-name">Education</span>
+        <span class="tile-icon" aria-hidden="true">🎓</span><span class="tile-name">Education</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4e5?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒî¥</span><span class="tile-name">Agriculture</span>
+        <span class="tile-icon" aria-hidden="true">🌾</span><span class="tile-name">Agriculture</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÜÜ</span><span class="tile-name">Logistics</span>
+        <span class="tile-icon" aria-hidden="true">🚛</span><span class="tile-name">Logistics</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅ¡</span><span class="tile-name">Manufacturing</span>
+        <span class="tile-icon" aria-hidden="true">🏭</span><span class="tile-name">Manufacturing</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒøì´©Å</span><span class="tile-name">Retail</span>
+        <span class="tile-icon" aria-hidden="true">🏬</span><span class="tile-name">Retail</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒôí</span><span class="tile-name">Telecoms</span>
+        <span class="tile-icon" aria-hidden="true">📡</span><span class="tile-name">Telecoms</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">ÔÜí</span><span class="tile-name">Energy</span>
+        <span class="tile-icon" aria-hidden="true">⚡</span><span class="tile-name">Energy</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true">­ƒÅó</span><span class="tile-name">Property</span>
+        <span class="tile-icon" aria-hidden="true">🏢</span><span class="tile-name">Property</span>
       </div>
     </div>
   </div>
@@ -1188,17 +1181,17 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒÅù´©Å</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">🏗️</span>
           <h3>Construction ERP</h3>
-          <p>End-to-end ERP for South African construction companies ÔÇö CIDB compliant, from tender to final delivery.</p>
+          <p>End-to-end ERP for South African construction companies — CIDB compliant, from tender to final delivery.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒöÉ</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">🔐</span>
           <h3>AI Security Platform</h3>
           <p>POPIA-aligned AI-powered cybersecurity monitoring, threat detection, and incident response for SA enterprises.</p>
         </div>
@@ -1206,17 +1199,17 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒôè</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">📊</span>
           <h3>Procurement Platform</h3>
-          <p>Digital procurement for South African governments ÔÇö Treasury Regulation compliant, transparent, and auditable.</p>
+          <p>Digital procurement for South African governments — Treasury Regulation compliant, transparent, and auditable.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒÅø´©Å</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">🏛️</span>
           <h3>Municipal ERP</h3>
           <p>Comprehensive platform for SA municipalities covering rates billing, service delivery, assets, and citizen engagement.</p>
         </div>
@@ -1224,7 +1217,7 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4e5?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
           <span class="product-icon" aria-hidden="true">­ƒî▒</span>
           <h3>Smart Farm Platform</h3>
           <p>IoT and AI-powered precision agriculture for South African and African commercial farmers and agribusinesses.</p>
@@ -1233,7 +1226,7 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
           <span class="product-icon" aria-hidden="true">­ƒÜø</span>
           <h3>Fleet Management</h3>
           <p>Real-time GPS tracking, maintenance scheduling, driver management, and fuel optimisation for any SA fleet size.</p>
@@ -1242,16 +1235,16 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
           <span class="product-icon" aria-hidden="true">­ƒñØ</span>
           <h3>Contractor Marketplace</h3>
-          <p>Connecting CIDB-verified SA contractors with project owners ÔÇö BBBEE compliant, with ratings and payment systems.</p>
+          <p>Connecting CIDB-verified SA contractors with project owners — BBBEE compliant, with ratings and payment systems.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
           <span class="product-icon" aria-hidden="true">­ƒîÉ</span>
           <h3>Digital Twin Platform</h3>
           <p>Create, visualise, and manage real-time digital replicas of South African physical infrastructure and buildings.</p>
@@ -1260,8 +1253,8 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒÅó</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">🏢</span>
           <h3>Smart Building Platform</h3>
           <p>Integrated energy management including load-shedding response, security, maintenance, and access control.</p>
         </div>
@@ -1269,10 +1262,10 @@
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS ┬À Coming Soon</span>
-          <span class="product-icon" aria-hidden="true">­ƒñû</span>
+          <span class="product-badge">SaaS · Coming Soon</span>
+          <span class="product-icon" aria-hidden="true">🤖</span>
           <h3>AI Business Assistant</h3>
-          <p>An enterprise AI assistant trained for African business contexts ÔÇö reporting, scheduling, documents, and decisions.</p>
+          <p>An enterprise AI assistant trained for African business contexts — reporting, scheduling, documents, and decisions.</p>
         </div>
       </div>
     </div>
@@ -1291,7 +1284,7 @@
         <div class="divider"></div>
         <p class="section-sub">
           Whether you're a business looking to automate, a municipality wanting to modernise,
-          or an investor exploring opportunities ÔÇö we'd love to connect.
+          or an investor exploring opportunities — we'd love to connect.
         </p>
         <div class="contact-details">
           <div class="contact-item">
@@ -1305,7 +1298,7 @@
             <div class="contact-icon" aria-hidden="true">­ƒîì</div>
             <div>
               <h4>Location</h4>
-              <p>South Africa ┬À Serving Africa &amp; Beyond</p>
+              <p>South Africa · Serving Africa &amp; Beyond</p>
             </div>
           </div>
           <div class="contact-item">
@@ -1323,7 +1316,7 @@
             <div class="contact-icon" aria-hidden="true">­ƒÆ╝</div>
             <div>
               <h4>Founder</h4>
-              <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha ÔÇö LinkedIn</a>
+              <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha — LinkedIn</a>
             </div>
           </div>
         </div>
@@ -1382,7 +1375,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project, challenge, or opportunity..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">Send Message ÔåÆ</button>
+          <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">Send Message →</button>
         </form>
       </div>
     </div>
@@ -1396,7 +1389,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Kirov Dynamics Technology" style="height:52px;width:auto;display:block;margin-bottom:12px;">
+        <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5);width:auto;display:block;margin-bottom:12px;">
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
@@ -1563,7 +1556,7 @@
     });
   })();
 
-  /* ---- INTERSECTION OBSERVER ÔÇö REVEAL ---- */
+  /* ---- INTERSECTION OBSERVER — REVEAL ---- */
   var reveals = document.querySelectorAll('.reveal');
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry, i) {
@@ -1616,7 +1609,7 @@
     });
   });
 
-  /* ---- CONTACT FORM (simulation ÔÇö replace with Formspree or similar) ---- */
+  /* ---- CONTACT FORM (simulation — replace with Formspree or similar) ---- */
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = document.getElementById('form-submit-btn');
@@ -1639,3 +1632,5 @@
 </script>
 </body>
 </html>
+
+
