@@ -123,7 +123,7 @@
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
-      height:52px; width:auto; display:block;
+      height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5); width:auto; display:block;
       filter: drop-shadow(0 2px 8px rgba(74,144,217,0.25));
     }
     .nav-links { display:flex; align-items:center; gap:30px; }
@@ -168,9 +168,9 @@
     }
     .hero-bg {
       position:absolute; inset:0;
-      background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+      background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');
       background-size:cover; background-position:center;
-      filter:brightness(0.3) saturate(0.7);
+      filter:brightness(0.6) saturate(1.1);
     }
     .hero-overlay {
       position:absolute; inset:0;
@@ -620,7 +620,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo.png" alt="Kirov Dynamics Technology">
+      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:46px; width:auto; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -719,9 +719,6 @@
           loading="lazy"
         >
         <div class="about-img-overlay" aria-hidden="true"></div>
-        <div class="about-logo-badge">
-          <img src="assets/images/logo.png" alt="Kirov Dynamics Technology Logo">
-        </div>
         <div class="about-stats-row" aria-hidden="true">
           <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
           <div class="about-stat-box"><div class="num">­ƒîì</div><div class="lbl">Africa-First</div></div>
@@ -1396,7 +1393,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Kirov Dynamics Technology" style="height:52px;width:auto;display:block;margin-bottom:12px;">
+        <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5);width:auto;display:block;margin-bottom:12px;">
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
@@ -1639,3 +1636,4 @@
 </script>
 </body>
 </html>
+
