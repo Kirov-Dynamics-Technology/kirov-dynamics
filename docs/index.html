@@ -245,7 +245,7 @@
       background:rgba(74,144,217,0.12); border:1px solid rgba(74,144,217,0.28);
       padding:9px 22px; border-radius:50px;
       font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
-      color:var(--accent-lite); margin-bottom:28px;
+      color:#fff; margin-bottom:28px;
       animation:fadeInDown 0.8s ease both;
     }
     .hero-badge-dot {
@@ -767,12 +767,12 @@
         </p>
         <div class="expertise-grid">
           <div class="expertise-card">
-            <div class="expertise-icon">💻</div>
+            <div class="expertise-icon">⚙️</div>
             <h4>Software &amp; AI</h4>
             <p>Full-stack development, AI systems, cybersecurity, and cloud infrastructure.</p>
           </div>
           <div class="expertise-card">
-            <div class="expertise-icon">🏛️</div>
+            <div class="expertise-icon">🏢</div>
             <h4>Government &amp; Policy</h4>
             <p>Public sector relationships, procurement strategy, and GovTech delivery.</p>
           </div>
@@ -782,7 +782,7 @@
             <p>Construction management, infrastructure, and smart engineering solutions.</p>
           </div>
           <div class="expertise-card">
-            <div class="expertise-icon">🌍</div>
+            <div class="expertise-icon">🌐</div>
             <h4>Africa-First Vision</h4>
             <p>Built to solve the real challenges facing Africa's growing digital economy.</p>
           </div>
@@ -909,15 +909,18 @@
     </div>
 
     <div class="services-tabs reveal" role="tablist" aria-label="Service categories">
-      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">🧠 AI Solutions</button>
+      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">🤖 AI Solutions</button>
       <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">💻 Software Dev</button>
       <button class="tab-btn" data-tab="cyber" role="tab" aria-selected="false" aria-controls="tab-cyber" id="tab-btn-cyber">🛡️ Cybersecurity</button>
       <button class="tab-btn" data-tab="cloud" role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud">☁️ Cloud &amp; DevOps</button>
-      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">📊 Data Services</button>
+      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">📈 Data Services</button>
       <button class="tab-btn" data-tab="engineering" role="tab" aria-selected="false" aria-controls="tab-engineering" id="tab-btn-engineering">🏗️ Smart Engineering</button>
-      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">🔨 Construction Tech</button>
+      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">🔧 Construction Tech</button>
       <button class="tab-btn" data-tab="govtech" role="tab" aria-selected="false" aria-controls="tab-govtech" id="tab-btn-govtech">🏛️ GovTech</button>
-      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">🌆 Smart City</button>
+      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">🏙️ Smart City</button>
+      <button class="tab-btn" data-tab="consulting" role="tab" aria-selected="false" aria-controls="tab-consulting" id="tab-btn-consulting">🤝 Consulting</button>
+      <button class="tab-btn" data-tab="mobile" role="tab" aria-selected="false" aria-controls="tab-mobile" id="tab-btn-mobile">📱 Mobile &amp; IoT</button>
+      <button class="tab-btn" data-tab="training" role="tab" aria-selected="false" aria-controls="tab-training" id="tab-btn-training">🎓 Training &amp; Skills</button>
     </div>
 
     <!-- AI Solutions -->
@@ -1138,6 +1141,75 @@
           <li>Public Safety Analytics</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="smartcity-cta-btn">Build a Smarter City </a>
+      </div>
+    </div>
+
+    <!-- Consulting -->
+    <div class="tab-panel" id="tab-consulting" role="tabpanel" aria-labelledby="tab-btn-consulting">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Business consulting meeting" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Consulting &amp; Advisory</h3>
+        <p>Strategic advisory for digital transformation, AI readiness, cybersecurity maturity, and technology architecture — helping organisations make informed decisions and execute with confidence.</p>
+        <ul class="service-list">
+          <li>Digital Strategy &amp; Roadmaps</li>
+          <li>AI Readiness Assessments</li>
+          <li>Cybersecurity Maturity Reviews</li>
+          <li>Cloud Modernisation Planning</li>
+          <li>Technology Architecture Reviews</li>
+          <li>POPIA Compliance Consulting</li>
+          <li>Procurement &amp; Vendor Evaluation</li>
+          <li>Change Management</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="consulting-cta-btn">Book a Consultation </a>
+      </div>
+    </div>
+
+    <!-- Mobile & IoT -->
+    <div class="tab-panel" id="tab-mobile" role="tabpanel" aria-labelledby="tab-btn-mobile">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Mobile app and IoT devices" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Mobile &amp; IoT Solutions</h3>
+        <p>Native and cross-platform mobile applications connected to smart sensors, wearables, and industrial IoT devices — delivering real-time data and control at your fingertips.</p>
+        <ul class="service-list">
+          <li>iOS &amp; Android App Development</li>
+          <li>Cross-Platform Apps</li>
+          <li>IoT Sensor Integration</li>
+          <li>Real-Time Monitoring Dashboards</li>
+          <li>Wearable Device Apps</li>
+          <li>Smart Building Controls</li>
+          <li>Fleet Tracking Systems</li>
+          <li>Industrial IoT Platforms</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="mobile-cta-btn">Build Your Mobile App </a>
+      </div>
+    </div>
+
+    <!-- Training & Skills -->
+    <div class="tab-panel" id="tab-training" role="tabpanel" aria-labelledby="tab-btn-training">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80" alt="Training and skills development" loading="lazy">
+        <div class="service-img-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="service-info">
+        <h3>Training &amp; Skills Development</h3>
+        <p>Equip your team with the skills needed for the digital economy. We offer practical, hands-on training programmes in software development, AI, cybersecurity, and cloud computing.</p>
+        <ul class="service-list">
+          <li>Software Development Bootcamps</li>
+          <li>AI &amp; Machine Learning Workshops</li>
+          <li>Cybersecurity Awareness Training</li>
+          <li>Cloud Computing Fundamentals</li>
+          <li>Data Analytics &amp; BI Training</li>
+          <li>Digital Literacy Programmes</li>
+          <li>Executive Tech Briefings</li>
+          <li>Custom Corporate Training</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" id="training-cta-btn">Request Training </a>
       </div>
     </div>
   </div>
