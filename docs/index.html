@@ -200,17 +200,11 @@
       font-size:clamp(2.6rem,6.5vw,5rem); font-weight:900;
       line-height:1.08; margin-bottom:26px;
       animation:fadeInUp 0.9s ease 0.15s both;
+      color:transparent;
+      -webkit-text-stroke:2px #e8f0ff;
+      text-shadow:none;
     }
-    .hero-title .line1 { display:inline-block; color:#fff; padding:0 8px; margin-bottom:-8px; }
-    .hero-title .line2 {
-      display:inline-block;
-      background:rgba(74,144,217,0.25);
-      color:#e8f0ff;
-      padding:0 14px;
-      border-radius:5px;
-      box-decoration-break:clone;
-      -webkit-box-decoration-break:clone;
-    }
+    .hero-title .line1, .hero-title .line2 { display:inline; padding:0; background:none; border-radius:0; }
 
     .hero-sub {
       font-size:1.12rem; color:#fff; max-width:680px;
