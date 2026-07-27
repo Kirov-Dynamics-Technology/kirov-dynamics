@@ -79,8 +79,6 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
     .section-sub { font-size:1.05rem; color:var(--muted); line-height:1.75; max-width:720px; }
-    .section-sub.full-width { max-width:100%; }
-
     .divider {
       width:56px; height:3px; border-radius:3px;
       background:linear-gradient(90deg,var(--primary),var(--accent));
@@ -184,18 +182,6 @@
       text-align:center; max-width:920px; padding:100px 28px 0;
     }
     /* HERO LOGO */
-    .hero-logo-wrap {
-      margin-bottom:32px;
-      animation:fadeInDown 0.7s ease both;
-    }
-    .hero-logo-wrap img {
-      height:160px; width:auto;
-      filter:drop-shadow(0 0 32px rgba(74,144,217,0.45)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));
-      border-radius:16px;
-      background:#fff;
-      padding:16px 24px;
-    }
-
     .hero-title {
       font-size:clamp(2.6rem,6.5vw,5rem); font-weight:900;
       line-height:1.08; margin-bottom:26px;
@@ -282,13 +268,6 @@
       background:linear-gradient(135deg,rgba(26,54,100,0.25),transparent 60%);
       border-radius:var(--radius-lg);
     }
-    .about-logo-badge {
-      position:absolute; top:22px; left:22px;
-      background:#fff; padding:8px 16px; border-radius:10px;
-      box-shadow:0 4px 20px rgba(0,0,0,0.4);
-    }
-    .about-logo-badge img { height:38px; width:auto; display:block; }
-
     .about-stats-row {
       display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
       margin-top:16px;
@@ -627,7 +606,6 @@
       #industries { padding:80px 0; }
       #solutions { padding:80px 0; }
       #contact { padding:80px 0; }
-      .hero-logo-wrap img { height:110px; }
     }
     @media(max-width:600px){
       .industries-grid { grid-template-columns:repeat(2,1fr); }
@@ -656,6 +634,7 @@
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#divisions">Divisions</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#industries">Industries</a></li>
       <li><a href="#solutions">Solutions</a></li>
@@ -673,6 +652,7 @@
   <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">Ô£ò</button>
   <a href="#home" class="mobile-link">Home</a>
   <a href="#about" class="mobile-link">About</a>
+  <a href="#divisions" class="mobile-link">Divisions</a>
   <a href="#services" class="mobile-link">Services</a>
   <a href="#industries" class="mobile-link">Industries</a>
   <a href="#solutions" class="mobile-link">Solutions</a>
@@ -1852,6 +1832,8 @@
     if (window.location.hash) history.replaceState(null, null, ' ');
   });
 </script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide && lucide.createIcons();</script>
 </body>
 
 </html>
