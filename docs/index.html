@@ -421,7 +421,7 @@
     }
 
     .industries-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:16px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
     }
     .industry-tile {
       position:relative; overflow:hidden;
@@ -605,6 +605,7 @@
     @media(max-width:900px){
       .about-grid { grid-template-columns:1fr; }
       .contact-grid { grid-template-columns:1fr; }
+      .industries-grid { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:768px){
       .nav-links, .nav-cta-btn { display:none !important; }
@@ -625,7 +626,11 @@
       #contact { padding:80px 0; }
       .hero-logo-wrap img { height:110px; }
     }
+    @media(max-width:600px){
+      .industries-grid { grid-template-columns:repeat(2,1fr); }
+    }
     @media(max-width:500px){
+      .industries-grid { grid-template-columns:1fr 1fr; }
       .hero-btns { flex-direction:column; align-items:center; }
       .hero-title { font-size:2.2rem; }
       .contact-form { padding:26px; }
@@ -703,7 +708,7 @@
         <div class="stat-label">Service Divisions</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="14" aria-label="14 industries served">0</span>
+        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span>
         <div class="stat-label">Industries Served</div>
       </div>
       <div class="stat-item">
@@ -1167,7 +1172,7 @@
         <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Municipalities</span>
       </div>
       <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=400&q=60')"></div>
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1769240627842-1a3bd858695c?auto=format&fit=crop&w=400&q=60')"></div>
         <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Mining</span>
       </div>
       <div class="industry-tile">
@@ -1184,12 +1189,12 @@
           <span class="tile-name">Healthcare</span>
       </div>
       <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=60')"></div>
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=400&q=60')"></div>
         <span class="tile-icon" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
           <span class="tile-name">Education</span>
       </div>
       <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4e5?auto=format&fit=crop&w=400&q=60')"></div>
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1651838677683-f642527059c6?auto=format&fit=crop&w=400&q=60')"></div>
         <span class="tile-icon" aria-hidden="true"><i data-lucide="tractor"></i></span>
           <span class="tile-name">Agriculture</span>
       </div>
@@ -1217,6 +1222,26 @@
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60')"></div>
         <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Property</span>
+      </div>
+      <div class="industry-tile">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon" aria-hidden="true"><i data-lucide="cpu"></i></span>
+        <span class="tile-name">IoT &amp; Sensors</span>
+      </div>
+      <div class="industry-tile">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon" aria-hidden="true"><i data-lucide="bot"></i></span>
+        <span class="tile-name">Robotics &amp; AI</span>
+      </div>
+      <div class="industry-tile">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon" aria-hidden="true"><i data-lucide="globe"></i></span>
+        <span class="tile-name">Aerospace &amp; Defence</span>
+      </div>
+      <div class="industry-tile">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+        <span class="tile-name">Transport &amp; Logistics</span>
       </div>
     </div>
   </div>
@@ -1274,7 +1299,7 @@
         </div>
       </div>
       <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4e5?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">SaaS · Coming Soon</span>
           <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
