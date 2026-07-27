@@ -323,15 +323,21 @@
     }
     .division-card {
       background:var(--bg-card); border:1px solid var(--border);
-      border-radius:var(--radius-lg); padding:34px;
+      border-radius:var(--radius-lg); padding:0;
       transition:var(--transition); position:relative; overflow:hidden;
     }
     .division-card-bg {
       position:absolute; inset:0; background-size:cover; background-position:center;
-      opacity:0.5; transition:opacity 0.5s ease; pointer-events:none; z-index:0;
+      opacity:0.6; transition:opacity 0.5s ease; pointer-events:none; z-index:0;
     }
-    .division-card:hover .division-card-bg { opacity:0.75; }
-    .division-card > *:not(.division-card-bg) { position:relative; z-index:1; }
+    .division-card:hover .division-card-bg { opacity:0.85; }
+    .division-card-body {
+      position:relative; z-index:1; padding:28px 30px;
+      background:linear-gradient(135deg,rgba(13,22,37,0.92) 0%,rgba(8,13,24,0.88) 100%);
+      backdrop-filter:blur(2px);
+      border-radius:var(--radius-lg);
+      min-height:100%;
+    }
     .division-card::before {
       content:''; position:absolute; top:0; left:0; right:0; height:3px;
       background:linear-gradient(90deg,var(--primary),var(--accent),var(--teal));
@@ -343,7 +349,7 @@
     .division-num {
       font-size:0.7rem; font-weight:800; letter-spacing:0.18em;
       text-transform:uppercase; color:var(--accent); margin-bottom:14px;
-      opacity:0.7;
+      opacity:0.9;
     }
     .division-icon { font-size:2.4rem; margin-bottom:14px; }
     .division-card h3 { font-size:1.15rem; font-weight:800; margin-bottom:10px; }
@@ -802,52 +808,66 @@
     <div class="divisions-grid">
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 01</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></div>
-        <h3>Digital Transformation</h3>
-        <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 01</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></div>
+          <h3>Digital Transformation</h3>
+          <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 02</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="bot"></i></div>
-        <h3>AI Solutions</h3>
-        <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines for African markets.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 02</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="bot"></i></div>
+          <h3>AI Solutions</h3>
+          <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines for African markets.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 03</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="shield-check"></i></div>
-        <h3>Cybersecurity</h3>
-        <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 03</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="shield-check"></i></div>
+          <h3>Cybersecurity</h3>
+          <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 04</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="building-2"></i></div>
-        <h3>Smart Infrastructure</h3>
-        <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 04</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="building-2"></i></div>
+          <h3>Smart Infrastructure</h3>
+          <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 05</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="cog"></i></div>
-        <h3>Engineering Technology</h3>
-        <p>Software built for South African engineers and construction professionals — site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 05</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="cog"></i></div>
+          <h3>Engineering Technology</h3>
+          <p>Software built for South African engineers and construction professionals — site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 06</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="landmark"></i></div>
-        <h3>Government Technology</h3>
-        <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 06</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="landmark"></i></div>
+          <h3>Government Technology</h3>
+          <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
+        </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-num">Division 07</div>
-        <div class="division-icon" aria-hidden="true"><i data-lucide="target"></i></div>
-        <h3>Consulting</h3>
-        <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
+        <div class="division-card-body">
+          <div class="division-num">Division 07</div>
+          <div class="division-icon" aria-hidden="true"><i data-lucide="target"></i></div>
+          <h3>Consulting</h3>
+          <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
+        </div>
       </div>
     </div>
   </div>
