@@ -360,12 +360,15 @@
     ============================================================ */
     #services { padding:130px 0; background:var(--bg-alt); }
 
+    .services-layout {
+      display:grid; grid-template-columns:240px 1fr; gap:48px; align-items:start;
+    }
     .services-tabs {
-      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:50px;
+      display:flex; flex-direction:column; gap:6px;
     }
     .tab-btn {
-      flex:1 1 0%; padding:14px 16px; border-radius:50px; font-size:0.88rem; font-weight:700;
-      text-align:center; white-space:nowrap;
+      padding:14px 20px; border-radius:50px; font-size:0.88rem; font-weight:700;
+      text-align:center;
       background:var(--bg-card); border:1px solid var(--border); color:var(--muted);
       transition:var(--transition); cursor:pointer;
     }
@@ -628,6 +631,7 @@
       #solutions { padding:80px 0; }
       #contact { padding:80px 0; }
       .hero-logo-wrap img { height:110px; }
+      .services-layout { grid-template-columns:1fr; gap:28px; }
     }
     @media(max-width:600px){
       .industries-grid { grid-template-columns:repeat(2,1fr); }
@@ -913,6 +917,7 @@
       <p class="section-sub">From AI agents to smart city platforms — we design and deliver technology that drives real-world outcomes.</p>
     </div>
 
+    <div class="services-layout">
     <div class="services-tabs reveal" role="tablist" aria-label="Service categories">
       <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">🤖 AI Solutions</button>
       <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">💻 Software Dev</button>
@@ -1217,6 +1222,7 @@
         <a href="#contact" class="btn btn-primary" id="training-cta-btn">Request Training </a>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
