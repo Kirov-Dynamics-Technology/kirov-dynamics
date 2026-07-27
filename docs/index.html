@@ -42,7 +42,7 @@
        RESET & BASE
     ============================================================ */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior:smooth; scroll-padding-top:70px; }
     body {
       font-family:'Inter',sans-serif;
       background:var(--bg);
@@ -1841,15 +1841,16 @@
   });
 
   // Ensure the page scrolls to top on refresh
-  if (history.scrollRestoration) {
+  if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  window.onload = function() {
-    window.scrollTo(0, 0);
-    if (window.location.hash) {
-      history.replaceState(null, null, ' ');
-    }
-  };
+  (function() { try { window.scrollTo(0,0); } catch(e) {} })();
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) setTimeout(function() { window.scrollTo(0,0); }, 0);
+  });
+  window.addEventListener('load', function() {
+    if (window.location.hash) history.replaceState(null, null, ' ');
+  });
 </script>
 </body>
 
