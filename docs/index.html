@@ -960,7 +960,14 @@
       border-radius:var(--radius-lg); padding:26px; transition:var(--transition);
     }
     .career-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
-    .career-card .career-icon { font-size:1.6rem; margin-bottom:10px; display:block; }
+    .career-card .career-icon { font-size:1.8rem; margin-bottom:10px; display:block; transition:all 0.3s ease; }
+    .career-card:nth-child(1) .career-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
+    .career-card:nth-child(2) .career-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
+    .career-card:nth-child(3) .career-icon { filter:drop-shadow(0 0 8px #d94a4a) drop-shadow(0 0 16px rgba(217,74,74,0.3)); }
+    .career-card:nth-child(4) .career-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.3)); }
+    .career-card:nth-child(5) .career-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.3)); }
+    .career-card:nth-child(6) .career-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
+    .career-card:hover .career-icon { filter:drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.15); }
     .career-card h4 { font-size:0.92rem; font-weight:800; margin-bottom:4px; }
     .career-card p { font-size:0.78rem; color:var(--muted); line-height:1.5; }
 
