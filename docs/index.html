@@ -698,8 +698,15 @@
       width:50px; height:50px; border-radius:12px;
       background:rgba(74,144,217,0.1); border:1px solid var(--border);
       display:flex; align-items:center; justify-content:center;
-      font-size:1.3rem; margin-bottom:16px;
+      font-size:1.4rem; margin-bottom:16px; transition:all 0.3s ease;
     }
+    .why-card:nth-child(1) .why-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
+    .why-card:nth-child(2) .why-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
+    .why-card:nth-child(3) .why-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.3)); }
+    .why-card:nth-child(4) .why-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.3)); }
+    .why-card:nth-child(5) .why-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
+    .why-card:nth-child(6) .why-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
+    .why-card:hover .why-icon { filter:drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.12); }
     .why-card h4 { font-size:1rem; font-weight:800; margin-bottom:8px; }
     .why-card p { font-size:0.85rem; color:var(--muted); line-height:1.6; }
 
