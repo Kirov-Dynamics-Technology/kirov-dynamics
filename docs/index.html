@@ -90,7 +90,7 @@
     }
     .divider-center { margin:18px auto 30px; }
 
-    .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.65s ease,transform 0.65s ease; }
+    .reveal { opacity:0; transform:translateY(36px) scale(0.97); transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1); }
     .reveal.visible { opacity:1; transform:none; }
 
     .btn {
@@ -109,6 +109,15 @@
       background:rgba(74,144,217,0.05);
     }
     .btn-outline:hover { border-color:var(--accent); background:rgba(74,144,217,0.1); transform:translateY(-2px); }
+    .btn-ripple { position:relative; overflow:hidden; }
+    .ripple-fx {
+      position:absolute; border-radius:50%;
+      background:rgba(255,255,255,0.25);
+      transform:scale(0);
+      animation:rippleAnim 0.6s ease-out;
+      pointer-events:none;
+    }
+    @keyframes rippleAnim { to { transform:scale(4); opacity:0; } }
 
     /* ============================================================
        NAVBAR
@@ -192,7 +201,21 @@
       position:absolute; inset:0;
       background:linear-gradient(135deg,rgba(6,8,15,0.6) 0%,rgba(26,54,100,0.15) 50%,rgba(6,8,15,0.65) 100%);
     }
-    #hero-canvas { position:absolute; inset:0; pointer-events:none; }
+    #hero-canvas { position:absolute; inset:0; pointer-events:none; z-index:1; }
+    .hero-gradient-mesh {
+      position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 80%, rgba(74,144,217,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 85% 15%, rgba(0,200,248,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(16,214,124,0.06) 0%, transparent 70%);
+      animation:meshShift 14s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes meshShift {
+      0% { transform:scale(1) rotate(0deg); opacity:0.5; }
+      50% { transform:scale(1.08) rotate(1.5deg); opacity:0.9; }
+      100% { transform:scale(1) rotate(-1deg); opacity:0.5; }
+    }
 
     .hero-content {
       position:relative; z-index:2;
@@ -1120,6 +1143,7 @@
 ============================================================ -->
 <section id="home" aria-label="Hero">
   <div class="hero-bg" role="img" aria-label="Futuristic technology and earth from space"></div>
+  <div class="hero-gradient-mesh" aria-hidden="true"></div>
   <div class="hero-overlay"></div>
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
@@ -2803,76 +2827,6 @@
     });
   });
 
-  /* ---- HERO CANVAS PARTICLES ---- */
-  (function() {
-    const canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W, H, particles = [], animFrame;
-
-    function resize() {
-      W = canvas.width  = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    function Particle() { this.reset(); }
-    Particle.prototype.reset = function() {
-      this.x     = Math.random() * W;
-      this.y     = Math.random() * H;
-      this.vx    = (Math.random() - 0.5) * 0.35;
-      this.vy    = (Math.random() - 0.5) * 0.35;
-      this.r     = Math.random() * 1.8 + 0.4;
-      this.alpha = Math.random() * 0.45 + 0.08;
-    };
-    Particle.prototype.update = function() {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-    };
-    Particle.prototype.draw = function() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(74,144,217,' + this.alpha + ')';
-      ctx.fill();
-    };
-
-    for (var i = 0; i < 90; i++) particles.push(new Particle());
-
-    function drawLines() {
-      for (var a = 0; a < particles.length; a++) {
-        for (var b = a + 1; b < particles.length; b++) {
-          var dx = particles[a].x - particles[b].x;
-          var dy = particles[a].y - particles[b].y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.strokeStyle = 'rgba(74,144,217,' + (0.07 * (1 - dist / 130)) + ')';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(function(p) { p.update(); p.draw(); });
-      drawLines();
-      animFrame = requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Pause when tab hidden for performance
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) { cancelAnimationFrame(animFrame); }
-      else { animate(); }
-    });
-  })();
-
   /* ---- INTERSECTION OBSERVER — REVEAL ---- */
   var reveals = document.querySelectorAll('.reveal');
   var revealObserver = new IntersectionObserver(function(entries) {
@@ -2971,6 +2925,134 @@
 </script>
 
 <script>
+  /* ---- ENHANCED PARTICLES ---- */
+  (function() {
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, particles = [], animFrame;
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    var count = Math.min(160, Math.floor(W * H / 9000));
+
+    function Particle() { this.reset(); }
+    Particle.prototype.reset = function() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r = Math.random() * 2.2 + 0.3;
+      this.alpha = Math.random() * 0.5 + 0.06;
+    };
+    Particle.prototype.update = function() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < -10 || this.x > W + 10 || this.y < -10 || this.y > H + 10) this.reset();
+    };
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(74,144,217,' + this.alpha + ')';
+      ctx.fill();
+      if (this.r > 1.2) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(74,144,217,' + (this.alpha * 0.12) + ')';
+        ctx.fill();
+      }
+    };
+
+    for (var i = 0; i < count; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var dx = particles[a].x - particles[b].x;
+          var dy = particles[a].y - particles[b].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.strokeStyle = 'rgba(74,144,217,' + (0.06 * (1 - dist / 140)) + ')';
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(function(p) { p.update(); p.draw(); });
+      drawLines();
+      animFrame = requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) { cancelAnimationFrame(animFrame); }
+      else { animate(); }
+    });
+  })();
+
+  /* ---- MOUSE PARALLAX (HERO) ---- */
+  (function() {
+    var hero = document.getElementById('home');
+    if (!hero) return;
+    hero.addEventListener('mousemove', function(e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 2;
+      var y = (e.clientY / window.innerHeight - 0.5) * 2;
+      var title = hero.querySelector('.hero-title');
+      var sub = hero.querySelector('.hero-sub');
+      var btns = hero.querySelector('.hero-btns');
+      if (title) title.style.transform = 'translate(' + (x * 18) + 'px,' + (y * 10) + 'px)';
+      if (sub) sub.style.transform = 'translate(' + (x * 12) + 'px,' + (y * 6) + 'px)';
+      if (btns) btns.style.transform = 'translate(' + (x * 8) + 'px,' + (y * 4) + 'px)';
+    });
+    hero.addEventListener('mouseleave', function() {
+      var els = hero.querySelectorAll('.hero-title, .hero-sub, .hero-btns');
+      els.forEach(function(el) { el.style.transform = ''; });
+    });
+  })();
+
+  /* ---- BUTTON RIPPLE ---- */
+  document.querySelectorAll('.btn').forEach(function(btn) {
+    btn.classList.add('btn-ripple');
+    btn.addEventListener('click', function(e) {
+      var rect = btn.getBoundingClientRect();
+      var ripple = document.createElement('span');
+      ripple.className = 'ripple-fx';
+      var size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(function() { ripple.remove(); }, 700);
+    });
+  });
+
+  /* ---- CARD TILT ---- */
+  (function() {
+    var cards = document.querySelectorAll('.project-card, .division-card, .product-card, .why-card, .journey-step');
+    cards.forEach(function(card) {
+      card.style.transition = 'transform 0.15s ease-out';
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(800px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
+      });
+    });
+  })();
+
   /* ---- SMOOTH SCROLL for anchor links ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
