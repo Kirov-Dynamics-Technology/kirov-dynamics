@@ -125,13 +125,14 @@
     #navbar {
       position:fixed; top:0; left:0; right:0; z-index:1000;
       padding:20px 0; transition:all 0.35s ease;
-    }
-    #navbar.scrolled {
-      padding:12px 0;
       background:var(--glass);
       backdrop-filter:blur(24px);
       border-bottom:1px solid var(--border);
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
+    }
+    #navbar.scrolled {
+      padding:12px 0;
+      background:rgba(8,13,24,0.95);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
@@ -1115,8 +1116,9 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <div style="display:flex; align-items:center; gap:12px;">
+      <div style="display:flex; align-items:center; gap:16px;">
         <img src="assets/images/k-only.png" alt="K Logo" style="height:48px; width:auto; display:block;">
+        <div style="width:1px; height:38px; background-color:rgba(255,255,255,0.4);"></div>
         <div style="display:flex; flex-direction:column; justify-content:center;">
           <span style="font-family:'Outfit', sans-serif; font-weight:700; font-size:1.4rem; color:#fff; line-height:1; letter-spacing: -0.02em;">kirovDynamics</span>
           <span style="font-family:'Inter', sans-serif; font-weight:800; font-size:0.75rem; color:#fff; letter-spacing:0.18em; display:flex; align-items:center; gap:6px; margin-top:4px;">
@@ -2790,8 +2792,9 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
           <img src="assets/images/k-only.png" alt="K Logo" style="height:56px; width:auto; display:block;">
+          <div style="width:1px; height:44px; background-color:rgba(255,255,255,0.4);"></div>
           <div style="display:flex; flex-direction:column; justify-content:center;">
             <span style="font-family:'Outfit', sans-serif; font-weight:700; font-size:1.6rem; color:#fff; line-height:1; letter-spacing: -0.02em;">kirovDynamics</span>
             <span style="font-family:'Inter', sans-serif; font-weight:800; font-size:0.85rem; color:#fff; letter-spacing:0.18em; display:flex; align-items:center; gap:6px; margin-top:5px;">
