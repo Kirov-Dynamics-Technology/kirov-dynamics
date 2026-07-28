@@ -609,9 +609,8 @@
       .about-stats-row { grid-template-columns:1fr; }
       .about-img-wrap img { height:auto; }
       #about, #divisions, #services, #industries, #solutions, #contact { padding:70px 0; }
-      .services-tabs { display:flex; overflow-x:auto; gap:8px; padding-bottom:8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-      .services-tabs::-webkit-scrollbar { display:none; }
-      .tab-btn { flex-shrink:0; white-space:nowrap; }
+      .services-tabs { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; overflow:visible; }
+      .tab-btn { white-space:nowrap; padding:10px 12px; font-size:0.78rem; }
       .hero-sub { font-size:1rem; }
       .container { padding:0 20px; }
       .divisions-grid { grid-template-columns:1fr; }
@@ -644,6 +643,8 @@
       .hero-badge { font-size:0.6rem; padding:5px 10px; gap:6px; }
       .hero-badge-dot { width:5px; height:5px; }
       .scroll-hint { display:none; }
+      .services-tabs { grid-template-columns:repeat(2,1fr); gap:5px; }
+      .tab-btn { padding:8px 10px; font-size:0.72rem; }
     }
     @media(max-width:380px){
       .industries-grid { grid-template-columns:1fr; }
@@ -653,6 +654,8 @@
       .division-num { font-size:0.6rem; }
       .about-stat-box .num { font-size:1.1rem; }
       .btn { font-size:0.82rem; padding:11px 20px; }
+      .services-tabs { grid-template-columns:1fr; gap:4px; }
+      .tab-btn { padding:8px; font-size:0.7rem; }
     }
   </style>
 </head>
