@@ -657,6 +657,304 @@
       .services-tabs { grid-template-columns:1fr; gap:4px; }
       .tab-btn { padding:8px; font-size:0.7rem; }
     }
+    /* ============================================================
+       NEW SECTIONS — Why Choose, Projects, Stack, Process, etc.
+    ============================================================ */
+    .section-pad { padding:110px 0; }
+    .section-dark { background:var(--bg-alt); }
+    .text-center { text-align:center; }
+
+    /* ---- Why Choose ---- */
+    #why-choose { padding:110px 0; background:var(--bg-alt); }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+    .why-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:30px; transition:var(--transition);
+    }
+    .why-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
+    .why-icon {
+      width:50px; height:50px; border-radius:12px;
+      background:rgba(74,144,217,0.1); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; margin-bottom:16px;
+    }
+    .why-card h4 { font-size:1rem; font-weight:800; margin-bottom:8px; }
+    .why-card p { font-size:0.85rem; color:var(--muted); line-height:1.6; }
+
+    /* ---- Featured Projects ---- */
+    #projects { padding:110px 0; }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; margin-top:48px; }
+    .project-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition);
+    }
+    .project-card:hover { border-color:rgba(74,144,217,0.3); transform:translateY(-5px); box-shadow:var(--shadow); }
+    .project-thumb {
+      width:100%; height:180px; object-fit:cover; display:block;
+      filter:brightness(0.85); transition:transform 0.5s ease;
+    }
+    .project-card:hover .project-thumb { transform:scale(1.04); }
+    .project-body { padding:20px 24px 24px; }
+    .project-tag {
+      display:inline-block; font-size:0.6rem; font-weight:800;
+      letter-spacing:0.08em; text-transform:uppercase;
+      padding:3px 10px; border-radius:50px; margin-bottom:10px;
+      background:rgba(74,144,217,0.08); color:var(--accent-lite); border:1px solid rgba(74,144,217,0.15);
+    }
+    .project-body h4 { font-size:0.95rem; font-weight:800; margin-bottom:6px; }
+    .project-body p { font-size:0.8rem; color:var(--muted); line-height:1.55; }
+
+    /* ---- Process ---- */
+    #process { padding:110px 0; background:var(--bg-alt); }
+    .process-steps { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:48px; position:relative; }
+    .process-step {
+      text-align:center; padding:20px 12px;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); transition:var(--transition);
+      position:relative;
+    }
+    .process-step:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .process-num {
+      width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 12px; font-size:0.85rem; font-weight:900; color:#fff;
+    }
+    .process-step h4 { font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; }
+    .process-step p { font-size:0.72rem; color:var(--muted); margin-top:4px; }
+    .process-arrow {
+      display:none; position:absolute; top:50%; right:-12px;
+      transform:translateY(-50%); color:var(--accent); font-size:1.2rem;
+    }
+
+    /* ---- Tech Stack ---- */
+    #stack { padding:110px 0; }
+    .stack-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; margin-top:48px; }
+    .stack-item {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:16px 12px;
+      text-align:center; font-size:0.8rem; font-weight:600;
+      transition:var(--transition); display:flex; flex-direction:column; align-items:center; gap:6px;
+    }
+    .stack-item:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:var(--glow); }
+    .stack-item .stack-icon { font-size:1.5rem; }
+
+    /* ---- Testimonials ---- */
+    #testimonials { padding:110px 0; background:var(--bg-alt); }
+    .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+    .testimonial-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:28px; transition:var(--transition);
+    }
+    .testimonial-card:hover { border-color:var(--accent); }
+    .testimonial-stars { color:var(--gold); font-size:0.9rem; margin-bottom:12px; letter-spacing:2px; }
+    .testimonial-card blockquote {
+      font-size:0.88rem; color:var(--text); line-height:1.7;
+      font-style:italic; margin-bottom:16px;
+    }
+    .testimonial-author { display:flex; align-items:center; gap:12px; }
+    .testimonial-avatar {
+      width:42px; height:42px; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:0.85rem; color:#fff; flex-shrink:0;
+    }
+    .testimonial-author h4 { font-size:0.82rem; font-weight:700; }
+    .testimonial-author span { font-size:0.7rem; color:var(--muted); }
+
+    /* ---- Leadership ---- */
+    #leadership { padding:110px 0; }
+    .leadership-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:30px; margin-top:48px; max-width:800px; margin-left:auto; margin-right:auto; }
+    .leader-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:30px; text-align:center; transition:var(--transition);
+    }
+    .leader-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
+    .leader-avatar {
+      width:80px; height:80px; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 16px; font-size:1.8rem; font-weight:900; color:#fff;
+    }
+    .leader-card h4 { font-size:1.1rem; font-weight:800; }
+    .leader-card .leader-title { font-size:0.8rem; color:var(--accent-lite); font-weight:600; margin-bottom:10px; }
+    .leader-card p { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+    .leader-tags { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:12px; }
+    .leader-tags span {
+      font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+      padding:4px 10px; border-radius:50px;
+      background:rgba(74,144,217,0.08); border:1px solid var(--border); color:var(--muted);
+    }
+
+    /* ---- Security & Compliance ---- */
+    #security { padding:110px 0; background:var(--bg-alt); }
+    .security-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px; }
+    .security-item {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:20px; text-align:center; transition:var(--transition);
+    }
+    .security-item:hover { border-color:var(--accent); }
+    .security-item .sec-icon { font-size:1.6rem; margin-bottom:8px; display:block; }
+    .security-item h4 { font-size:0.82rem; font-weight:700; }
+
+    /* ---- Partners ---- */
+    #partners { padding:110px 0; }
+    .partners-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:16px; margin-top:48px; }
+    .partner-logo {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:20px 16px;
+      text-align:center; font-weight:700; font-size:0.82rem;
+      transition:var(--transition); display:flex; flex-direction:column; align-items:center; gap:6px;
+    }
+    .partner-logo:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .partner-logo .pl-icon { font-size:1.6rem; }
+
+    /* ---- Certifications ---- */
+    #certifications { padding:110px 0; background:var(--bg-alt); }
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; margin-top:48px; }
+    .cert-item {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:16px 12px;
+      text-align:center; font-weight:600; font-size:0.78rem;
+      transition:var(--transition); display:flex; flex-direction:column; align-items:center; gap:5px;
+    }
+    .cert-item:hover { border-color:var(--accent); }
+    .cert-item .cert-icon { font-size:1.4rem; }
+
+    /* ---- Insights / Blog ---- */
+    #insights { padding:110px 0; }
+    .insights-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+    .insight-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition);
+    }
+    .insight-card:hover { border-color:rgba(74,144,217,0.3); transform:translateY(-4px); box-shadow:var(--shadow); }
+    .insight-img {
+      width:100%; height:160px; object-fit:cover; display:block;
+      filter:brightness(0.8); transition:transform 0.5s ease;
+    }
+    .insight-card:hover .insight-img { transform:scale(1.04); }
+    .insight-body { padding:20px 22px 24px; }
+    .insight-date { font-size:0.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px; }
+    .insight-body h4 { font-size:0.92rem; font-weight:800; margin-bottom:6px; }
+    .insight-body p { font-size:0.8rem; color:var(--muted); line-height:1.55; }
+
+    /* ---- Africa Map ---- */
+    #africa-map { padding:110px 0; background:var(--bg-alt); }
+    .map-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px; }
+    .map-country {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:18px 14px;
+      text-align:center; transition:var(--transition);
+    }
+    .map-country:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .map-country .flag { font-size:1.8rem; display:block; margin-bottom:4px; }
+    .map-country h4 { font-size:0.82rem; font-weight:700; }
+    .map-country .status {
+      font-size:0.62rem; text-transform:uppercase; letter-spacing:0.06em;
+      padding:2px 8px; border-radius:50px; display:inline-block; margin-top:4px;
+    }
+    .status-active { background:rgba(16,214,124,0.1); color:var(--green); border:1px solid rgba(16,214,124,0.2); }
+    .status-future { background:rgba(245,158,11,0.1); color:var(--gold); border:1px solid rgba(245,158,11,0.2); }
+
+    /* ---- Book a Consultation ---- */
+    #consultation { padding:110px 0; }
+    .consult-card {
+      max-width:700px; margin:48px auto 0;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:40px; text-align:center;
+    }
+    .consult-card h3 { font-size:1.4rem; font-weight:900; margin-bottom:12px; }
+    .consult-card p { font-size:0.9rem; color:var(--muted); margin-bottom:24px; }
+    .consult-options { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .consult-option {
+      background:var(--bg); border:1px solid var(--border);
+      border-radius:var(--radius); padding:16px 24px; text-align:center;
+      transition:var(--transition); min-width:140px;
+    }
+    .consult-option:hover { border-color:var(--accent); }
+    .consult-option .co-icon { font-size:1.3rem; display:block; margin-bottom:4px; }
+    .consult-option span { font-size:0.78rem; font-weight:600; }
+
+    /* ---- Resources ---- */
+    #resources { padding:110px 0; background:var(--bg-alt); }
+    .resources-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:48px; }
+    .resource-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:28px; text-align:center; transition:var(--transition);
+    }
+    .resource-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
+    .resource-card .res-icon { font-size:2rem; margin-bottom:12px; display:block; }
+    .resource-card h4 { font-size:0.95rem; font-weight:800; margin-bottom:6px; }
+    .resource-card p { font-size:0.8rem; color:var(--muted); margin-bottom:16px; line-height:1.5; }
+
+    /* ---- Careers ---- */
+    #careers { padding:110px 0; }
+    .careers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:48px; }
+    .career-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:26px; transition:var(--transition);
+    }
+    .career-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
+    .career-card .career-icon { font-size:1.6rem; margin-bottom:10px; display:block; }
+    .career-card h4 { font-size:0.92rem; font-weight:800; margin-bottom:4px; }
+    .career-card p { font-size:0.78rem; color:var(--muted); line-height:1.5; }
+
+    /* ---- Roadmap ---- */
+    #roadmap { padding:110px 0; background:var(--bg-alt); }
+    .roadmap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+    .roadmap-year {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:28px; transition:var(--transition);
+    }
+    .roadmap-year:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
+    .roadmap-year h3 { font-size:1.3rem; font-weight:900; color:var(--accent); margin-bottom:16px; }
+    .roadmap-year ul { display:flex; flex-direction:column; gap:10px; }
+    .roadmap-year ul li {
+      font-size:0.85rem; color:var(--text); display:flex; align-items:center; gap:10px;
+      padding:8px 12px; background:rgba(74,144,217,0.04); border-radius:8px;
+      border:1px solid rgba(74,144,217,0.06);
+    }
+    .roadmap-year ul li::before {
+      content:''; width:6px; height:6px; border-radius:50%;
+      background:var(--accent); flex-shrink:0;
+    }
+
+    /* New section responsive overrides */
+    @media(max-width:900px){
+      .why-grid { grid-template-columns:1fr 1fr; }
+      .testimonials-grid { grid-template-columns:1fr 1fr; }
+      .insights-grid { grid-template-columns:1fr 1fr; }
+      .process-steps { grid-template-columns:repeat(3,1fr); }
+      .security-grid { grid-template-columns:repeat(2,1fr); }
+      .map-grid { grid-template-columns:repeat(2,1fr); }
+      .resources-grid { grid-template-columns:1fr 1fr; }
+      .careers-grid { grid-template-columns:1fr 1fr; }
+      .roadmap-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:768px){
+      .leadership-grid { grid-template-columns:1fr; max-width:400px; }
+    }
+    @media(max-width:600px){
+      .why-grid { grid-template-columns:1fr; }
+      .testimonials-grid { grid-template-columns:1fr; }
+      .insights-grid { grid-template-columns:1fr; }
+      .security-grid { grid-template-columns:1fr 1fr; }
+      .map-grid { grid-template-columns:1fr 1fr; }
+      .resources-grid { grid-template-columns:1fr; }
+      .careers-grid { grid-template-columns:1fr; }
+      .roadmap-grid { grid-template-columns:1fr; }
+      .process-steps { grid-template-columns:1fr 1fr; gap:12px; }
+      .consult-options { flex-direction:column; align-items:center; }
+      .consult-card { padding:24px; }
+    }
+    @media(max-width:500px){
+      .security-grid { grid-template-columns:1fr; }
+      .map-grid { grid-template-columns:1fr; }
+      .process-steps { grid-template-columns:1fr; }
+      .consult-card { padding:18px; }
+      .consult-option { min-width:100%; }
+    }
   </style>
 </head>
 <body>
@@ -674,11 +972,11 @@
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#divisions">Divisions</a></li>
+      <li><a href="#solutions">Platforms</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#industries">Industries</a></li>
-      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#leadership">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta-btn">Get in Touch</a>
@@ -692,11 +990,11 @@
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
   <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">Ô£ò</button>
   <a href="#home" class="mobile-link">Home</a>
-  <a href="#about" class="mobile-link">About</a>
-  <a href="#divisions" class="mobile-link">Divisions</a>
+  <a href="#solutions" class="mobile-link">Platforms</a>
+  <a href="#projects" class="mobile-link">Projects</a>
   <a href="#services" class="mobile-link">Services</a>
-  <a href="#industries" class="mobile-link">Industries</a>
-  <a href="#solutions" class="mobile-link">Solutions</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#leadership" class="mobile-link">Team</a>
   <a href="#contact" class="mobile-link">Contact</a>
   <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
 </div>
@@ -712,18 +1010,20 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      AI · Cybersecurity · Smart Infrastructure
+      AI · Cybersecurity · Software Engineering · Smart Infrastructure
     </div>
     <h1 class="hero-title">
-      <span class="line1">Powering Africa's Digital Future</span>
+      <span class="line1">Engineering Africa's Intelligent Future</span>
     </h1>
     <p class="hero-sub">
-      Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure,
-      and government technology for businesses, municipalities, and enterprises — across Africa and beyond.
+      Kirov Dynamics Technology delivers enterprise-grade AI, cybersecurity, software engineering,
+      and smart infrastructure solutions for businesses, municipalities, and governments — across Africa and beyond.
     </p>
     <div class="hero-btns">
-      <a href="#services" class="btn btn-primary" id="hero-explore-btn">Explore Services</a>
-      <a href="#contact" class="btn btn-outline" id="hero-contact-btn">Start a Project</a>
+      <a href="#consultation" class="btn btn-primary" id="hero-explore-btn">Schedule a Consultation</a>
+      <a href="#solutions" class="btn btn-outline" id="hero-contact-btn">Explore Products</a>
+      <a href="#projects" class="btn btn-outline">View Case Studies</a>
+      <a href="#resources" class="btn btn-outline">Company Profile</a>
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
@@ -750,6 +1050,318 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
       <path d="M12 5v14M5 12l7 7 7-7"/>
     </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE KIROV DYNAMICS
+============================================================ -->
+<section id="why-choose" aria-labelledby="why-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Why Kirov Dynamics</span>
+      <h2 class="section-title" id="why-title">Why Organisations Choose Kirov</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        We combine deep technical expertise with African market insight — delivering enterprise-grade solutions that global firms can't match locally.
+      </p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">🌍</div>
+        <h4>African-First Innovation</h4>
+        <p>Solutions designed for Africa's unique infrastructure, regulatory, and connectivity realities — not adapted from Western models.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h4>Enterprise-Grade Security</h4>
+        <p>POPIA-ready, OWASP-aligned, and ISO-inspired security built into every system we deliver — from day one.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚙️</div>
+        <h4>End-to-End Software Engineering</h4>
+        <p>From strategy and design through development, deployment, and managed support — we own the full lifecycle.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤖</div>
+        <h4>AI Integrated Into Every Solution</h4>
+        <p>AI isn't an add-on — it's embedded in our platforms, workflows, and consulting to deliver real intelligence at every layer.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏛️</div>
+        <h4>Government &amp; Enterprise Expertise</h4>
+        <p>Deep understanding of public sector procurement, compliance, and operations — combined with private-sector agility.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">☁️</div>
+        <h4>Modern Cloud-Native Architecture</h4>
+        <p>Built on AWS, Azure, and Google Cloud with Kubernetes, CI/CD, and infrastructure-as-code for scalability and resilience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED PROJECTS
+============================================================ -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title" id="projects-title">Featured Projects</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Real platforms we've built — from AI assistants to municipal systems. Each project demonstrates our full-stack engineering capability.
+      </p>
+    </div>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60" alt="AI Study Assistant" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">AI</span>
+          <h4>AI Study Assistant</h4>
+          <p>An intelligent tutoring platform powered by LLMs that helps South African students prepare for matric exams with personalised learning paths.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=60" alt="Transport Management Dashboard" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">Dashboard</span>
+          <h4>Transport Management Dashboard</h4>
+          <p>Real-time analytics and fleet tracking dashboard for logistics operators — with route optimisation and predictive maintenance alerts.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=60" alt="Municipal Complaint Portal" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">GovTech</span>
+          <h4>Municipal Complaint Portal</h4>
+          <p>A digital platform for citizens to report service delivery issues — with automated routing, SLA tracking, and real-time status updates.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60" alt="Construction ERP Prototype" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">ERP</span>
+          <h4>Construction ERP Prototype</h4>
+          <p>CIDB-compliant construction management system covering tenders, project tracking, worker attendance, and procurement workflows.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60" alt="Cybersecurity Dashboard" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">Security</span>
+          <h4>Cybersecurity Dashboard</h4>
+          <p>A SOC dashboard aggregating threat intelligence, vulnerability scan results, and incident response workflows in real time.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=60" alt="AI Chatbot Platform" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">AI</span>
+          <h4>AI Chatbot Platform</h4>
+          <p>Enterprise-grade conversational AI platform supporting multiple channels, custom knowledge bases, and seamless human handoff.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?auto=format&fit=crop&w=600&q=60" alt="Educational Verification" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">EdTech</span>
+          <h4>Educational Verification Platform</h4>
+          <p>Blockchain-inspired credential verification system enabling institutions and employers to validate qualifications instantly.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=60" alt="Portfolio Platform" loading="lazy">
+        <div class="project-body">
+          <span class="project-tag">Web</span>
+          <h4>Portfolio Website Platform</h4>
+          <p>A next-generation developer portfolio framework with built-in analytics, CMS, and automated CI/CD deployment pipelines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">How We Work</span>
+      <h2 class="section-title" id="process-title">Our Process</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        A proven six-stage methodology that ensures every project is delivered on time, on budget, and to enterprise quality standards.
+      </p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h4>Discovery</h4>
+        <p>Understand your goals, challenges, and ecosystem</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h4>Solution Design</h4>
+        <p>Architecture, tech stack, and roadmap planning</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h4>Development</h4>
+        <p>Agile sprints with continuous stakeholder visibility</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h4>Testing</h4>
+        <p>Automated QA, security scanning, and UAT</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <h4>Deployment</h4>
+        <p>CI/CD pipelines, infrastructure provisioning, go-live</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">6</div>
+        <h4>Support</h4>
+        <p>Managed operations, monitoring, and continuous improvement</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TECHNOLOGY STACK
+============================================================ -->
+<section id="stack" aria-labelledby="stack-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Technology</span>
+      <h2 class="section-title" id="stack-title">Our Technology Stack</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Modern, battle-tested technologies across frontend, backend, AI, cloud, and infrastructure.
+      </p>
+    </div>
+    <div class="stack-grid reveal">
+      <div class="stack-item"><span class="stack-icon">⚛️</span>React</div>
+      <div class="stack-item"><span class="stack-icon">▲</span>Next.js</div>
+      <div class="stack-item"><span class="stack-icon">🐍</span>Python</div>
+      <div class="stack-item"><span class="stack-icon">⚡</span>FastAPI</div>
+      <div class="stack-item"><span class="stack-icon">🟢</span>Node.js</div>
+      <div class="stack-item"><span class="stack-icon">☕</span>Java</div>
+      <div class="stack-item"><span class="stack-icon">🌱</span>Spring Boot</div>
+      <div class="stack-item"><span class="stack-icon">🐳</span>Docker</div>
+      <div class="stack-item"><span class="stack-icon">☸️</span>Kubernetes</div>
+      <div class="stack-item"><span class="stack-icon">🟦</span>Azure</div>
+      <div class="stack-item"><span class="stack-icon">🟡</span>AWS</div>
+      <div class="stack-item"><span class="stack-icon">🔵</span>Google Cloud</div>
+      <div class="stack-item"><span class="stack-icon">🐘</span>PostgreSQL</div>
+      <div class="stack-item"><span class="stack-icon">🍃</span>MongoDB</div>
+      <div class="stack-item"><span class="stack-icon">📡</span>Redis</div>
+      <div class="stack-item"><span class="stack-icon">🧠</span>TensorFlow</div>
+      <div class="stack-item"><span class="stack-icon">🔥</span>PyTorch</div>
+      <div class="stack-item"><span class="stack-icon">🤖</span>OpenAI</div>
+      <div class="stack-item"><span class="stack-icon">🦙</span>Ollama</div>
+      <div class="stack-item"><span class="stack-icon">🔗</span>LangChain</div>
+      <div class="stack-item"><span class="stack-icon">🔄</span>GitHub Actions</div>
+      <div class="stack-item"><span class="stack-icon">🐧</span>Linux</div>
+      <div class="stack-item"><span class="stack-icon">🏗️</span>Terraform</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Client Feedback</span>
+      <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Real feedback from the organisations and partners we've worked with.
+      </p>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"Kirov Dynamics delivered a robust municipal portal that exceeded our expectations. Their understanding of government procurement and compliance was invaluable."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <h4>Municipal IT Director</h4>
+            <span>Gauteng Municipality</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"Professional AI solutions tailored to our construction business. The team understood our workflows and delivered a system that actually works in the field."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">C</div>
+          <div>
+            <h4>Operations Manager</h4>
+            <span>Construction Firm, Midrand</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"Excellent software engineering capability. They built our AI chatbot platform from scratch — on time, on budget, and with outstanding code quality."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <h4>CTO</h4>
+            <span>Johannesburg Tech Startup</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEADERSHIP
+============================================================ -->
+<section id="leadership" aria-labelledby="leadership-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Team</span>
+      <h2 class="section-title" id="leadership-title">Leadership</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Experienced professionals driving innovation across technology, business, and strategy.
+      </p>
+    </div>
+    <div class="leadership-grid reveal">
+      <div class="leader-card">
+        <div class="leader-avatar">KR</div>
+        <h4>Koketso Raphasha</h4>
+        <div class="leader-title">Founder &amp; Chief Technology Officer</div>
+        <p>Driving technical vision, software architecture, AI strategy, and cybersecurity across all divisions and client engagements.</p>
+        <div class="leader-tags">
+          <span>Software Engineering</span>
+          <span>AI</span>
+          <span>Cybersecurity</span>
+          <span>Cloud Architecture</span>
+        </div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">DM</div>
+        <h4>Dakalo Mashau</h4>
+        <div class="leader-title">Co-Founder</div>
+        <p>Leading business development, strategic partnerships, operations, and market expansion across Africa.</p>
+        <div class="leader-tags">
+          <span>Business Development</span>
+          <span>Operations</span>
+          <span>Strategy</span>
+          <span>Partnerships</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1345,127 +1957,396 @@
 </section>
 
 <!-- ============================================================
-     FUTURE PRODUCTS / SAAS
+     FEATURED PLATFORMS
 ============================================================ -->
 <section id="solutions" aria-labelledby="solutions-title">
   <div class="container">
     <div class="solutions-header reveal">
-      <span class="section-tag">Future Products</span>
-      <h2 class="section-title" id="solutions-title">SaaS Products in Development</h2>
+      <span class="section-tag">Featured Platforms</span>
+      <h2 class="section-title" id="solutions-title">Our Product Ecosystem</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">
-        Beyond consulting, we are building proprietary software platforms that will create recurring subscription revenue
-        and serve thousands of organisations across Africa.
+        Enterprise SaaS platforms built for African organisations — from AI workplace assistants to municipal ERP systems.
       </p>
     </div>
     <div class="products-grid">
       <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Construction ERP</h3>
-          <p>End-to-end ERP for South African construction companies — CIDB compliant, from tender to final delivery.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>AI Security Platform</h3>
-          <p>POPIA-aligned AI-powered cybersecurity monitoring, threat detection, and incident response for SA enterprises.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Procurement Platform</h3>
-          <p>Digital procurement for South African governments — Treasury Regulation compliant, transparent, and auditable.</p>
+          <span class="product-badge">AI Platform</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="bot"></i></span>
+          <h3>AI Workplace Assistant</h3>
+          <p>Enterprise AI assistant for reporting, scheduling, document processing, and decision support — trained for African business contexts.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
+          <span class="product-badge">GovTech</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="landmark"></i></span>
           <h3>Municipal ERP</h3>
-          <p>Comprehensive platform for SA municipalities covering rates billing, service delivery, assets, and citizen engagement.</p>
+          <p>Comprehensive platform for SA municipalities covering rates billing, service delivery, asset management, and citizen engagement.</p>
         </div>
       </div>
       <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Smart Farm Platform</h3>
-          <p>IoT and AI-powered precision agriculture for South African and African commercial farmers and agribusinesses.</p>
+          <span class="product-badge">ERP</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+          <h3>Construction ERP</h3>
+          <p>CIDB-compliant end-to-end ERP for South African construction companies — from tender management to project delivery.</p>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-card-body">
+          <span class="product-badge">Smart City</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="bar-chart-3"></i></span>
+          <h3>Smart Traffic Platform</h3>
+          <p>AI-powered traffic analytics, congestion prediction, and adaptive signal control for African cities and municipalities.</p>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-card-body">
+          <span class="product-badge">Security</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+          <h3>Kirov AI Agent</h3>
+          <p>Autonomous AI security agent that monitors, detects, and responds to cyber threats in real time — POPIA-aligned by design.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Fleet Management</h3>
-          <p>Real-time GPS tracking, maintenance scheduling, driver management, and fuel optimisation for any SA fleet size.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Contractor Marketplace</h3>
-          <p>Connecting CIDB-verified SA contractors with project owners — BBBEE compliant, with ratings and payment systems.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Digital Twin Platform</h3>
-          <p>Create, visualise, and manage real-time digital replicas of South African physical infrastructure and buildings.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Smart Building Platform</h3>
-          <p>Integrated energy management including load-shedding response, security, maintenance, and access control.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>AI Business Assistant</h3>
-          <p>An enterprise AI assistant trained for African business contexts — reporting, scheduling, documents, and decisions.</p>
+          <span class="product-badge">Logistics</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+          <h3>Fleet Intelligence</h3>
+          <p>Real-time GPS tracking, predictive maintenance, driver behaviour analytics, and fuel optimisation for African fleet operators.</p>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Accounting &amp; Tax Platform</h3>
-          <p>IFRS-compliant cloud accounting with automated tax calculations, SARS eFiling integration, and real-time financial reporting for SA businesses.</p>
+          <span class="product-badge">FinTech</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="target"></i></span>
+          <h3>Fraud Detection Platform</h3>
+          <p>ML-powered fraud detection for financial transactions, identity verification, and unusual pattern recognition in real time.</p>
         </div>
       </div>
       <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=60')"></div>
+        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">SaaS · Coming Soon</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
-          <h3>Payroll &amp; HR Compliance</h3>
-          <p>South African payroll with automated UIF, SDL, PAYE, pension fund deductions, and BCEA-compliant employee self-service portal.</p>
+          <span class="product-badge">Identity</span>
+          <span class="product-icon" aria-hidden="true"><i data-lucide="fingerprint"></i></span>
+          <h3>Digital Identity Platform</h3>
+          <p>Secure, scalable digital identity and verification platform for governments, financial institutions, and enterprises across Africa.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECURITY & COMPLIANCE
+============================================================ -->
+<section id="security" aria-labelledby="security-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Security</span>
+      <h2 class="section-title" id="security-title">Enterprise Security &amp; Compliance</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        We embed security into every layer of our technology — from architecture to deployment.
+      </p>
+    </div>
+    <div class="security-grid reveal">
+      <div class="security-item"><span class="sec-icon">🛡️</span><h4>POPIA Ready</h4></div>
+      <div class="security-item"><span class="sec-icon">🔐</span><h4>Secure SDLC</h4></div>
+      <div class="security-item"><span class="sec-icon">✅</span><h4>OWASP Best Practices</h4></div>
+      <div class="security-item"><span class="sec-icon">📋</span><h4>ISO 27001 Inspired</h4></div>
+      <div class="security-item"><span class="sec-icon">🔍</span><h4>Vulnerability Assessments</h4></div>
+      <div class="security-item"><span class="sec-icon">🕵️</span><h4>Penetration Testing</h4></div>
+      <div class="security-item"><span class="sec-icon">☁️</span><h4>Cloud Security</h4></div>
+      <div class="security-item"><span class="sec-icon">👤</span><h4>Identity &amp; Access Management</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PARTNERS
+============================================================ -->
+<section id="partners" aria-labelledby="partners-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Partners</span>
+      <h2 class="section-title" id="partners-title">Technology Partners</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        We collaborate with world-class technology platforms to deliver enterprise solutions.
+      </p>
+    </div>
+    <div class="partners-grid reveal">
+      <div class="partner-logo"><span class="pl-icon">🟦</span>Microsoft</div>
+      <div class="partner-logo"><span class="pl-icon">🟡</span>Google Cloud</div>
+      <div class="partner-logo"><span class="pl-icon">🟠</span>AWS</div>
+      <div class="partner-logo"><span class="pl-icon">🐙</span>GitHub</div>
+      <div class="partner-logo"><span class="pl-icon">🤖</span>OpenAI</div>
+      <div class="partner-logo"><span class="pl-icon">🐳</span>Docker</div>
+      <div class="partner-logo"><span class="pl-icon">▲</span>Vercel</div>
+      <div class="partner-logo"><span class="pl-icon">☁️</span>Cloudflare</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CERTIFICATIONS
+============================================================ -->
+<section id="certifications" aria-labelledby="certs-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Credentials</span>
+      <h2 class="section-title" id="certs-title">Professional Certifications</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Continuous learning from the world's leading technology institutions.
+      </p>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert-item"><span class="cert-icon">🟦</span>Microsoft</div>
+      <div class="cert-item"><span class="cert-icon">🟡</span>AWS</div>
+      <div class="cert-item"><span class="cert-icon">🔴</span>Google</div>
+      <div class="cert-item"><span class="cert-icon">📘</span>CAPACITI</div>
+      <div class="cert-item"><span class="cert-icon">🟢</span>Cisco</div>
+      <div class="cert-item"><span class="cert-icon">🟠</span>CompTIA</div>
+      <div class="cert-item"><span class="cert-icon">🏫</span>Richfield</div>
+      <div class="cert-item"><span class="cert-icon">💙</span>IBM</div>
+      <div class="cert-item"><span class="cert-icon">📗</span>Coursera</div>
+      <div class="cert-item"><span class="cert-icon">🧠</span>DeepLearning.AI</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSIGHTS
+============================================================ -->
+<section id="insights" aria-labelledby="insights-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Insights</span>
+      <h2 class="section-title" id="insights-title">Latest Insights</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Thought leadership on AI, cybersecurity, digital transformation, and Africa's technology landscape.
+      </p>
+    </div>
+    <div class="insights-grid reveal">
+      <div class="insight-card">
+        <img class="insight-img" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60" alt="AI in Africa" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-date">June 2026</div>
+          <h4>The Future of AI in Africa</h4>
+          <p>How African businesses can leapfrog legacy infrastructure with AI-first strategies and locally trained models.</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <img class="insight-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60" alt="Cybersecurity Trends" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-date">May 2026</div>
+          <h4>Cybersecurity Trends 2026</h4>
+          <p>Emerging threats, AI-powered defence strategies, and why POPIA compliance is more critical than ever for SA enterprises.</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <img class="insight-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=60" alt="Digital Transformation" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-date">April 2026</div>
+          <h4>Digital Transformation Guide</h4>
+          <p>A practical roadmap for South African organisations navigating digital transformation in 2026 and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AFRICA MAP
+============================================================ -->
+<section id="africa-map" aria-labelledby="map-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Coverage</span>
+      <h2 class="section-title" id="map-title">Our African Presence</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Serving organisations across the continent with plans for pan-African expansion.
+      </p>
+    </div>
+    <div class="map-grid reveal">
+      <div class="map-country"><span class="flag">🇿🇦</span><h4>South Africa</h4><span class="status status-active">Active</span></div>
+      <div class="map-country"><span class="flag">🇧🇼</span><h4>Botswana</h4><span class="status status-active">Active</span></div>
+      <div class="map-country"><span class="flag">🇳🇦</span><h4>Namibia</h4><span class="status status-active">Active</span></div>
+      <div class="map-country"><span class="flag">🇿🇼</span><h4>Zimbabwe</h4><span class="status status-active">Active</span></div>
+      <div class="map-country"><span class="flag">🇿🇲</span><h4>Zambia</h4><span class="status status-active">Active</span></div>
+      <div class="map-country"><span class="flag">🇰🇪</span><h4>Kenya</h4><span class="status status-future">Expanding</span></div>
+      <div class="map-country"><span class="flag">🇳🇬</span><h4>Nigeria</h4><span class="status status-future">Expanding</span></div>
+      <div class="map-country"><span class="flag">🇬🇭</span><h4>Ghana</h4><span class="status status-future">Expanding</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOK A CONSULTATION
+============================================================ -->
+<section id="consultation" aria-labelledby="consult-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Consultation</span>
+      <h2 class="section-title" id="consult-title">Book a Free Consultation</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Tell us about your project and we'll schedule a 30-minute call to explore how we can help.
+      </p>
+    </div>
+    <div class="consult-card reveal">
+      <h3>Let's Discuss Your Vision</h3>
+      <p>Available on your preferred platform. No obligation, just honest expert advice.</p>
+      <div class="consult-options">
+        <div class="consult-option"><span class="co-icon">📅</span><span>Calendly</span></div>
+        <div class="consult-option"><span class="co-icon">💬</span><span>Google Meet</span></div>
+        <div class="consult-option"><span class="co-icon">🟦</span><span>Microsoft Teams</span></div>
+      </div>
+      <a href="#contact" class="btn btn-primary" style="margin-top:24px">Schedule Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESOURCES
+============================================================ -->
+<section id="resources" aria-labelledby="resources-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Resources</span>
+      <h2 class="section-title" id="resources-title">Company Resources</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Download our corporate documentation to learn more about our capabilities and approach.
+      </p>
+    </div>
+    <div class="resources-grid reveal">
+      <div class="resource-card">
+        <span class="res-icon">📄</span>
+        <h4>Company Profile</h4>
+        <p>Overview of Kirov Dynamics Technology — our mission, divisions, and track record.</p>
+        <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
+      </div>
+      <div class="resource-card">
+        <span class="res-icon">📋</span>
+        <h4>Capability Statement</h4>
+        <p>Our core competencies, past projects, and differentiators for tenders and RFQs.</p>
+        <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
+      </div>
+      <div class="resource-card">
+        <span class="res-icon">📘</span>
+        <h4>Service Catalogue</h4>
+        <p>Complete directory of our services, pricing models, and engagement frameworks.</p>
+        <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CAREERS
+============================================================ -->
+<section id="careers" aria-labelledby="careers-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Careers</span>
+      <h2 class="section-title" id="careers-title">Join Kirov Dynamics</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Build Africa's technology future with us. We're looking for passionate engineers, analysts, and innovators.
+      </p>
+    </div>
+    <div class="careers-grid reveal">
+      <div class="career-card">
+        <span class="career-icon">🎓</span>
+        <h4>Graduate Programme</h4>
+        <p>Structured 12-month programme for recent graduates in software engineering, AI, and cybersecurity.</p>
+      </div>
+      <div class="career-card">
+        <span class="career-icon">💻</span>
+        <h4>Software Engineer</h4>
+        <p>Build enterprise platforms using React, Python, Java, and cloud-native technologies.</p>
+      </div>
+      <div class="career-card">
+        <span class="career-icon">🛡️</span>
+        <h4>Cybersecurity Analyst</h4>
+        <p>Conduct assessments, build SOC dashboards, and protect African digital infrastructure.</p>
+      </div>
+      <div class="career-card">
+        <span class="career-icon">🤖</span>
+        <h4>AI Engineer</h4>
+        <p>Design and deploy machine learning models, LLM pipelines, and AI agents for enterprise clients.</p>
+      </div>
+      <div class="career-card">
+        <span class="career-icon">📊</span>
+        <h4>Data Analyst</h4>
+        <p>Transform raw data into actionable insights through dashboards, pipelines, and predictive models.</p>
+      </div>
+      <div class="career-card">
+        <span class="career-icon">🌍</span>
+        <h4>Internships</h4>
+        <p>Hands-on experience across software development, AI, cloud engineering, and business operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROADMAP
+============================================================ -->
+<section id="roadmap" aria-labelledby="roadmap-title">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Roadmap</span>
+      <h2 class="section-title" id="roadmap-title">Our Strategic Vision</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        A three-year roadmap to scale our products, expand across Africa, and build the continent's leading technology company.
+      </p>
+    </div>
+    <div class="roadmap-grid reveal">
+      <div class="roadmap-year">
+        <h3>2026</h3>
+        <ul>
+          <li>Launch AI Workplace Assistant</li>
+          <li>Construction ERP MVP</li>
+          <li>Government Solutions Pilots</li>
+          <li>Cybersecurity SOC Dashboard</li>
+          <li>Fleet Intelligence Platform</li>
+        </ul>
+      </div>
+      <div class="roadmap-year">
+        <h3>2027</h3>
+        <ul>
+          <li>Expand to SADC Region</li>
+          <li>Cloud Managed Services</li>
+          <li>Cybersecurity SOC Launch</li>
+          <li>Smart City Platform Rollout</li>
+          <li>Digital Identity Platform</li>
+        </ul>
+      </div>
+      <div class="roadmap-year">
+        <h3>2028</h3>
+        <ul>
+          <li>Pan-African Expansion</li>
+          <li>AI Marketplace Launch</li>
+          <li>Enterprise Product Suite</li>
+          <li>Fraud Detection Platform</li>
+          <li>1,000+ Organisations Served</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1618,23 +2499,35 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Solutions</h4>
+        <h4>Platforms</h4>
         <ul>
-          <li><a href="#services">Construction Tech</a></li>
-          <li><a href="#services">GovTech</a></li>
-          <li><a href="#services">Smart City</a></li>
-          <li><a href="#solutions">SaaS Products</a></li>
-          <li><a href="#services">Consulting</a></li>
+          <li><a href="#solutions">AI Workplace Assistant</a></li>
+          <li><a href="#solutions">Municipal ERP</a></li>
+          <li><a href="#solutions">Construction ERP</a></li>
+          <li><a href="#solutions">Fleet Intelligence</a></li>
+          <li><a href="#solutions">Digital Identity</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://raphasha27.github.io/raphasha-dev-portfolio" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#resources">Resources</a></li>
           <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="#stack">Technology</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
         </ul>
       </div>
     </div>
