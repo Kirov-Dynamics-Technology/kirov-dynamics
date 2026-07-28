@@ -226,8 +226,10 @@
     .stat-item:last-child { border-right:none; }
     .stat-num {
       font-family:'Outfit',sans-serif; font-size:2.4rem; font-weight:900;
-      color:#fff; display:block; line-height:1;
+      color:#fff; display:block; line-height:1; font-variant-numeric:tabular-nums;
     }
+    .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
+    @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
     .stat-label { font-size:0.78rem; color:#fff; margin-top:5px; letter-spacing:0.05em; font-weight:500; }
 
     /* HERO BADGE INLINE */
@@ -2766,20 +2768,31 @@
   }, { threshold: 0.12 });
   reveals.forEach(function(el) { revealObserver.observe(el); });
 
-  /* ---- COUNTER ANIMATION ---- */
+  /* ---- COUNTER ANIMATION (SLOT ROLL) ---- */
   var counters = document.querySelectorAll('.stat-num[data-target]');
   var counterObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         var el = entry.target;
         var target = parseInt(el.dataset.target, 10);
-        var current = 0;
-        var step = Math.max(1, Math.ceil(target / 45));
-        var interval = setInterval(function() {
-          current = Math.min(current + step, target);
-          el.textContent = current + '+';
-          if (current >= target) clearInterval(interval);
-        }, 38);
+        var rollCount = 0;
+        var maxRolls = 16 + Math.floor(target / 2);
+        function doRoll() {
+          if (rollCount >= maxRolls) {
+            el.textContent = target + '+';
+            el.classList.remove('rolling');
+            return;
+          }
+          el.classList.add('rolling');
+          el.textContent = Math.min(Math.floor(Math.random() * (target + 3)) + 1, target) + '+';
+          rollCount++;
+          setTimeout(function() {
+            el.classList.remove('rolling');
+            var delay = 60 + rollCount * 12;
+            setTimeout(doRoll, delay);
+          }, 50);
+        }
+        doRoll();
         counterObserver.unobserve(el);
       }
     });
