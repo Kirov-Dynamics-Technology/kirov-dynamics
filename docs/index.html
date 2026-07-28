@@ -929,7 +929,11 @@
       transition:var(--transition); min-width:140px;
     }
     .consult-option:hover { border-color:var(--accent); }
-    .consult-option .co-icon { font-size:1.3rem; display:block; margin-bottom:4px; }
+    .consult-option .co-icon { font-size:1.5rem; display:block; margin-bottom:6px; transition:all 0.3s ease; }
+    .consult-option:nth-child(1) .co-icon { filter:drop-shadow(0 0 6px #10d67c) drop-shadow(0 0 12px rgba(16,214,124,0.3)); }
+    .consult-option:nth-child(2) .co-icon { filter:drop-shadow(0 0 6px #4a90d9) drop-shadow(0 0 12px rgba(74,144,217,0.3)); }
+    .consult-option:nth-child(3) .co-icon { filter:drop-shadow(0 0 6px #00c8f8) drop-shadow(0 0 12px rgba(0,200,248,0.3)); }
+    .consult-option:hover .co-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 24px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.15); }
     .consult-option span { font-size:0.78rem; font-weight:600; }
 
     /* ---- Resources ---- */
