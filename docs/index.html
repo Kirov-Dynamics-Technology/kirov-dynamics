@@ -125,16 +125,13 @@
     #navbar {
       position:fixed; top:0; left:0; right:0; z-index:1000;
       padding:20px 0; transition:all 0.35s ease;
-      background:rgba(6,9,18,0.92);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--border);
     }
     #navbar.scrolled {
       padding:12px 0;
-      background:rgba(6,9,18,0.98);
+      background:var(--glass);
       backdrop-filter:blur(24px);
-      border-bottom:1px solid rgba(74,144,217,0.25);
-      box-shadow:0 4px 30px rgba(0,0,0,0.6);
+      border-bottom:1px solid var(--border);
+      box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
@@ -1161,9 +1158,6 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      <span class="status-dot" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#10d67c;box-shadow:0 0 8px rgba(16,214,124,0.6);margin-right:2px"></span>
-      All Systems Operational
-      <span style="opacity:0.3;margin:0 8px">|</span>
       AI · Cybersecurity · Software Engineering · Smart Infrastructure
     </div>
     <h1 class="hero-title">
@@ -2911,31 +2905,26 @@
   }, { threshold: 0.12 });
   reveals.forEach(function(el) { revealObserver.observe(el); });
 
-  /* ---- COUNTER ANIMATION (SLOT ROLL) ---- */
+  /* ---- COUNTER ANIMATION (COUNT UP) ---- */
   var counters = document.querySelectorAll('.stat-num[data-target]');
   var counterObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         var el = entry.target;
         var target = parseInt(el.dataset.target, 10);
-        var rollCount = 0;
-        var maxRolls = 16 + Math.floor(target / 2);
-        function doRoll() {
-          if (rollCount >= maxRolls) {
+        var current = 0;
+        var duration = 2000;
+        var stepTime = Math.max(20, Math.floor(duration / target));
+        function countUp() {
+          current++;
+          el.textContent = current + '+';
+          if (current < target) {
+            setTimeout(countUp, stepTime);
+          } else {
             el.textContent = target + '+';
-            el.classList.remove('rolling');
-            return;
           }
-          el.classList.add('rolling');
-          el.textContent = Math.min(Math.floor(Math.random() * (target + 3)) + 1, target) + '+';
-          rollCount++;
-          setTimeout(function() {
-            el.classList.remove('rolling');
-            var delay = 60 + rollCount * 12;
-            setTimeout(doRoll, delay);
-          }, 50);
         }
-        doRoll();
+        countUp();
         counterObserver.unobserve(el);
       }
     });
