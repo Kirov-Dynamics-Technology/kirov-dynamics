@@ -41,25 +41,28 @@
     /* ============================================================
        RESET & BASE
     ============================================================ */
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; scroll-padding-top:70px; }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    html { scroll-behavior:smooth; scroll-padding-top:70px; overflow-x:hidden; }
     body {
       font-family:'Inter',sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.6;
       overflow-x:hidden;
+      overflow-wrap:break-word;
+      word-break:break-word;
     }
     h1,h2,h3,h4,h5 { font-family:'Outfit',sans-serif; line-height:1.2; }
-    a { text-decoration:none; color:inherit; }
+    a { text-decoration:none; color:inherit; touch-action:manipulation; }
     img { max-width:100%; height:auto; }
-    button { cursor:pointer; border:none; background:none; font-family:inherit; }
+    button { cursor:pointer; border:none; background:none; font-family:inherit; touch-action:manipulation; }
     ul { list-style:none; }
+    pre, code, table, iframe, video { max-width:100%; overflow-x:auto; }
 
     /* ============================================================
        UTILITIES
     ============================================================ */
-    .container { max-width:1220px; margin:0 auto; padding:0 28px; }
+    .container { max-width:1220px; margin:0 auto; padding:0 28px; width:100%; }
 
     .section-tag {
       display:inline-flex; align-items:center; gap:8px;
@@ -162,7 +165,7 @@
        HERO
     ============================================================ */
     #home {
-      position:relative; height:100vh; min-height:680px;
+      position:relative; min-height:100vh; min-height:680px;
       display:flex; align-items:center; justify-content:center; overflow:hidden;
     }
     .hero-bg {
@@ -262,6 +265,7 @@
       width:100%; height:510px; object-fit:cover;
       border-radius:var(--radius-lg); display:block;
       filter:brightness(0.9) saturate(1.0);
+      max-height:70vh;
     }
     .about-img-overlay {
       position:absolute; inset:0;
@@ -361,6 +365,7 @@
       width:100%; height:400px; object-fit:cover; display:block;
       border-radius:var(--radius-lg); filter:brightness(0.9) saturate(0.95);
       transition:transform 0.6s ease;
+      max-height:60vh;
     }
     .service-img:hover img { transform:scale(1.04); }
     .service-img-overlay {
@@ -576,6 +581,9 @@
     /* ============================================================
        RESPONSIVE
     ============================================================ */
+    @media(max-width:1200px){
+      .services-tabs { grid-template-columns:repeat(4,1fr); }
+    }
     @media(max-width:1024px){
       .footer-grid { grid-template-columns:1fr 1fr; }
       .tab-panel.active { grid-template-columns:1fr; }
@@ -586,11 +594,11 @@
       .about-grid { grid-template-columns:1fr; }
       .contact-grid { grid-template-columns:1fr; }
       .industries-grid { grid-template-columns:repeat(2,1fr); }
+      .services-tabs { grid-template-columns:repeat(3,1fr); }
     }
     @media(max-width:768px){
       .nav-links, .nav-cta-btn { display:none !important; }
       .hamburger { display:flex; }
-      .hero-bg { background-size:contain; background-position:center center; background-repeat:no-repeat; background-color:var(--bg); }
       .hero-stats { flex-direction:column; align-items:center; gap:24px; }
       .stat-item { border-right:none; padding:0; }
       .form-row { grid-template-columns:1fr; }
@@ -600,21 +608,51 @@
       .service-list { grid-template-columns:1fr; }
       .about-stats-row { grid-template-columns:1fr; }
       .about-img-wrap img { height:auto; }
-      #about { padding:80px 0; }
-      #divisions { padding:80px 0; }
-      #services { padding:80px 0; }
-      #industries { padding:80px 0; }
-      #solutions { padding:80px 0; }
-      #contact { padding:80px 0; }
+      #about, #divisions, #services, #industries, #solutions, #contact { padding:70px 0; }
+      .services-tabs { display:flex; overflow-x:auto; gap:8px; padding-bottom:8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+      .services-tabs::-webkit-scrollbar { display:none; }
+      .tab-btn { flex-shrink:0; white-space:nowrap; }
+      .hero-sub { font-size:1rem; }
+      .container { padding:0 20px; }
+      .divisions-grid { grid-template-columns:1fr; }
+      .nav-logo img { height:60px !important; }
     }
     @media(max-width:600px){
       .industries-grid { grid-template-columns:repeat(2,1fr); }
+      .products-grid { grid-template-columns:1fr; }
     }
     @media(max-width:500px){
       .industries-grid { grid-template-columns:1fr 1fr; }
       .hero-btns { flex-direction:column; align-items:center; }
-      .hero-title { font-size:2.2rem; }
-      .contact-form { padding:26px; }
+      .hero-title { font-size:1.8rem; }
+      .contact-form { padding:20px; }
+      .hero-sub { font-size:0.9rem; }
+      .hero-stats { gap:16px; padding-top:24px; }
+      .stat-num { font-size:1.6rem; }
+      .section-title { font-size:1.5rem; }
+      .nav-logo img { max-height:50px !important; }
+      .stat-item { width:100%; }
+      .division-card-body { padding:18px; }
+      .product-card-body { padding:18px 20px 22px; }
+      .service-info h3 { font-size:1.3rem; }
+      .expertise-card { padding:14px; }
+      .contact-form h3 { font-size:1.1rem; }
+      .industry-tile { height:110px; }
+      .industries-photo { height:160px; }
+      #home { min-height:100dvh; height:auto; padding:80px 0 40px; }
+      .hero-content { padding:100px 16px 0; }
+      .hero-badge { font-size:0.6rem; padding:5px 10px; gap:6px; }
+      .hero-badge-dot { width:5px; height:5px; }
+      .scroll-hint { display:none; }
+    }
+    @media(max-width:380px){
+      .industries-grid { grid-template-columns:1fr; }
+      .hero-title { font-size:1.5rem; }
+      .hero-title .line1, .hero-title .line2 { padding:0 8px; }
+      .container { padding:0 14px; }
+      .division-num { font-size:0.6rem; }
+      .about-stat-box .num { font-size:1.1rem; }
+      .btn { font-size:0.82rem; padding:11px 20px; }
     }
   </style>
 </head>
@@ -629,7 +667,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:85px; width:auto; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3); background:#fff; padding:2px;">
+      <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="max-height:85px; height:auto; width:auto; max-width:180px; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3); background:#fff; padding:2px;">
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -1555,7 +1593,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5);width:auto;display:block;margin-bottom:12px;">
+        <img src="assets/images/logo-hero.jpg" alt="Kirov Dynamics Technology" style="max-height:76px; height:auto; width:auto; max-width:160px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5);display:block;margin-bottom:12px;">
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
