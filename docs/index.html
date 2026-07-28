@@ -818,9 +818,33 @@
     .security-item {
       background:var(--bg-card); border:1px solid var(--border);
       border-radius:var(--radius); padding:20px; text-align:center; transition:var(--transition);
+      position:relative; overflow:hidden;
     }
-    .security-item:hover { border-color:var(--accent); }
-    .security-item .sec-icon { font-size:1.6rem; margin-bottom:8px; display:block; }
+    .security-item::before {
+      content:''; position:absolute; inset:-1px; border-radius:var(--radius);
+      opacity:0; transition:opacity 0.4s ease; z-index:0;
+      border:1px solid transparent;
+    }
+    .security-item:hover::before { opacity:1; }
+    .security-item:hover { box-shadow:0 0 30px rgba(74,144,217,0.2); }
+    .security-item:hover .sec-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 24px rgba(74,144,217,0.5)) brightness(1.3) !important; transform:scale(1.1); }
+    .security-item .sec-icon { font-size:1.8rem; margin-bottom:10px; display:block; transition:all 0.3s ease; }
+    .security-item:nth-child(1) .sec-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.4)); }
+    .security-item:nth-child(1):hover { border-color:#10d67c; box-shadow:0 0 30px rgba(16,214,124,0.15); }
+    .security-item:nth-child(2) .sec-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.4)); }
+    .security-item:nth-child(2):hover { border-color:#4a90d9; box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(3) .sec-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.4)); }
+    .security-item:nth-child(3):hover { border-color:#00c8f8; box-shadow:0 0 30px rgba(0,200,248,0.15); }
+    .security-item:nth-child(4) .sec-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.4)); }
+    .security-item:nth-child(4):hover { border-color:#f59e0b; box-shadow:0 0 30px rgba(245,158,11,0.15); }
+    .security-item:nth-child(5) .sec-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.4)); }
+    .security-item:nth-child(5):hover { border-color:#4a90d9; box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(6) .sec-icon { filter:drop-shadow(0 0 8px #d94a4a) drop-shadow(0 0 16px rgba(217,74,74,0.4)); }
+    .security-item:nth-child(6):hover { border-color:#d94a4a; box-shadow:0 0 30px rgba(217,74,74,0.15); }
+    .security-item:nth-child(7) .sec-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.4)); }
+    .security-item:nth-child(7):hover { border-color:#00c8f8; box-shadow:0 0 30px rgba(0,200,248,0.15); }
+    .security-item:nth-child(8) .sec-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.4)); }
+    .security-item:nth-child(8):hover { border-color:#f59e0b; box-shadow:0 0 30px rgba(245,158,11,0.15); }
     .security-item h4 { font-size:0.82rem; font-weight:700; }
 
     /* ---- Partners ---- */
@@ -2104,7 +2128,7 @@
     <div class="security-grid reveal">
       <div class="security-item"><span class="sec-icon">🛡️</span><h4>POPIA Ready</h4></div>
       <div class="security-item"><span class="sec-icon">🔐</span><h4>Secure SDLC</h4></div>
-      <div class="security-item"><span class="sec-icon">✅</span><h4>OWASP Best Practices</h4></div>
+      <div class="security-item"><span class="sec-icon">⚡</span><h4>OWASP Best Practices</h4></div>
       <div class="security-item"><span class="sec-icon">📋</span><h4>ISO 27001 Inspired</h4></div>
       <div class="security-item"><span class="sec-icon">🔍</span><h4>Vulnerability Assessments</h4></div>
       <div class="security-item"><span class="sec-icon">🕵️</span><h4>Penetration Testing</h4></div>
