@@ -125,13 +125,16 @@
     #navbar {
       position:fixed; top:0; left:0; right:0; z-index:1000;
       padding:20px 0; transition:all 0.35s ease;
+      background:rgba(6,9,18,0.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
     }
     #navbar.scrolled {
       padding:12px 0;
-      background:var(--glass);
+      background:rgba(6,9,18,0.98);
       backdrop-filter:blur(24px);
-      border-bottom:1px solid var(--border);
-      box-shadow:0 4px 30px rgba(0,0,0,0.5);
+      border-bottom:1px solid rgba(74,144,217,0.25);
+      box-shadow:0 4px 30px rgba(0,0,0,0.6);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
@@ -216,6 +219,7 @@
       50% { transform:scale(1.08) rotate(1.5deg); opacity:0.9; }
       100% { transform:scale(1) rotate(-1deg); opacity:0.5; }
     }
+    @keyframes blink { 50% { opacity:0; } }
 
     .hero-content {
       position:relative; z-index:2;
@@ -281,7 +285,7 @@
       display:inline-flex; align-items:center; gap:10px;
       background:rgba(74,144,217,0.12); border:1px solid rgba(74,144,217,0.28);
       padding:9px 22px; border-radius:50px;
-      font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
       color:#fff; margin-bottom:28px;
       animation:fadeInDown 0.8s ease both;
     }
@@ -836,18 +840,25 @@
 
     /* ---- Tech Stack ---- */
     #stack { padding:110px 0; overflow:hidden; }
+#stack { padding:90px 0; background:#03050a; position:relative; }
+    #stack::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,144,217,0.04) 0%, transparent 70%);
+      pointer-events:none;
+    }
     .stack-track-wrap { margin-top:48px; overflow:hidden; mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%); }
     .stack-track { display:flex; gap:20px; width:max-content; animation:stackScroll 40s linear infinite; }
     .stack-track:hover { animation-play-state:paused; }
     .stack-item {
-      background:var(--bg-card); border:1px solid var(--border);
-      border-radius:var(--radius); padding:16px 24px;
-      display:flex; align-items:center; gap:10px;
-      font-size:0.85rem; font-weight:600; white-space:nowrap;
+      background:rgba(13,22,37,0.7); border:1px solid rgba(74,144,217,0.12);
+      border-radius:var(--radius); padding:20px 30px;
+      display:flex; align-items:center; gap:12px;
+      font-size:0.95rem; font-weight:700; white-space:nowrap;
       transition:var(--transition); flex-shrink:0;
+      backdrop-filter:blur(4px);
     }
-    .stack-item:hover { border-color:var(--accent); box-shadow:var(--glow); }
-    .stack-item i { font-size:1.8rem; }
+    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15), inset 0 0 20px rgba(74,144,217,0.03); }
+    .stack-item i { font-size:2.2rem; }
     @keyframes stackScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ---- Testimonials ---- */
@@ -1150,6 +1161,9 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
+      <span class="status-dot" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#10d67c;box-shadow:0 0 8px rgba(16,214,124,0.6);margin-right:2px"></span>
+      All Systems Operational
+      <span style="opacity:0.3;margin:0 8px">|</span>
       AI · Cybersecurity · Software Engineering · Smart Infrastructure
     </div>
     <h1 class="hero-title">
@@ -2712,6 +2726,62 @@
 </section>
 
 <!-- ============================================================
+     SUCCESS METRICS
+============================================================ -->
+<section id="metrics" aria-hidden="true" style="background:#03050a;padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center">
+      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
+        <div style="font-size:2rem;font-weight:900;color:#10d67c;font-family:'Outfit',sans-serif;line-height:1">99.9%</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Platform Uptime</div>
+      </div>
+      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
+        <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Outfit',sans-serif;line-height:1">&lt;24h</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Support Response</div>
+      </div>
+      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
+        <div style="font-size:2rem;font-weight:900;color:#10d67c;font-family:'Outfit',sans-serif;line-height:1">100%</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Cloud Ready</div>
+      </div>
+      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
+        <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Outfit',sans-serif;line-height:1">SOC 2</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Security Standard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TERMINAL
+============================================================ -->
+<section id="terminal" aria-hidden="true" style="background:#020308;padding:70px 0;border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="reveal" style="max-width:680px;margin:0 auto">
+      <div style="background:#0a0e17;border:1px solid rgba(74,144,217,0.15);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6)">
+        <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;background:rgba(74,144,217,0.05);border-bottom:1px solid rgba(74,144,217,0.1)">
+          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#febb2e"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28c840"></span>
+          <span style="font-size:0.72rem;color:var(--muted);margin-left:12px;font-family:'Consolas','Courier New',monospace">terminal — kirov-dynamics — 80×24</span>
+        </div>
+        <div style="padding:20px 24px 28px;font-family:'Consolas','Courier New',monospace;font-size:0.82rem;line-height:1.8">
+          <div><span style="color:var(--muted)">#</span> <span style="color:#10d67c">npm install</span> kirov-dynamics</div>
+          <div style="color:var(--muted)"><span style="color:#f59e0b">⠋</span> Installing dependencies...</div>
+          <div id="term-lines">
+            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Loaded 42 modules</div>
+            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> AI engine initialized</div>
+            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Cloud services connected</div>
+          </div>
+          <div id="term-cursor" style="margin-top:4px">
+            <span style="color:#10d67c">kirov@dynamics</span>:<span style="color:var(--accent)">~/platform</span><span style="color:#fff">$</span> <span id="term-typing" style="color:#fff"></span><span style="display:inline-block;width:8px;height:15px;background:var(--accent);animation:blink 0.8s step-end infinite;vertical-align:text-bottom;margin-left:2px"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      FOOTER
 ============================================================ -->
 <footer>
@@ -3051,6 +3121,22 @@
         card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
       });
     });
+  })();
+
+  /* ---- TERMINAL TYPING ---- */
+  (function() {
+    var el = document.getElementById('term-typing');
+    if (!el) return;
+    var text = 'const africa = new Future(); africa.buildWith(ai, cloud, trust);';
+    var i = 0;
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 40 + Math.random() * 30);
+      }
+    }
+    setTimeout(type, 800);
   })();
 
   /* ---- SMOOTH SCROLL for anchor links ---- */
