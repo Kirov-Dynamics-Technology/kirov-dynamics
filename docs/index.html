@@ -282,8 +282,8 @@
       border:1px solid var(--border); border-radius:10px;
       padding:14px 10px; text-align:center;
     }
-    .about-stat-box .num { font-family:'Outfit',sans-serif; font-size:1.35rem; font-weight:900; color:var(--accent); filter:drop-shadow(0 0 6px rgba(74,144,217,0.2)); transition:all 0.3s ease; }
-    .about-stat-box:hover .num { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.3)) brightness(1.1); }
+    .about-stat-box .num { font-family:'Outfit',sans-serif; font-size:1.35rem; font-weight:900; color:var(--accent); }
+    .about-stat-box:hover .num { transform:scale(1.05); }
     .about-stat-box .lbl { font-size:0.68rem; color:var(--muted); margin-top:3px; }
 
     .expertise-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:32px; }
@@ -292,8 +292,8 @@
       border-radius:var(--radius); padding:20px; transition:var(--transition);
     }
     .expertise-card:hover { border-color:var(--accent); transform:translateY(-3px); }
-    .expertise-icon { font-size:1.5rem; margin-bottom:8px; transition:all 0.3s ease; filter:drop-shadow(0 0 4px rgba(74,144,217,0.15)); }
-    .expertise-card:hover .expertise-icon { filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 22px rgba(74,144,217,0.3)) brightness(1.15); }
+    .expertise-icon { font-size:1.3rem; margin-bottom:8px; }
+    .expertise-card:hover .expertise-icon { transform:scale(1.1); }
     .expertise-card h4 { font-size:0.88rem; font-weight:700; margin-bottom:4px; }
     .expertise-card p { font-size:0.8rem; color:var(--muted); line-height:1.5; }
 
@@ -337,8 +337,26 @@
       text-transform:uppercase; color:var(--accent); margin-bottom:14px;
       opacity:0.9;
     }
-    .division-icon { font-size:2.4rem; margin-bottom:14px; transition:all 0.3s ease; filter:drop-shadow(0 0 6px rgba(74,144,217,0.2)); }
-    .division-card:hover .division-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.35)); }
+    .icon-tile {
+      width:52px; height:52px; border-radius:12px;
+      background:radial-gradient(ellipse at 50% 50%,#0f1a2e 0%,#0a1220 100%);
+      border:1px solid rgba(255,255,255,0.06);
+      display:inline-flex; align-items:center; justify-content:center;
+      color:#fff; position:relative; flex-shrink:0;
+      box-shadow:0 4px 12px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.08),0 0 16px rgba(74,144,217,0.06);
+      transition:all 0.3s ease;
+    }
+    .icon-tile::after {
+      content:''; position:absolute; inset:0; border-radius:12px;
+      background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,transparent 50%);
+      pointer-events:none;
+    }
+    .icon-tile:hover {
+      box-shadow:0 4px 16px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.12),0 0 24px rgba(74,144,217,0.15);
+      border-color:rgba(255,255,255,0.12); transform:translateY(-2px);
+    }
+    .division-icon { font-size:2.4rem; margin-bottom:14px; }
+    .division-card:hover .division-icon { transform:scale(1.05); }
     .division-card h3 { font-size:1.15rem; font-weight:800; margin-bottom:10px; }
     .division-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; }
 
@@ -435,8 +453,8 @@
     }
     .industry-tile:hover { border-color:var(--accent); box-shadow:var(--glow); }
     .industry-tile:hover .industry-tile-bg { transform:scale(1.08); opacity:1; }
-    .industry-tile .tile-icon { font-size:1.8rem; display:block; margin-bottom:5px; position:relative; z-index:2; transition:all 0.3s ease; filter:drop-shadow(0 0 4px rgba(0,200,248,0.15)); }
-    .industry-tile:hover .tile-icon { filter:drop-shadow(0 0 10px var(--teal)) drop-shadow(0 0 24px rgba(0,200,248,0.3)) brightness(1.15); }
+    .industry-tile .tile-icon { font-size:1.4rem; margin-bottom:5px; position:relative; z-index:2; }
+    .industry-tile:hover .tile-icon { transform:scale(1.1); }
     .industry-tile .tile-name { font-size:0.76rem; font-weight:700; color:#fff; position:relative; z-index:2; text-shadow:0 1px 4px rgba(0,0,0,0.6); }
     .industry-tile:hover .tile-name { color:var(--teal); }
 
@@ -479,8 +497,8 @@
       padding:4px 12px; border-radius:50px; margin-bottom:14px;
       background:rgba(0,200,248,0.08); color:var(--teal); border:1px solid rgba(0,200,248,0.18);
     }
-    .product-card .product-icon { font-size:1.9rem; display:block; margin-bottom:12px; transition:all 0.3s ease; filter:drop-shadow(0 0 5px rgba(74,144,217,0.15)); }
-    .product-card:hover .product-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 26px rgba(74,144,217,0.3)); }
+    .product-card .product-icon { font-size:1.5rem; margin-bottom:12px; }
+    .product-card:hover .product-icon { transform:scale(1.1); }
     .product-card h3 { font-size:1.02rem; font-weight:800; margin-bottom:8px; }
     .product-card p { font-size:0.83rem; color:var(--muted); line-height:1.6; }
 
@@ -498,13 +516,8 @@
 
     .contact-details { display:flex; flex-direction:column; gap:22px; margin-top:36px; }
     .contact-item { display:flex; gap:16px; align-items:flex-start; }
-    .contact-icon {
-      width:48px; height:48px; border-radius:12px; flex-shrink:0;
-      background:rgba(74,144,217,0.08); border:1px solid var(--border);
-      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
-      transition:all 0.3s ease; filter:drop-shadow(0 0 6px rgba(74,144,217,0.25));
-    }
-    .contact-item:hover .contact-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 24px rgba(74,144,217,0.35)) brightness(1.2); border-color:var(--accent); }
+    .contact-icon { font-size:1.3rem; }
+    .contact-item:hover .contact-icon { border-color:rgba(255,255,255,0.12); }
     .contact-item h4 { font-size:0.85rem; font-weight:700; margin-bottom:3px; }
     .contact-item p, .contact-item a { font-size:0.85rem; color:var(--muted); }
     .contact-item a:hover { color:var(--accent); }
@@ -702,18 +715,9 @@
     }
     .why-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
     .why-icon {
-      width:50px; height:50px; border-radius:12px;
-      background:rgba(74,144,217,0.1); border:1px solid var(--border);
-      display:flex; align-items:center; justify-content:center;
-      font-size:1.4rem; margin-bottom:16px; transition:all 0.3s ease;
+      margin-bottom:16px; font-size:1.4rem;
     }
-    .why-card:nth-child(1) .why-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
-    .why-card:nth-child(2) .why-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
-    .why-card:nth-child(3) .why-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.3)); }
-    .why-card:nth-child(4) .why-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.3)); }
-    .why-card:nth-child(5) .why-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
-    .why-card:nth-child(6) .why-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
-    .why-card:hover .why-icon { filter:drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.12); }
+    .why-card:hover .why-icon { transform:scale(1.12); }
     .why-card h4 { font-size:1rem; font-weight:800; margin-bottom:8px; }
     .why-card p { font-size:0.85rem; color:var(--muted); line-height:1.6; }
 
@@ -841,24 +845,16 @@
     }
     .security-item:hover::before { opacity:1; }
     .security-item:hover { box-shadow:0 0 30px rgba(74,144,217,0.2); }
-    .security-item:hover .sec-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 24px rgba(74,144,217,0.5)) brightness(1.3) !important; transform:scale(1.1); }
-    .security-item .sec-icon { font-size:1.8rem; margin-bottom:10px; display:block; transition:all 0.3s ease; }
-    .security-item:nth-child(1) .sec-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.4)); }
-    .security-item:nth-child(1):hover { border-color:#10d67c; box-shadow:0 0 30px rgba(16,214,124,0.15); }
-    .security-item:nth-child(2) .sec-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.4)); }
-    .security-item:nth-child(2):hover { border-color:#4a90d9; box-shadow:0 0 30px rgba(74,144,217,0.15); }
-    .security-item:nth-child(3) .sec-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.4)); }
-    .security-item:nth-child(3):hover { border-color:#00c8f8; box-shadow:0 0 30px rgba(0,200,248,0.15); }
-    .security-item:nth-child(4) .sec-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.4)); }
-    .security-item:nth-child(4):hover { border-color:#f59e0b; box-shadow:0 0 30px rgba(245,158,11,0.15); }
-    .security-item:nth-child(5) .sec-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.4)); }
-    .security-item:nth-child(5):hover { border-color:#4a90d9; box-shadow:0 0 30px rgba(74,144,217,0.15); }
-    .security-item:nth-child(6) .sec-icon { filter:drop-shadow(0 0 8px #d94a4a) drop-shadow(0 0 16px rgba(217,74,74,0.4)); }
-    .security-item:nth-child(6):hover { border-color:#d94a4a; box-shadow:0 0 30px rgba(217,74,74,0.15); }
-    .security-item:nth-child(7) .sec-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.4)); }
-    .security-item:nth-child(7):hover { border-color:#00c8f8; box-shadow:0 0 30px rgba(0,200,248,0.15); }
-    .security-item:nth-child(8) .sec-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.4)); }
-    .security-item:nth-child(8):hover { border-color:#f59e0b; box-shadow:0 0 30px rgba(245,158,11,0.15); }
+    .security-item:hover .sec-icon { transform:scale(1.1); }
+    .security-item .sec-icon { font-size:1.4rem; margin-bottom:10px; }
+    .security-item:nth-child(1):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(2):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(3):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(4):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(5):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(6):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(7):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
+    .security-item:nth-child(8):hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); }
     .security-item h4 { font-size:0.82rem; font-weight:700; }
 
     /* ---- Partners ---- */
@@ -889,8 +885,8 @@
       transition:var(--transition); flex-shrink:0;
     }
     .cert-item:hover { border-color:var(--accent); box-shadow:var(--glow); }
-    .cert-item i { font-size:1.8rem; transition:all 0.3s ease; filter:drop-shadow(0 0 4px rgba(74,144,217,0.12)); }
-    .cert-item:hover i, .cert-item:hover span:first-child { filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 22px rgba(74,144,217,0.3)) brightness(1.15) !important; }
+    .cert-item i { font-size:1.4rem; }
+    .cert-item:hover i, .cert-item:hover span:first-child { transform:scale(1.1); }
     .cert-item span:first-child { transition:all 0.3s ease; }
 
     /* ---- Insights / Blog ---- */
@@ -945,11 +941,8 @@
       transition:var(--transition); min-width:140px;
     }
     .consult-option:hover { border-color:var(--accent); }
-    .consult-option .co-icon { font-size:1.5rem; display:block; margin-bottom:6px; transition:all 0.3s ease; }
-    .consult-option:nth-child(1) .co-icon { filter:drop-shadow(0 0 6px #10d67c) drop-shadow(0 0 12px rgba(16,214,124,0.3)); }
-    .consult-option:nth-child(2) .co-icon { filter:drop-shadow(0 0 6px #4a90d9) drop-shadow(0 0 12px rgba(74,144,217,0.3)); }
-    .consult-option:nth-child(3) .co-icon { filter:drop-shadow(0 0 6px #00c8f8) drop-shadow(0 0 12px rgba(0,200,248,0.3)); }
-    .consult-option:hover .co-icon { filter:drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 24px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.15); }
+    .consult-option .co-icon { font-size:1.4rem; margin-bottom:6px; }
+    .consult-option:hover .co-icon { transform:scale(1.15); }
     .consult-option span { font-size:0.78rem; font-weight:600; }
 
     /* ---- Resources ---- */
@@ -960,11 +953,8 @@
       border-radius:var(--radius-lg); padding:28px; text-align:center; transition:var(--transition);
     }
     .resource-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
-    .resource-card .res-icon { font-size:2.2rem; margin-bottom:12px; display:block; transition:all 0.3s ease; }
-    .resource-card:nth-child(1) .res-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
-    .resource-card:nth-child(2) .res-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
-    .resource-card:nth-child(3) .res-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.3)); }
-    .resource-card:hover .res-icon { filter:drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.15); }
+    .resource-card .res-icon { font-size:1.6rem; margin-bottom:12px; }
+    .resource-card:hover .res-icon { transform:scale(1.15); }
     .resource-card h4 { font-size:0.95rem; font-weight:800; margin-bottom:6px; }
     .resource-card p { font-size:0.8rem; color:var(--muted); margin-bottom:16px; line-height:1.5; }
 
@@ -976,14 +966,8 @@
       border-radius:var(--radius-lg); padding:26px; transition:var(--transition);
     }
     .career-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--glow); }
-    .career-card .career-icon { font-size:1.8rem; margin-bottom:10px; display:block; transition:all 0.3s ease; }
-    .career-card:nth-child(1) .career-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
-    .career-card:nth-child(2) .career-icon { filter:drop-shadow(0 0 8px #4a90d9) drop-shadow(0 0 16px rgba(74,144,217,0.3)); }
-    .career-card:nth-child(3) .career-icon { filter:drop-shadow(0 0 8px #d94a4a) drop-shadow(0 0 16px rgba(217,74,74,0.3)); }
-    .career-card:nth-child(4) .career-icon { filter:drop-shadow(0 0 8px #00c8f8) drop-shadow(0 0 16px rgba(0,200,248,0.3)); }
-    .career-card:nth-child(5) .career-icon { filter:drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 16px rgba(245,158,11,0.3)); }
-    .career-card:nth-child(6) .career-icon { filter:drop-shadow(0 0 8px #10d67c) drop-shadow(0 0 16px rgba(16,214,124,0.3)); }
-    .career-card:hover .career-icon { filter:drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px rgba(74,144,217,0.4)) brightness(1.2) !important; transform:scale(1.15); }
+    .career-card .career-icon { font-size:1.4rem; margin-bottom:10px; }
+    .career-card:hover .career-icon { transform:scale(1.15); }
     .career-card h4 { font-size:0.92rem; font-weight:800; margin-bottom:4px; }
     .career-card p { font-size:0.78rem; color:var(--muted); line-height:1.5; }
 
@@ -1155,32 +1139,32 @@
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
-        <div class="why-icon">🌍</div>
+        <div class="why-icon icon-tile">🌍</div>
         <h4>African-First Innovation</h4>
         <p>Solutions designed for Africa's unique infrastructure, regulatory, and connectivity realities — not adapted from Western models.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🔒</div>
+        <div class="why-icon icon-tile">🔒</div>
         <h4>Enterprise-Grade Security</h4>
         <p>POPIA-ready, OWASP-aligned, and ISO-inspired security built into every system we deliver — from day one.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">⚙️</div>
+        <div class="why-icon icon-tile">⚙️</div>
         <h4>End-to-End Software Engineering</h4>
         <p>From strategy and design through development, deployment, and managed support — we own the full lifecycle.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🤖</div>
+        <div class="why-icon icon-tile">🤖</div>
         <h4>AI Integrated Into Every Solution</h4>
         <p>AI isn't an add-on — it's embedded in our platforms, workflows, and consulting to deliver real intelligence at every layer.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🏛️</div>
+        <div class="why-icon icon-tile">🏛️</div>
         <h4>Government &amp; Enterprise Expertise</h4>
         <p>Deep understanding of public sector procurement, compliance, and operations — combined with private-sector agility.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">☁️</div>
+        <div class="why-icon icon-tile">☁️</div>
         <h4>Modern Cloud-Native Architecture</h4>
         <p>Built on AWS, Azure, and Google Cloud with Kubernetes, CI/CD, and infrastructure-as-code for scalability and resilience.</p>
       </div>
@@ -1557,7 +1541,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 01</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></div>
           <h3>Digital Transformation</h3>
           <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
         </div>
@@ -1566,7 +1550,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 02</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="bot"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></div>
           <h3>AI Solutions</h3>
           <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines for African markets.</p>
         </div>
@@ -1575,7 +1559,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 03</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="shield-check"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="shield-check"></i></div>
           <h3>Cybersecurity</h3>
           <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
         </div>
@@ -1584,7 +1568,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 04</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="building-2"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></div>
           <h3>Smart Infrastructure</h3>
           <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
         </div>
@@ -1593,7 +1577,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 05</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="cog"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="cog"></i></div>
           <h3>Engineering Technology</h3>
           <p>Software built for South African engineers and construction professionals — site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
         </div>
@@ -1602,7 +1586,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 06</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="landmark"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="landmark"></i></div>
           <h3>Government Technology</h3>
           <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
         </div>
@@ -1611,7 +1595,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 07</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="target"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="target"></i></div>
           <h3>Consulting</h3>
           <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
         </div>
@@ -1620,7 +1604,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 08</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="bar-chart-3"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="bar-chart-3"></i></div>
           <h3>Data &amp; Intelligence</h3>
           <p>Data engineering, business intelligence dashboards, predictive analytics, and AI-powered reporting that turns raw data into strategic decisions for African enterprises.</p>
         </div>
@@ -1629,7 +1613,7 @@
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
           <div class="division-num">Division 09</div>
-          <div class="division-icon" aria-hidden="true"><i data-lucide="cloud"></i></div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="cloud"></i></div>
           <h3>Cloud &amp; Platform Engineering</h3>
           <p>Cloud migration, CI/CD pipelines, Kubernetes orchestration, and infrastructure automation — building scalable, resilient platforms on AWS, Azure, and Google Cloud.</p>
         </div>
@@ -1979,82 +1963,82 @@
     <div class="industries-grid reveal">
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Government</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Government</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Municipalities</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Municipalities</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1769240627842-1a3bd858695c?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Mining</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Mining</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Construction</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Construction</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Banking</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Banking</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="heart-pulse"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="heart-pulse"></i></span>
           <span class="tile-name">Healthcare</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
           <span class="tile-name">Education</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1651838677683-f642527059c6?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="tractor"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="tractor"></i></span>
           <span class="tile-name">Agriculture</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Logistics</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Logistics</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="factory"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="factory"></i></span>
           <span class="tile-name">Manufacturing</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Retail</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Retail</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Telecoms</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Telecoms</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Energy</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Energy</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Property</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Property</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="cpu"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="cpu"></i></span>
         <span class="tile-name">IoT &amp; Sensors</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="bot"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></span>
         <span class="tile-name">Robotics &amp; AI</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="globe"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="globe"></i></span>
         <span class="tile-name">Aerospace &amp; Defence</span>
       </div>
       <div class="industry-tile">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="truck"></i></span>
         <span class="tile-name">Transport &amp; Logistics</span>
       </div>
     </div>
@@ -2079,7 +2063,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">AI Platform</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="bot"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></span>
           <h3>AI Workplace Assistant</h3>
           <p>Enterprise AI assistant for reporting, scheduling, document processing, and decision support — trained for African business contexts.</p>
         </div>
@@ -2088,7 +2072,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">GovTech</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="landmark"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="landmark"></i></span>
           <h3>Municipal ERP</h3>
           <p>Comprehensive platform for SA municipalities covering rates billing, service delivery, asset management, and citizen engagement.</p>
         </div>
@@ -2097,7 +2081,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">ERP</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></span>
           <h3>Construction ERP</h3>
           <p>CIDB-compliant end-to-end ERP for South African construction companies — from tender management to project delivery.</p>
         </div>
@@ -2106,7 +2090,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">Smart City</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="bar-chart-3"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="bar-chart-3"></i></span>
           <h3>Smart Traffic Platform</h3>
           <p>AI-powered traffic analytics, congestion prediction, and adaptive signal control for African cities and municipalities.</p>
         </div>
@@ -2115,7 +2099,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">Security</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="shield-check"></i></span>
           <h3>Kirov AI Agent</h3>
           <p>Autonomous AI security agent that monitors, detects, and responds to cyber threats in real time — POPIA-aligned by design.</p>
         </div>
@@ -2124,7 +2108,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">Logistics</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="truck"></i></span>
           <h3>Fleet Intelligence</h3>
           <p>Real-time GPS tracking, predictive maintenance, driver behaviour analytics, and fuel optimisation for African fleet operators.</p>
         </div>
@@ -2133,7 +2117,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">FinTech</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="target"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="target"></i></span>
           <h3>Fraud Detection Platform</h3>
           <p>ML-powered fraud detection for financial transactions, identity verification, and unusual pattern recognition in real time.</p>
         </div>
@@ -2142,7 +2126,7 @@
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
           <span class="product-badge">Identity</span>
-          <span class="product-icon" aria-hidden="true"><i data-lucide="fingerprint"></i></span>
+          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="fingerprint"></i></span>
           <h3>Digital Identity Platform</h3>
           <p>Secure, scalable digital identity and verification platform for governments, financial institutions, and enterprises across Africa.</p>
         </div>
@@ -2165,14 +2149,14 @@
       </p>
     </div>
     <div class="security-grid reveal">
-      <div class="security-item"><span class="sec-icon">🛡️</span><h4>POPIA Ready</h4></div>
-      <div class="security-item"><span class="sec-icon">🔐</span><h4>Secure SDLC</h4></div>
-      <div class="security-item"><span class="sec-icon">⚡</span><h4>OWASP Best Practices</h4></div>
-      <div class="security-item"><span class="sec-icon">📋</span><h4>ISO 27001 Inspired</h4></div>
-      <div class="security-item"><span class="sec-icon">🔍</span><h4>Vulnerability Assessments</h4></div>
-      <div class="security-item"><span class="sec-icon">🕵️</span><h4>Penetration Testing</h4></div>
-      <div class="security-item"><span class="sec-icon">☁️</span><h4>Cloud Security</h4></div>
-      <div class="security-item"><span class="sec-icon">👤</span><h4>Identity &amp; Access Management</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">🛡️</span><h4>POPIA Ready</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">🔐</span><h4>Secure SDLC</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">⚡</span><h4>OWASP Best Practices</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">📋</span><h4>ISO 27001 Inspired</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">🔍</span><h4>Vulnerability Assessments</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">🕵️</span><h4>Penetration Testing</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">☁️</span><h4>Cloud Security</h4></div>
+      <div class="security-item"><span class="sec-icon icon-tile">👤</span><h4>Identity &amp; Access Management</h4></div>
     </div>
   </div>
 </section>
@@ -2340,9 +2324,9 @@
       <h3>Let's Discuss Your Vision</h3>
       <p>Available on your preferred platform. No obligation, just honest expert advice.</p>
       <div class="consult-options">
-        <div class="consult-option"><span class="co-icon">📅</span><span>Calendly</span></div>
-        <div class="consult-option"><span class="co-icon">💬</span><span>Google Meet</span></div>
-        <div class="consult-option"><span class="co-icon">🟦</span><span>Microsoft Teams</span></div>
+        <div class="consult-option"><span class="co-icon icon-tile">📅</span><span>Calendly</span></div>
+        <div class="consult-option"><span class="co-icon icon-tile">💬</span><span>Google Meet</span></div>
+        <div class="consult-option"><span class="co-icon icon-tile">🟦</span><span>Microsoft Teams</span></div>
       </div>
       <a href="#contact" class="btn btn-primary" style="margin-top:24px">Schedule Now</a>
     </div>
@@ -2364,19 +2348,19 @@
     </div>
     <div class="resources-grid reveal">
       <div class="resource-card">
-        <span class="res-icon">📄</span>
+        <span class="res-icon icon-tile">📄</span>
         <h4>Company Profile</h4>
         <p>Overview of Kirov Dynamics Technology — our mission, divisions, and track record.</p>
         <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
       </div>
       <div class="resource-card">
-        <span class="res-icon">📋</span>
+        <span class="res-icon icon-tile">📋</span>
         <h4>Capability Statement</h4>
         <p>Our core competencies, past projects, and differentiators for tenders and RFQs.</p>
         <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
       </div>
       <div class="resource-card">
-        <span class="res-icon">📘</span>
+        <span class="res-icon icon-tile">📘</span>
         <h4>Service Catalogue</h4>
         <p>Complete directory of our services, pricing models, and engagement frameworks.</p>
         <a href="#contact" class="btn btn-outline" style="font-size:0.78rem;padding:8px 18px">Request Copy</a>
@@ -2400,32 +2384,32 @@
     </div>
     <div class="careers-grid reveal">
       <div class="career-card">
-        <span class="career-icon">🎓</span>
+        <span class="career-icon icon-tile">🎓</span>
         <h4>Graduate Programme</h4>
         <p>Structured 12-month programme for recent graduates in software engineering, AI, and cybersecurity.</p>
       </div>
       <div class="career-card">
-        <span class="career-icon">💻</span>
+        <span class="career-icon icon-tile">💻</span>
         <h4>Software Engineer</h4>
         <p>Build enterprise platforms using React, Python, Java, and cloud-native technologies.</p>
       </div>
       <div class="career-card">
-        <span class="career-icon">🛡️</span>
+        <span class="career-icon icon-tile">🛡️</span>
         <h4>Cybersecurity Analyst</h4>
         <p>Conduct assessments, build SOC dashboards, and protect African digital infrastructure.</p>
       </div>
       <div class="career-card">
-        <span class="career-icon">🤖</span>
+        <span class="career-icon icon-tile">🤖</span>
         <h4>AI Engineer</h4>
         <p>Design and deploy machine learning models, LLM pipelines, and AI agents for enterprise clients.</p>
       </div>
       <div class="career-card">
-        <span class="career-icon">📊</span>
+        <span class="career-icon icon-tile">📊</span>
         <h4>Data Analyst</h4>
         <p>Transform raw data into actionable insights through dashboards, pipelines, and predictive models.</p>
       </div>
       <div class="career-card">
-        <span class="career-icon">🌍</span>
+        <span class="career-icon icon-tile">🌍</span>
         <h4>Internships</h4>
         <p>Hands-on experience across software development, AI, cloud engineering, and business operations.</p>
       </div>
@@ -2497,21 +2481,21 @@
         </p>
         <div class="contact-details">
           <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true">📧</div>
+            <div class="contact-icon icon-tile" aria-hidden="true">📧</div>
             <div>
               <h4>Email</h4>
               <p>info@kirovdynamics.com</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div class="contact-icon icon-tile" aria-hidden="true">📍</div>
             <div>
               <h4>Location</h4>
               <p>South Africa · Serving Africa &amp; Beyond</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true">
+            <div class="contact-icon icon-tile" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
               </svg>
@@ -2522,14 +2506,14 @@
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true">👤</div>
+            <div class="contact-icon icon-tile" aria-hidden="true">👤</div>
             <div>
               <h4>Founder</h4>
               <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Dakalo Mashau — LinkedIn</a>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true">👤</div>
+            <div class="contact-icon icon-tile" aria-hidden="true">👤</div>
             <div>
               <h4>Co-Founder</h4>
               <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer">Koketso Raphasha — LinkedIn</a>
