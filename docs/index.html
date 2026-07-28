@@ -244,13 +244,6 @@
       box-shadow:0 0 10px var(--teal); animation:pulse 2s infinite;
     }
 
-    .scroll-hint {
-      position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
-      display:flex; flex-direction:column; align-items:center; gap:6px;
-      animation:scrollBounce 2.5s ease-in-out infinite; z-index:2; color:var(--muted);
-    }
-    .scroll-hint span { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; }
-
     @keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 55%{transform:translateX(-50%) translateY(10px)} }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-22px)} to{opacity:1;transform:none} }
@@ -677,7 +670,6 @@
       .hero-content { padding:70px 10px 16px; }
       .hero-badge { font-size:0.5rem; padding:2px 6px; gap:3px; margin-bottom:8px; }
       .hero-badge-dot { width:3px; height:3px; }
-      .scroll-hint { display:none; }
       .services-tabs { grid-template-columns:repeat(2,1fr); gap:5px; }
       .tab-btn { padding:8px 10px; font-size:0.72rem; }
       .hero-stats { border-top:none; }
@@ -1117,11 +1109,6 @@
     </div>
   </div>
 
-  <div class="scroll-hint" aria-hidden="true">
-    <span>Scroll</span>
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-      <path d="M12 5v14M5 12l7 7 7-7"/>
-    </svg>
   </div>
 </section>
 
