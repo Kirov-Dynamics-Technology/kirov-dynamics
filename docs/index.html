@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <style>
     /* ============================================================
        DESIGN TOKENS
@@ -749,16 +750,20 @@
     }
 
     /* ---- Tech Stack ---- */
-    #stack { padding:110px 0; }
-    .stack-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; margin-top:48px; }
+    #stack { padding:110px 0; overflow:hidden; }
+    .stack-track-wrap { margin-top:48px; overflow:hidden; mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%); }
+    .stack-track { display:flex; gap:20px; width:max-content; animation:stackScroll 40s linear infinite; }
+    .stack-track:hover { animation-play-state:paused; }
     .stack-item {
       background:var(--bg-card); border:1px solid var(--border);
-      border-radius:var(--radius); padding:16px 12px;
-      text-align:center; font-size:0.8rem; font-weight:600;
-      transition:var(--transition); display:flex; flex-direction:column; align-items:center; gap:6px;
+      border-radius:var(--radius); padding:16px 24px;
+      display:flex; align-items:center; gap:10px;
+      font-size:0.85rem; font-weight:600; white-space:nowrap;
+      transition:var(--transition); flex-shrink:0;
     }
-    .stack-item:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:var(--glow); }
-    .stack-item .stack-icon { font-size:1.5rem; }
+    .stack-item:hover { border-color:var(--accent); box-shadow:var(--glow); }
+    .stack-item i { font-size:1.8rem; }
+    @keyframes stackScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ---- Testimonials ---- */
     #testimonials { padding:110px 0; background:var(--bg-alt); }
@@ -1265,31 +1270,41 @@
         Modern, battle-tested technologies across frontend, backend, AI, cloud, and infrastructure.
       </p>
     </div>
-    <div class="stack-grid reveal">
-      <div class="stack-item"><span class="stack-icon">⚛️</span>React</div>
-      <div class="stack-item"><span class="stack-icon">▲</span>Next.js</div>
-      <div class="stack-item"><span class="stack-icon">🐍</span>Python</div>
-      <div class="stack-item"><span class="stack-icon">⚡</span>FastAPI</div>
-      <div class="stack-item"><span class="stack-icon">🟢</span>Node.js</div>
-      <div class="stack-item"><span class="stack-icon">☕</span>Java</div>
-      <div class="stack-item"><span class="stack-icon">🌱</span>Spring Boot</div>
-      <div class="stack-item"><span class="stack-icon">🐳</span>Docker</div>
-      <div class="stack-item"><span class="stack-icon">☸️</span>Kubernetes</div>
-      <div class="stack-item"><span class="stack-icon">🟦</span>Azure</div>
-      <div class="stack-item"><span class="stack-icon">🟡</span>AWS</div>
-      <div class="stack-item"><span class="stack-icon">🔵</span>Google Cloud</div>
-      <div class="stack-item"><span class="stack-icon">🐘</span>PostgreSQL</div>
-      <div class="stack-item"><span class="stack-icon">🍃</span>MongoDB</div>
-      <div class="stack-item"><span class="stack-icon">📡</span>Redis</div>
-      <div class="stack-item"><span class="stack-icon">🧠</span>TensorFlow</div>
-      <div class="stack-item"><span class="stack-icon">🔥</span>PyTorch</div>
-      <div class="stack-item"><span class="stack-icon">🤖</span>OpenAI</div>
-      <div class="stack-item"><span class="stack-icon">🦙</span>Ollama</div>
-      <div class="stack-item"><span class="stack-icon">🔗</span>LangChain</div>
-      <div class="stack-item"><span class="stack-icon">🔄</span>GitHub Actions</div>
-      <div class="stack-item"><span class="stack-icon">🐧</span>Linux</div>
-      <div class="stack-item"><span class="stack-icon">🏗️</span>Terraform</div>
+    <div class="stack-track-wrap reveal">
+      <div class="stack-track" id="stackTrack">
+        <div class="stack-item"><i class="devicon-react-original colored"></i>React</div>
+        <div class="stack-item"><i class="devicon-nextjs-original colored"></i>Next.js</div>
+        <div class="stack-item"><i class="devicon-python-plain colored"></i>Python</div>
+        <div class="stack-item"><i class="devicon-fastapi-plain colored"></i>FastAPI</div>
+        <div class="stack-item"><i class="devicon-nodejs-plain colored"></i>Node.js</div>
+        <div class="stack-item"><i class="devicon-java-plain colored"></i>Java</div>
+        <div class="stack-item"><i class="devicon-spring-plain colored"></i>Spring Boot</div>
+        <div class="stack-item"><i class="devicon-docker-plain colored"></i>Docker</div>
+        <div class="stack-item"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</div>
+        <div class="stack-item"><i class="devicon-azure-plain colored"></i>Azure</div>
+        <div class="stack-item"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</div>
+        <div class="stack-item"><i class="devicon-googlecloud-plain colored"></i>Google Cloud</div>
+        <div class="stack-item"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</div>
+        <div class="stack-item"><i class="devicon-mongodb-plain colored"></i>MongoDB</div>
+        <div class="stack-item"><i class="devicon-redis-plain colored"></i>Redis</div>
+        <div class="stack-item"><i class="devicon-tensorflow-original colored"></i>TensorFlow</div>
+        <div class="stack-item"><i class="devicon-pytorch-original colored"></i>PyTorch</div>
+        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(0,200,50,0.15);color:#10d67c;padding:2px 6px;border-radius:4px">AI</span>OpenAI</div>
+        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(100,100,255,0.15);color:#8888ff;padding:2px 6px;border-radius:4px">AI</span>Ollama</div>
+        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(0,200,248,0.15);color:var(--teal);padding:2px 6px;border-radius:4px">AI</span>LangChain</div>
+        <div class="stack-item"><i class="devicon-githubactions-plain colored"></i>GitHub Actions</div>
+        <div class="stack-item"><i class="devicon-linux-plain colored"></i>Linux</div>
+        <div class="stack-item"><i class="devicon-terraform-plain colored"></i>Terraform</div>
+      </div>
     </div>
+    <script>
+      (function() {
+        var track = document.getElementById('stackTrack');
+        if (!track) return;
+        var clone = track.cloneNode(true);
+        track.parentNode.appendChild(clone);
+      })();
+    </script>
   </div>
 </section>
 
