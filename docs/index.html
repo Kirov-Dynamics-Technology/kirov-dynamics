@@ -459,37 +459,42 @@
     }
 
     .hero-stats {
-      display:flex; gap:0; justify-content:center;
-      border-top: none;
-      padding: 20px 32px;
-      animation:fadeInUp 0.9s ease 0.55s both;
-      flex-wrap:wrap;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(0,200,248,0.18);
-      border-radius: 16px;
-      box-shadow: 0 0 40px rgba(0,200,248,0.07);
-      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      animation: fadeInUp 0.9s ease 0.55s both;
+      margin-top: 12px;
+      width: 100%;
+      max-width: 860px;
     }
     .stat-item {
-      text-align:center; padding:0 36px;
-      border-right:1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      padding: 16px 10px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0,200,248,0.15);
+      border-radius: 12px;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    .stat-item:last-child { border-right:none; }
+    .stat-item:hover {
+      border-color: rgba(0,200,248,0.45);
+      box-shadow: 0 0 24px rgba(0,200,248,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
     .stat-num {
-      font-family:'Outfit',sans-serif; font-size:2.6rem; font-weight:900;
+      font-family:'Outfit',sans-serif; font-size:2rem; font-weight:900;
       color:var(--teal); display:block; line-height:1; font-variant-numeric:tabular-nums;
       text-shadow: 0 0 24px rgba(0, 200, 248, 0.7);
     }
     .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
     @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
-    /* Alternate orange/blue on stat numbers */
     .stat-item:nth-child(even) .stat-num {
-      color:#29ABE2;
-      text-shadow: 0 0 18px rgba(41,171,226,0.5);
+      color: var(--accent-lite);
+      text-shadow: 0 0 24px rgba(74,144,217,0.7);
     }
-    .stat-label { font-size:0.82rem; color:rgba(255,255,255,0.95); margin-top:6px; letter-spacing:0.06em; font-weight:700; text-transform:uppercase; }
+    .stat-label { font-size:0.72rem; color:rgba(255,255,255,0.85); margin-top:6px; letter-spacing:0.05em; font-weight:700; text-transform:uppercase; }
+
     .cipc-badge {
       display:flex; flex-direction:column; align-items:center; gap:4px;
       cursor:default; margin-top:4px;
@@ -1384,18 +1389,6 @@
      HERO
 ============================================================ -->
 <section id="home" class="hero" aria-label="Hero">
-  <!-- Large spinning globe background -->
-  <div class="hero-globe" aria-hidden="true">
-    <div class="ring ring-1"></div>
-    <div class="ring ring-2"></div>
-    <div class="ring ring-3"></div>
-    <div class="ring ring-4"></div>
-    <div class="ring ring-5"></div>
-    <div class="ring ring-6"></div>
-    <div class="ring ring-equator"></div>
-    <div class="ring ring-tilt"></div>
-    <div class="core"></div>
-  </div>
   <div class="hero-gradient-mesh" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-badge">
@@ -1419,7 +1412,6 @@
       <a href="#solutions" class="btn btn-outline" id="hero-contact-btn"><i data-lucide="layout-grid"></i> Explore Products</a>
       <a href="#projects" class="btn btn-outline"><i data-lucide="briefcase"></i> View Case Studies</a>
       <a href="#resources" class="btn btn-outline"><i data-lucide="building"></i> Company Profile</a>
-    </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
         <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span><span class="stat-num">+</span>
@@ -1430,19 +1422,20 @@
         <div class="stat-label">Industries Served</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span><span class="stat-num">+</span>
-        <div class="stat-label">GitHub Repositories</div>
+        <span class="stat-num" data-target="30" aria-label="30 GitHub repositories">0</span><span class="stat-num">+</span>
+        <div class="stat-label">GitHub Repos</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span><span class="stat-num">+</span>
-        <div class="stat-label">SaaS Products in Pipeline</div>
+        <span class="stat-num" data-target="10" aria-label="10 SaaS products">0</span><span class="stat-num">+</span>
+        <div class="stat-label">SaaS Products</div>
       </div>
       <div class="stat-item">
         <div class="cipc-badge">
-          <i data-lucide="scroll" style="width:18px;height:18px"></i>
-          <span>CIPC Registered</span>
+          <i data-lucide="scroll" style="width:22px;height:22px;color:var(--teal)"></i>
+          <div class="stat-label" style="margin-top:6px">CIPC<br>Registered</div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
