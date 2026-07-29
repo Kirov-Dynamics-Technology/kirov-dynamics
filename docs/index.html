@@ -331,12 +331,62 @@
       min-height:100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background:url('assets/images/hero-bg.jpg') center center/cover no-repeat;
+      background: radial-gradient(ellipse at 60% 50%, rgba(13,22,39,1) 0%, rgba(8,13,24,1) 100%);
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(8,13,24,0.78) 0%, rgba(13,22,39,0.72) 60%, rgba(8,13,24,0.55) 100%);
+      background: radial-gradient(ellipse 80% 80% at 65% 50%, rgba(74,144,217,0.07) 0%, transparent 70%);
       z-index:0;
+    }
+    /* Large hero globe */
+    .hero-globe {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 580px;
+      height: 580px;
+      transform-style: preserve-3d;
+      animation: spin3D 18s linear infinite;
+      opacity: 0.35;
+      z-index: 1;
+    }
+    @media(max-width:900px) {
+      .hero-globe { width: 380px; height: 380px; right: -100px; opacity: 0.22; }
+    }
+    @media(max-width:600px) {
+      .hero-globe { width: 280px; height: 280px; right: -80px; opacity: 0.15; }
+    }
+    .hero-globe .ring {
+      position: absolute;
+      inset: 0;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(74,144,217,0.25) inset, 0 0 18px rgba(74,144,217,0.25);
+    }
+    .hero-globe .ring-1 { transform: rotateY(0deg); }
+    .hero-globe .ring-2 { transform: rotateY(30deg); }
+    .hero-globe .ring-3 { transform: rotateY(60deg); }
+    .hero-globe .ring-4 { transform: rotateY(90deg); }
+    .hero-globe .ring-5 { transform: rotateY(120deg); }
+    .hero-globe .ring-6 { transform: rotateY(150deg); }
+    .hero-globe .ring-equator {
+      transform: rotateX(90deg);
+      border-color: var(--teal);
+      box-shadow: 0 0 18px rgba(0,200,248,0.25) inset, 0 0 18px rgba(0,200,248,0.25);
+    }
+    .hero-globe .ring-tilt {
+      transform: rotateX(60deg);
+      border-color: rgba(0,200,248,0.5);
+    }
+    .hero-globe .core {
+      position: absolute;
+      inset: 180px;
+      background: var(--teal);
+      border-radius: 50%;
+      box-shadow: 0 0 60px var(--teal), 0 0 120px rgba(0,200,248,0.3);
+      opacity: 0.6;
+      animation: pulseCore 4s ease-in-out infinite;
     }
     @media(max-width:768px) {
       .hero {
@@ -393,19 +443,27 @@
 
     .hero-stats {
       display:flex; gap:0; justify-content:center;
-      border-top:1px solid var(--border); padding-top:24px;
+      border-top: none;
+      padding: 20px 32px;
       animation:fadeInUp 0.9s ease 0.55s both;
       flex-wrap:wrap;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,200,248,0.18);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0,200,248,0.07);
+      margin-top: 8px;
     }
     .stat-item {
       text-align:center; padding:0 36px;
-      border-right:1px solid var(--border);
+      border-right:1px solid rgba(255,255,255,0.1);
     }
     .stat-item:last-child { border-right:none; }
     .stat-num {
-      font-family:'Outfit',sans-serif; font-size:2.1rem; font-weight:900;
+      font-family:'Outfit',sans-serif; font-size:2.6rem; font-weight:900;
       color:var(--teal); display:block; line-height:1; font-variant-numeric:tabular-nums;
-      text-shadow: 0 0 18px rgba(0, 200, 248, 0.5);
+      text-shadow: 0 0 24px rgba(0, 200, 248, 0.7);
     }
     .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
     @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
@@ -414,7 +472,7 @@
       color:#29ABE2;
       text-shadow: 0 0 18px rgba(41,171,226,0.5);
     }
-    .stat-label { font-size:0.78rem; color:rgba(255,255,255,0.85); margin-top:5px; letter-spacing:0.05em; font-weight:600; }
+    .stat-label { font-size:0.82rem; color:rgba(255,255,255,0.95); margin-top:6px; letter-spacing:0.06em; font-weight:700; text-transform:uppercase; }
     .cipc-badge {
       display:flex; flex-direction:column; align-items:center; gap:4px;
       cursor:default; margin-top:4px;
@@ -1309,6 +1367,18 @@
      HERO
 ============================================================ -->
 <section id="home" class="hero" aria-label="Hero">
+  <!-- Large spinning globe background -->
+  <div class="hero-globe" aria-hidden="true">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="ring ring-4"></div>
+    <div class="ring ring-5"></div>
+    <div class="ring ring-6"></div>
+    <div class="ring ring-equator"></div>
+    <div class="ring ring-tilt"></div>
+    <div class="core"></div>
+  </div>
   <div class="hero-gradient-mesh" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-badge">
