@@ -456,24 +456,33 @@
     .hero-btns .btn {
       padding: 10px 18px;
       font-size: 0.85rem;
+      border-color: var(--accent);
+      background: rgba(74,144,217,0.15);
+      color: var(--accent-lite);
+      box-shadow: 0 0 20px rgba(74,144,217,0.15);
+    }
+    .hero-btns .btn:active {
+      transform: scale(0.95);
+      background: rgba(74,144,217,0.25);
+      box-shadow: 0 0 30px rgba(74,144,217,0.3);
     }
 
     .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
       gap: 12px;
       animation: fadeInUp 0.9s ease 0.55s both;
       margin-top: 12px;
       width: 100%;
       max-width: 860px;
     }
+    .stat-item { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:90px; }
     .stat-item {
       text-align: center;
       padding: 16px 10px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(8,13,24,0.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(0,200,248,0.15);
+      border: 1px solid rgba(0,200,248,0.2);
       border-radius: 12px;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
@@ -891,8 +900,8 @@
       .hamburger { display:flex; }
       #navbar { padding:10px 0; }
       #navbar.scrolled { padding:6px 0; }
-      .hero-stats { flex-direction:row; align-items:center; gap:0; justify-content:center; }
-      .stat-item { border-right:none; padding:0 10px; }
+      .hero-stats { flex-wrap:wrap; gap:8px; }
+      .stat-item { flex:1 1 calc(33.33% - 10px); min-height:80px; padding:12px 8px; }
       .stat-num { font-size:1.8rem; }
       .stat-label { font-size:0.7rem; }
       .form-row { grid-template-columns:1fr; }
@@ -931,7 +940,8 @@
       .hero-title { font-size:2.2rem; margin-bottom:8px; }
       .contact-form { padding:20px; }
       .hero-sub { font-size:0.92rem; margin-bottom:12px; }
-      .hero-stats { gap:2px; padding-top:6px; }
+      .hero-stats { gap:6px; padding-top:6px; }
+      .stat-item { flex:1 1 calc(50% - 6px); min-height:75px; padding:10px 6px; }
       .stat-num { font-size:1.5rem; }
       .stat-label { font-size:0.68rem; }
       .section-title { font-size:1.5rem; }
@@ -1445,7 +1455,7 @@
 ============================================================ -->
 <section id="why-choose" aria-labelledby="why-title" style="position:relative; overflow:hidden;">
   <!-- Spinning globe decoration -->
-  <div class="hero-globe" aria-hidden="true" style="width:500px;height:500px;right:-120px;top:50%;opacity:0.18;">
+  <div class="hero-globe" aria-hidden="true" style="width:680px;height:680px;left:50%;top:50%;transform:translate(-50%,-50%) rotateX(20deg) rotateY(0deg);animation:spin3D 22s linear infinite;opacity:0.12;">
     <div class="ring ring-1"></div>
     <div class="ring ring-2"></div>
     <div class="ring ring-3"></div>
