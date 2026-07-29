@@ -681,7 +681,7 @@
       .hero-sub { font-size:1.05rem; margin-bottom:18px; }
       .container { padding:0 20px; }
       .divisions-grid { grid-template-columns:1fr; }
-      .nav-logo img { max-height:64px !important; height:auto !important; }
+      .nav-logo img { max-height:48px !important; height:auto !important; }
       .hero-stats { border-top:none; padding-top:10px; }
       .hero-badge { margin-bottom:14px; font-size:0.75rem; padding:6px 14px; }
       .hero-title { font-size:2.6rem; margin-bottom:10px; }
@@ -707,7 +707,7 @@
       .stat-num { font-size:1.5rem; }
       .stat-label { font-size:0.68rem; }
       .section-title { font-size:1.5rem; }
-      .nav-logo img { max-height:54px !important; }
+      .nav-logo img { max-height:40px !important; }
       .stat-item { width:auto; padding:0 5px; display:flex; flex-direction:column; align-items:center; }
       .division-card-body { padding:18px; }
       .product-card-body { padding:18px 20px 22px; }
@@ -1116,7 +1116,21 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo-hero.png" alt="Kirov Dynamics Technology" style="height:85px; width:auto; display:block;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="background-color:rgba(13, 22, 37, 0.7); border-radius:12px; padding:4px 8px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
+          <img src="assets/images/k-only.png" alt="K Logo" style="height:48px; width:auto; display:block;">
+        </div>
+        <div style="width:2px; height:44px; background-color:rgba(255,255,255,0.6); border-radius:1px;"></div>
+        <div style="display:flex; flex-direction:column; justify-content:center;">
+          <span style="font-family:'Outfit', sans-serif; font-weight:800; font-size:1.6rem; color:#fff; line-height:1; letter-spacing:-0.01em;">Kirov Dynamics</span>
+          <span style="font-family:'Inter', sans-serif; font-weight:800; font-size:0.8rem; color:#fff; letter-spacing:0.25em; display:flex; align-items:center; gap:8px; margin-top:6px;">
+            <div style="width:24px; height:3px; background-color:#00c8f8; border-radius:2px;"></div> TECHNOLOGY 
+            <div style="display:flex; align-items:center; gap:2px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00c8f8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+            </div>
+          </span>
+        </div>
+      </div>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -2783,7 +2797,21 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo-hero.png" alt="Kirov Dynamics Technology" style="height:105px; width:auto; display:block; margin-bottom:20px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+          <div style="background-color:rgba(13, 22, 37, 0.7); border-radius:12px; padding:4px 8px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
+            <img src="assets/images/k-only.png" alt="K Logo" style="height:56px; width:auto; display:block;">
+          </div>
+          <div style="width:2px; height:50px; background-color:rgba(255,255,255,0.6); border-radius:1px;"></div>
+          <div style="display:flex; flex-direction:column; justify-content:center;">
+            <span style="font-family:'Outfit', sans-serif; font-weight:800; font-size:1.8rem; color:#fff; line-height:1; letter-spacing:-0.01em;">Kirov Dynamics</span>
+            <span style="font-family:'Inter', sans-serif; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:0.25em; display:flex; align-items:center; gap:8px; margin-top:7px;">
+              <div style="width:26px; height:3px; background-color:#00c8f8; border-radius:2px;"></div> TECHNOLOGY 
+              <div style="display:flex; align-items:center; gap:2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c8f8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+              </div>
+            </span>
+          </div>
+        </div>
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa. CIPC Registered.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
