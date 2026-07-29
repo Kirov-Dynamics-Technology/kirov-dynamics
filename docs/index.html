@@ -135,9 +135,47 @@
       background:rgba(8,13,24,0.95);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
     .nav-logo img {
-      height: 90px; border-radius:8px; width:auto; display:block;
-      max-width: 320px;
+      height: 54px; width: auto; display: block;
+      filter: drop-shadow(0 0 12px rgba(74,144,217,0.4));
+      transition: transform 0.3s ease;
+    }
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1;
+    }
+    .nav-logo-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-logo-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-lite);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-top: 4px;
+      text-shadow: 0 0 8px rgba(74,144,217,0.3);
     }
     .nav-links { display:flex; align-items:center; gap:30px; }
     .nav-links a {
@@ -691,7 +729,9 @@
       .hero-sub { font-size:1.05rem; margin-bottom:18px; }
       .container { padding:0 20px; }
       .divisions-grid { grid-template-columns:1fr; }
-      .nav-logo img { max-height:48px !important; height:auto !important; }
+      .nav-logo img { height: 44px !important; }
+      .nav-logo-title { font-size: 1.15rem; }
+      .nav-logo-subtitle { font-size: 0.6rem; letter-spacing: 0.2em; margin-top: 2px; }
       .hero-stats { border-top:none; padding-top:10px; }
       .hero-badge { margin-bottom:14px; font-size:0.75rem; padding:6px 14px; }
       .hero-title { font-size:2.6rem; margin-bottom:10px; }
@@ -717,7 +757,9 @@
       .stat-num { font-size:1.5rem; }
       .stat-label { font-size:0.68rem; }
       .section-title { font-size:1.5rem; }
-      .nav-logo img { max-height:40px !important; }
+      .nav-logo img { height: 38px !important; }
+      .nav-logo-title { font-size: 1.05rem; }
+      .nav-logo-subtitle { font-size: 0.55rem; letter-spacing: 0.15em; }
       .stat-item { width:auto; padding:0 5px; display:flex; flex-direction:column; align-items:center; }
       .division-card-body { padding:18px; }
       .product-card-body { padding:18px 20px 22px; }
@@ -1124,7 +1166,11 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo-final.png" alt="Kirov Dynamics Technology">
+      <img src="assets/images/k-and-globe.png" alt="KD Icon">
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Kirov Dynamics</span>
+        <span class="nav-logo-subtitle">Technology</span>
+      </div>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
