@@ -105,10 +105,17 @@
     }
     .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(74,144,217,0.5); }
     .btn-outline {
-      border:1.5px solid var(--border); color:var(--text);
-      background:rgba(74,144,217,0.05);
+      border:1px solid rgba(255,255,255,0.15); color:var(--text);
+      background:rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .btn-outline:hover { border-color:var(--accent); background:rgba(74,144,217,0.1); transform:translateY(-2px); }
+    .btn-outline:hover { 
+      border-color:var(--accent); 
+      background:rgba(74,144,217,0.15); 
+      transform:translateY(-2px); 
+      box-shadow: 0 4px 15px rgba(74,144,217,0.2);
+    }
     .btn-ripple { position:relative; overflow:hidden; }
     .ripple-fx {
       position:absolute; border-radius:50%;
@@ -1319,10 +1326,10 @@
       and smart infrastructure solutions for businesses, municipalities, and governments — across Africa and beyond.
     </p>
     <div class="hero-btns">
-      <a href="#consultation" class="btn btn-primary" id="hero-explore-btn">Schedule a Consultation</a>
-      <a href="#solutions" class="btn btn-outline" id="hero-contact-btn">Explore Products</a>
-      <a href="#projects" class="btn btn-outline">View Case Studies</a>
-      <a href="#resources" class="btn btn-outline">Company Profile</a>
+      <a href="#consultation" class="btn btn-primary" id="hero-explore-btn"><i data-lucide="calendar"></i> Schedule a Consultation</a>
+      <a href="#solutions" class="btn btn-outline" id="hero-contact-btn"><i data-lucide="layout-grid"></i> Explore Products</a>
+      <a href="#projects" class="btn btn-outline"><i data-lucide="briefcase"></i> View Case Studies</a>
+      <a href="#resources" class="btn btn-outline"><i data-lucide="building"></i> Company Profile</a>
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
