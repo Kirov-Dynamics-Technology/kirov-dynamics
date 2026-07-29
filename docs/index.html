@@ -275,6 +275,19 @@
       color: var(--accent-lite);
       text-transform: uppercase;
       margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-text-sub::before,
+    .logo-text-sub::after {
+      content: '';
+      flex: 1;
+      max-width: 20px;
+      height: 2px;
+      background: var(--accent-lite);
+      border-radius: 2px;
+      opacity: 0.7;
     }
 
     .float-contact {
