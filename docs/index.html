@@ -201,6 +201,82 @@
     .hamburger.open span:nth-child(2) { opacity:0; }
     .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
 
+    /* ============================================================
+       CSS GLOBE LOGO
+    ============================================================ */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .css-globe {
+      width: 44px;
+      height: 44px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin3D 12s linear infinite;
+    }
+    .css-globe .ring {
+      position: absolute;
+      inset: 0;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(74,144,217,0.3) inset, 0 0 8px rgba(74,144,217,0.3);
+    }
+    .css-globe .ring-1 { transform: rotateY(0deg); }
+    .css-globe .ring-2 { transform: rotateY(45deg); }
+    .css-globe .ring-3 { transform: rotateY(90deg); }
+    .css-globe .ring-4 { transform: rotateY(135deg); }
+    .css-globe .ring-equator { 
+      transform: rotateX(90deg); 
+      border-color: var(--teal); 
+      box-shadow: 0 0 8px rgba(0,200,248,0.3) inset, 0 0 8px rgba(0,200,248,0.3); 
+    }
+    .css-globe .core {
+      position: absolute;
+      inset: 14px;
+      background: var(--teal);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--teal);
+      opacity: 0.85;
+      animation: pulseCore 3s ease-in-out infinite;
+    }
+    @keyframes spin3D {
+      0% { transform: rotateX(20deg) rotateY(0deg); }
+      100% { transform: rotateX(20deg) rotateY(360deg); }
+    }
+    @keyframes pulseCore {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+    .logo-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .logo-text-main {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .logo-text-main span {
+      color: var(--teal);
+    }
+    .logo-text-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent-lite);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
     .float-contact {
       display:none; position:fixed; bottom:24px; right:24px; z-index:998;
       width:56px; height:56px; border-radius:50%;
@@ -1169,11 +1245,18 @@
 ============================================================ -->
 <nav id="navbar">
   <div class="container nav-inner">
-    <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/k-and-globe.png" alt="KD Icon">
-      <div class="nav-logo-text">
-        <span class="nav-logo-title">Kirov Dynamics</span>
-        <span class="nav-logo-subtitle">Technology</span>
+    <a href="#home" class="nav-logo logo-container" aria-label="Kirov Dynamics Technology Home">
+      <div class="css-globe">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4"></div>
+        <div class="ring ring-equator"></div>
+        <div class="core"></div>
+      </div>
+      <div class="logo-text-wrapper">
+        <div class="logo-text-main">Kirov <span>Dynamics</span></div>
+        <div class="logo-text-sub">Technology</div>
       </div>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
