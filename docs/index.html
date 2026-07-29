@@ -335,7 +335,7 @@
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(8,13,24,0.55) 0%, rgba(13,22,39,0.45) 100%);
+      background:linear-gradient(135deg, rgba(8,13,24,0.78) 0%, rgba(13,22,39,0.72) 60%, rgba(8,13,24,0.55) 100%);
       z-index:0;
     }
     @media(max-width:768px) {
@@ -404,8 +404,8 @@
     .stat-item:last-child { border-right:none; }
     .stat-num {
       font-family:'Outfit',sans-serif; font-size:2.1rem; font-weight:900;
-      color:#FF7A00; display:block; line-height:1; font-variant-numeric:tabular-nums;
-      text-shadow: 0 0 18px rgba(255,122,0,0.5);
+      color:var(--teal); display:block; line-height:1; font-variant-numeric:tabular-nums;
+      text-shadow: 0 0 18px rgba(0, 200, 248, 0.5);
     }
     .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
     @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
@@ -1330,19 +1330,19 @@
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
-        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span><span class="stat-num" style="color:#FF7A00;text-shadow:0 0 18px rgba(255,122,0,0.5);">+</span>
+        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span><span class="stat-num">+</span>
         <div class="stat-label">Service Divisions</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span><span class="stat-num" style="color:#29ABE2;text-shadow:0 0 18px rgba(41,171,226,0.5);">+</span>
+        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span><span class="stat-num">+</span>
         <div class="stat-label">Industries Served</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span><span class="stat-num" style="color:#FF7A00;text-shadow:0 0 18px rgba(255,122,0,0.5);">+</span>
+        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span><span class="stat-num">+</span>
         <div class="stat-label">GitHub Repositories</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span><span class="stat-num" style="color:#29ABE2;text-shadow:0 0 18px rgba(41,171,226,0.5);">+</span>
+        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span><span class="stat-num">+</span>
         <div class="stat-label">SaaS Products in Pipeline</div>
       </div>
       <div class="stat-item">
