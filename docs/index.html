@@ -136,8 +136,8 @@
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .nav-logo img {
-      height:76px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5); width:auto; display:block;
-      filter: drop-shadow(0 2px 8px rgba(74,144,217,0.25));
+      height: 90px; border-radius:8px; width:auto; display:block;
+      max-width: 320px;
     }
     .nav-links { display:flex; align-items:center; gap:30px; }
     .nav-links a {
@@ -188,21 +188,25 @@
     /* ============================================================
        HERO
     ============================================================ */
-    #home {
-      position:relative; min-height:100vh; min-height:680px;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    .hero {
+      position:relative;
+      min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      background:url('assets/images/hero-bg.jpg') center center/cover no-repeat;
     }
-    .hero-bg {
-      position:absolute; inset:0;
-      background-image:url('assets/images/hero-bg.jpg');
-      background-size:cover; background-position:center;
-      filter:brightness(0.7) saturate(1.1);
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, rgba(8,13,24,0.55) 0%, rgba(13,22,39,0.45) 100%);
+      z-index:0;
     }
-    .hero-overlay {
-      position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(6,8,15,0.6) 0%,rgba(26,54,100,0.15) 50%,rgba(6,8,15,0.65) 100%);
+    @media(max-width:768px) {
+      .hero {
+        background-size: cover;
+        background-position: center top;
+        min-height: 100dvh;
+      }
     }
-    #hero-canvas { position:absolute; inset:0; pointer-events:none; z-index:1; }
     .hero-gradient-mesh {
       position:absolute; inset:0; z-index:0;
       background:
@@ -263,11 +267,17 @@
     .stat-item:last-child { border-right:none; }
     .stat-num {
       font-family:'Outfit',sans-serif; font-size:2.4rem; font-weight:900;
-      color:#fff; display:block; line-height:1; font-variant-numeric:tabular-nums;
+      color:#FF7A00; display:block; line-height:1; font-variant-numeric:tabular-nums;
+      text-shadow: 0 0 18px rgba(255,122,0,0.5);
     }
     .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
     @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
-    .stat-label { font-size:0.78rem; color:#fff; margin-top:5px; letter-spacing:0.05em; font-weight:500; }
+    /* Alternate orange/blue on stat numbers */
+    .stat-item:nth-child(even) .stat-num {
+      color:#29ABE2;
+      text-shadow: 0 0 18px rgba(41,171,226,0.5);
+    }
+    .stat-label { font-size:0.78rem; color:rgba(255,255,255,0.85); margin-top:5px; letter-spacing:0.05em; font-weight:600; }
     .cipc-badge {
       display:flex; flex-direction:column; align-items:center; gap:4px;
       cursor:default; margin-top:4px;
@@ -716,7 +726,6 @@
       .contact-form h3 { font-size:1.1rem; }
       .industry-tile { height:110px; }
       .industries-photo { height:160px; }
-      #home { min-height:100dvh; padding:0; }
       .hero-content { padding:56px 12px 10px; }
       .hero-badge { font-size:0.65rem; padding:4px 10px; gap:4px; margin-bottom:8px; }
       .hero-badge-dot { width:5px; height:5px; }
@@ -837,8 +846,7 @@
     @media(max-width:768px){ .journey-arrow { display:none; } }
 
     /* ---- Tech Stack ---- */
-    #stack { padding:110px 0; overflow:hidden; }
-#stack { padding:90px 0; background:#03050a; position:relative; }
+    #stack { padding:90px 0; background:#03050a; position:relative; }
     #stack::before {
       content:''; position:absolute; inset:0;
       background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,144,217,0.04) 0%, transparent 70%);
@@ -1116,7 +1124,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo" aria-label="Kirov Dynamics Technology Home">
-      <img src="assets/images/logo-final.png" alt="Kirov Dynamics Technology" style="height:70px; width:auto; display:block;">
+      <img src="assets/images/logo-final.png" alt="Kirov Dynamics Technology">
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
@@ -1150,12 +1158,8 @@
 <!-- ============================================================
      HERO
 ============================================================ -->
-<section id="home" aria-label="Hero">
-  <div class="hero-bg" role="img" aria-label="Futuristic technology and earth from space"></div>
+<section id="home" class="hero" aria-label="Hero">
   <div class="hero-gradient-mesh" aria-hidden="true"></div>
-  <div class="hero-overlay"></div>
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
@@ -1176,19 +1180,19 @@
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
-        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span>
+        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span><span class="stat-num" style="color:#FF7A00;text-shadow:0 0 18px rgba(255,122,0,0.5);">+</span>
         <div class="stat-label">Service Divisions</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span>
+        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span><span class="stat-num" style="color:#29ABE2;text-shadow:0 0 18px rgba(41,171,226,0.5);">+</span>
         <div class="stat-label">Industries Served</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span>
+        <span class="stat-num" data-target="30" aria-label="30 plus GitHub repositories">0</span><span class="stat-num" style="color:#FF7A00;text-shadow:0 0 18px rgba(255,122,0,0.5);">+</span>
         <div class="stat-label">GitHub Repositories</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span>
+        <span class="stat-num" data-target="10" aria-label="10 SaaS products in pipeline">0</span><span class="stat-num" style="color:#29ABE2;text-shadow:0 0 18px rgba(41,171,226,0.5);">+</span>
         <div class="stat-label">SaaS Products in Pipeline</div>
       </div>
       <div class="stat-item">
@@ -2141,9 +2145,10 @@
 </section>
 
 <!-- ============================================================
-     FEATURED PLATFORMS
+     PLATFORMS (Second Page)
 ============================================================ -->
-<section id="solutions" aria-labelledby="solutions-title">
+<section id="solutions" class="section solutions" style="position:relative; overflow:hidden;" aria-labelledby="solutions-title">
+  <canvas id="network-canvas" aria-hidden="true"></canvas>
   <div class="container">
     <div class="solutions-header reveal">
       <span class="section-tag">Featured Platforms</span>
@@ -2783,7 +2788,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo-final.png" alt="Kirov Dynamics Technology" style="height:80px; width:auto; display:block; margin-bottom:20px;">
+        <img src="assets/images/logo-final.png" alt="Kirov Dynamics Technology" style="height:100px; width:auto; display:block; margin-bottom:20px; transform: scale(1.1); transform-origin: left center;">
         <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa. CIPC Registered.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
@@ -2987,7 +2992,7 @@
 <script>
   /* ---- ENHANCED PARTICLES ---- */
   (function() {
-    var canvas = document.getElementById('hero-canvas');
+    var canvas = document.getElementById('network-canvas');
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
     var W, H, particles = [], animFrame;
