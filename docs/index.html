@@ -124,8 +124,11 @@
     ============================================================ */
     #navbar {
       position:fixed; top:0; left:0; right:0; z-index:1000;
-      padding:30px 0; transition:all 0.35s ease;
-      background: transparent;
+      padding:20px 0; transition:all 0.35s ease;
+      background:var(--glass);
+      backdrop-filter:blur(24px);
+      border-bottom:1px solid var(--border);
+      box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
     #navbar.scrolled {
       padding:16px 0;
@@ -178,8 +181,7 @@
       margin-top: 6px;
       text-shadow: 0 0 8px rgba(74,144,217,0.3);
     }
-    .nav-links { display:none; }
-    .nav-cta-btn { display:none; }
+    .nav-links { display:flex; align-items:center; gap:30px; }
     .nav-links a {
       font-size:0.9rem; font-weight:700; color:#b8d0e8;
       transition:var(--transition); position:relative; letter-spacing:0.02em;
@@ -1174,7 +1176,7 @@
         <span class="nav-logo-subtitle">Technology</span>
       </div>
     </a>
-    <ul class="nav-links" role="navigation" aria-label="Main navigation" style="display:none">
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
       <li><a href="#solutions">Platforms</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -1184,7 +1186,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta-btn">Get in Touch</a>
-    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" style="display:none">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
