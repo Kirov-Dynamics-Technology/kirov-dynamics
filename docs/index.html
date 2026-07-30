@@ -356,7 +356,11 @@
       .hero-globe { width: 380px; height: 380px; right: -100px; opacity: 0.22; }
     }
     @media(max-width:600px) {
-      .hero-globe { width: 280px; height: 280px; right: -80px; opacity: 0.15; }
+      .hero-globe { width: 180px; height: 180px; right: -60px; opacity: 0.10; }
+      .hero-content { padding: 80px 12px 0; }
+      .hero-title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+      .hero-sub { font-size: 0.78rem; }
+      .hero-btns .btn { font-size: 0.65rem; padding: 5px 10px; }
     }
     .hero-globe .ring {
       position: absolute;
@@ -385,9 +389,85 @@
     }
     @media(max-width:768px) {
       .hero {
-        background-size: contain;
-        background-position: center top;
+        background-size: cover;
+        background-position: 30% center;
         min-height: 100dvh;
+      }
+      .hero-content {
+        padding: 90px 16px 0;
+      }
+      .hero-title {
+        font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+        margin-bottom: 10px;
+      }
+      .hero-sub {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .hero-btns {
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .hero-btns .btn {
+        font-size: 0.72rem;
+        padding: 7px 12px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 8px;
+        max-width: 100%;
+      }
+      .stat-item {
+        min-height: unset;
+        padding: 8px 4px;
+        border-radius: 8px;
+      }
+      .stat-num {
+        font-size: 1.1rem;
+      }
+      .stat-label {
+        font-size: 0.55rem;
+        margin-top: 2px;
+      }
+      .cipc-badge i {
+        width: 16px !important;
+        height: 16px !important;
+      }
+      .cipc-badge span {
+        font-size: 0.5rem;
+      }
+      .hero-badge {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+        margin-bottom: 14px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 8px;
+        max-width: 100%;
+      }
+      .stat-item {
+        min-height: unset;
+        padding: 8px 4px;
+        border-radius: 8px;
+      }
+      .stat-num {
+        font-size: 1.1rem;
+      }
+      .stat-label {
+        font-size: 0.55rem;
+        margin-top: 2px;
+      }
+      .cipc-badge i {
+        width: 16px !important;
+        height: 16px !important;
+      }
+      .cipc-badge span {
+        font-size: 0.5rem;
       }
     }
     .hero-gradient-mesh {
@@ -895,10 +975,12 @@
       .hamburger { display:flex; }
       #navbar { padding:10px 0; }
       #navbar.scrolled { padding:6px 0; }
-      .hero-stats { flex-wrap:wrap; gap:8px; }
-      .stat-item { flex:1 1 calc(33.33% - 10px); min-height:80px; padding:12px 8px; }
-      .stat-num { font-size:1.8rem; }
-      .stat-label { font-size:0.7rem; }
+      .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; max-width:100%; }
+      .stat-item { min-height:unset; padding:8px 4px; border-radius:8px; }
+      .stat-num { font-size:1.1rem; }
+      .stat-label { font-size:0.55rem; margin-top:2px; }
+      .cipc-badge i { width:16px!important; height:16px!important; }
+      .cipc-badge span { font-size:0.5rem; }
       .form-row { grid-template-columns:1fr; }
       .expertise-grid { grid-template-columns:1fr; }
       .footer-grid { grid-template-columns:1fr; gap:32px; }
@@ -935,10 +1017,12 @@
       .hero-title { font-size:2.2rem; margin-bottom:8px; }
       .contact-form { padding:20px; }
       .hero-sub { font-size:0.92rem; margin-bottom:12px; }
-      .hero-stats { gap:6px; padding-top:6px; }
-      .stat-item { flex:1 1 calc(50% - 6px); min-height:75px; padding:10px 6px; }
-      .stat-num { font-size:1.5rem; }
-      .stat-label { font-size:0.68rem; }
+      .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding-top:4px; }
+      .stat-item { min-height:unset; padding:6px 3px; border-radius:6px; }
+      .stat-num { font-size:1rem; }
+      .stat-label { font-size:0.48rem; margin-top:1px; }
+      .cipc-badge i { width:14px!important; height:14px!important; }
+      .cipc-badge span { font-size:0.45rem; }
       .section-title { font-size:1.5rem; }
       .nav-logo img { height: 48px !important; }
       .nav-logo-title { font-size: 1.25rem; }
@@ -967,11 +1051,13 @@
       .btn { font-size:0.7rem; padding:8px 12px; }
       .services-tabs { grid-template-columns:1fr; gap:4px; }
       .tab-btn { padding:8px; font-size:0.7rem; }
-      .hero-content { padding:100px 10px 10px; }
-      .hero-sub { font-size:0.82rem; margin-bottom:10px; }
-      .hero-stats { gap:2px; padding-top:4px; }
-      .stat-num { font-size:1.3rem; }
-      .stat-label { font-size:0.6rem; }
+      .hero-content { padding:80px 8px 10px; }
+      .hero-sub { font-size:0.78rem; margin-bottom:8px; }
+      .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; padding-top:4px; }
+      .stat-num { font-size:0.9rem; }
+      .stat-label { font-size:0.45rem; margin-top:1px; }
+      .cipc-badge i { width:12px!important; height:12px!important; }
+      .cipc-badge span { font-size:0.4rem; }
       .hero-badge { font-size:0.6rem; padding:3px 8px; margin-bottom:6px; }
       .hero-badge-dot { width:4px; height:4px; }
       .hero-btns .btn { font-size:0.65rem; padding:6px 10px; }
