@@ -10,6 +10,7 @@
   <meta property="og:description" content="Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/">
+  <link rel="preload" href="assets/images/hero-bg.jpg" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -331,7 +332,7 @@
       min-height:100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background:url('assets/images/hero-bg.jpg') 30% center/cover no-repeat;
+      background: #080d18 url('assets/images/hero-bg.jpg') 30% center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
@@ -365,28 +366,22 @@
       box-shadow: 0 0 18px rgba(74,144,217,0.25) inset, 0 0 18px rgba(74,144,217,0.25);
     }
     .hero-globe .ring-1 { transform: rotateY(0deg); }
-    .hero-globe .ring-2 { transform: rotateY(30deg); }
-    .hero-globe .ring-3 { transform: rotateY(60deg); }
-    .hero-globe .ring-4 { transform: rotateY(90deg); }
-    .hero-globe .ring-5 { transform: rotateY(120deg); }
-    .hero-globe .ring-6 { transform: rotateY(150deg); }
+    .hero-globe .ring-2 { transform: rotateY(45deg); }
+    .hero-globe .ring-3 { transform: rotateY(90deg); }
+    .hero-globe .ring-4 { transform: rotateY(135deg); }
     .hero-globe .ring-equator {
       transform: rotateX(90deg);
       border-color: var(--teal);
       box-shadow: 0 0 18px rgba(0,200,248,0.25) inset, 0 0 18px rgba(0,200,248,0.25);
     }
-    .hero-globe .ring-tilt {
-      transform: rotateX(60deg);
-      border-color: rgba(0,200,248,0.5);
-    }
     .hero-globe .core {
       position: absolute;
-      inset: 180px;
+      inset: 35%;
       background: var(--teal);
       border-radius: 50%;
-      box-shadow: 0 0 60px var(--teal), 0 0 120px rgba(0,200,248,0.3);
-      opacity: 0.6;
-      animation: pulseCore 4s ease-in-out infinite;
+      box-shadow: 0 0 12px var(--teal);
+      opacity: 0.85;
+      animation: pulseCore 3s ease-in-out infinite;
     }
     @media(max-width:768px) {
       .hero {
@@ -1461,10 +1456,7 @@
     <div class="ring ring-2"></div>
     <div class="ring ring-3"></div>
     <div class="ring ring-4"></div>
-    <div class="ring ring-5"></div>
-    <div class="ring ring-6"></div>
     <div class="ring ring-equator"></div>
-    <div class="ring ring-tilt"></div>
     <div class="core"></div>
   </div>
   </div>
