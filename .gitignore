@@ -3,3 +3,6 @@
 .idea/
 .vscode/
 Thumbs.db
+.git-credentials*
+askpass.bat
+git-cred-helper.bat
