@@ -1455,7 +1455,8 @@
 ============================================================ -->
 <section id="why-choose" aria-labelledby="why-title" style="position:relative; overflow:hidden;">
   <!-- Spinning globe decoration -->
-  <div class="hero-globe" aria-hidden="true" style="width:680px;height:680px;left:50%;top:50%;transform:translate(-50%,-50%) rotateX(20deg) rotateY(0deg);animation:spin3D 22s linear infinite;opacity:0.12;">
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;">
+    <div class="hero-globe" aria-hidden="true" style="width:680px;height:680px;animation:spin3D 12s linear infinite;opacity:0.12;transform-style:preserve-3d;">
     <div class="ring ring-1"></div>
     <div class="ring ring-2"></div>
     <div class="ring ring-3"></div>
@@ -1465,6 +1466,7 @@
     <div class="ring ring-equator"></div>
     <div class="ring ring-tilt"></div>
     <div class="core"></div>
+  </div>
   </div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="reveal text-center">
