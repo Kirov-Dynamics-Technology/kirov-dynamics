@@ -1424,8 +1424,8 @@
   
 /* Chatbot Styles */
 .chatbot-container {
-  display: none; position: fixed; bottom: 90px; right: 24px; z-index: 1000;
-  width: 340px; height: 460px; background: var(--bg-card);
+  display: none; position: fixed; bottom: 160px; right: 32px; z-index: 1000;
+  width: 360px; height: 480px; background: var(--bg-card);
   border: 1px solid var(--border); border-radius: var(--radius-lg);
   box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
 }
@@ -1468,14 +1468,19 @@
   padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
 }
 .chatbot-toggle-btn {
-  position: fixed; bottom: 24px; right: 24px; z-index: 1000;
-  width: 56px; height: 56px; border-radius: 50%;
+  position: fixed; bottom: 80px; right: 32px; z-index: 1000;
+  width: 68px; height: 68px; border-radius: 50%;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: chatbot-pulse 2.5s infinite;
 }
-.chatbot-toggle-btn:hover { transform: scale(1.1); }
+.chatbot-toggle-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(74,144,217,0.7); }
+@keyframes chatbot-pulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(74,144,217,0.4); }
+  50% { box-shadow: 0 4px 32px rgba(74,144,217,0.75), 0 0 0 10px rgba(74,144,217,0.1); }
+}
 </style>
 </head>
 <body>
@@ -3582,9 +3587,14 @@
     <button id="chatbot-send" aria-label="Send message">Send</button>
   </div>
 </div>
-<button id="chatbot-toggle" class="chatbot-toggle-btn" aria-label="Open chat assistant">
-  <span style="font-size:24px;">&#x1F4AC;</span>
-</button>
+<div id="chatbot-launcher" style="position:fixed;bottom:80px;right:32px;z-index:1001;display:flex;align-items:center;gap:10px;">
+  <div id="chatbot-label" style="background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:8px 16px;border-radius:24px;font-size:0.82rem;font-weight:700;font-family:Outfit,sans-serif;box-shadow:0 4px 16px rgba(74,144,217,0.45);white-space:nowrap;cursor:pointer;animation:chatbot-pulse 2.5s infinite;">
+    Chat with us &#x1F44B;
+  </div>
+  <button id="chatbot-toggle" class="chatbot-toggle-btn" style="position:static;" aria-label="Open chat assistant">
+    <span style="font-size:28px;">&#x1F916;</span>
+  </button>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -3838,15 +3848,23 @@
       initialized = true;
     }
 
+    document.getElementById('chatbot-label').addEventListener('click', function() {
+      chatbotContainer.classList.add('open');
+      var launcher = document.getElementById('chatbot-launcher');
+      if (launcher) launcher.style.display = 'none';
+      initChat();
+    });
     toggleBtn.addEventListener('click', function() {
       chatbotContainer.classList.add('open');
-      toggleBtn.style.display = 'none';
+      var launcher = document.getElementById('chatbot-launcher');
+      if (launcher) launcher.style.display = 'none';
       initChat();
     });
 
     closeBtn.addEventListener('click', function() {
       chatbotContainer.classList.remove('open');
-      toggleBtn.style.display = 'flex';
+      var launcher = document.getElementById('chatbot-launcher');
+      if (launcher) launcher.style.display = 'flex';
     });
 
     function processUserInput() {
