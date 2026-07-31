@@ -1421,7 +1421,52 @@
       .consult-card { padding:18px; }
       .consult-option { min-width:100%; }
     }
-  </style>
+  
+/* Chatbot Styles */
+.chatbot-container {
+  display: none; position: fixed; bottom: 90px; right: 24px; z-index: 1000;
+  width: 320px; height: 400px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
+}
+.chatbot-container.open { display: flex; }
+.chatbot-header {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  padding: 14px 16px; display: flex; justify-content: space-between;
+  align-items: center; color: #fff;
+}
+.chatbot-title { font-weight: 700; font-family: 'Outfit', sans-serif; }
+.chatbot-close-btn { color: #fff; font-size: 1.5rem; cursor: pointer; }
+.chatbot-messages {
+  flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+}
+.chat-message {
+  max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem;
+}
+.chat-message.bot { background: rgba(74,144,217,0.1); border: 1px solid var(--border); align-self: flex-start; }
+.chat-message.user { background: var(--accent); color: #fff; align-self: flex-end; }
+.chatbot-input-area {
+  display: flex; padding: 12px; border-top: 1px solid var(--border);
+}
+#chatbot-input {
+  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05); color: var(--text); outline: none;
+}
+#chatbot-send {
+  background: var(--accent); color: #fff; border-radius: 20px;
+  padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
+}
+.chatbot-toggle-btn {
+  position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s ease;
+}
+.chatbot-toggle-btn:hover { transform: scale(1.1); }
+
+</style>
 </head>
 <body>
 
@@ -1557,7 +1602,7 @@
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
-        <div class="why-icon icon-tile">🌍</div>
+        <div class="why-icon icon-tile"><i data-lucide="globe"></i></div>
         <h4>Africa-First Vision</h4>
         <p>Built to solve the real challenges facing Africa's growing digital economy.</p>
       </div>
@@ -1911,7 +1956,7 @@
         </div>
         <div class="about-stats-row" aria-hidden="true">
           <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
-          <div class="about-stat-box" style="border-color:rgba(0,255,136,0.3)"><div class="num" style="color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,0.6),0 0 30px rgba(0,255,136,0.3)">🌍</div><div class="lbl" style="color:#00ff88;text-shadow:0 0 8px rgba(0,255,136,0.4)">Africa-First</div></div>
+          <div class="about-stat-box" style="border-color:rgba(0,255,136,0.3)"><div class="num" style="color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,0.6),0 0 30px rgba(0,255,136,0.3)"><i data-lucide="globe"></i></div><div class="lbl" style="color:#00ff88;text-shadow:0 0 8px rgba(0,255,136,0.4)">Africa-First</div></div>
           <div class="about-stat-box"><div class="num">360°</div><div class="lbl">Solutions</div></div>
         </div>
       </div>
@@ -2979,7 +3024,7 @@
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon icon-tile" aria-hidden="true"><i data-lucide="github"></i></div>
+            <div class="contact-icon icon-tile" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
             <div>
               <h4>GitHub</h4>
               <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer">github.com/Kirov-Dynamics-Technology</a>
@@ -3019,11 +3064,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="Koketso" required autocomplete="given-name">
+              <input type="text" id="first-name" name="first_name" placeholder="John" required autocomplete="given-name">
             </div>
             <div class="form-group">
               <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Raphasha" required autocomplete="family-name">
+              <input type="text" id="last-name" name="last_name" placeholder="Doe" required autocomplete="family-name">
             </div>
           </div>
           <div class="form-group">
@@ -3126,7 +3171,14 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#home" class="nav-logo" style="margin: 0 0 24px 0; justify-content: flex-start;">
-          <img src="assets/images/k-and-globe.png" alt="KD Icon">
+          <div class="css-globe" style="width: 40px; height: 40px; margin-right: 12px;">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4"></div>
+        <div class="ring ring-equator"></div>
+        <div class="core"></div>
+      </div>
           <div class="nav-logo-text">
             <span class="nav-logo-title">Kirov Dynamics</span>
             <span class="nav-logo-subtitle">Technology</span>
@@ -3502,7 +3554,91 @@
 </script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>lucide && lucide.createIcons();</script>
-<a class="float-contact" href="#contact" aria-label="Get in Touch"><i data-lucide="mail"></i></a>
+
+
+<div id="chatbot-container" class="chatbot-container">
+  <div class="chatbot-header">
+    <div class="chatbot-title">Kirov Assistant</div>
+    <button id="chatbot-close" class="chatbot-close-btn">&times;</button>
+  </div>
+  <div id="chatbot-messages" class="chatbot-messages">
+    <div class="chat-message bot">Hi there! I can help you learn more about Kirov Dynamics Technology. What would you like to know?</div>
+  </div>
+  <div class="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Ask about services, AI..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+<button id="chatbot-toggle" class="chatbot-toggle-btn">
+  <i data-lucide="message-circle"></i>
+</button>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const closeBtn = document.getElementById('chatbot-close');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const sendBtn = document.getElementById('chatbot-send');
+    const inputField = document.getElementById('chatbot-input');
+    const messagesContainer = document.getElementById('chatbot-messages');
+
+    toggleBtn.addEventListener('click', () => {
+      chatbotContainer.classList.add('open');
+      toggleBtn.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatbotContainer.classList.remove('open');
+      toggleBtn.style.display = 'flex';
+    });
+
+    const botResponses = {
+      'ai': 'We offer AI-powered software, machine learning pipelines, and predictive analytics tailored for African businesses.',
+      'cybersecurity': 'Our cybersecurity services include enterprise security assessments, threat intelligence, and SOC implementation.',
+      'infrastructure': 'We build smart infrastructure platforms for municipalities and enterprises, including IoT and geographic information systems.',
+      'contact': 'You can reach us at info@kirovdynamics.com or via the contact form on this page.',
+      'default': 'Kirov Dynamics Technology delivers digital solutions for businesses and governments. Can you please specify your interest in AI, cybersecurity, or smart infrastructure?'
+    };
+
+    const sendMessage = () => {
+      const text = inputField.value.trim();
+      if (!text) return;
+      
+      // User message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-message user';
+      userMsg.textContent = text;
+      messagesContainer.appendChild(userMsg);
+      inputField.value = '';
+      
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      // Bot response
+      setTimeout(() => {
+        let response = botResponses['default'];
+        const lowerText = text.toLowerCase();
+        for (const key in botResponses) {
+          if (key !== 'default' && lowerText.includes(key)) {
+            response = botResponses[key];
+            break;
+          }
+        }
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-message bot';
+        botMsg.textContent = response;
+        messagesContainer.appendChild(botMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 600);
+    };
+
+    sendBtn.addEventListener('click', sendMessage);
+    inputField.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  });
+</script>
+
 </body>
 
 </html>
