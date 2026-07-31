@@ -1425,7 +1425,7 @@
 /* Chatbot Styles */
 .chatbot-container {
   display: none; position: fixed; bottom: 90px; right: 24px; z-index: 1000;
-  width: 320px; height: 400px; background: var(--bg-card);
+  width: 340px; height: 460px; background: var(--bg-card);
   border: 1px solid var(--border); border-radius: var(--radius-lg);
   box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
 }
@@ -1441,10 +1441,21 @@
   flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
 }
 .chat-message {
-  max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem;
+  max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem;
 }
 .chat-message.bot { background: rgba(74,144,217,0.1); border: 1px solid var(--border); align-self: flex-start; }
 .chat-message.user { background: var(--accent); color: #fff; align-self: flex-end; }
+.chatbot-options {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+}
+.chatbot-option-btn {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--accent);
+  color: var(--accent-lite); padding: 6px 12px; border-radius: 20px;
+  font-size: 0.75rem; cursor: pointer; transition: all 0.2s ease;
+}
+.chatbot-option-btn:hover {
+  background: rgba(74,144,217,0.15); color: #fff;
+}
 .chatbot-input-area {
   display: flex; padding: 12px; border-top: 1px solid var(--border);
 }
@@ -1465,7 +1476,6 @@
   transition: transform 0.3s ease;
 }
 .chatbot-toggle-btn:hover { transform: scale(1.1); }
-
 </style>
 </head>
 <body>
@@ -3556,23 +3566,23 @@
 <script>lucide && lucide.createIcons();</script>
 
 
+
 <div id="chatbot-container" class="chatbot-container">
   <div class="chatbot-header">
     <div class="chatbot-title">Kirov Assistant</div>
     <button id="chatbot-close" class="chatbot-close-btn">&times;</button>
   </div>
   <div id="chatbot-messages" class="chatbot-messages">
-    <div class="chat-message bot">Hi there! I can help you learn more about Kirov Dynamics Technology. What would you like to know?</div>
+    <!-- Messages will be injected here -->
   </div>
   <div class="chatbot-input-area">
-    <input type="text" id="chatbot-input" placeholder="Ask about services, AI..." />
+    <input type="text" id="chatbot-input" placeholder="Type or select an option..." />
     <button id="chatbot-send">Send</button>
   </div>
 </div>
 <button id="chatbot-toggle" class="chatbot-toggle-btn">
   <i data-lucide="message-circle"></i>
 </button>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -3583,9 +3593,98 @@
     const inputField = document.getElementById('chatbot-input');
     const messagesContainer = document.getElementById('chatbot-messages');
 
+    let initialized = false;
+
+    const initialOptions = [
+      { text: 'AI Solutions', key: 'ai' },
+      { text: 'Cybersecurity', key: 'cybersecurity' },
+      { text: 'Smart Infrastructure', key: 'infrastructure' },
+      { text: 'Contact Us', key: 'contact' }
+    ];
+
+    const botKnowledge = {
+      'ai': {
+        text: 'We offer AI-powered software, machine learning pipelines, and predictive analytics tailored for African businesses. What specifically interests you?',
+        options: [
+          { text: 'Predictive Analytics', key: 'ai_predictive' },
+          { text: 'LLMs & Agents', key: 'ai_llm' },
+          { text: 'Start Over', key: 'start_over' }
+        ]
+      },
+      'ai_predictive': {
+        text: 'Our predictive models help businesses forecast trends, manage risks, and optimize operations using data-driven insights.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'ai_llm': {
+        text: 'We design and deploy custom LLM pipelines and AI agents for enterprise clients to automate workflows.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'cybersecurity': {
+        text: 'Our cybersecurity services include enterprise security assessments, threat intelligence, and SOC implementation.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'infrastructure': {
+        text: 'We build smart infrastructure platforms for municipalities and enterprises, including IoT and geographic information systems.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'contact': {
+        text: 'You can reach us at info@kirovdynamics.com or via the contact form on this page.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'start_over': {
+        text: 'What else would you like to know?',
+        options: initialOptions
+      }
+    };
+
+    const appendMessage = (text, sender, options = null) => {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-message ${sender}`;
+      msgDiv.textContent = text;
+      messagesContainer.appendChild(msgDiv);
+
+      if (options && options.length > 0) {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'chatbot-options';
+        options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'chatbot-option-btn';
+          btn.textContent = opt.text;
+          btn.onclick = () => handleOptionClick(opt);
+          optionsDiv.appendChild(btn);
+        });
+        messagesContainer.appendChild(optionsDiv);
+      }
+      
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    };
+
+    const handleOptionClick = (option) => {
+      // Remove all previous options to keep chat clean
+      document.querySelectorAll('.chatbot-options').forEach(el => el.remove());
+      
+      appendMessage(option.text, 'user');
+      
+      setTimeout(() => {
+        const responseData = botKnowledge[option.key];
+        if (responseData) {
+          appendMessage(responseData.text, 'bot', responseData.options);
+        } else {
+          appendMessage('Thanks! Kirov Dynamics Technology delivers digital solutions for businesses and governments.', 'bot', [{ text: 'Start Over', key: 'start_over' }]);
+        }
+      }, 500);
+    };
+
+    const initChat = () => {
+      if(initialized) return;
+      appendMessage('Hi there! I can help you learn more about Kirov Dynamics Technology. What would you like to know?', 'bot', initialOptions);
+      initialized = true;
+    };
+
     toggleBtn.addEventListener('click', () => {
       chatbotContainer.classList.add('open');
       toggleBtn.style.display = 'none';
+      initChat();
     });
 
     closeBtn.addEventListener('click', () => {
@@ -3593,52 +3692,39 @@
       toggleBtn.style.display = 'flex';
     });
 
-    const botResponses = {
-      'ai': 'We offer AI-powered software, machine learning pipelines, and predictive analytics tailored for African businesses.',
-      'cybersecurity': 'Our cybersecurity services include enterprise security assessments, threat intelligence, and SOC implementation.',
-      'infrastructure': 'We build smart infrastructure platforms for municipalities and enterprises, including IoT and geographic information systems.',
-      'contact': 'You can reach us at info@kirovdynamics.com or via the contact form on this page.',
-      'default': 'Kirov Dynamics Technology delivers digital solutions for businesses and governments. Can you please specify your interest in AI, cybersecurity, or smart infrastructure?'
-    };
-
-    const sendMessage = () => {
+    const processUserInput = () => {
       const text = inputField.value.trim();
       if (!text) return;
       
-      // User message
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-message user';
-      userMsg.textContent = text;
-      messagesContainer.appendChild(userMsg);
-      inputField.value = '';
+      document.querySelectorAll('.chatbot-options').forEach(el => el.remove());
       
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      appendMessage(text, 'user');
+      inputField.value = '';
 
-      // Bot response
       setTimeout(() => {
-        let response = botResponses['default'];
+        let responseKey = 'start_over';
         const lowerText = text.toLowerCase();
-        for (const key in botResponses) {
-          if (key !== 'default' && lowerText.includes(key)) {
-            response = botResponses[key];
-            break;
-          }
+        
+        if (lowerText.includes('ai') || lowerText.includes('artificial')) responseKey = 'ai';
+        else if (lowerText.includes('cyber') || lowerText.includes('security')) responseKey = 'cybersecurity';
+        else if (lowerText.includes('infra') || lowerText.includes('smart')) responseKey = 'infrastructure';
+        else if (lowerText.includes('contact') || lowerText.includes('email')) responseKey = 'contact';
+        
+        if (responseKey === 'start_over') {
+           appendMessage('I am not sure I understand. Here are some topics I can help with:', 'bot', initialOptions);
+        } else {
+           const data = botKnowledge[responseKey];
+           appendMessage(data.text, 'bot', data.options);
         }
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-message bot';
-        botMsg.textContent = response;
-        messagesContainer.appendChild(botMsg);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      }, 600);
+      }, 500);
     };
 
-    sendBtn.addEventListener('click', sendMessage);
+    sendBtn.addEventListener('click', processUserInput);
     inputField.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
+      if (e.key === 'Enter') processUserInput();
     });
   });
 </script>
-
 </body>
 
 </html>
