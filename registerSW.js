@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/kirov-dynamics/sw.js', { scope: '/kirov-dynamics/' })})}
