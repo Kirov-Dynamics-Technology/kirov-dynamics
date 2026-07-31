@@ -3581,7 +3581,7 @@
   </div>
 </div>
 <button id="chatbot-toggle" class="chatbot-toggle-btn">
-  <i data-lucide="message-circle"></i>
+  <span style="font-size: 24px;">💬</span>
 </button>
 
 <script>
@@ -3599,6 +3599,9 @@
       { text: 'AI Solutions', key: 'ai' },
       { text: 'Cybersecurity', key: 'cybersecurity' },
       { text: 'Smart Infrastructure', key: 'infrastructure' },
+      { text: 'Projects', key: 'projects' },
+      { text: 'About Us', key: 'about' },
+      { text: 'Team', key: 'team' },
       { text: 'Contact Us', key: 'contact' }
     ];
 
@@ -3625,6 +3628,18 @@
       },
       'infrastructure': {
         text: 'We build smart infrastructure platforms for municipalities and enterprises, including IoT and geographic information systems.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'projects': {
+        text: 'Our recent projects include TradePulse Terminal, PhantomGrid OSINT, and VectorFlow Studio.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'about': {
+        text: 'Kirov Dynamics Technology is an Africa-first digital transformation company delivering AI, cybersecurity, and smart infrastructure.',
+        options: [{ text: 'Start Over', key: 'start_over' }]
+      },
+      'team': {
+        text: 'Founded by Dakalo Mashau and Koketso Raphasha, we are a team built for Africa, ready for the world.',
         options: [{ text: 'Start Over', key: 'start_over' }]
       },
       'contact': {
