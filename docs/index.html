@@ -1476,11 +1476,29 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: chatbot-pulse 2.5s infinite;
 }
-.chatbot-toggle-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(74,144,217,0.7); }
-@keyframes chatbot-pulse {
-  0%,100% { box-shadow: 0 4px 20px rgba(74,144,217,0.4); }
-  50% { box-shadow: 0 4px 32px rgba(74,144,217,0.75), 0 0 0 10px rgba(74,144,217,0.1); }
-}
+.chatbot-toggle-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(74,144,217,0.7);  }
+  @keyframes chatbot-pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 16px rgba(74,144,217,0.45); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 24px rgba(74,144,217,0.65); }
+    100% { transform: scale(1); box-shadow: 0 4px 16px rgba(74,144,217,0.45); }
+  }
+
+  @media (max-width: 600px) {
+    .chatbot-container {
+      width: calc(100% - 32px);
+      height: 60vh;
+      bottom: 140px;
+      right: 16px;
+    }
+    #chatbot-launcher {
+      right: 16px !important;
+      bottom: 24px !important;
+      transform: scale(0.9);
+    }
+    .float-contact {
+      display: none !important;
+    }
+  }
 </style>
 </head>
 <body>
