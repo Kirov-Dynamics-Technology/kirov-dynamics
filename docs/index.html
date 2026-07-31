@@ -3576,7 +3576,7 @@
 <div id="chatbot-container" class="chatbot-container">
   <div class="chatbot-header">
     <div style="display:flex;align-items:center;gap:8px;">
-      <span style="font-size:1.4rem;">&#x1F916;</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <div class="chatbot-title">Kirov Assistant</div>
     </div>
     <button id="chatbot-close" class="chatbot-close-btn" aria-label="Close chat">&times;</button>
@@ -3589,10 +3589,10 @@
 </div>
 <div id="chatbot-launcher" style="position:fixed;bottom:80px;right:32px;z-index:1001;display:flex;align-items:center;gap:10px;">
   <div id="chatbot-label" style="background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:8px 16px;border-radius:24px;font-size:0.82rem;font-weight:700;font-family:Outfit,sans-serif;box-shadow:0 4px 16px rgba(74,144,217,0.45);white-space:nowrap;cursor:pointer;animation:chatbot-pulse 2.5s infinite;">
-    Chat with us &#x1F44B;
+    Chat with us
   </div>
   <button id="chatbot-toggle" class="chatbot-toggle-btn" style="position:static;" aria-label="Open chat assistant">
-    <span style="font-size:28px;">&#x1F916;</span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 </div>
 
@@ -3607,173 +3607,173 @@
     var initialized = false;
 
     var initialOptions = [
-      { text: '\uD83E\uDD16 AI Solutions', key: 'ai' },
-      { text: '\uD83D\uDD12 Cybersecurity', key: 'cybersecurity' },
-      { text: '\uD83C\uDFD9\uFE0F Smart Infrastructure', key: 'infrastructure' },
-      { text: '\uD83D\uDE80 Our Projects', key: 'projects' },
-      { text: '\uD83C\uDFE2 About Us', key: 'about' },
-      { text: '\uD83D\uDC65 Our Team', key: 'team' },
-      { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-      { text: '\uD83D\uDCEC Contact Us', key: 'contact' }
+      { text: 'AI Solutions', key: 'ai' },
+      { text: 'Cybersecurity', key: 'cybersecurity' },
+      { text: 'Smart Infrastructure', key: 'infrastructure' },
+      { text: 'Our Projects', key: 'projects' },
+      { text: 'About Us', key: 'about' },
+      { text: 'Our Team', key: 'team' },
+      { text: 'Ask a Consultant', key: 'consultant' },
+      { text: 'Contact Us', key: 'contact' }
     ];
 
     var botKnowledge = {
       'ai': {
         text: 'We offer cutting-edge AI solutions tailored for African businesses. What area interests you most?',
         options: [
-          { text: '\uD83D\uDCCA Predictive Analytics', key: 'ai_predictive' },
-          { text: '\uD83E\uDDE0 LLMs & AI Agents', key: 'ai_llm' },
-          { text: '\u2699\uFE0F ML Pipelines', key: 'ai_ml' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Predictive Analytics', key: 'ai_predictive' },
+          { text: 'LLMs & AI Agents', key: 'ai_llm' },
+          { text: 'ML Pipelines', key: 'ai_ml' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'ai_predictive': {
         text: 'Our predictive models help businesses forecast trends, manage risks, and optimize operations using real-time data-driven insights. Ideal for government, finance, and retail.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'ai_llm': {
         text: 'We design and deploy custom LLMs and autonomous AI agents for enterprise clients, automating workflows, reports, and decision pipelines.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'ai_ml': {
         text: 'We build end-to-end ML pipelines — from data ingestion and cleaning to model training, deployment, and monitoring on cloud infrastructure.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'cybersecurity': {
         text: 'We protect businesses and governments with world-class cybersecurity. What do you need help with?',
         options: [
-          { text: '\uD83D\uDD0D Security Assessments', key: 'cyber_assess' },
-          { text: '\uD83D\uDEE1\uFE0F SOC Implementation', key: 'cyber_soc' },
-          { text: '\uD83D\uDD75\uFE0F Threat Intelligence', key: 'cyber_threat' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Security Assessments', key: 'cyber_assess' },
+          { text: 'SOC Implementation', key: 'cyber_soc' },
+          { text: 'Threat Intelligence', key: 'cyber_threat' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'cyber_assess': {
         text: 'Our enterprise security assessments include penetration testing, vulnerability scanning, and compliance audits for POPIA, ISO 27001, and more.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'cyber_soc': {
         text: 'We design and implement Security Operations Centers (SOCs) for enterprises and government entities, including 24/7 monitoring and incident response.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'cyber_threat': {
         text: 'Our threat intelligence platform aggregates real-time data from global feeds to keep you ahead of cyber adversaries targeting your sector.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'infrastructure': {
         text: 'We build smart infrastructure platforms for municipalities and enterprises. What are you interested in?',
         options: [
-          { text: '\uD83C\uDF10 IoT & Sensors', key: 'infra_iot' },
-          { text: '\uD83D\uDDFA\uFE0F GIS Platforms', key: 'infra_gis' },
-          { text: '\uD83C\uDFD9\uFE0F Smart City Solutions', key: 'infra_city' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'IoT & Sensors', key: 'infra_iot' },
+          { text: 'GIS Platforms', key: 'infra_gis' },
+          { text: 'Smart City Solutions', key: 'infra_city' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'infra_iot': {
         text: 'We deploy IoT sensor networks for real-time environmental monitoring, asset tracking, and infrastructure management at scale.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'infra_gis': {
         text: 'Our GIS platforms provide geospatial analytics and mapping tools to support urban planning, service delivery, and emergency response.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'infra_city': {
         text: 'Our Smart City solutions integrate energy management, water monitoring, traffic analytics, and citizen services into a unified dashboard for municipalities.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'projects': {
         text: 'Here are some of our flagship projects:',
         options: [
-          { text: '\uD83D\uDCC8 TradePulse Terminal', key: 'proj_tradepulse' },
-          { text: '\uD83D\uDC41\uFE0F PhantomGrid OSINT', key: 'proj_phantom' },
-          { text: '\uD83D\uDD2C VectorFlow Studio', key: 'proj_vectorflow' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'TradePulse Terminal', key: 'proj_tradepulse' },
+          { text: 'PhantomGrid OSINT', key: 'proj_phantom' },
+          { text: 'VectorFlow Studio', key: 'proj_vectorflow' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'proj_tradepulse': {
         text: 'TradePulse Terminal is a real-time financial intelligence platform with predictive analytics, sentiment analysis, and automated trading signal generation.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'proj_phantom': {
         text: 'PhantomGrid is our OSINT platform that aggregates and correlates open-source data to support cybersecurity investigations and threat profiling.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'proj_vectorflow': {
         text: 'VectorFlow Studio is a collaborative AI/ML experimentation environment enabling teams to build, test, and deploy machine learning models rapidly.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'about': {
         text: 'Kirov Dynamics Technology is an Africa-first digital transformation company delivering AI, cybersecurity, and smart infrastructure for businesses and governments across the continent.',
         options: [
-          { text: '\uD83D\uDC65 Meet the Team', key: 'team' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Meet the Team', key: 'team' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'team': {
         text: 'We are a passionate team of engineers, data scientists, and security professionals built for Africa and ready for the world. Co-founded by Dakalo Mashau & Koketso Raphasha.',
         options: [
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Ask a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Ask a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'consultant': {
         text: 'Our consultants are ready to assist you! Fill in the contact form below — we respond within 24 hours. Or reach us directly:',
         link: { text: 'info@kirovdynamics.com', href: 'mailto:info@kirovdynamics.com' },
         options: [
-          { text: '\uD83D\uDCDD Go to Contact Form', key: 'go_contact' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Go to Contact Form', key: 'go_contact' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'go_contact': {
         text: 'Scrolling to the contact form now...',
         action: 'scroll_to_contact',
         options: [
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'contact': {
         text: 'You can reach us through any of these channels:',
         link: { text: 'info@kirovdynamics.com', href: 'mailto:info@kirovdynamics.com' },
         options: [
-          { text: '\uD83D\uDCDD Use Contact Form', key: 'go_contact' },
-          { text: '\uD83E\uDDD1\u200D\uD83D\uDCBC Speak to a Consultant', key: 'consultant' },
-          { text: '\uD83D\uDD19 Back to Menu', key: 'start_over' }
+          { text: 'Use Contact Form', key: 'go_contact' },
+          { text: 'Speak to a Consultant', key: 'consultant' },
+          { text: 'Back to Menu', key: 'start_over' }
         ]
       },
       'start_over': {
@@ -3844,7 +3844,7 @@
 
     function initChat() {
       if (initialized) return;
-      appendMessage('\uD83D\uDC4B Hi there! I\'m Kirov Assistant. How can I help you today?', 'bot', initialOptions, null);
+      appendMessage('Hi there! I\'m Kirov Assistant. How can I help you today?', 'bot', initialOptions, null);
       initialized = true;
     }
 
