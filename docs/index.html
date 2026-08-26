@@ -1,7 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics (placeholder — replace G-XXXXX with your measurement ID) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXX');
+  </script> -->
   <meta charset="UTF-8">
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kirov Dynamics Technology",
+    "url": "https://kirov-dynamics-technology.github.io/kirov-dynamics/",
+    "logo": "https://kirov-dynamics-technology.github.io/kirov-dynamics/assets/images/kirov-logo.png",
+    "description": "AI, cybersecurity, software engineering, and smart infrastructure solutions for businesses and governments across Africa.",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ZA",
+      "addressRegion": "Gauteng"
+    },
+    "areaServed": ["ZA", "NG", "KE", "GH", "BW"],
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+27781172470",
+      "contactType": "sales",
+      "availableLanguage": ["English", "Afrikaans", "Zulu"]
+    },
+    "serviceType": ["AI Solutions", "Cybersecurity", "Software Development", "Cloud Computing", "DevOps", "GovTech", "IoT", "Consulting"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kirov Dynamics Technology",
+    "url": "https://kirov-dynamics-technology.github.io/kirov-dynamics/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kirov-dynamics-technology.github.io/kirov-dynamics/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Kirov Dynamics Technology",
+    "priceRange": "R15,000 - R150,000+",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "ratingCount": "12"
+    }
+  }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kirov Dynamics Technology | AI · Cybersecurity · Smart Infrastructure</title>
   <meta name="description" content="Kirov Dynamics Technology delivers AI solutions, cybersecurity, smart infrastructure, and government technology for businesses and governments across Africa and the world.">
@@ -1534,8 +1595,9 @@
       <li><a href="#solutions">Platforms</a></li>
       <li><a href="#projects">Projects</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="#about">About</a></li>
+           <li><a href="pricing.html">Pricing</a></li>
+           <li><a href="company-profile.html">Profile</a></li>
+           <li><a href="#about">About</a></li>
       <li><a href="#leadership">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1553,8 +1615,9 @@
   <a href="#solutions" class="mobile-link">Platforms</a>
   <a href="#projects" class="mobile-link">Projects</a>
           <a href="#services" class="mobile-link">Services</a>
-          <a href="pricing.html" class="mobile-link">Pricing</a>
-          <a href="#about" class="mobile-link">About</a>
+           <a href="pricing.html" class="mobile-link">Pricing</a>
+           <a href="company-profile.html" class="mobile-link">Profile</a>
+           <a href="#about" class="mobile-link">About</a>
   <a href="#leadership" class="mobile-link">Team</a>
   <a href="#contact" class="mobile-link">Contact</a>
   <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
@@ -1695,7 +1758,7 @@
           <h4>AI Study Assistant</h4>
           <p>An intelligent tutoring platform powered by LLMs that helps South African students prepare for matric exams with personalised learning paths.</p>
           <div class="project-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>OpenAI</span><span>PostgreSQL</span></div>
-          <a class="project-link" href="#contact">View Project <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
+          <a class="project-link" href="case-studies/ai-study-assistant.html">View Case Study <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
         </div>
       </div>
       <div class="project-card">
@@ -1715,7 +1778,7 @@
           <h4>Municipal Complaint Portal</h4>
           <p>A digital platform for citizens to report service delivery issues — with automated routing, SLA tracking, and real-time status updates.</p>
           <div class="project-stack"><span>Python</span><span>Django</span><span>PostgreSQL</span><span>Docker</span><span>Azure</span></div>
-          <a class="project-link" href="#contact">View Project <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
+          <a class="project-link" href="case-studies/municipal-complaint-portal.html">View Case Study <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
         </div>
       </div>
       <div class="project-card">
@@ -1725,7 +1788,7 @@
           <h4>Construction ERP Prototype</h4>
           <p>CIDB-compliant construction management system covering tenders, project tracking, worker attendance, and procurement workflows.</p>
           <div class="project-stack"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Kubernetes</span><span>React</span></div>
-          <a class="project-link" href="#contact">View Project <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
+          <a class="project-link" href="case-studies/construction-erp.html">View Case Study <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
         </div>
       </div>
       <div class="project-card">
@@ -1775,7 +1838,7 @@
           <h4>Smart Water Monitoring</h4>
           <p>Real-time water quality and consumption monitoring platform for municipalities — with leak detection, pressure analytics, and automated alerts.</p>
           <div class="project-stack"><span>Python</span><span>React</span><span>PostgreSQL</span><span>Docker</span><span>AWS IoT</span></div>
-          <a class="project-link" href="#contact">View Project <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
+          <a class="project-link" href="case-studies/smart-water-monitoring.html">View Case Study <i data-lucide="arrow-up-right" style="width:12px;height:12px"></i></a>
         </div>
       </div>
     </div>

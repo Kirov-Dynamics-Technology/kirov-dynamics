@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Water Monitoring — Case Study | Kirov Dynamics Technology</title>
+  <meta name="description" content="IoT platform for real-time water quality monitoring and leak detection — helping a municipality reduce water losses by 40%.">
+  <meta property="og:title" content="Smart Water Monitoring — Kirov Dynamics Case Study">
+  <meta property="og:description" content="How we built an IoT water monitoring system that detected leaks in real time and saved a municipality millions in lost water.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06080f;--bg-card:#0d1625;--primary:#1a3664;--accent:#4a90d9;--accent-lite:#6aaee8;--teal:#00c8f8;--green:#10d67c;--gold:#f59e0b;--text:#f0f4ff;--muted:#7a9ab8;--border:rgba(74,144,217,0.18);--glass:rgba(8,13,24,0.9);--radius:12px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    h1,h2,h3,h4{font-family:'Outfit',sans-serif;line-height:1.2}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:900px;margin:0 auto;padding:0 28px}
+    nav{padding:20px 0;border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:900;color:#fff}
+    .nav-logo span{color:var(--accent)}
+    .nav-back{font-size:0.88rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:var(--transition)}
+    .nav-back:hover{color:var(--accent)}
+    .cs-hero{padding:80px 0 60px;text-align:center}
+    .cs-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-lite);background:rgba(74,144,217,0.1);border:1px solid var(--border);padding:6px 16px;border-radius:50px;margin-bottom:18px}
+    .cs-hero h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cs-hero p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto}
+    .cs-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;padding:40px 0;border-bottom:1px solid var(--border)}
+    .meta-item{text-align:center;padding:20px;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border)}
+    .meta-item .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .meta-item .value{font-size:1.1rem;font-weight:800;color:var(--accent-lite);font-family:'Outfit',sans-serif}
+    .cs-content{padding:50px 0}
+    .cs-content h2{font-size:1.6rem;font-weight:800;margin:40px 0 16px;color:var(--text)}
+    .cs-content h2:first-child{margin-top:0}
+    .cs-content p{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:16px}
+    .cs-content ul{margin:16px 0;padding-left:0}
+    .cs-content li{font-size:0.92rem;color:var(--muted);padding:8px 0 8px 24px;position:relative;line-height:1.6}
+    .cs-content li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:30px 0}
+    .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+    .result-card .number{font-size:2.2rem;font-weight:900;color:var(--green);font-family:'Outfit',sans-serif}
+    .result-card .desc{font-size:0.82rem;color:var(--muted);margin-top:6px}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .tech-tag{font-size:0.75rem;font-weight:600;padding:6px 14px;border-radius:50px;background:rgba(74,144,217,0.1);border:1px solid var(--border);color:var(--accent-lite)}
+    .cs-cta{background:linear-gradient(135deg,rgba(26,54,100,0.3),rgba(74,144,217,0.1));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 0;text-align:center;margin:40px 0}
+    .cs-cta h2{font-size:1.8rem;font-weight:900;margin-bottom:12px}
+    .cs-cta p{color:var(--muted);margin-bottom:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.9rem;padding:13px 26px;border-radius:var(--radius);transition:var(--transition);cursor:pointer;border:none}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 20px rgba(74,144,217,0.35)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(74,144,217,0.5)}
+    .btn-green{background:linear-gradient(135deg,#155a32,#10d67c);color:#fff}
+    .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(16,214,124,0.5)}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .more-cases{padding:50px 0;border-top:1px solid var(--border)}
+    .more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:30px}
+    .more-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:var(--transition)}
+    .more-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .more-card h4{font-size:1rem;font-weight:700;margin-bottom:8px}
+    .more-card p{font-size:0.82rem;color:var(--muted);margin-bottom:14px}
+    .more-card a{font-size:0.82rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:4px}
+    footer{padding:30px 0;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">Kirov<span>Dynamics</span></a>
+    <a href="../index.html#projects" class="nav-back">← All Projects</a>
+  </div>
+</nav>
+
+<section class="cs-hero">
+  <div class="container">
+    <span class="cs-tag">IoT · Case Study</span>
+    <h1>Smart Water Monitoring</h1>
+    <p>IoT platform for real-time water quality monitoring and leak detection — helping a municipality reduce water losses by 40%.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="cs-meta">
+    <div class="meta-item"><div class="label">Client</div><div class="value">Mpumalanga Municipality</div></div>
+    <div class="meta-item"><div class="label">Sector</div><div class="value">Utilities / IoT</div></div>
+    <div class="meta-item"><div class="label">Timeline</div><div class="value">24 Weeks</div></div>
+    <div class="meta-item"><div class="label">Impact</div><div class="value">40% Water Loss Reduction</div></div>
+  </div>
+
+  <div class="cs-content">
+    <h2>The Challenge</h2>
+    <p>South African municipalities lose an estimated 25-35% of treated water to leaks, pipe bursts, and meter inaccuracies — a problem that costs billions of Rands annually. This particular municipality was losing over 30% of its treated water, with some areas experiencing 40%+ losses.</p>
+    <p>Leak detection was entirely reactive — crews were only dispatched after residents reported low pressure or visible leaks. By the time a leak was reported and located, thousands of litres had already been lost. Water quality monitoring was manual, with samples taken monthly and tested in a lab, meaning contamination events could go undetected for weeks.</p>
+
+    <h2>Our Solution</h2>
+    <p>We designed and deployed an IoT-based water monitoring system that provides real-time visibility into the entire water distribution network.</p>
+    <ul>
+      <li><strong>IoT Sensor Network:</strong> Flow sensors, pressure sensors, and water quality probes deployed at key points across the distribution network</li>
+      <li><strong>Leak Detection AI:</strong> Machine learning algorithms that detect abnormal flow patterns and pressure drops in real time, alerting crews within minutes</li>
+      <li><strong>Water Quality Monitoring:</strong> Continuous measurement of pH, turbidity, chlorine levels, and temperature with automated contamination alerts</li>
+      <li><strong>Centralised Dashboard:</strong> Real-time map view of the entire network with drill-down into individual zones and sensors</li>
+      <li><strong>Mobile App for Field Crews:</strong> Alerts, work orders, and leak location guidance for maintenance teams</li>
+      <li><strong>Monthly Analytics Reports:</strong> Automated reports on water balance, loss trends, and water quality compliance</li>
+    </ul>
+
+    <div class="tech-tags">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">MQTT</span>
+      <span class="tech-tag">TimescaleDB</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">AWS IoT</span>
+    </div>
+
+    <h2>Results</h2>
+    <div class="results-grid">
+      <div class="result-card"><div class="number">40%</div><div class="desc">Reduction in water losses</div></div>
+      <div class="result-card"><div class="number">&lt;15min</div><div class="desc">Leak detection to alert time</div></div>
+      <div class="result-card"><div class="number">R8.2M</div><div class="desc">Annual water savings</div></div>
+      <div class="result-card"><div class="number">99.7%</div><div class="desc">Water quality compliance</div></div>
+    </div>
+
+    <h2>Impact on Water Management</h2>
+    <p>The system transformed the municipality from reactive to proactive water management. Leaks that previously went undetected for weeks are now identified within minutes. The AI learns normal patterns for each zone and flags anomalies — even small, slow leaks that would never trigger a resident complaint.</p>
+    <p>The water quality monitoring has been equally impactful. During one incident, the system detected a sudden pH drop in a treatment plant's output, alerting operators before contaminated water reached residents. The monthly analytics reports have become essential tools for infrastructure planning and budgeting.</p>
+  </div>
+</div>
+
+<section class="cs-cta">
+  <div class="container">
+    <h2>Need IoT or Water Monitoring?</h2>
+    <p>We build IoT platforms for municipalities and utilities. Let's discuss your monitoring needs.</p>
+    <div class="cta-btns">
+      <a href="../index.html#contact" class="btn btn-primary">Book Free Consultation</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27m%20interested%20in%20IoT%20water%20monitoring" target="_blank" class="btn btn-green">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="more-cases">
+  <div class="container">
+    <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">More Case Studies</h2>
+    <p style="color:var(--muted);font-size:0.9rem">See how we've helped other organisations.</p>
+    <div class="more-grid">
+      <div class="more-card">
+        <h4>Municipal Complaint Portal</h4>
+        <p>Digital platform for citizens to report service delivery issues with automated routing.</p>
+        <a href="municipal-complaint-portal.html">View Case Study →</a>
+      </div>
+      <div class="more-card">
+        <h4>Construction ERP</h4>
+        <p>CIDB-compliant ERP for tender management, project tracking, and procurement.</p>
+        <a href="construction-erp.html">View Case Study →</a>
+      </div>
+      <div class="more-card">
+        <h4>AI Study Assistant</h4>
+        <p>Intelligent tutoring platform helping SA students prepare for matric exams.</p>
+        <a href="ai-study-assistant.html">View Case Study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kirov Dynamics Technology (Pty) Ltd. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction ERP — Case Study | Kirov Dynamics Technology</title>
+  <meta name="description" content="CIDB-compliant ERP system for construction companies — tender management, project tracking, B-BBEE reporting, and procurement in one platform.">
+  <meta property="og:title" content="Construction ERP — Kirov Dynamics Case Study">
+  <meta property="og:description" content="How we built a CIDB-compliant ERP that reduced tender prep time by 70% and improved project visibility for a mid-size contractor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06080f;--bg-card:#0d1625;--primary:#1a3664;--accent:#4a90d9;--accent-lite:#6aaee8;--teal:#00c8f8;--green:#10d67c;--gold:#f59e0b;--text:#f0f4ff;--muted:#7a9ab8;--border:rgba(74,144,217,0.18);--glass:rgba(8,13,24,0.9);--radius:12px;--radius-lg:20px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    h1,h2,h3,h4{font-family:'Outfit',sans-serif;line-height:1.2}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:900px;margin:0 auto;padding:0 28px}
+    nav{padding:20px 0;border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:900;color:#fff}
+    .nav-logo span{color:var(--accent)}
+    .nav-back{font-size:0.88rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:var(--transition)}
+    .nav-back:hover{color:var(--accent)}
+    .cs-hero{padding:80px 0 60px;text-align:center}
+    .cs-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-lite);background:rgba(74,144,217,0.1);border:1px solid var(--border);padding:6px 16px;border-radius:50px;margin-bottom:18px}
+    .cs-hero h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cs-hero p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto}
+    .cs-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;padding:40px 0;border-bottom:1px solid var(--border)}
+    .meta-item{text-align:center;padding:20px;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border)}
+    .meta-item .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .meta-item .value{font-size:1.1rem;font-weight:800;color:var(--accent-lite);font-family:'Outfit',sans-serif}
+    .cs-content{padding:50px 0}
+    .cs-content h2{font-size:1.6rem;font-weight:800;margin:40px 0 16px;color:var(--text)}
+    .cs-content h2:first-child{margin-top:0}
+    .cs-content p{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:16px}
+    .cs-content ul{margin:16px 0;padding-left:0}
+    .cs-content li{font-size:0.92rem;color:var(--muted);padding:8px 0 8px 24px;position:relative;line-height:1.6}
+    .cs-content li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:30px 0}
+    .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+    .result-card .number{font-size:2.2rem;font-weight:900;color:var(--green);font-family:'Outfit',sans-serif}
+    .result-card .desc{font-size:0.82rem;color:var(--muted);margin-top:6px}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .tech-tag{font-size:0.75rem;font-weight:600;padding:6px 14px;border-radius:50px;background:rgba(74,144,217,0.1);border:1px solid var(--border);color:var(--accent-lite)}
+    .cs-cta{background:linear-gradient(135deg,rgba(26,54,100,0.3),rgba(74,144,217,0.1));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 0;text-align:center;margin:40px 0}
+    .cs-cta h2{font-size:1.8rem;font-weight:900;margin-bottom:12px}
+    .cs-cta p{color:var(--muted);margin-bottom:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.9rem;padding:13px 26px;border-radius:var(--radius);transition:var(--transition);cursor:pointer;border:none}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 20px rgba(74,144,217,0.35)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(74,144,217,0.5)}
+    .btn-green{background:linear-gradient(135deg,#155a32,#10d67c);color:#fff}
+    .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(16,214,124,0.5)}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .more-cases{padding:50px 0;border-top:1px solid var(--border)}
+    .more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:30px}
+    .more-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:var(--transition)}
+    .more-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .more-card h4{font-size:1rem;font-weight:700;margin-bottom:8px}
+    .more-card p{font-size:0.82rem;color:var(--muted);margin-bottom:14px}
+    .more-card a{font-size:0.82rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:4px}
+    footer{padding:30px 0;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">Kirov<span>Dynamics</span></a>
+    <a href="../index.html#projects" class="nav-back">← All Projects</a>
+  </div>
+</nav>
+
+<section class="cs-hero">
+  <div class="container">
+    <span class="cs-tag">Enterprise · Case Study</span>
+    <h1>Construction ERP</h1>
+    <p>CIDB-compliant ERP system that streamlines tender management, project tracking, procurement, and B-BBEE reporting for construction companies.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="cs-meta">
+    <div class="meta-item"><div class="label">Client</div><div class="value">Mid-Size Contractor</div></div>
+    <div class="meta-item"><div class="label">Sector</div><div class="value">Construction</div></div>
+    <div class="meta-item"><div class="label">Timeline</div><div class="value">20 Weeks</div></div>
+    <div class="meta-item"><div class="label">Impact</div><div class="value">70% Faster Tender Prep</div></div>
+  </div>
+
+  <div class="cs-content">
+    <h2>The Challenge</h2>
+    <p>A CIDB-registered construction company was managing tenders, projects, procurement, and compliance through spreadsheets and paper-based systems. Tender preparation required manually pulling data from multiple sources, taking 2-3 weeks per submission. Project managers had no real-time view of budgets, schedules, or material costs.</p>
+    <p>B-BBEE scorecard tracking was entirely manual, and the finance team spent days each month reconciling project costs against invoicing. The company was losing bids because they couldn't respond quickly enough to tender opportunities.</p>
+
+    <h2>Our Solution</h2>
+    <p>We built a unified ERP platform specifically designed for CIDB-registered construction companies in South Africa.</p>
+    <ul>
+      <li><strong>Tender Management:</strong> Automated tender discovery, document assembly, and submission tracking with CIDB grading validation</li>
+      <li><strong>Project Dashboard:</strong> Real-time view of project timelines, budgets, milestones, and resource allocation</li>
+      <li><strong>Procurement Module:</strong> Supplier management, PO generation, and material cost tracking integrated with project budgets</li>
+      <li><strong>B-BBEE Engine:</strong> Automatic scorecard calculation with spend tracking across ownership, management, skills development, and enterprise development</li>
+      <li><strong>Document Vault:</strong> Centralised storage for tender documents, COCs, insurance certificates, and compliance records</li>
+      <li><strong>Financial Integration:</strong> Syncs with Xero and Sage for invoicing and cost reconciliation</li>
+    </ul>
+
+    <div class="tech-tags">
+      <span class="tech-tag">C#</span>
+      <span class="tech-tag">.NET 8</span>
+      <span class="tech-tag">Blazor</span>
+      <span class="tech-tag">SQL Server</span>
+      <span class="tech-tag">Azure</span>
+      <span class="tech-tag">Docker</span>
+    </div>
+
+    <h2>Results</h2>
+    <div class="results-grid">
+      <div class="result-card"><div class="number">70%</div><div class="desc">Faster tender preparation</div></div>
+      <div class="result-card"><div class="number">3x</div><div class="desc">More tenders submitted per quarter</div></div>
+      <div class="result-card"><div class="number">95%</div><div class="desc">Budget accuracy on projects</div></div>
+      <div class="result-card"><div class="number">100%</div><div class="desc">B-BBEE compliance maintained</div></div>
+    </div>
+
+    <h2>Business Impact</h2>
+    <p>The ERP transformed the company's ability to compete for contracts. Tender preparation dropped from 2-3 weeks to 3-4 days, allowing them to bid on 3x more tenders each quarter. The real-time project dashboard means management can identify budget overruns before they become critical.</p>
+    <p>Procurement automation has reduced material cost overruns by 25%, and the B-BBEE module ensures they maintain their Level 2 contributor status without dedicated compliance staff. The platform has paid for itself many times over in saved hours and won contracts.</p>
+  </div>
+</div>
+
+<section class="cs-cta">
+  <div class="container">
+    <h2>Building in Construction?</h2>
+    <p>We build CIDB-compliant ERPs for South African contractors. Let's streamline your operations.</p>
+    <div class="cta-btns">
+      <a href="../index.html#contact" class="btn btn-primary">Book Free Consultation</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27m%20interested%20in%20a%20construction%20ERP" target="_blank" class="btn btn-green">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="more-cases">
+  <div class="container">
+    <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">More Case Studies</h2>
+    <p style="color:var(--muted);font-size:0.9rem">See how we've helped other organisations.</p>
+    <div class="more-grid">
+      <div class="more-card">
+        <h4>Municipal Complaint Portal</h4>
+        <p>Digital platform for citizens to report service delivery issues with automated routing.</p>
+        <a href="municipal-complaint-portal.html">View Case Study →</a>
+      </div>
+      <div class="more-card">
+        <h4>AI Study Assistant</h4>
+        <p>Intelligent tutoring platform helping SA students prepare for matric exams.</p>
+        <a href="ai-study-assistant.html">View Case Study →</a>
+      </div>
+      <div class="more-card">
+        <h4>Smart Water Monitoring</h4>
+        <p>IoT platform for real-time water quality monitoring and leak detection.</p>
+        <a href="smart-water-monitoring.html">View Case Study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kirov Dynamics Technology (Pty) Ltd. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
