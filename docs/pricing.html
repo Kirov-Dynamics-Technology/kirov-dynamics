@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Packages | Kirov Dynamics Technology</title>
+  <meta name="description" content="Transparent pricing for AI solutions, cybersecurity, software development, and cloud services. Get a custom quote for your business or government project.">
+  <meta property="og:title" content="Pricing & Packages — Kirov Dynamics Technology">
+  <meta property="og:description" content="Enterprise technology solutions with transparent pricing. AI, cybersecurity, software development and cloud services for African organisations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/pricing.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#06080f;--bg-card:#0d1625;--bg-alt:#080d18;
+      --primary:#1a3664;--accent:#4a90d9;--accent-lite:#6aaee8;
+      --teal:#00c8f8;--green:#10d67c;--gold:#f59e0b;
+      --text:#f0f4ff;--muted:#7a9ab8;
+      --border:rgba(74,144,217,0.18);--glass:rgba(8,13,24,0.9);
+      --radius:12px;--radius-lg:20px;
+      --shadow:0 8px 40px rgba(0,0,0,0.6);
+      --glow:0 0 40px rgba(74,144,217,0.2);
+      --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:70px;overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    h1,h2,h3,h4,h5{font-family:'Outfit',sans-serif;line-height:1.2}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1220px;margin:0 auto;padding:0 28px;width:100%}
+
+    /* NAV */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:var(--glass);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .nav-logo img{height:48px;width:auto}
+    .nav-logo-text{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:900;color:#fff}
+    .nav-logo-text span{color:var(--accent)}
+    .nav-links{display:flex;gap:6px;align-items:center}
+    .nav-links a{font-size:0.88rem;font-weight:600;padding:8px 16px;border-radius:8px;color:var(--muted);transition:var(--transition)}
+    .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.06)}
+    .nav-cta{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff!important;padding:10px 22px!important;border-radius:var(--radius)!important}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(74,144,217,0.5)}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    /* HERO */
+    .hero{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(74,144,217,0.08),transparent 70%);pointer-events:none}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto}
+
+    /* SECTION TAG */
+    .section-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-lite);background:rgba(74,144,217,0.1);border:1px solid var(--border);padding:6px 18px;border-radius:50px;margin-bottom:18px}
+    .section-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);display:block}
+
+    /* SECTION */
+    section{padding:80px 0}
+    .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:720px}
+    .divider{width:56px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--primary),var(--accent));margin:18px 0 30px}
+    .divider-center{margin:18px auto 30px}
+    .text-center{text-align:center}
+    .mx-auto{margin-left:auto;margin-right:auto}
+
+    /* BTN */
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.9rem;padding:13px 26px;border-radius:var(--radius);transition:var(--transition);cursor:pointer;white-space:nowrap;border:none}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 20px rgba(74,144,217,0.35)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(74,144,217,0.5)}
+    .btn-outline{border:1px solid rgba(255,255,255,0.15);color:var(--text);background:rgba(255,255,255,0.03)}
+    .btn-outline:hover{border-color:var(--accent);background:rgba(74,144,217,0.15);transform:translateY(-2px)}
+    .btn-green{background:linear-gradient(135deg,#155a32,#10d67c);color:#fff;box-shadow:0 4px 20px rgba(16,214,124,0.3)}
+    .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(16,214,124,0.5)}
+
+    /* PRICING CARDS */
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:40px}
+    .price-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 32px;position:relative;transition:var(--transition);overflow:hidden}
+    .price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:var(--transition)}
+    .price-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--glow)}
+    .price-card:hover::before{opacity:1}
+    .price-card.featured{border-color:var(--accent);box-shadow:var(--glow)}
+    .price-card.featured::before{opacity:1}
+    .price-badge{position:absolute;top:16px;right:16px;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:50px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff}
+    .price-card h3{font-size:1.3rem;font-weight:800;margin-bottom:6px}
+    .price-card .price{font-size:2.2rem;font-weight:900;color:var(--accent-lite);margin:16px 0 4px}
+    .price-card .price-note{font-size:0.8rem;color:var(--muted);margin-bottom:20px}
+    .price-card p{font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:20px}
+    .price-features{list-style:none;margin:0 0 24px}
+    .price-features li{font-size:0.85rem;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+    .price-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:0.8rem}
+    .price-card .btn{width:100%;justify-content:center}
+
+    /* COMPARISON TABLE */
+    .comparison-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:0.88rem}
+    .comparison-table th{text-align:left;padding:14px 16px;border-bottom:2px solid var(--border);font-weight:700;color:var(--text);font-family:'Outfit',sans-serif}
+    .comparison-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    .comparison-table tr:hover td{background:rgba(74,144,217,0.04)}
+    .comparison-table .check{color:var(--green);font-weight:700}
+    .comparison-table .dash{color:rgba(255,255,255,0.15)}
+    @media(max-width:768px){.comparison-table{font-size:0.78rem}.comparison-table th,.comparison-table td{padding:10px 8px}}
+
+    /* FAQ */
+    .faq-list{max-width:800px;margin:40px auto 0}
+    .faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:var(--transition)}
+    .faq-item:hover{border-color:rgba(74,144,217,0.3)}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;font-weight:600;font-size:0.95rem;transition:var(--transition)}
+    .faq-q:hover{color:var(--accent-lite)}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);transition:var(--transition)}
+    .faq-item.open .faq-q::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease;padding:0 20px}
+    .faq-item.open .faq-a{max-height:300px;padding:0 20px 18px}
+    .faq-a p{font-size:0.88rem;color:var(--muted);line-height:1.7}
+
+    /* CTA */
+    .cta-section{background:linear-gradient(135deg,rgba(26,54,100,0.3),rgba(74,144,217,0.1));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 0;text-align:center}
+    .cta-section h2{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;margin-bottom:16px}
+    .cta-section p{color:var(--muted);max-width:500px;margin:0 auto 30px}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* FOOTER */
+    footer{padding:50px 0 30px;border-top:1px solid var(--border);font-size:0.82rem;color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{color:var(--muted);transition:var(--transition)}
+    .footer-links a:hover{color:var(--accent)}
+
+    /* WHATSAPP WIDGET */
+    .wa-fab{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.4);cursor:pointer;transition:var(--transition);border:none}
+    .wa-fab:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,0.6)}
+    .wa-fab svg{width:30px;height:30px;fill:#fff}
+    .wa-popup{position:fixed;bottom:96px;right:24px;z-index:998;width:320px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;transform:scale(0.9);opacity:0;pointer-events:none;transition:var(--transition)}
+    .wa-popup.open{transform:scale(1);opacity:1;pointer-events:all}
+    .wa-popup-header{background:#075e54;padding:16px 20px;display:flex;align-items:center;gap:12px}
+    .wa-popup-header .avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.9rem}
+    .wa-popup-header .info h4{color:#fff;font-size:0.95rem;font-weight:700}
+    .wa-popup-header .info span{color:rgba(255,255,255,0.7);font-size:0.75rem}
+    .wa-popup-body{padding:20px;background:rgba(74,144,217,0.04)}
+    .wa-popup-body .msg{background:var(--bg-card);border:1px solid var(--border);border-radius:0 var(--radius) var(--radius) var(--radius);padding:14px;font-size:0.88rem;color:var(--text);line-height:1.6;margin-bottom:12px}
+    .wa-popup-body .msg::after{content:'';position:absolute;top:0;left:-6px;border:6px solid transparent;border-right-color:var(--border)}
+    .wa-popup-body .quick-btns{display:flex;flex-direction:column;gap:8px}
+    .wa-popup-body .quick-btns a{display:block;padding:10px 14px;border-radius:8px;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);color:#25d366;font-size:0.82rem;font-weight:600;text-align:center;transition:var(--transition)}
+    .wa-popup-body .quick-btns a:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4)}
+    @media(max-width:480px){.wa-popup{width:calc(100vw - 48px);right:24px}}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.png" alt="Kirov Dynamics" onerror="this.style.display='none'">
+      <span class="nav-logo-text">Kirov<span>Dynamics</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#solutions">Platforms</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="section-tag">Transparent Pricing</span>
+    <h1>Enterprise Solutions,<br>Clear Pricing</h1>
+    <p>No hidden fees. No surprises. Choose a package or get a custom quote for your specific needs.</p>
+  </div>
+</section>
+
+<!-- AI SOLUTIONS -->
+<section id="ai">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">AI Solutions</span>
+      <h2 class="section-title">AI & Intelligent Automation</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub mx-auto">From chatbots to predictive analytics — AI that works for your business.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>AI Starter</h3>
+        <div class="price">R25,000</div>
+        <div class="price-note">one-time setup</div>
+        <p>Perfect for small businesses exploring AI for the first time.</p>
+        <ul class="price-features">
+          <li>AI chatbot for website (1 channel)</li>
+          <li>Custom knowledge base (up to 50 docs)</li>
+          <li>Basic analytics dashboard</li>
+          <li>30 days post-launch support</li>
+          <li>WhatsApp integration</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">Most Popular</div>
+        <h3>AI Professional</h3>
+        <div class="price">R75,000</div>
+        <div class="price-note">one-time setup + R3,500/mo support</div>
+        <p>For organisations ready to embed AI into core operations.</p>
+        <ul class="price-features">
+          <li>Multi-channel AI assistant (web + WhatsApp + Teams)</li>
+          <li>Custom LLM training on your data</li>
+          <li>Document processing automation</li>
+          <li>Predictive analytics module</li>
+          <li>90 days post-launch support</li>
+          <li>Monthly performance reports</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>AI Enterprise</h3>
+        <div class="price">Custom</div>
+        <div class="price-note">tailored to your requirements</div>
+        <p>Full-scale AI transformation for large organisations and government.</p>
+        <ul class="price-features">
+          <li>Custom AI agents & automation workflows</li>
+          <li>Computer vision & surveillance AI</li>
+          <li>Enterprise data pipeline & ML models</li>
+          <li>Dedicated AI engineer allocation</li>
+          <li>SLA-backed support (24/7)</li>
+          <li>On-premise or cloud deployment</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Request Proposal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CYBERSECURITY -->
+<section id="cyber" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Cybersecurity</span>
+      <h2 class="section-title">Protect Your Digital Assets</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub mx-auto">POPIA-aligned security assessments, penetration testing, and ongoing protection.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Security Assessment</h3>
+        <div class="price">R15,000</div>
+        <div class="price-note">one-time per environment</div>
+        <p>Know where you stand. Comprehensive vulnerability assessment of your infrastructure.</p>
+        <ul class="price-features">
+          <li>External vulnerability scan</li>
+          <li>Internal network assessment</li>
+          <li>Web application security test</li>
+          <li>POPIA compliance gap analysis</li>
+          <li>Executive summary report</li>
+          <li>Remediation roadmap</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Book Assessment</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">Recommended</div>
+        <h3>Penetration Test</h3>
+        <div class="price">R35,000</div>
+        <div class="price-note">per engagement</div>
+        <p>Real-world attack simulation by certified ethical hackers.</p>
+        <ul class="price-features">
+          <li>Full penetration test (network + app)</li>
+          <li>Social engineering simulation</li>
+          <li>Wireless security assessment</li>
+          <li>Detailed findings with CVSS scores</li>
+          <li>Remediation guidance & retest</li>
+          <li>Compliance-ready report</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Book Test</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Managed Security</h3>
+        <div class="price">R12,000</div>
+        <div class="price-note">per month</div>
+        <p>Ongoing protection — we monitor, detect, and respond to threats 24/7.</p>
+        <ul class="price-features">
+          <li>24/7 SOC monitoring</li>
+          <li>Threat detection & response</li>
+          <li>Monthly vulnerability scans</li>
+          <li>Incident response retainer</li>
+          <li>Quarterly security reviews</li>
+          <li>POPIA compliance management</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Protected</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE DEVELOPMENT -->
+<section id="software">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Software Development</span>
+      <h2 class="section-title">Custom Software & Platforms</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub mx-auto">From web apps to enterprise systems — built for your exact requirements.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>MVP / Prototype</h3>
+        <div class="price">R50,000</div>
+        <div class="price-note">4-6 week delivery</div>
+        <p>Get your idea to market fast with a lean, functional prototype.</p>
+        <ul class="price-features">
+          <li>UI/UX design (up to 10 screens)</li>
+          <li>Full-stack web application</li>
+          <li>User authentication & roles</li>
+          <li>Database design & API</li>
+          <li>Hosting setup & deployment</li>
+          <li>30 days bug-fix support</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Start Building</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">Best Value</div>
+        <h3>Business Platform</h3>
+        <div class="price">R150,000</div>
+        <div class="price-note">8-12 week delivery</div>
+        <p>Full-featured platform for your business operations.</p>
+        <ul class="price-features">
+          <li>Custom UI/UX design</li>
+          <li>Full-stack with admin dashboard</li>
+          <li>Multi-user with permissions</li>
+          <li>Payment gateway integration</li>
+          <li>Reporting & analytics</li>
+          <li>Mobile-responsive design</li>
+          <li>90 days support</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Start Building</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Enterprise System</h3>
+        <div class="price">Custom</div>
+        <div class="price-note">scoped per project</div>
+        <p>Large-scale systems for government, mining, construction, or finance.</p>
+        <ul class="price-features">
+          <li>Full discovery & architecture phase</li>
+          <li>Microservices or monolith (your choice)</li>
+          <li>Cloud-native deployment</li>
+          <li>CI/CD pipeline setup</li>
+          <li>Security audit & hardening</li>
+          <li>Training & documentation</li>
+          <li>Ongoing maintenance plan</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOUD & DEVOPS -->
+<section id="cloud" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Cloud & DevOps</span>
+      <h2 class="section-title">Cloud Infrastructure</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub mx-auto">Migrate, deploy, and scale on AWS, Azure, or Google Cloud.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Cloud Migration</h3>
+        <div class="price">From R40,000</div>
+        <div class="price-note">depends on complexity</div>
+        <p>Move your existing infrastructure to the cloud with zero downtime.</p>
+        <ul class="price-features">
+          <li>Infrastructure assessment</li>
+          <li>Migration planning & execution</li>
+          <li>Data migration & validation</li>
+          <li>Performance testing</li>
+          <li>Documentation & handover</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Quote</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>DevOps Setup</h3>
+        <div class="price">R60,000</div>
+        <div class="price-note">one-time setup</div>
+        <p>Automate your deployment pipeline for faster, safer releases.</p>
+        <ul class="price-features">
+          <li>CI/CD pipeline (GitHub Actions / GitLab)</li>
+          <li>Docker containerisation</li>
+          <li>Kubernetes orchestration</li>
+          <li>Infrastructure as Code (Terraform)</li>
+          <li>Monitoring & alerting</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Automate Now</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Managed Cloud</h3>
+        <div class="price">R8,000</div>
+        <div class="price-note">per month</div>
+        <p>We manage your cloud infrastructure so you can focus on your business.</p>
+        <ul class="price-features">
+          <li>24/7 infrastructure monitoring</li>
+          <li>Auto-scaling & load balancing</li>
+          <li>Security patching & updates</li>
+          <li>Cost optimisation</li>
+          <li>Monthly reports & recommendations</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Managed</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">Compare</span>
+      <h2 class="section-title">What's Included</h2>
+      <div class="divider divider-center"></div>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th>Professional</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Discovery & Strategy</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Custom UI/UX Design</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Multi-channel Integration</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>AI / ML Models</td><td>Basic</td><td>Advanced</td><td>Custom</td></tr>
+          <tr><td>Security Audit</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Cloud Deployment</td><td>Shared</td><td>Dedicated</td><td>Private</td></tr>
+          <tr><td>Support</td><td>30 days</td><td>90 days</td><td>12 months</td></tr>
+          <tr><td>SLA</td><td class="dash">—</td><td>99.5%</td><td>99.9%</td></tr>
+          <tr><td>Dedicated Engineer</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>On-site Training</td><td class="dash">—</td><td>Remote</td><td>On-site</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="divider divider-center"></div>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">How long does a typical project take?</div>
+        <div class="faq-a"><p>MVPs: 4-6 weeks. Business platforms: 8-12 weeks. Enterprise systems: 3-6 months depending on scope. We provide a detailed timeline during our discovery phase.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work with government entities?</div>
+        <div class="faq-a"><p>Yes. We understand public sector procurement, PFMA/MFMA compliance, and CIDB requirements. Several of our founders have direct government experience.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What technologies do you use?</div>
+        <div class="faq-a"><p>React, Next.js, Python, FastAPI, Node.js, Java, Spring Boot, PostgreSQL, MongoDB, Docker, Kubernetes, AWS, Azure, and Google Cloud. We choose the right stack for your needs.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you work with our existing systems?</div>
+        <div class="faq-a"><p>Absolutely. We integrate with legacy systems, ERPs, CRMs, and databases. Our APIs are designed for interoperability.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer payment plans?</div>
+        <div class="faq-a"><p>Yes. For projects over R100,000 we offer milestone-based payments (e.g., 40% upfront, 30% mid-project, 30% on delivery). Contact us to discuss terms.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What about POPIA compliance?</div>
+        <div class="faq-a"><p>POPIA compliance is built into every project. We conduct data protection impact assessments and ensure all systems meet South African privacy requirements from day one.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="reveal">Ready to Transform Your Organisation?</h2>
+    <p class="reveal">Book a free 30-minute consultation. No obligation — just expert advice tailored to your needs.</p>
+    <div class="cta-btns reveal">
+      <a href="index.html#contact" class="btn btn-primary">Book Free Consultation</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" class="btn btn-green">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <p>&copy; 2026 Kirov Dynamics Technology (Pty) Ltd. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<button class="wa-fab" id="wa-fab" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<!-- WHATSAPP POPUP -->
+<div class="wa-popup" id="wa-popup">
+  <div class="wa-popup-header">
+    <div class="avatar">K</div>
+    <div class="info">
+      <h4>Kirov Dynamics</h4>
+      <span>Usually replies within minutes</span>
+    </div>
+  </div>
+  <div class="wa-popup-body">
+    <div class="msg">Hi there! 👋 How can we help you today?</div>
+    <div class="quick-btns">
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20a%20quote%20for%20AI%20solutions" target="_blank">Get an AI Quote</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%20need%20a%20security%20assessment" target="_blank">Security Assessment</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%20need%20custom%20software%20built" target="_blank">Build Software</a>
+      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20to%20book%20a%20free%20consultation" target="_blank">Book Consultation</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// WhatsApp widget toggle
+document.getElementById('wa-fab').addEventListener('click', function() {
+  var popup = document.getElementById('wa-popup');
+  popup.classList.toggle('open');
+});
+
+// Close popup when clicking outside
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('wa-popup');
+  var fab = document.getElementById('wa-fab');
+  if (!popup.contains(e.target) && !fab.contains(e.target)) {
+    popup.classList.remove('open');
+  }
+});
+
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(function(el) { observer.observe(el); });
+
+// Navbar scroll
+window.addEventListener('scroll', function() {
+  var navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1421,91 +1421,9 @@
       .consult-card { padding:18px; }
       .consult-option { min-width:100%; }
     }
-  
-/* Chatbot Styles */
-.chatbot-container {
-  display: none; position: fixed; bottom: 160px; right: 32px; z-index: 1000;
-  width: 360px; height: 480px; background: var(--bg-card);
-  border: 1px solid var(--border); border-radius: var(--radius-lg);
-  box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
-}
-.chatbot-container.open { display: flex; }
-.chatbot-header {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  padding: 14px 16px; display: flex; justify-content: space-between;
-  align-items: center; color: #fff;
-}
-.chatbot-title { font-weight: 700; font-family: 'Outfit', sans-serif; }
-.chatbot-close-btn { color: #fff; font-size: 1.5rem; cursor: pointer; }
-.chatbot-messages {
-  flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
-}
-.chat-message {
-  max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem;
-}
-.chat-message.bot { background: rgba(74,144,217,0.1); border: 1px solid var(--border); align-self: flex-start; }
-.chat-message.user { background: var(--accent); color: #fff; align-self: flex-end; }
-.chatbot-options {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
-}
-.chatbot-option-btn {
-  background: rgba(255,255,255,0.05); border: 1px solid var(--accent);
-  color: var(--accent-lite); padding: 6px 12px; border-radius: 20px;
-  font-size: 0.75rem; cursor: pointer; transition: all 0.2s ease;
-}
-.chatbot-option-btn:hover {
-  background: rgba(74,144,217,0.15); color: #fff;
-}
-.chatbot-input-area {
-  display: flex; padding: 12px; border-top: 1px solid var(--border);
-}
-#chatbot-input {
-  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05); color: var(--text); outline: none;
-}
-#chatbot-send {
-  background: var(--accent); color: #fff; border-radius: 20px;
-  padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
-}
-.chatbot-toggle-btn {
-  position: fixed; bottom: 80px; right: 32px; z-index: 1000;
-  width: 68px; height: 68px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: chatbot-pulse 2.5s infinite;
-}
-.chatbot-toggle-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(74,144,217,0.7);  }
-  @keyframes chatbot-pulse {
-    0% { transform: scale(1); box-shadow: 0 4px 16px rgba(74,144,217,0.45); }
-    50% { transform: scale(1.05); box-shadow: 0 4px 24px rgba(74,144,217,0.65); }
-    100% { transform: scale(1); box-shadow: 0 4px 16px rgba(74,144,217,0.45); }
-  }
-
-  @media (max-width: 600px) {
-    .chatbot-container {
-      width: calc(100% - 32px);
-      height: 60vh;
-      bottom: 140px;
-      right: 16px;
-    }
-    #chatbot-launcher {
-      right: 16px !important;
-      bottom: 24px !important;
-      transform: scale(0.9);
-    }
-    .float-contact {
-      display: none !important;
-    }
-  }
-</style>
-<style>/* Universal Responsive & Watermark Fixes */ html, body { overflow-x: hidden !important; max-width: 100vw !important; width: 100% !important; } * { box-sizing: border-box !important; } img, video, canvas, svg, iframe { max-width: 100% !important; } .trial-badge, .watermark, #watermark { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; z-index: -9999 !important; }</style>
+  </style>
 </head>
 <body>
-
-
-
 
 <!-- Progress bar -->
 <div id="progress-bar"></div>
@@ -1533,9 +1451,8 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#solutions">Platforms</a></li>
       <li><a href="#projects">Projects</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#leadership">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1552,9 +1469,8 @@
   <a href="#home" class="mobile-link">Home</a>
   <a href="#solutions" class="mobile-link">Platforms</a>
   <a href="#projects" class="mobile-link">Projects</a>
-          <a href="#services" class="mobile-link">Services</a>
-          <a href="pricing.html" class="mobile-link">Pricing</a>
-          <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
   <a href="#leadership" class="mobile-link">Team</a>
   <a href="#contact" class="mobile-link">Contact</a>
   <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
@@ -1641,7 +1557,7 @@
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
-        <div class="why-icon icon-tile"><i data-lucide="globe"></i></div>
+        <div class="why-icon icon-tile">🌍</div>
         <h4>Africa-First Vision</h4>
         <p>Built to solve the real challenges facing Africa's growing digital economy.</p>
       </div>
@@ -1995,7 +1911,7 @@
         </div>
         <div class="about-stats-row" aria-hidden="true">
           <div class="about-stat-box"><div class="num">AI</div><div class="lbl">Powered</div></div>
-          <div class="about-stat-box" style="border-color:rgba(0,255,136,0.3)"><div class="num" style="color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,0.6),0 0 30px rgba(0,255,136,0.3)"><i data-lucide="globe"></i></div><div class="lbl" style="color:#00ff88;text-shadow:0 0 8px rgba(0,255,136,0.4)">Africa-First</div></div>
+          <div class="about-stat-box" style="border-color:rgba(0,255,136,0.3)"><div class="num" style="color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,0.6),0 0 30px rgba(0,255,136,0.3)">🌍</div><div class="lbl" style="color:#00ff88;text-shadow:0 0 8px rgba(0,255,136,0.4)">Africa-First</div></div>
           <div class="about-stat-box"><div class="num">360°</div><div class="lbl">Solutions</div></div>
         </div>
       </div>
@@ -3063,7 +2979,7 @@
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon icon-tile" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+            <div class="contact-icon icon-tile" aria-hidden="true"><i data-lucide="github"></i></div>
             <div>
               <h4>GitHub</h4>
               <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer">github.com/Kirov-Dynamics-Technology</a>
@@ -3091,7 +3007,7 @@
           <a href="https://za.linkedin.com/in/koketso-raphasha-517954387" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
           </a>
-          <a href="https://portfolio-iota-eight-90.vercel.app" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Portfolio">
+          <a href="https://raphasha27.github.io/raphasha-dev-portfolio" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Portfolio">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </a>
         </div>
@@ -3103,11 +3019,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="John" required autocomplete="given-name">
+              <input type="text" id="first-name" name="first_name" placeholder="Koketso" required autocomplete="given-name">
             </div>
             <div class="form-group">
               <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Doe" required autocomplete="family-name">
+              <input type="text" id="last-name" name="last_name" placeholder="Raphasha" required autocomplete="family-name">
             </div>
           </div>
           <div class="form-group">
@@ -3210,14 +3126,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#home" class="nav-logo" style="margin: 0 0 24px 0; justify-content: flex-start;">
-          <div class="css-globe" style="width: 40px; height: 40px; margin-right: 12px;">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
-        <div class="ring ring-4"></div>
-        <div class="ring ring-equator"></div>
-        <div class="core"></div>
-      </div>
+          <img src="assets/images/k-and-globe.png" alt="KD Icon">
           <div class="nav-logo-text">
             <span class="nav-logo-title">Kirov Dynamics</span>
             <span class="nav-logo-subtitle">Technology</span>
@@ -3593,378 +3502,8 @@
 </script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>lucide && lucide.createIcons();</script>
-
-
-
-
-<div id="chatbot-container" class="chatbot-container">
-  <div class="chatbot-header">
-    <div style="display:flex;align-items:center;gap:8px;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <div class="chatbot-title">Kirov Assistant</div>
-    </div>
-    <button id="chatbot-close" class="chatbot-close-btn" aria-label="Close chat">&times;</button>
-  </div>
-  <div id="chatbot-messages" class="chatbot-messages"></div>
-  <div class="chatbot-input-area">
-    <input type="text" id="chatbot-input" placeholder="Type or pick an option..." autocomplete="off" />
-    <button id="chatbot-send" aria-label="Send message">Send</button>
-  </div>
-</div>
-<div id="chatbot-launcher" style="position:fixed;bottom:80px;right:32px;z-index:1001;display:flex;align-items:center;gap:10px;">
-  <button id="chatbot-toggle" class="chatbot-toggle-btn" style="position:static;" aria-label="Open chat assistant">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  </button>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var toggleBtn = document.getElementById('chatbot-toggle');
-    var closeBtn = document.getElementById('chatbot-close');
-    var chatbotContainer = document.getElementById('chatbot-container');
-    var sendBtn = document.getElementById('chatbot-send');
-    var inputField = document.getElementById('chatbot-input');
-    var messagesContainer = document.getElementById('chatbot-messages');
-    var initialized = false;
-
-    var initialOptions = [
-      { text: 'AI Solutions', key: 'ai' },
-      { text: 'Cybersecurity', key: 'cybersecurity' },
-      { text: 'Smart Infrastructure', key: 'infrastructure' },
-      { text: 'Our Projects', key: 'projects' },
-      { text: 'About Us', key: 'about' },
-      { text: 'Our Team', key: 'team' },
-      { text: 'Ask a Consultant', key: 'consultant' },
-      { text: 'Contact Us', key: 'contact' }
-    ];
-
-    var botKnowledge = {
-      'ai': {
-        text: 'We offer cutting-edge AI solutions tailored for African businesses. What area interests you most?',
-        options: [
-          { text: 'Predictive Analytics', key: 'ai_predictive' },
-          { text: 'LLMs & AI Agents', key: 'ai_llm' },
-          { text: 'ML Pipelines', key: 'ai_ml' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'ai_predictive': {
-        text: 'Our predictive models help businesses forecast trends, manage risks, and optimize operations using real-time data-driven insights. Ideal for government, finance, and retail.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'ai_llm': {
-        text: 'We design and deploy custom LLMs and autonomous AI agents for enterprise clients, automating workflows, reports, and decision pipelines.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'ai_ml': {
-        text: 'We build end-to-end ML pipelines — from data ingestion and cleaning to model training, deployment, and monitoring on cloud infrastructure.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'cybersecurity': {
-        text: 'We protect businesses and governments with world-class cybersecurity. What do you need help with?',
-        options: [
-          { text: 'Security Assessments', key: 'cyber_assess' },
-          { text: 'SOC Implementation', key: 'cyber_soc' },
-          { text: 'Threat Intelligence', key: 'cyber_threat' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'cyber_assess': {
-        text: 'Our enterprise security assessments include penetration testing, vulnerability scanning, and compliance audits for POPIA, ISO 27001, and more.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'cyber_soc': {
-        text: 'We design and implement Security Operations Centers (SOCs) for enterprises and government entities, including 24/7 monitoring and incident response.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'cyber_threat': {
-        text: 'Our threat intelligence platform aggregates real-time data from global feeds to keep you ahead of cyber adversaries targeting your sector.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'infrastructure': {
-        text: 'We build smart infrastructure platforms for municipalities and enterprises. What are you interested in?',
-        options: [
-          { text: 'IoT & Sensors', key: 'infra_iot' },
-          { text: 'GIS Platforms', key: 'infra_gis' },
-          { text: 'Smart City Solutions', key: 'infra_city' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'infra_iot': {
-        text: 'We deploy IoT sensor networks for real-time environmental monitoring, asset tracking, and infrastructure management at scale.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'infra_gis': {
-        text: 'Our GIS platforms provide geospatial analytics and mapping tools to support urban planning, service delivery, and emergency response.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'infra_city': {
-        text: 'Our Smart City solutions integrate energy management, water monitoring, traffic analytics, and citizen services into a unified dashboard for municipalities.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'projects': {
-        text: 'Here are some of our flagship projects:',
-        options: [
-          { text: 'TradePulse Terminal', key: 'proj_tradepulse' },
-          { text: 'PhantomGrid OSINT', key: 'proj_phantom' },
-          { text: 'VectorFlow Studio', key: 'proj_vectorflow' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'proj_tradepulse': {
-        text: 'TradePulse Terminal is a real-time financial intelligence platform with predictive analytics, sentiment analysis, and automated trading signal generation.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'proj_phantom': {
-        text: 'PhantomGrid is our OSINT platform that aggregates and correlates open-source data to support cybersecurity investigations and threat profiling.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'proj_vectorflow': {
-        text: 'VectorFlow Studio is a collaborative AI/ML experimentation environment enabling teams to build, test, and deploy machine learning models rapidly.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'about': {
-        text: 'Kirov Dynamics Technology is an Africa-first digital transformation company delivering AI, cybersecurity, and smart infrastructure for businesses and governments across the continent.',
-        options: [
-          { text: 'Meet the Team', key: 'team' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'team': {
-        text: 'We are a passionate team of engineers, data scientists, and security professionals built for Africa and ready for the world. Co-founded by Dakalo Mashau & Koketso Raphasha.',
-        options: [
-          { text: 'Ask a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'consultant': {
-        text: 'Our consultants are ready to assist you! Fill in the contact form below — we respond within 24 hours. Or reach us directly:',
-        link: { text: 'info@kirovdynamics.com', href: 'mailto:info@kirovdynamics.com' },
-        options: [
-          { text: 'Go to Contact Form', key: 'go_contact' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'go_contact': {
-        text: 'Scrolling to the contact form now...',
-        action: 'scroll_to_contact',
-        options: [
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'contact': {
-        text: 'You can reach us through any of these channels:',
-        link: { text: 'info@kirovdynamics.com', href: 'mailto:info@kirovdynamics.com' },
-        options: [
-          { text: 'Use Contact Form', key: 'go_contact' },
-          { text: 'Speak to a Consultant', key: 'consultant' },
-          { text: 'Back to Menu', key: 'start_over' }
-        ]
-      },
-      'start_over': {
-        text: 'How else can I help you today?',
-        options: null
-      }
-    };
-
-    function appendMessage(text, sender, options, extra) {
-      var msgDiv = document.createElement('div');
-      msgDiv.className = 'chat-message ' + sender;
-      msgDiv.textContent = text;
-      messagesContainer.appendChild(msgDiv);
-
-      if (extra && extra.link) {
-        var link = document.createElement('a');
-        link.href = extra.link.href;
-        link.textContent = extra.link.text;
-        link.style.cssText = 'display:block;margin-top:6px;color:var(--accent);font-weight:600;text-decoration:none;';
-        link.target = '_blank';
-        msgDiv.appendChild(link);
-      }
-
-      if (options && options.length > 0) {
-        var optionsDiv = document.createElement('div');
-        optionsDiv.className = 'chatbot-options';
-        options.forEach(function(opt) {
-          var btn = document.createElement('button');
-          btn.className = 'chatbot-option-btn';
-          btn.textContent = opt.text;
-          btn.onclick = function() { handleOptionClick(opt); };
-          optionsDiv.appendChild(btn);
-        });
-        messagesContainer.appendChild(optionsDiv);
-      } else if (!options) {
-        // null means show initial options
-        var optionsDiv2 = document.createElement('div');
-        optionsDiv2.className = 'chatbot-options';
-        initialOptions.forEach(function(opt) {
-          var btn = document.createElement('button');
-          btn.className = 'chatbot-option-btn';
-          btn.textContent = opt.text;
-          btn.onclick = function() { handleOptionClick(opt); };
-          optionsDiv2.appendChild(btn);
-        });
-        messagesContainer.appendChild(optionsDiv2);
-      }
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function handleOptionClick(option) {
-      document.querySelectorAll('.chatbot-options').forEach(function(el) { el.remove(); });
-      appendMessage(option.text, 'user', [], null);
-
-      setTimeout(function() {
-        var responseData = botKnowledge[option.key];
-        if (responseData) {
-          if (responseData.action === 'scroll_to_contact') {
-            var contactSection = document.getElementById('contact');
-            if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-          appendMessage(responseData.text, 'bot', responseData.options, responseData);
-        } else {
-          appendMessage('I am not sure how to help with that. Here is what I can do:', 'bot', initialOptions, null);
-        }
-      }, 400);
-    }
-
-    function initChat() {
-      if (initialized) return;
-      appendMessage('Hi there! I\'m Kirov Assistant. How can I help you today?', 'bot', initialOptions, null);
-      initialized = true;
-    }
-
-    toggleBtn.addEventListener('click', function() {
-      chatbotContainer.classList.add('open');
-      var launcher = document.getElementById('chatbot-launcher');
-      if (launcher) launcher.style.display = 'none';
-      initChat();
-    });
-
-    closeBtn.addEventListener('click', function() {
-      chatbotContainer.classList.remove('open');
-      var launcher = document.getElementById('chatbot-launcher');
-      if (launcher) launcher.style.display = 'flex';
-    });
-
-    function processUserInput() {
-      var text = inputField.value.trim();
-      if (!text) return;
-      document.querySelectorAll('.chatbot-options').forEach(function(el) { el.remove(); });
-      appendMessage(text, 'user', [], null);
-      inputField.value = '';
-      setTimeout(function() {
-        var lower = text.toLowerCase();
-        var key = 'start_over';
-        if (lower.includes('ai') || lower.includes('artificial') || lower.includes('machine')) key = 'ai';
-        else if (lower.includes('cyber') || lower.includes('security') || lower.includes('hack')) key = 'cybersecurity';
-        else if (lower.includes('infra') || lower.includes('smart') || lower.includes('city') || lower.includes('iot')) key = 'infrastructure';
-        else if (lower.includes('project') || lower.includes('work') || lower.includes('portfolio')) key = 'projects';
-        else if (lower.includes('about') || lower.includes('company') || lower.includes('who')) key = 'about';
-        else if (lower.includes('team') || lower.includes('founder') || lower.includes('staff')) key = 'team';
-        else if (lower.includes('consult') || lower.includes('book') || lower.includes('meeting')) key = 'consultant';
-        else if (lower.includes('contact') || lower.includes('email') || lower.includes('reach')) key = 'contact';
-        var data = botKnowledge[key];
-        if (key === 'start_over') {
-          appendMessage('I\'m not sure I understand. Here are the topics I can help with:', 'bot', initialOptions, null);
-        } else {
-          appendMessage(data.text, 'bot', data.options, data);
-        }
-      }, 400);
-    }
-
-    sendBtn.addEventListener('click', processUserInput);
-    inputField.addEventListener('keypress', function(e) { if (e.key === 'Enter') processUserInput(); });
-  });
-</script>
-
-<!-- WHATSAPP FAB -->
-<style>
-  .wa-fab{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.4);cursor:pointer;transition:0.3s ease;border:none;animation:wa-pulse 2s infinite}
-  .wa-fab:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,0.6)}
-  .wa-fab svg{width:30px;height:30px;fill:#fff}
-  @keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,0.7)}}
-  .wa-popup{position:fixed;bottom:96px;right:24px;z-index:998;width:320px;background:#0d1625;border:1px solid rgba(74,144,217,0.18);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.6);overflow:hidden;transform:scale(0.9);opacity:0;pointer-events:none;transition:0.3s ease}
-  .wa-popup.open{transform:scale(1);opacity:1;pointer-events:all}
-  .wa-popup-header{background:#075e54;padding:16px 20px;display:flex;align-items:center;gap:12px}
-  .wa-popup-header .avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.9rem}
-  .wa-popup-header .info h4{color:#fff;font-size:0.95rem;font-weight:700;margin:0}
-  .wa-popup-header .info span{color:rgba(255,255,255,0.7);font-size:0.75rem}
-  .wa-popup-body{padding:20px;background:rgba(74,144,217,0.04)}
-  .wa-popup-body .msg{background:#0d1625;border:1px solid rgba(74,144,217,0.18);border-radius:0 12px 12px 12px;padding:14px;font-size:0.88rem;color:#f0f4ff;line-height:1.6;margin-bottom:12px}
-  .wa-popup-body .quick-btns{display:flex;flex-direction:column;gap:8px}
-  .wa-popup-body .quick-btns a{display:block;padding:10px 14px;border-radius:8px;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);color:#25d366;font-size:0.82rem;font-weight:600;text-align:center;transition:0.3s ease}
-  .wa-popup-body .quick-btns a:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4)}
-  @media(max-width:480px){.wa-popup{width:calc(100vw - 48px);right:24px}}
-</style>
-
-<button class="wa-fab" id="wa-fab" aria-label="Chat on WhatsApp" onclick="document.getElementById('wa-popup').classList.toggle('open')">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</button>
-<div class="wa-popup" id="wa-popup">
-  <div class="wa-popup-header">
-    <div class="avatar">K</div>
-    <div class="info"><h4>Kirov Dynamics</h4><span>Usually replies within minutes</span></div>
-  </div>
-  <div class="wa-popup-body">
-    <div class="msg">Hi there! 👋 How can we help you today?</div>
-    <div class="quick-btns">
-      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20a%20quote%20for%20AI%20solutions" target="_blank">Get an AI Quote</a>
-      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%20need%20a%20security%20assessment" target="_blank">Security Assessment</a>
-      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%20need%20custom%20software%20built" target="_blank">Build Software</a>
-      <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20to%20book%20a%20free%20consultation" target="_blank">Book Consultation</a>
-    </div>
-  </div>
-</div>
-<script>
-document.addEventListener('click', function(e) {
-  var popup = document.getElementById('wa-popup');
-  var fab = document.getElementById('wa-fab');
-  if (popup && fab && !popup.contains(e.target) && !fab.contains(e.target)) {
-    popup.classList.remove('open');
-  }
-});
-</script>
-
-
+<a class="float-contact" href="#contact" aria-label="Get in Touch"><i data-lucide="mail"></i></a>
 </body>
 
 </html>
-
-
 
