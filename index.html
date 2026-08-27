@@ -132,14 +132,14 @@
     ============================================================ */
     #navbar {
       position:fixed; top:0; left:0; right:0; z-index:1000;
-      padding:20px 0; transition:all 0.35s ease;
+      padding:10px 0; transition:all 0.35s ease;
       background:var(--glass);
       backdrop-filter:blur(24px);
       border-bottom:1px solid var(--border);
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
     #navbar.scrolled {
-      padding:16px 0;
+      padding:6px 0;
       background:rgba(8,13,24,0.95);
       backdrop-filter:blur(24px);
       border-bottom:1px solid var(--border);
@@ -189,9 +189,9 @@
       margin-top: 6px;
       text-shadow: 0 0 8px rgba(74,144,217,0.3);
     }
-    .nav-links { display:flex; align-items:center; gap:30px; }
+    .nav-links { display:flex; align-items:center; gap:24px; }
     .nav-links a {
-      font-size:0.9rem; font-weight:700; color:#b8d0e8;
+      font-size:0.82rem; font-weight:700; color:#b8d0e8;
       transition:var(--transition); position:relative; letter-spacing:0.02em;
       text-shadow:0 1px 8px rgba(0,0,0,0.5);
     }
@@ -215,12 +215,12 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       text-decoration: none;
     }
     .css-globe {
-      width: 54px;
-      height: 54px;
+      width: 36px;
+      height: 36px;
       position: relative;
       transform-style: preserve-3d;
       animation: spin3D 12s linear infinite;
@@ -243,7 +243,7 @@
     }
     .css-globe .core {
       position: absolute;
-      inset: 17px;
+      inset: 11px;
       background: var(--teal);
       border-radius: 50%;
       box-shadow: 0 0 12px var(--teal);
@@ -262,14 +262,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      line-height: 1.1;
     }
     .logo-text-main {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: #fff;
-      line-height: 1;
+      line-height: 1.15;
       text-transform: uppercase;
     }
     .logo-text-main span {
@@ -277,22 +278,23 @@
     }
     .logo-text-sub {
       font-family: 'Inter', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 900;
-      letter-spacing: 0.2em;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
       color: var(--accent-lite);
       text-transform: uppercase;
-      margin-top: 3px;
+      margin-top: 1px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      line-height: 1.2;
     }
     .logo-text-sub::before,
     .logo-text-sub::after {
       content: '';
       flex: 1;
-      max-width: 20px;
-      height: 2px;
+      max-width: 14px;
+      height: 1.5px;
       background: var(--accent-lite);
       border-radius: 2px;
       opacity: 0.7;
@@ -1000,14 +1002,14 @@
       .about-stats-row { grid-template-columns:1fr; }
       .about-img-wrap img { height:auto; }
       #about, #divisions, #services, #industries, #solutions, #contact { padding:70px 0; }
-      .services-tabs { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; overflow:visible; }
+      .services-tabs { grid-template-columns:repeat(3,1fr); gap:6px; overflow:visible; }
       .tab-btn { white-space:nowrap; padding:10px 12px; font-size:0.78rem; }
       .hero-sub { font-size:1.05rem; margin-bottom:18px; }
       .container { padding:0 20px; }
       .divisions-grid { grid-template-columns:1fr; }
-      .nav-logo img { height: 56px !important; }
-      .nav-logo-title { font-size: 1.5rem; }
-      .nav-logo-subtitle { font-size: 0.75rem; letter-spacing: 0.25em; margin-top: 4px; }
+      .nav-logo img { height: 36px !important; }
+      .nav-logo-title { font-size: 1.15rem; }
+      .nav-logo-subtitle { font-size: 0.65rem; letter-spacing: 0.2em; margin-top: 2px; }
       .hero-stats { border-top:none; padding-top:10px; }
       .hero-badge { margin-bottom:14px; font-size:0.75rem; padding:6px 14px; }
       .hero-title { font-size:2.6rem; margin-bottom:10px; }
@@ -1035,9 +1037,9 @@
       .cipc-badge i { width:14px!important; height:14px!important; }
       .cipc-badge span { font-size:0.45rem; }
       .section-title { font-size:1.5rem; }
-      .nav-logo img { height: 48px !important; }
-      .nav-logo-title { font-size: 1.25rem; }
-      .nav-logo-subtitle { font-size: 0.6rem; letter-spacing: 0.2em; }
+      .nav-logo img { height: 32px !important; }
+      .nav-logo-title { font-size: 1rem; }
+      .nav-logo-subtitle { font-size: 0.55rem; letter-spacing: 0.18em; }
       .stat-item { width:auto; padding:0 5px; display:flex; flex-direction:column; align-items:center; }
       .division-card-body { padding:18px; }
       .product-card-body { padding:18px 20px 22px; }
@@ -1543,11 +1545,10 @@
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
       <li><a href="#solutions">Platforms</a></li>
-      <li><a href="#projects">Projects</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="#about">About</a></li>
-      <li><a href="#leadership">Team</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta-btn">Get in Touch</a>
@@ -1562,11 +1563,10 @@
   <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">Ô£ò</button>
   <a href="#home" class="mobile-link">Home</a>
   <a href="#solutions" class="mobile-link">Platforms</a>
-  <a href="#projects" class="mobile-link">Projects</a>
-          <a href="#services" class="mobile-link">Services</a>
-          <a href="pricing.html" class="mobile-link">Pricing</a>
-          <a href="#about" class="mobile-link">About</a>
-  <a href="#leadership" class="mobile-link">Team</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#industries" class="mobile-link">Industries</a>
+  <a href="#process" class="mobile-link">Process</a>
+  <a href="#about" class="mobile-link">About</a>
   <a href="#contact" class="mobile-link">Contact</a>
   <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
 </div>
@@ -1580,41 +1580,42 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      AI · Cybersecurity · Software Engineering · Smart Infrastructure
+      AI · Digital Infrastructure · Intelligent Operations
     </div>
     <h1 class="hero-title">
       <span class="line1">
-        <span class="word" style="animation-delay:0.3s">Engineering</span>
-        <span class="word accent" style="animation-delay:0.52s">Africa&#8217;s</span>
-        <span class="word" style="animation-delay:0.74s">Intelligent</span>
-        <span class="word accent" style="animation-delay:0.96s">Future</span>
+        <span class="word" style="animation-delay:0.3s">Intelligent</span>
+        <span class="word accent" style="animation-delay:0.52s">Systems</span>
+        <span class="word" style="animation-delay:0.74s">for</span>
+        <span class="word" style="animation-delay:0.88s">Africa's</span>
+        <span class="word accent" style="animation-delay:1.02s">Leading</span>
+        <span class="word accent" style="animation-delay:1.16s">Organisations</span>
       </span>
     </h1>
     <p class="hero-sub">
-      Kirov Dynamics Technology delivers enterprise-grade AI, cybersecurity, software engineering,
-      and smart infrastructure solutions for businesses, municipalities, and governments — across Africa and beyond.
+      We build AI-powered technology systems that automate operations, secure infrastructure, and drive better decisions — for businesses, governments, and infrastructure companies across Africa.
     </p>
     <div class="hero-btns">
-      <a href="#consultation" class="btn btn-outline" id="hero-explore-btn"><i data-lucide="calendar"></i> Schedule a Consultation</a>
-      <a href="#solutions" class="btn btn-outline" id="hero-contact-btn"><i data-lucide="layout-grid"></i> Explore Products</a>
+      <a href="#consultation" class="btn btn-outline" id="hero-explore-btn"><i data-lucide="calendar"></i> Schedule a Free Assessment</a>
+      <a href="#solutions" class="btn btn-outline" id="hero-contact-btn"><i data-lucide="layout-grid"></i> Explore Our Platforms</a>
       <a href="#projects" class="btn btn-outline"><i data-lucide="briefcase"></i> View Case Studies</a>
-      <a href="#resources" class="btn btn-outline"><i data-lucide="building"></i> Company Profile</a>
+      <a href="#resources" class="btn btn-outline"><i data-lucide="building"></i> Download Company Profile</a>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
-        <span class="stat-num" data-target="9" aria-label="9 service divisions">0</span><span class="stat-num">+</span>
-        <div class="stat-label">Service Divisions</div>
+        <span class="stat-num" data-target="5" aria-label="5 flagship platforms">0</span><span class="stat-num">+</span>
+        <div class="stat-label">Flagship Platforms</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="18" aria-label="18 industries served">0</span><span class="stat-num">+</span>
-        <div class="stat-label">Industries Served</div>
+        <span class="stat-num" data-target="12" aria-label="12 projects delivered">0</span><span class="stat-num">+</span>
+        <div class="stat-label">Projects Delivered</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="30" aria-label="30 GitHub repositories">0</span><span class="stat-num">+</span>
-        <div class="stat-label">GitHub Repos</div>
+        <span class="stat-num" data-target="4" aria-label="4 priority sectors">0</span><span class="stat-num">+</span>
+        <div class="stat-label">Priority Sectors</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-target="10" aria-label="10 SaaS products">0</span><span class="stat-num">+</span>
-        <div class="stat-label">SaaS Products</div>
+        <span class="stat-num" data-target="3" aria-label="3 SADC markets">0</span><span class="stat-num">+</span>
+        <div class="stat-label">SADC Markets</div>
       </div>
       <div class="stat-item">
         <div class="cipc-badge">
@@ -1843,6 +1844,49 @@
 </section>
 
 <!-- ============================================================
+     REVENUE LADDER
+============================================================ -->
+<section id="revenue-ladder" aria-labelledby="revenue-title" style="padding:110px 0;background:#03050a;">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Engagement Model</span>
+      <h2 class="section-title" id="revenue-title">How We Work Together</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        From free assessment to full-scale SaaS — a clear path to transforming your operations.
+      </p>
+    </div>
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-top:48px;max-width:1000px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1 1 180px;max-width:190px;text-align:center;padding:24px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg) 0 0 var(--radius-lg);position:relative;">
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:8px;">Free</div>
+        <h4 style="font-size:0.85rem;font-weight:800;margin-bottom:6px;">AI &amp; Digital Readiness Assessment</h4>
+        <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Understand where technology can transform your operations</p>
+      </div>
+      <div style="flex:1 1 180px;max-width:190px;text-align:center;padding:24px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);position:relative;">
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:8px;">Strategy</div>
+        <h4 style="font-size:0.85rem;font-weight:800;margin-bottom:6px;">Assessment &amp; Roadmap</h4>
+        <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">AI readiness, cybersecurity posture, cloud assessment, digital transformation planning</p>
+      </div>
+      <div style="flex:1 1 180px;max-width:190px;text-align:center;padding:24px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);position:relative;">
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--green);margin-bottom:8px;">Build</div>
+        <h4 style="font-size:0.85rem;font-weight:800;margin-bottom:6px;">Implementation</h4>
+        <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">AI automation, software platforms, dashboards, cloud migration, security hardening</p>
+      </div>
+      <div style="flex:1 1 180px;max-width:190px;text-align:center;padding:24px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);position:relative;">
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);margin-bottom:8px;">Manage</div>
+        <h4 style="font-size:0.85rem;font-weight:800;margin-bottom:6px;">Managed Services</h4>
+        <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Monthly: AI operations, cloud management, cybersecurity, analytics, support</p>
+      </div>
+      <div style="flex:1 1 180px;max-width:190px;text-align:center;padding:24px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:0 var(--radius-lg) var(--radius-lg) 0;position:relative;">
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-lite);margin-bottom:8px;">Scale</div>
+        <h4 style="font-size:0.85rem;font-weight:800;margin-bottom:6px;">SaaS Platforms</h4>
+        <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Kirov AI Workplace, Construction Intelligence, Fleet Intelligence, GovTech</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      TECHNOLOGY STACK
 ============================================================ -->
 <section id="stack" aria-labelledby="stack-title">
@@ -2014,7 +2058,7 @@
 
       <div class="reveal">
         <span class="section-tag">About Us</span>
-        <h2 class="section-title" id="about-title">More Than a Software Company</h2>
+        <h2 class="section-title" id="about-title">Built for Africa's Digital Future</h2>
         <div class="divider"></div>
         <p class="section-sub">
           Founded by <strong>Dakalo Mashau</strong> in collaboration with co-founder <strong>Koketso Raphasha</strong>, Kirov Dynamics Technology is a
@@ -2061,93 +2105,38 @@
   <div class="container">
     <div class="divisions-header reveal">
       <span class="section-tag">Our Structure</span>
-      <h2 class="section-title" id="divisions-title">Nine Specialised Divisions</h2>
+      <h2 class="section-title" id="divisions-title">How We're Organised</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">
-        Each division is purpose-built to serve a critical domain — giving our clients integrated,
-        expert solutions across every layer of the digital economy.
+        Three focused business engines — each designed to deliver integrated solutions across Africa's digital economy.
       </p>
     </div>
-    <div class="divisions-grid">
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 01</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></div>
-          <h3>Digital Transformation</h3>
-          <p>Helping South African businesses modernise legacy systems, streamline operations, and transition to digital-first strategies through technology roadmaps and change management.</p>
-        </div>
-      </div>
+    <div class="divisions-grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
-          <div class="division-num">Division 02</div>
+          <div class="division-num">Engine 01</div>
           <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></div>
-          <h3>AI Solutions</h3>
-          <p>Building intelligent systems that automate processes, generate insights, and create competitive advantages — from AI chatbots to custom machine learning pipelines for African markets.</p>
+          <h3>AI &amp; Digital Transformation</h3>
+          <p>AI Solutions · Data &amp; Intelligence · Software Engineering · Consulting</p>
         </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
-          <div class="division-num">Division 03</div>
+          <div class="division-num">Engine 02</div>
           <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="shield-check"></i></div>
-          <h3>Cybersecurity</h3>
-          <p>Protecting South African digital infrastructure with vulnerability assessments, penetration testing, SOC dashboards, and POPIA-aligned compliance programmes.</p>
-        </div>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 04</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></div>
-          <h3>Smart Infrastructure</h3>
-          <p>Integrating digital technology with physical infrastructure — BIM, digital twins, IoT monitoring, drone inspections, and smart building systems for South African cities.</p>
-        </div>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 05</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="cog"></i></div>
-          <h3>Engineering Technology</h3>
-          <p>Software built for South African engineers and construction professionals — site management apps, structural monitoring, Mining 4.0 systems, and construction ERP platforms.</p>
+          <h3>Cybersecurity &amp; Cloud</h3>
+          <p>Cybersecurity · Cloud &amp; Platform Engineering</p>
         </div>
       </div>
       <div class="division-card reveal">
         <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="division-card-body">
-          <div class="division-num">Division 06</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="landmark"></i></div>
-          <h3>Government Technology</h3>
-          <p>Citizen portals, permit systems, emergency response platforms, smart city dashboards, and digital workflows for South African municipalities and government departments.</p>
-        </div>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 07</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="target"></i></div>
-          <h3>Consulting</h3>
-          <p>Expert advisory for digital transformation, AI readiness, POPIA &amp; cybersecurity maturity, cloud modernisation, and technology architecture reviews for African organisations.</p>
-        </div>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 08</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="bar-chart-3"></i></div>
-          <h3>Data &amp; Intelligence</h3>
-          <p>Data engineering, business intelligence dashboards, predictive analytics, and AI-powered reporting that turns raw data into strategic decisions for African enterprises.</p>
-        </div>
-      </div>
-      <div class="division-card reveal">
-        <div class="division-card-bg" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=60')"></div>
-        <div class="division-card-body">
-          <div class="division-num">Division 09</div>
-          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="cloud"></i></div>
-          <h3>Cloud &amp; Platform Engineering</h3>
-          <p>Cloud migration, CI/CD pipelines, Kubernetes orchestration, and infrastructure automation — building scalable, resilient platforms on AWS, Azure, and Google Cloud.</p>
+          <div class="division-num">Engine 03</div>
+          <div class="division-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></div>
+          <h3>Smart Infrastructure &amp; GovTech</h3>
+          <p>Government Technology · Smart Infrastructure · Engineering Technology</p>
         </div>
       </div>
     </div>
@@ -2160,72 +2149,59 @@
 <section id="services" aria-labelledby="services-title">
   <div class="container">
     <div class="reveal" style="margin-bottom:52px">
-      <span class="section-tag">What We Build</span>
-      <h2 class="section-title" id="services-title">Comprehensive Service Portfolio</h2>
+      <span class="section-tag">What We Do For Our Clients</span>
+      <h2 class="section-title" id="services-title">What We Do For Our Clients</h2>
       <div class="divider"></div>
-      <p class="section-sub">From AI agents to smart city platforms — we design and deliver technology that drives real-world outcomes.</p>
+      <p class="section-sub">Technology solutions that deliver measurable outcomes — from AI automation to managed cloud infrastructure.</p>
     </div>
 
-    <div class="services-tabs reveal" role="tablist" aria-label="Service categories">
-      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">AI Solutions</button>
-      <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">Software Dev</button>
+    <div class="services-tabs reveal" role="tablist" aria-label="Service categories" style="grid-template-columns:repeat(5,1fr);">
+      <button class="tab-btn active" data-tab="ai" role="tab" aria-selected="true" aria-controls="tab-ai" id="tab-btn-ai">AI Automation</button>
+      <button class="tab-btn" data-tab="software" role="tab" aria-selected="false" aria-controls="tab-software" id="tab-btn-software">Software Engineering</button>
       <button class="tab-btn" data-tab="cyber" role="tab" aria-selected="false" aria-controls="tab-cyber" id="tab-btn-cyber">Cybersecurity</button>
       <button class="tab-btn" data-tab="cloud" role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud">Cloud &amp; DevOps</button>
-      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">Data Services</button>
-      <button class="tab-btn" data-tab="engineering" role="tab" aria-selected="false" aria-controls="tab-engineering" id="tab-btn-engineering">Smart Engineering</button>
-      <button class="tab-btn" data-tab="construction" role="tab" aria-selected="false" aria-controls="tab-construction" id="tab-btn-construction">Construction Tech</button>
-      <button class="tab-btn" data-tab="govtech" role="tab" aria-selected="false" aria-controls="tab-govtech" id="tab-btn-govtech">GovTech</button>
-      <button class="tab-btn" data-tab="smartcity" role="tab" aria-selected="false" aria-controls="tab-smartcity" id="tab-btn-smartcity">Smart City</button>
-      <button class="tab-btn" data-tab="consulting" role="tab" aria-selected="false" aria-controls="tab-consulting" id="tab-btn-consulting">Consulting</button>
-      <button class="tab-btn" data-tab="mobile" role="tab" aria-selected="false" aria-controls="tab-mobile" id="tab-btn-mobile">Mobile &amp; IoT</button>
-      <button class="tab-btn" data-tab="training" role="tab" aria-selected="false" aria-controls="tab-training" id="tab-btn-training">Training &amp; Skills</button>
+      <button class="tab-btn" data-tab="data" role="tab" aria-selected="false" aria-controls="tab-data" id="tab-btn-data">Data &amp; Intelligence</button>
     </div>
 
-    <!-- AI Solutions -->
+    <!-- AI Automation -->
     <div class="tab-panel active" id="tab-ai" role="tabpanel" aria-labelledby="tab-btn-ai">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=900&q=80" alt="AI interface and neural network visualization" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=900&q=80" alt="AI automation and intelligent systems" loading="lazy">
         <div class="service-img-overlay" aria-hidden="true"></div>
       </div>
       <div class="service-info">
-        <h3>AI Solutions</h3>
-        <p>We build intelligent systems that transform how businesses operate, make decisions, and serve customers. From conversational AI to advanced predictive analytics — engineered for real-world impact.</p>
-        <ul class="service-list" aria-label="AI Solutions services">
-          <li>AI Chatbots &amp; Virtual Assistants</li>
-          <li>AI Call Centre Assistants</li>
-          <li>AI Document Processing</li>
-          <li>Predictive Analytics</li>
-          <li>Business Intelligence</li>
-          <li>Computer Vision Systems</li>
-          <li>AI Surveillance Integration</li>
-          <li>AI Reporting Automation</li>
-          <li>Custom AI Agents</li>
-          <li>Machine Learning Pipelines</li>
+        <h3>AI Automation</h3>
+        <p>Reduce manual work by up to 60% with intelligent automation that transforms how your organisation operates.</p>
+        <ul class="service-list" aria-label="AI Automation services">
+          <li>Process documents, emails, and reports automatically</li>
+          <li>Deploy AI assistants that handle customer queries 24/7</li>
+          <li>Turn scattered data into actionable management insights</li>
+          <li>Automate repetitive workflows across your organisation</li>
+          <li>Build AI-powered knowledge bases and reporting systems</li>
+          <li>Deploy custom AI agents for complex business processes</li>
+          <li>Predictive analytics and demand forecasting</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="ai-cta-btn">Discuss Your AI Project </a>
       </div>
     </div>
 
-    <!-- Software Development -->
+    <!-- Software Engineering -->
     <div class="tab-panel" id="tab-software" role="tabpanel" aria-labelledby="tab-btn-software">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Software development code on multiple screens" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Software engineering and custom development" loading="lazy">
         <div class="service-img-overlay" aria-hidden="true"></div>
       </div>
       <div class="service-info">
-        <h3>Software Development</h3>
-        <p>We build robust, scalable software tailored to your exact business requirements — from simple websites to full enterprise platforms serving thousands of daily users.</p>
+        <h3>Software Engineering</h3>
+        <p>Build custom platforms that solve your specific business challenges — from portals to enterprise systems.</p>
         <ul class="service-list">
-          <li>Websites &amp; Web Applications</li>
-          <li>Mobile Apps (iOS &amp; Android)</li>
-          <li>Enterprise Systems</li>
-          <li>ERP Systems</li>
-          <li>CRM Systems</li>
-          <li>HR Management Systems</li>
-          <li>Inventory Management</li>
-          <li>Learning Management Systems</li>
-          <li>Healthcare Systems</li>
-          <li>Municipal Systems</li>
+          <li>Business portals and customer-facing platforms</li>
+          <li>Internal systems and employee dashboards</li>
+          <li>Mobile apps for iOS and Android</li>
+          <li>APIs and system integrations</li>
+          <li>ERP and CRM customisation</li>
+          <li>Custom dashboards and reporting tools</li>
+          <li>Enterprise-grade software architecture</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="software-cta-btn">Start Your Build </a>
       </div>
@@ -2234,23 +2210,20 @@
     <!-- Cybersecurity -->
     <div class="tab-panel" id="tab-cyber" role="tabpanel" aria-labelledby="tab-btn-cyber">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Cybersecurity lock and network protection" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Cybersecurity assessment and protection" loading="lazy">
         <div class="service-img-overlay" aria-hidden="true"></div>
       </div>
       <div class="service-info">
         <h3>Cybersecurity</h3>
-        <p>We provide comprehensive security services to identify vulnerabilities, train your team, and protect your organisation's most critical digital assets against evolving threats.</p>
+        <p>Protect your digital infrastructure with comprehensive security assessments and compliance readiness.</p>
         <ul class="service-list">
-          <li>Vulnerability Assessments</li>
-          <li>Penetration Testing</li>
-          <li>Security Audits</li>
-          <li>SOC Dashboards</li>
-          <li>Phishing Simulations</li>
-          <li>Security Awareness Training</li>
-          <li>Incident Response Planning</li>
-          <li>Identity &amp; Access Management</li>
-          <li>Cloud Security</li>
-          <li>Compliance Consulting</li>
+          <li>Security assessments and vulnerability analysis</li>
+          <li>Penetration testing and ethical hacking</li>
+          <li>Security hardening and infrastructure hardening</li>
+          <li>Cloud security configuration and auditing</li>
+          <li>Security monitoring and incident response</li>
+          <li>Compliance readiness (POPIA, ISO 27001)</li>
+          <li>Security awareness training</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="cyber-cta-btn">Get a Security Assessment </a>
       </div>
@@ -2259,215 +2232,44 @@
     <!-- Cloud & DevOps -->
     <div class="tab-panel" id="tab-cloud" role="tabpanel" aria-labelledby="tab-btn-cloud">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80" alt="Cloud server infrastructure and data centre" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80" alt="Cloud infrastructure and DevOps" loading="lazy">
         <div class="service-img-overlay" aria-hidden="true"></div>
       </div>
       <div class="service-info">
         <h3>Cloud &amp; DevOps</h3>
-        <p>We design, migrate, and manage cloud infrastructure that is resilient, cost-efficient, and ready to scale — on AWS, Azure, or Google Cloud.</p>
+        <p>Migrate to the cloud, automate deployments, and build resilient infrastructure that scales with your business.</p>
         <ul class="service-list">
-          <li>Cloud Migration</li>
-          <li>CI/CD Pipelines</li>
-          <li>Kubernetes Orchestration</li>
-          <li>Docker Containerisation</li>
-          <li>AWS Deployments</li>
-          <li>Azure Deployments</li>
-          <li>Google Cloud Deployments</li>
-          <li>Infrastructure Monitoring</li>
-          <li>Disaster Recovery</li>
-          <li>Infrastructure as Code</li>
+          <li>Cloud migration and modernisation</li>
+          <li>CI/CD pipeline design and implementation</li>
+          <li>Infrastructure-as-code and automation</li>
+          <li>Docker and Kubernetes orchestration</li>
+          <li>Cloud cost optimisation and monitoring</li>
+          <li>Managed infrastructure and support</li>
+          <li>Disaster recovery and high availability</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="cloud-cta-btn">Modernise Your Infrastructure </a>
       </div>
     </div>
 
-    <!-- Data Services -->
+    <!-- Data & Intelligence -->
     <div class="tab-panel" id="tab-data" role="tabpanel" aria-labelledby="tab-btn-data">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Data analytics dashboard with charts and graphs" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Data analytics and business intelligence" loading="lazy">
         <div class="service-img-overlay" aria-hidden="true"></div>
       </div>
       <div class="service-info">
-        <h3>Data Services</h3>
-        <p>Turn raw data into strategic intelligence. We build the pipelines, warehouses, and dashboards that give your organisation a genuine data-driven competitive edge.</p>
+        <h3>Data &amp; Intelligence</h3>
+        <p>Turn raw data into strategic intelligence with dashboards, pipelines, and predictive models that drive decisions.</p>
         <ul class="service-list">
-          <li>Interactive Dashboards</li>
-          <li>Data Engineering</li>
-          <li>Data Warehousing</li>
-          <li>Business Intelligence</li>
-          <li>Automated Reporting</li>
-          <li>Data Governance</li>
-          <li>ML Pipelines</li>
-          <li>Real-time Analytics</li>
+          <li>Interactive BI dashboards and reporting</li>
+          <li>Data pipelines and warehousing</li>
+          <li>Advanced analytics and visualisation</li>
+          <li>Forecasting and predictive models</li>
+          <li>Automated reporting and alerts</li>
+          <li>Data governance and quality management</li>
+          <li>Real-time analytics and monitoring</li>
         </ul>
         <a href="#contact" class="btn btn-primary" id="data-cta-btn">Unlock Your Data </a>
-      </div>
-    </div>
-
-    <!-- Smart Engineering -->
-    <div class="tab-panel" id="tab-engineering" role="tabpanel" aria-labelledby="tab-btn-engineering">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Construction site with modern engineering equipment" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Smart Engineering</h3>
-        <p>Bridging the gap between physical infrastructure and digital technology. We create tools that help engineers, builders, and asset managers work smarter and more efficiently.</p>
-        <ul class="service-list">
-          <li>BIM Integration</li>
-          <li>Construction Management Systems</li>
-          <li>Site Management Apps</li>
-          <li>Drone Inspection Platforms</li>
-          <li>Digital Twins</li>
-          <li>Smart Building Systems</li>
-          <li>IoT Monitoring</li>
-          <li>Asset Management</li>
-          <li>Project Tracking</li>
-          <li>Structural Monitoring</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="engineering-cta-btn">Build Smarter </a>
-      </div>
-    </div>
-
-    <!-- Construction Technology -->
-    <div class="tab-panel" id="tab-construction" role="tabpanel" aria-labelledby="tab-btn-construction">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Construction and building project management" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Construction Technology</h3>
-        <p>We don't compete with construction companies — we build the technology that makes them more efficient, compliant, and competitive in a demanding market.</p>
-        <ul class="service-list">
-          <li>Tender Management Systems</li>
-          <li>Contractor Portals</li>
-          <li>Worker Attendance Systems</li>
-          <li>Safety Inspection Apps</li>
-          <li>Equipment Tracking</li>
-          <li>Fleet Management</li>
-          <li>Procurement Systems</li>
-          <li>Material Inventory</li>
-          <li>Digital Quality Inspections</li>
-          <li>Maintenance Management</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="construction-cta-btn">Digitise Your Site </a>
-      </div>
-    </div>
-
-    <!-- GovTech -->
-    <div class="tab-panel" id="tab-govtech" role="tabpanel" aria-labelledby="tab-btn-govtech">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80" alt="City government buildings and urban infrastructure" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Government Technology (GovTech)</h3>
-        <p>We understand public sector procurement, ethics, and operations. Our GovTech solutions are purpose-built for municipalities, departments, and government entities.</p>
-        <ul class="service-list">
-          <li>Municipal Management Systems</li>
-          <li>Permit Applications</li>
-          <li>Citizen Service Portals</li>
-          <li>Complaint Management</li>
-          <li>Digital Document Workflows</li>
-          <li>Procurement Tracking</li>
-          <li>Smart City Dashboards</li>
-          <li>Emergency Response Systems</li>
-          <li>Water Monitoring</li>
-          <li>Waste Management Platforms</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="govtech-cta-btn">Transform Public Services </a>
-      </div>
-    </div>
-
-    <!-- Smart City -->
-    <div class="tab-panel" id="tab-smartcity" role="tabpanel" aria-labelledby="tab-btn-smartcity">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80" alt="Smart city aerial view at night" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Smart City Solutions</h3>
-        <p>We help cities become safer, more sustainable, and more responsive through intelligent data collection, AI analysis, and integrated city management platforms.</p>
-        <ul class="service-list">
-          <li>Traffic Analytics</li>
-          <li>CCTV AI Integration</li>
-          <li>Road Condition Monitoring</li>
-          <li>Flood Prediction Systems</li>
-          <li>Utility Monitoring</li>
-          <li>Environmental Sensors</li>
-          <li>Smart Parking</li>
-          <li>Public Safety Analytics</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="smartcity-cta-btn">Build a Smarter City </a>
-      </div>
-    </div>
-
-    <!-- Consulting -->
-    <div class="tab-panel" id="tab-consulting" role="tabpanel" aria-labelledby="tab-btn-consulting">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Business consulting meeting" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Consulting &amp; Advisory</h3>
-        <p>Strategic advisory for digital transformation, AI readiness, cybersecurity maturity, and technology architecture — helping organisations make informed decisions and execute with confidence.</p>
-        <ul class="service-list">
-          <li>Digital Strategy &amp; Roadmaps</li>
-          <li>AI Readiness Assessments</li>
-          <li>Cybersecurity Maturity Reviews</li>
-          <li>Cloud Modernisation Planning</li>
-          <li>Technology Architecture Reviews</li>
-          <li>POPIA Compliance Consulting</li>
-          <li>Procurement &amp; Vendor Evaluation</li>
-          <li>Change Management</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="consulting-cta-btn">Book a Consultation </a>
-      </div>
-    </div>
-
-    <!-- Mobile & IoT -->
-    <div class="tab-panel" id="tab-mobile" role="tabpanel" aria-labelledby="tab-btn-mobile">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Mobile app and IoT devices" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Mobile &amp; IoT Solutions</h3>
-        <p>Native and cross-platform mobile applications connected to smart sensors, wearables, and industrial IoT devices — delivering real-time data and control at your fingertips.</p>
-        <ul class="service-list">
-          <li>iOS &amp; Android App Development</li>
-          <li>Cross-Platform Apps</li>
-          <li>IoT Sensor Integration</li>
-          <li>Real-Time Monitoring Dashboards</li>
-          <li>Wearable Device Apps</li>
-          <li>Smart Building Controls</li>
-          <li>Fleet Tracking Systems</li>
-          <li>Industrial IoT Platforms</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="mobile-cta-btn">Build Your Mobile App </a>
-      </div>
-    </div>
-
-    <!-- Training & Skills -->
-    <div class="tab-panel" id="tab-training" role="tabpanel" aria-labelledby="tab-btn-training">
-      <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80" alt="Training and skills development" loading="lazy">
-        <div class="service-img-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="service-info">
-        <h3>Training &amp; Skills Development</h3>
-        <p>Equip your team with the skills needed for the digital economy. We offer practical, hands-on training programmes in software development, AI, cybersecurity, and cloud computing.</p>
-        <ul class="service-list">
-          <li>Software Development Bootcamps</li>
-          <li>AI &amp; Machine Learning Workshops</li>
-          <li>Cybersecurity Awareness Training</li>
-          <li>Cloud Computing Fundamentals</li>
-          <li>Data Analytics &amp; BI Training</li>
-          <li>Digital Literacy Programmes</li>
-          <li>Executive Tech Briefings</li>
-          <li>Custom Corporate Training</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" id="training-cta-btn">Request Training </a>
       </div>
     </div>
   </div>
@@ -2480,100 +2282,34 @@
   <div class="container">
     <div class="industries-header reveal">
       <span class="section-tag">Who We Serve</span>
-      <h2 class="section-title" id="industries-title">Industries We Serve</h2>
+      <h2 class="section-title" id="industries-title">Priority Sectors</h2>
       <div class="divider divider-center"></div>
-      <p class="section-sub">We are not limited to one market. Our technology reaches across Africa's most critical and fast-growing sectors.</p>
+      <p class="section-sub">We focus on Africa's most critical sectors — delivering technology that solves real operational challenges.</p>
     </div>
 
-    <img
-      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=70"
-      alt="African city skyline representing the industries we serve"
-      class="industries-photo reveal"
-      loading="lazy"
-    >
-
-    <div class="industries-grid reveal">
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Government</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Municipalities</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1769240627842-1a3bd858695c?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Mining</span>
-      </div>
-      <div class="industry-tile">
+    <div class="industries-grid reveal" style="grid-template-columns:repeat(4,1fr);">
+      <div class="industry-tile" style="height:180px;">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Construction</span>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="hard-hat"></i></span>
+        <span class="tile-name">Construction &amp; Infrastructure</span>
       </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Banking</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="heart-pulse"></i></span>
-          <span class="tile-name">Healthcare</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
-          <span class="tile-name">Education</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1651838677683-f642527059c6?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="tractor"></i></span>
-          <span class="tile-name">Agriculture</span>
-      </div>
-      <div class="industry-tile">
+      <div class="industry-tile" style="height:180px;">
         <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Logistics</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="factory"></i></span>
-          <span class="tile-name">Manufacturing</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Retail</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Telecoms</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Energy</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="check-circle"></i></span><span class="tile-name">Property</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="cpu"></i></span>
-        <span class="tile-name">IoT &amp; Sensors</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></span>
-        <span class="tile-name">Robotics &amp; AI</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=400&q=60')"></div>
-        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="globe"></i></span>
-        <span class="tile-name">Aerospace &amp; Defence</span>
-      </div>
-      <div class="industry-tile">
-        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=400&q=60')"></div>
         <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="truck"></i></span>
-        <span class="tile-name">Transport &amp; Logistics</span>
+        <span class="tile-name">Logistics &amp; Transport</span>
+      </div>
+      <div class="industry-tile" style="height:180px;">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></span>
+        <span class="tile-name">Government &amp; Municipalities</span>
+      </div>
+      <div class="industry-tile" style="height:180px;">
+        <div class="industry-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=60')"></div>
+        <span class="tile-icon icon-tile" aria-hidden="true"><i data-lucide="briefcase"></i></span>
+        <span class="tile-name">SMEs &amp; Mid-market Enterprises</span>
       </div>
     </div>
+    <p class="reveal" style="text-align:center;margin-top:24px;font-size:0.85rem;color:var(--muted);">Secondary sectors served: Mining, Healthcare, Education, Energy, Telecoms</p>
   </div>
 </section>
 
@@ -2585,84 +2321,113 @@
   <div class="container" style="position:relative; z-index:1;">
     <div class="solutions-header reveal">
       <span class="section-tag">Featured Platforms</span>
-      <h2 class="section-title" id="solutions-title">Our Product Ecosystem</h2>
+      <h2 class="section-title" id="solutions-title">Our Flagship Platforms</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">
-        Enterprise SaaS platforms built for African organisations — from AI workplace assistants to municipal ERP systems.
+        Purpose-built SaaS platforms for African organisations — from AI workplace automation to construction and fleet intelligence.
       </p>
     </div>
-    <div class="products-grid">
+    <div class="products-grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">AI Platform</span>
+          <span class="product-badge" style="background:rgba(16,214,124,0.08);color:#10d67c;border:1px solid rgba(16,214,124,0.18);">Flagship</span>
           <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="bot"></i></span>
-          <h3>AI Workplace Assistant</h3>
-          <p>Enterprise AI assistant for reporting, scheduling, document processing, and decision support — trained for African business contexts.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">GovTech</span>
-          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="landmark"></i></span>
-          <h3>Municipal ERP</h3>
-          <p>Comprehensive platform for SA municipalities covering rates billing, service delivery, asset management, and citizen engagement.</p>
+          <h3>Kirov AI Workplace</h3>
+          <p>The AI operating layer for African organisations. One platform to automate reporting, scheduling, document processing, knowledge management, and decision support.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:14px;">
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">AI Chat</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Document Intelligence</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Meeting Intelligence</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Knowledge Base</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Report Generator</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Task Automation</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Workflow Agents</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Data Analysis</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Executive Intelligence</span>
+          </div>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">ERP</span>
+          <span class="product-badge">Vertical SaaS</span>
           <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></span>
-          <h3>Construction ERP</h3>
-          <p>CIDB-compliant end-to-end ERP for South African construction companies — from tender management to project delivery.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">Smart City</span>
-          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="bar-chart-3"></i></span>
-          <h3>Smart Traffic Platform</h3>
-          <p>AI-powered traffic analytics, congestion prediction, and adaptive signal control for African cities and municipalities.</p>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">Security</span>
-          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="shield-check"></i></span>
-          <h3>Kirov AI Agent</h3>
-          <p>Autonomous AI security agent that monitors, detects, and responds to cyber threats in real time — POPIA-aligned by design.</p>
+          <h3>Kirov Construction Intelligence</h3>
+          <p>AI-powered construction operations for African contractors. Manage tenders, projects, procurement, workforce, and costs in one platform.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:14px;">
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Tender Management</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">BOQ Management</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Project Management</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Procurement</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Worker Management</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Cost Tracking</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Document Management</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">AI Project Assistant</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Predictive Analytics</span>
+          </div>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=60')"></div>
         <div class="product-card-body">
-          <span class="product-badge">Logistics</span>
+          <span class="product-badge">Vertical SaaS</span>
           <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="truck"></i></span>
-          <h3>Fleet Intelligence</h3>
-          <p>Real-time GPS tracking, predictive maintenance, driver behaviour analytics, and fuel optimisation for African fleet operators.</p>
+          <h3>Kirov Fleet Intelligence</h3>
+          <p>Track. Analyse. Predict. Optimise. A complete fleet management platform for logistics, construction, and government fleets.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:14px;">
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">GPS Tracking</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Fleet Dashboard</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Fuel Analytics</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Driver Behaviour</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Predictive Maintenance</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Route Optimisation</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">Vehicle Utilisation</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.04em;padding:3px 8px;border-radius:4px;background:rgba(74,144,217,0.1);color:var(--accent-lite);border:1px solid rgba(74,144,217,0.15);">AI Fleet Assistant</span>
+          </div>
         </div>
       </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">FinTech</span>
-          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="target"></i></span>
-          <h3>Fraud Detection Platform</h3>
-          <p>ML-powered fraud detection for financial transactions, identity verification, and unusual pattern recognition in real time.</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VERTICAL SOLUTION PACKAGES
+============================================================ -->
+<section id="solutions-packages" aria-labelledby="packages-title" style="padding:110px 0;">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-tag">Industry Solutions</span>
+      <h2 class="section-title" id="packages-title">Industry Solutions</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-sub" style="margin:0 auto">
+        Purpose-built solution packages for each priority sector — combining our platforms, services, and domain expertise.
+      </p>
+    </div>
+    <div class="why-grid reveal" style="grid-template-columns:repeat(2,1fr);margin-top:48px;max-width:1000px;margin-left:auto;margin-right:auto;">
+      <div class="why-card">
+        <div class="why-icon icon-tile"><i data-lucide="bot"></i></div>
+        <h4>Kirov AI for Business</h4>
+        <p style="margin-bottom:8px;"><strong style="color:var(--text);">Problem:</strong> Too much manual administration</p>
+        <p><strong style="color:var(--text);">Solution:</strong> AI assistant, document processing, reporting, workflow automation, knowledge base</p>
       </div>
-      <div class="product-card reveal">
-        <div class="product-img-header" style="background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=60')"></div>
-        <div class="product-card-body">
-          <span class="product-badge">Identity</span>
-          <span class="product-icon icon-tile" aria-hidden="true"><i data-lucide="fingerprint"></i></span>
-          <h3>Digital Identity Platform</h3>
-          <p>Secure, scalable digital identity and verification platform for governments, financial institutions, and enterprises across Africa.</p>
-        </div>
+      <div class="why-card">
+        <div class="why-icon icon-tile"><i data-lucide="hard-hat"></i></div>
+        <h4>Kirov Digital Construction</h4>
+        <p style="margin-bottom:8px;"><strong style="color:var(--text);">Problem:</strong> Construction companies manage projects through spreadsheets and WhatsApp</p>
+        <p><strong style="color:var(--text);">Solution:</strong> Project management, procurement, site management, documents, workforce, AI assistant, analytics</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon icon-tile"><i data-lucide="truck"></i></div>
+        <h4>Kirov Fleet Intelligence</h4>
+        <p style="margin-bottom:8px;"><strong style="color:var(--text);">Problem:</strong> Fleet operators lose money through fuel, downtime, and inefficient routes</p>
+        <p><strong style="color:var(--text);">Solution:</strong> GPS, fuel monitoring, driver analytics, predictive maintenance, route optimisation</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon icon-tile"><i data-lucide="building-2"></i></div>
+        <h4>Kirov Municipal Intelligence</h4>
+        <p style="margin-bottom:8px;"><strong style="color:var(--text);">Problem:</strong> Municipalities struggle to manage citizen requests and operational data</p>
+        <p><strong style="color:var(--text);">Solution:</strong> Citizen portal, complaints, work orders, SLA management, dashboards, AI reporting</p>
       </div>
     </div>
   </div>
@@ -2965,33 +2730,38 @@
     </div>
     <div class="roadmap-grid reveal">
       <div class="roadmap-year">
-        <h3>2026</h3>
+        <h3>2026 — PROVE</h3>
+        <p style="font-size:0.82rem;color:var(--accent-lite);margin-bottom:12px;font-weight:600;">Revenue + credibility</p>
         <ul>
-          <li>Launch AI Workplace Assistant</li>
-          <li>Construction ERP MVP</li>
-          <li>Government Solutions Pilots</li>
-          <li>Cybersecurity SOC Dashboard</li>
-          <li>Fleet Intelligence Platform</li>
+          <li>Build AI Workplace MVP</li>
+          <li>Construction Intelligence MVP</li>
+          <li>Fleet Intelligence MVP</li>
+          <li>Kirov Security Core</li>
+          <li>Target SMEs, construction, logistics, government pilots</li>
+          <li>First paying customers + strong case studies</li>
         </ul>
       </div>
       <div class="roadmap-year">
-        <h3>2027</h3>
+        <h3>2027 — PRODUCTISE</h3>
+        <p style="font-size:0.82rem;color:var(--accent-lite);margin-bottom:12px;font-weight:600;">Recurring revenue</p>
         <ul>
-          <li>Expand to SADC Region</li>
-          <li>Cloud Managed Services</li>
-          <li>Cybersecurity SOC Launch</li>
-          <li>Smart City Platform Rollout</li>
-          <li>Digital Identity Platform</li>
+          <li>Launch AI Workplace SaaS</li>
+          <li>Construction SaaS launch</li>
+          <li>Fleet SaaS launch</li>
+          <li>Security-as-a-Service</li>
+          <li>Expand into Botswana, Namibia, Zambia, Zimbabwe</li>
         </ul>
       </div>
       <div class="roadmap-year">
-        <h3>2028</h3>
+        <h3>2028 — SCALE</h3>
+        <p style="font-size:0.82rem;color:var(--accent-lite);margin-bottom:12px;font-weight:600;">Enterprise + pan-African</p>
         <ul>
-          <li>Pan-African Expansion</li>
-          <li>AI Marketplace Launch</li>
-          <li>Enterprise Product Suite</li>
-          <li>Fraud Detection Platform</li>
-          <li>1,000+ Organisations Served</li>
+          <li>Municipal platforms</li>
+          <li>Smart cities deployments</li>
+          <li>Digital identity solutions</li>
+          <li>Large government deployments</li>
+          <li>Enterprise platform suite</li>
+          <li>Pan-African expansion</li>
         </ul>
       </div>
     </div>
@@ -3013,33 +2783,23 @@
     </div>
     <div class="journey-flow reveal">
       <div class="journey-step">
-        <span class="j-icon"><i data-lucide="message-square"></i></span>
-        <h4>1. Reach Out</h4>
-      </div>
-      <span class="journey-arrow"><i data-lucide="chevron-right"></i></span>
-      <div class="journey-step">
-        <span class="j-icon"><i data-lucide="clipboard-list"></i></span>
-        <h4>2. Discovery Call</h4>
-      </div>
-      <span class="journey-arrow"><i data-lucide="chevron-right"></i></span>
-      <div class="journey-step">
-        <span class="j-icon"><i data-lucide="file-text"></i></span>
-        <h4>3. Proposal</h4>
+        <span class="j-icon"><i data-lucide="search"></i></span>
+        <h4>1. Assessment</h4>
       </div>
       <span class="journey-arrow"><i data-lucide="chevron-right"></i></span>
       <div class="journey-step">
         <span class="j-icon"><i data-lucide="code"></i></span>
-        <h4>4. Build</h4>
+        <h4>2. Build</h4>
       </div>
       <span class="journey-arrow"><i data-lucide="chevron-right"></i></span>
       <div class="journey-step">
         <span class="j-icon"><i data-lucide="rocket"></i></span>
-        <h4>5. Launch</h4>
+        <h4>3. Launch</h4>
       </div>
       <span class="journey-arrow"><i data-lucide="chevron-right"></i></span>
       <div class="journey-step">
         <span class="j-icon"><i data-lucide="refresh-cw"></i></span>
-        <h4>6. Ongoing Support</h4>
+        <h4>4. Manage</h4>
       </div>
     </div>
   </div>
@@ -3134,16 +2894,12 @@
             <label for="service-interest">Service of Interest</label>
             <select id="service-interest" name="service">
               <option value="">Select a service...</option>
-              <option>AI Solutions</option>
-              <option>Software Development</option>
+              <option>AI Automation</option>
+              <option>Software Engineering</option>
               <option>Cybersecurity</option>
               <option>Cloud &amp; DevOps</option>
-              <option>Data Services</option>
-              <option>Smart Engineering</option>
-              <option>Construction Technology</option>
-              <option>Government Technology</option>
-              <option>Smart City Solutions</option>
-              <option>Consulting</option>
+              <option>Data &amp; Intelligence</option>
+              <option>Platform SaaS</option>
               <option>Partnership / Investment</option>
             </select>
           </div>
@@ -3158,61 +2914,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     SUCCESS METRICS
-============================================================ -->
-<section id="metrics" aria-hidden="true" style="background:#03050a;padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center">
-      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
-        <div style="font-size:2rem;font-weight:900;color:#10d67c;font-family:'Outfit',sans-serif;line-height:1">99.9%</div>
-        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Platform Uptime</div>
-      </div>
-      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
-        <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Outfit',sans-serif;line-height:1">&lt;24h</div>
-        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Support Response</div>
-      </div>
-      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
-        <div style="font-size:2rem;font-weight:900;color:#10d67c;font-family:'Outfit',sans-serif;line-height:1">100%</div>
-        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Cloud Ready</div>
-      </div>
-      <div class="metric-box" style="text-align:center;padding:20px 32px;min-width:130px">
-        <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Outfit',sans-serif;line-height:1">SOC 2</div>
-        <div style="font-size:0.72rem;color:var(--muted);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Security Standard</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     TERMINAL
-============================================================ -->
-<section id="terminal" aria-hidden="true" style="background:#020308;padding:70px 0;border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="reveal" style="max-width:680px;margin:0 auto">
-      <div style="background:#0a0e17;border:1px solid rgba(74,144,217,0.15);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6)">
-        <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;background:rgba(74,144,217,0.05);border-bottom:1px solid rgba(74,144,217,0.1)">
-          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></span>
-          <span style="width:10px;height:10px;border-radius:50%;background:#febb2e"></span>
-          <span style="width:10px;height:10px;border-radius:50%;background:#28c840"></span>
-          <span style="font-size:0.72rem;color:var(--muted);margin-left:12px;font-family:'Consolas','Courier New',monospace">terminal — kirov-dynamics — 80×24</span>
-        </div>
-        <div style="padding:20px 24px 28px;font-family:'Consolas','Courier New',monospace;font-size:0.82rem;line-height:1.8">
-          <div><span style="color:var(--muted)">#</span> <span style="color:#10d67c">npm install</span> kirov-dynamics</div>
-          <div style="color:var(--muted)"><span style="color:#f59e0b">⠋</span> Installing dependencies...</div>
-          <div id="term-lines">
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Loaded 42 modules</div>
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> AI engine initialized</div>
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Cloud services connected</div>
-          </div>
-          <div id="term-cursor" style="margin-top:4px">
-            <span style="color:#10d67c">kirov@dynamics</span>:<span style="color:var(--accent)">~/platform</span><span style="color:#fff">$</span> <span id="term-typing" style="color:#fff"></span><span style="display:inline-block;width:8px;height:15px;background:var(--accent);animation:blink 0.8s step-end infinite;vertical-align:text-bottom;margin-left:2px"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================
      FOOTER
@@ -3235,7 +2937,7 @@
             <span class="nav-logo-subtitle">Technology</span>
           </div>
         </a>
-        <p>Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy. Founded by Koketso Raphasha. Built for Africa. CIPC Registered.</p>
+        <p>AI. Digital Infrastructure. Intelligent Operations. Built for Africa.</p>
         <div class="social-row" style="margin-top:18px">
           <a href="https://github.com/Kirov-Dynamics-Technology" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="GitHub">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -3248,22 +2950,19 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">AI Solutions</a></li>
-          <li><a href="#services">Software Development</a></li>
+          <li><a href="#services">AI Automation</a></li>
+          <li><a href="#services">Software Engineering</a></li>
           <li><a href="#services">Cybersecurity</a></li>
           <li><a href="#services">Cloud &amp; DevOps</a></li>
-          <li><a href="#services">Data Services</a></li>
-          <li><a href="#services">Smart Engineering</a></li>
+          <li><a href="#services">Data &amp; Intelligence</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Platforms</h4>
         <ul>
-          <li><a href="#solutions">AI Workplace Assistant</a></li>
-          <li><a href="#solutions">Municipal ERP</a></li>
-          <li><a href="#solutions">Construction ERP</a></li>
+          <li><a href="#solutions">Kirov AI Workplace</a></li>
+          <li><a href="#solutions">Construction Intelligence</a></li>
           <li><a href="#solutions">Fleet Intelligence</a></li>
-          <li><a href="#solutions">Digital Identity</a></li>
         </ul>
       </div>
       <div class="footer-col">
