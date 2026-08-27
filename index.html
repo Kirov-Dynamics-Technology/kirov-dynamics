@@ -99,6 +99,8 @@
       font-family:'Outfit',sans-serif; font-weight:700; font-size:0.9rem;
       padding:13px 26px; border-radius:var(--radius);
       transition:var(--transition); cursor:pointer; white-space:nowrap;
+      flex-shrink:0;
+      word-break:normal; overflow-wrap:normal;
     }
     .btn-primary {
       background:linear-gradient(135deg,var(--primary),var(--accent));
@@ -137,6 +139,7 @@
       backdrop-filter:blur(24px);
       border-bottom:1px solid var(--border);
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
+      overflow: visible;
     }
     #navbar.scrolled {
       padding:6px 0;
@@ -145,13 +148,23 @@
       border-bottom:1px solid var(--border);
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
-    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 10px;
       text-decoration: none;
       margin: 0;
+      flex-shrink: 0;
     }
     .nav-logo img {
       height: 72px; width: auto; display: block;
@@ -189,11 +202,33 @@
       margin-top: 6px;
       text-shadow: 0 0 8px rgba(74,144,217,0.3);
     }
-    .nav-links { display:flex; align-items:center; gap:24px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: nowrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .nav-links li {
+      flex-shrink: 0;
+    }
     .nav-links a {
-      font-size:0.82rem; font-weight:700; color:#b8d0e8;
-      transition:var(--transition); position:relative; letter-spacing:0.02em;
-      text-shadow:0 1px 8px rgba(0,0,0,0.5);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #b8d0e8;
+      transition: var(--transition);
+      position: relative;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-block;
+      word-break: normal;
+      overflow-wrap: normal;
     }
     .nav-links a:hover { color:#fff; }
     .nav-links a::after {
@@ -217,6 +252,9 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      flex-shrink: 0;
+      word-break: normal;
+      overflow-wrap: normal;
     }
     .css-globe {
       width: 36px;
@@ -972,22 +1010,26 @@
       .services-tabs { grid-template-columns:repeat(4,1fr); }
     }
     @media(max-width:1024px){
+      .nav-links { gap:14px; }
+      .nav-links a { font-size:0.78rem; }
+      .nav-inner { padding:0 20px; gap:12px; }
       .footer-grid { grid-template-columns:1fr 1fr; }
       .tab-panel.active { grid-template-columns:1fr; }
       .service-img { order:-1; }
       .hero-badge { font-size:0.65rem; padding:7px 16px; }
     }
     @media(max-width:900px){
+      .nav-links, .nav-cta-btn { display:none !important; }
+      .hamburger { display:flex; }
       .about-grid { grid-template-columns:1fr; }
       .contact-grid { grid-template-columns:1fr; }
       .industries-grid { grid-template-columns:repeat(2,1fr); }
       .services-tabs { grid-template-columns:repeat(3,1fr); }
     }
     @media(max-width:768px){
-      .nav-links, .nav-cta-btn { display:none !important; }
-      .hamburger { display:flex; }
-      #navbar { padding:10px 0; }
-      #navbar.scrolled { padding:6px 0; }
+      #navbar { padding:8px 0; }
+      #navbar.scrolled { padding:5px 0; }
+      .nav-inner { padding:0 16px; }
       .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; max-width:100%; }
       .stat-item { min-height:unset; padding:8px 4px; border-radius:8px; }
       .stat-num { font-size:1.1rem; }
@@ -1007,9 +1049,11 @@
       .hero-sub { font-size:1.05rem; margin-bottom:18px; }
       .container { padding:0 20px; }
       .divisions-grid { grid-template-columns:1fr; }
-      .nav-logo img { height: 36px !important; }
-      .nav-logo-title { font-size: 1.15rem; }
-      .nav-logo-subtitle { font-size: 0.65rem; letter-spacing: 0.2em; margin-top: 2px; }
+      .nav-logo img { height: 32px !important; }
+      .logo-text-main { font-size: 1rem; }
+      .logo-text-sub { font-size: 0.55rem; letter-spacing: 0.2em; margin-top: 1px; }
+      .css-globe { width: 28px; height: 28px; }
+      .css-globe .core { inset: 9px; }
       .hero-stats { border-top:none; padding-top:10px; }
       .hero-badge { margin-bottom:14px; font-size:0.75rem; padding:6px 14px; }
       .hero-title { font-size:2.6rem; margin-bottom:10px; }
@@ -1037,9 +1081,11 @@
       .cipc-badge i { width:14px!important; height:14px!important; }
       .cipc-badge span { font-size:0.45rem; }
       .section-title { font-size:1.5rem; }
-      .nav-logo img { height: 32px !important; }
-      .nav-logo-title { font-size: 1rem; }
-      .nav-logo-subtitle { font-size: 0.55rem; letter-spacing: 0.18em; }
+      .nav-logo img { height: 28px !important; }
+      .logo-text-main { font-size: 0.9rem; }
+      .logo-text-sub { font-size: 0.5rem; letter-spacing: 0.15em; }
+      .css-globe { width: 24px; height: 24px; }
+      .css-globe .core { inset: 7px; }
       .stat-item { width:auto; padding:0 5px; display:flex; flex-direction:column; align-items:center; }
       .division-card-body { padding:18px; }
       .product-card-body { padding:18px 20px 22px; }
@@ -1527,7 +1573,7 @@
      NAVBAR
 ============================================================ -->
 <nav id="navbar">
-  <div class="container nav-inner">
+  <div class="nav-inner">
     <a href="#home" class="nav-logo logo-container" aria-label="Kirov Dynamics Technology Home">
       <div class="css-globe">
         <div class="ring ring-1"></div>
@@ -1545,10 +1591,12 @@
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
       <li><a href="#solutions">Platforms</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#industries">Industries</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#resources">Profile</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#leadership">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta-btn">Get in Touch</a>
@@ -1560,15 +1608,17 @@
 
 <!-- Mobile Navigation -->
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">Ô£ò</button>
+  <button class="mobile-close-btn" id="mobile-close" aria-label="Close menu">&times;</button>
   <a href="#home" class="mobile-link">Home</a>
   <a href="#solutions" class="mobile-link">Platforms</a>
+  <a href="#projects" class="mobile-link">Projects</a>
   <a href="#services" class="mobile-link">Services</a>
-  <a href="#industries" class="mobile-link">Industries</a>
-  <a href="#process" class="mobile-link">Process</a>
+  <a href="#pricing" class="mobile-link">Pricing</a>
+  <a href="#resources" class="mobile-link">Profile</a>
   <a href="#about" class="mobile-link">About</a>
+  <a href="#leadership" class="mobile-link">Team</a>
   <a href="#contact" class="mobile-link">Contact</a>
-  <a href="#contact" class="btn btn-primary" style="margin-top:8px">Get in Touch</a>
+  <a href="#contact" class="btn btn-primary" style="margin-top:12px">Get in Touch</a>
 </div>
 
 <!-- ============================================================
