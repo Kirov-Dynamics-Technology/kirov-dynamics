@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile — Kirov Dynamics Technology (Pty) Ltd</title>
+  <meta name="description" content="Company profile for Kirov Dynamics Technology — AI, cybersecurity, software engineering, and smart infrastructure for Africa's digital economy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06080f;--bg-card:#0d1625;--primary:#1a3664;--accent:#4a90d9;--accent-lite:#6aaee8;--teal:#00c8f8;--green:#10d67c;--gold:#f59e0b;--text:#f0f4ff;--muted:#7a9ab8;--border:rgba(74,144,217,0.18)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    h1,h2,h3,h4{font-family:'Outfit',sans-serif;line-height:1.2}
+    .container{max-width:850px;margin:0 auto;padding:0 28px}
+    nav{padding:20px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:900;color:#fff}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:28px;align-items:center;flex-wrap:nowrap;white-space:nowrap;flex-shrink:0}
+    .nav-links a{font-size:16px;font-weight:600;color:var(--muted);transition:0.25s;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;text-decoration:none;background:none !important}
+    .nav-links a:hover{color:var(--accent)}
+    .print-btn{font-size:0.82rem;font-weight:600;padding:8px 16px;border-radius:8px;background:rgba(74,144,217,0.15);border:1px solid var(--border);color:var(--accent);cursor:pointer;transition:0.2s}
+    .print-btn:hover{background:rgba(74,144,217,0.25)}
+
+    .profile-header{padding:60px 0 40px;text-align:center;border-bottom:1px solid var(--border)}
+    .profile-header h1{font-size:2.2rem;font-weight:900;margin-bottom:8px;background:linear-gradient(135deg,#fff,var(--accent-lite));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .profile-header .subtitle{font-size:1rem;color:var(--muted);margin-bottom:20px}
+    .profile-header .reg{font-size:0.8rem;color:var(--muted);opacity:0.7}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+    .tag{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:50px;border:1px solid var(--border);color:var(--accent-lite);background:rgba(74,144,217,0.08)}
+
+    .section{padding:40px 0;border-bottom:1px solid var(--border)}
+    .section h2{font-size:1.4rem;font-weight:800;margin-bottom:16px;color:var(--text)}
+    .section p{font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:12px}
+    .section ul{padding-left:0;list-style:none}
+    .section li{font-size:0.9rem;color:var(--muted);padding:6px 0 6px 20px;position:relative;line-height:1.6}
+    .section li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+    .stat-card{text-align:center;padding:20px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border)}
+    .stat-card .num{font-size:1.8rem;font-weight:900;color:var(--green);font-family:'Outfit',sans-serif}
+    .stat-card .lbl{font-size:0.72rem;color:var(--muted);margin-top:4px}
+
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
+    .svc-card{padding:20px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border)}
+    .svc-card h4{font-size:0.95rem;font-weight:700;margin-bottom:6px}
+    .svc-card p{font-size:0.8rem;color:var(--muted);line-height:1.5;margin:0}
+
+    .pricing-table{width:100%;border-collapse:collapse;margin:20px 0}
+    .pricing-table th,.pricing-table td{text-align:left;padding:10px 14px;font-size:0.85rem;border-bottom:1px solid var(--border)}
+    .pricing-table th{color:var(--accent);font-weight:700;font-family:'Outfit',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase}
+    .pricing-table td{color:var(--muted)}
+    .pricing-table td:first-child{color:var(--text);font-weight:600}
+    .pricing-table tr:hover td{background:rgba(74,144,217,0.05)}
+
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
+    .contact-item{padding:16px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border)}
+    .contact-item .clbl{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+    .contact-item .cval{font-size:0.9rem;color:var(--text);font-weight:500}
+    .contact-item a{color:var(--accent);text-decoration:none}
+    .contact-item a:hover{text-decoration:underline}
+
+    footer{padding:30px 0;text-align:center;font-size:0.78rem;color:var(--muted)}
+    footer .line{margin-bottom:4px}
+
+    @media print{
+      body{background:#fff;color:#111}
+      nav,.print-btn{display:none}
+      .section,.stat-card,.svc-card,.contact-item{border-color:#ddd;background:#f9f9f9}
+      .profile-header h1{background:none;-webkit-text-fill-color:#111}
+      .tag{color:#333;border-color:#ccc;background:#f0f0f0}
+      .stat-card .num{color:#1a6b3f}
+      .section h2{color:#111}
+      .section p,.section li,.pricing-table td{color:#333}
+      .pricing-table th{color:#1a3664}
+      .contact-item .cval{color:#111}
+      .contact-item a{color:#1a3664}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+    <a href="index.html" class="nav-logo">Kirov<span>Dynamics</span></a>
+    <div class="nav-links">
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#contact">Contact</a>
+      <button class="print-btn" onclick="window.print()">⬇ Download PDF</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="profile-header">
+    <h1>Kirov Dynamics Technology</h1>
+    <p class="subtitle">AI · Cybersecurity · Software Engineering · Smart Infrastructure</p>
+    <p class="reg">Kirov Dynamics Technology (Pty) Ltd · CIPC Registered · Republic of South Africa</p>
+    <div class="tag-row">
+      <span class="tag">Artificial Intelligence</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Software Development</span>
+      <span class="tag">Cloud & DevOps</span>
+      <span class="tag">GovTech</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Who We Are</h2>
+    <p>Kirov Dynamics Technology is a South African technology company specialising in AI, cybersecurity, software engineering, and smart infrastructure solutions. We partner with businesses, governments, and institutions across Africa to build the digital systems that power modern economies.</p>
+    <p>We combine deep technical expertise with an understanding of South Africa's unique infrastructure challenges — from load-shedding-resilient systems to solutions that work on low-bandwidth connections. Our team builds enterprise-grade platforms that are built to last.</p>
+  </div>
+
+  <div class="section">
+    <h2>At a Glance</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="num">9</div><div class="lbl">Specialised Divisions</div></div>
+      <div class="stat-card"><div class="num">30+</div><div class="lbl">Projects Delivered</div></div>
+      <div class="stat-card"><div class="num">5</div><div class="lbl">Countries Served</div></div>
+      <div class="stat-card"><div class="num">99.9%</div><div class="lbl">Platform Uptime</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Our Divisions</h2>
+    <div class="services-grid">
+      <div class="svc-card">
+        <h4>Artificial Intelligence</h4>
+        <p>Custom AI systems, LLM integration, predictive analytics, computer vision, and NLP solutions.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Cybersecurity</h4>
+        <p>Penetration testing, SOC operations, incident response, compliance audits, and managed security.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Software Development</h4>
+        <p>Full-stack platforms, SaaS products, mobile apps, APIs, and enterprise systems.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Cloud & DevOps</h4>
+        <p>Cloud migration, Kubernetes, CI/CD, infrastructure as code, and managed cloud services.</p>
+      </div>
+      <div class="svc-card">
+        <h4>GovTech</h4>
+        <p>Municipal platforms, citizen services, e-government portals, and public sector digital transformation.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Smart Infrastructure</h4>
+        <p>IoT systems, smart water/energy monitoring, traffic management, and industrial automation.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Consulting</h4>
+        <p>Technology strategy, digital transformation roadmaps, vendor selection, and CTO-as-a-Service.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Creative & Design</h4>
+        <p>UI/UX design, brand identity, web design, motion graphics, and design systems.</p>
+      </div>
+      <div class="svc-card">
+        <h4>Network Engineering</h4>
+        <p>Network design, LAN/WAN deployment, VoIP systems, and structured cabling.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Service Packages & Pricing</h2>
+    <p>All prices in South African Rand (ZAR). VAT at 16% applies from 1 April 2026.</p>
+
+    <h3 style="font-size:1rem;font-weight:700;margin:20px 0 10px;color:var(--accent-lite)">AI Solutions</h3>
+    <table class="pricing-table">
+      <thead><tr><th>Package</th><th>Price</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>Starter</td><td>R25,000</td><td>Chatbot integration, custom training, 1-month support</td></tr>
+        <tr><td>Professional</td><td>R75,000 + R3,500/mo</td><td>Custom AI models, analytics dashboard, ongoing optimization</td></tr>
+        <tr><td>Enterprise</td><td>Custom</td><td>Full AI transformation, dedicated team, SLA-backed support</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1rem;font-weight:700;margin:20px 0 10px;color:var(--accent-lite)">Cybersecurity</h3>
+    <table class="pricing-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>Security Assessment</td><td>R15,000</td><td>Vulnerability scan, risk report, remediation roadmap</td></tr>
+        <tr><td>Penetration Test</td><td>R35,000</td><td>Full black-box/white-box test, CVSS scoring, fix guidance</td></tr>
+        <tr><td>Managed Security</td><td>R12,000/mo</td><td>24/7 SOC monitoring, incident response, monthly reports</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1rem;font-weight:700;margin:20px 0 10px;color:var(--accent-lite)">Software Development</h3>
+    <table class="pricing-table">
+      <thead><tr><th>Package</th><th>Price</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>MVP Build</td><td>R50,000</td><td>Core features, admin panel, 3-month development</td></tr>
+        <tr><td>Business Platform</td><td>R150,000</td><td>Full SaaS/platform, multi-user, analytics, integrations</td></tr>
+        <tr><td>Enterprise System</td><td>Custom</td><td>Custom architecture, dedicated team, ongoing development</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1rem;font-weight:700;margin:20px 0 10px;color:var(--accent-lite)">Cloud & DevOps</h3>
+    <table class="pricing-table">
+      <thead><tr><th>Service</th><th>Price</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>Cloud Migration</td><td>From R40,000</td><td>AWS/Azure/GCP migration, testing, documentation</td></tr>
+        <tr><td>DevOps Setup</td><td>R60,000</td><td>CI/CD, Docker, Kubernetes, monitoring, IaC</td></tr>
+        <tr><td>Managed Cloud</td><td>R8,000/mo</td><td>24/7 monitoring, scaling, backups, security patches</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Why Choose Us</h2>
+    <ul>
+      <li><strong>SA-Focused:</strong> Solutions built for South African conditions — load-shedding resilience, low-bandwidth support, local compliance</li>
+      <li><strong>Enterprise-Grade:</strong> 99.9% uptime SLAs, SOC 2 aligned processes, ISO 27001-ready infrastructure</li>
+      <li><strong>Full-Stack:</strong> From AI and cybersecurity to cloud and DevOps — one partner for your entire technology stack</li>
+      <li><strong>Agile Delivery:</strong> 2-week sprint cycles, continuous deployment, transparent project tracking</li>
+      <li><strong>Local Support:</strong> WhatsApp-first support with 2-hour response times during business hours</li>
+      <li><strong>B-BBEE:</strong> Level 2 contributor status, 100% South African owned</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="clbl">WhatsApp</div>
+        <div class="cval"><a href="https://wa.me/27781172470">078 117 2470</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="clbl">Email</div>
+        <div class="cval"><a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="clbl">Website</div>
+        <div class="cval"><a href="https://kirov-dynamics-technology.github.io/kirov-dynamics/">kirovdynamics.co.za</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="clbl">Location</div>
+        <div class="cval">South Africa</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="line">&copy; 2026 Kirov Dynamics Technology (Pty) Ltd. All rights reserved.</p>
+  <p>Company registered under the Companies Act, 2008 (Republic of South Africa)</p>
+</footer>
+
+</body>
+</html>
