@@ -425,10 +425,14 @@
     ============================================================ */
     .hero {
       position:relative;
-      min-height:100vh;
+      min-height: clamp(620px, 85vh, 900px);
+      height: auto;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #080d18 url('assets/images/hero-bg.jpg') 30% center/cover no-repeat;
+      background: #080d18 url('assets/images/hero-bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: contain;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
@@ -485,9 +489,9 @@
     }
     @media(max-width:768px) {
       .hero {
-        background-size: cover;
-        background-position: 30% center;
-        min-height: 100dvh;
+        background-size: contain;
+        background-position: center top;
+        min-height: clamp(500px, 80vh, 800px);
       }
       .hero-content {
         padding: 90px 16px 0;
@@ -1563,7 +1567,7 @@
   padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
 }
 .chatbot-toggle-btn {
-  position: fixed; bottom: 80px; right: 32px; z-index: 1000;
+  position: fixed; bottom: 104px; right: 32px; z-index: 1000;
   width: 68px; height: 68px; border-radius: 50%;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
@@ -1582,12 +1586,12 @@
     .chatbot-container {
       width: calc(100% - 32px);
       height: 60vh;
-      bottom: 140px;
+      bottom: 180px;
       right: 16px;
     }
     #chatbot-launcher {
-      right: 16px !important;
-      bottom: 24px !important;
+      right: 24px !important;
+      bottom: 110px !important;
       transform: scale(0.9);
     }
     .float-contact {
@@ -1771,50 +1775,51 @@
 <section id="solutions" class="section" aria-labelledby="solutions-title">
   <div class="container">
     <div class="reveal text-center">
-      <span class="section-tag">How We Help</span>
-      <h2 class="section-title" id="solutions-title">Three Revenue Engines. One Platform.</h2>
+      <span class="section-tag">Core Capabilities</span>
+      <h2 class="section-title" id="solutions-title">Five Core Capabilities. One Platform.</h2>
       <div class="divider divider-center"></div>
-      <p class="section-sub" style="margin:0 auto">Stop being an IT company. Start delivering business outcomes. Kirov focuses on three core engines that generate real measurable value for South African organisations.</p>
+      <p class="section-sub" style="margin:0 auto">Kirov turns technology, data and AI into practical business outcomes for South African organisations.</p>
     </div>
-    <div class="revenue-engines reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px">
-      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;display:flex;flex-direction:column;gap:16px">
-        <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(74,144,217,0.2),rgba(74,144,217,0.05));display:flex;align-items:center;justify-content:center;border:1px solid rgba(74,144,217,0.3)">
-          <i data-lucide="brain-circuit" style="color:var(--accent);width:28px;height:28px"></i>
+    <div class="revenue-engines reveal" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:28px;margin-top:48px">
+      <!-- AI -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(74,144,217,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(74,144,217,0.3)">
+          <i data-lucide="bot" style="color:var(--accent);width:24px;height:24px"></i>
         </div>
-        <h3 style="font-size:1.25rem;color:#fff">AI &amp; Business Automation</h3>
-        <p style="color:var(--muted);line-height:1.7">AI agents, workflow automation, document processing, internal assistants. Stop paying staff to do repetitive work.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">SMEs &amp; professional firms</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Construction &amp; engineering</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Corporates &amp; large enterprises</span></div>
-        </div>
-        <a href="#products" style="margin-top:auto;color:var(--accent);font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:6px">Explore AI Products <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+        <h3 style="font-size:1.15rem;color:#fff">Artificial Intelligence</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Intelligent assistants, document processing, and AI models built for your business.</p>
       </div>
-      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;display:flex;flex-direction:column;gap:16px;border-color:rgba(74,144,217,0.4)">
-        <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(74,144,217,0.2),rgba(74,144,217,0.05));display:flex;align-items:center;justify-content:center;border:1px solid rgba(74,144,217,0.3)">
-          <i data-lucide="shield-check" style="color:var(--teal);width:28px;height:28px"></i>
+      <!-- Automation -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(74,144,217,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(74,144,217,0.3)">
+          <i data-lucide="workflow" style="color:var(--accent);width:24px;height:24px"></i>
         </div>
-        <h3 style="font-size:1.25rem;color:#fff">Cybersecurity &amp; Digital Infrastructure</h3>
-        <p style="color:var(--muted);line-height:1.7">Security assessments, continuous monitoring, cloud, backup &amp; POPIA compliance readiness — as a monthly managed service.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">SMEs &amp; professional services</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Construction &amp; engineering firms</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Government suppliers</span></div>
-        </div>
-        <a href="#products" style="margin-top:auto;color:var(--teal);font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:6px">Explore Security <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+        <h3 style="font-size:1.15rem;color:#fff">Automation</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Workflow and business-process automation to reduce manual administrative tasks.</p>
       </div>
-      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;display:flex;flex-direction:column;gap:16px">
-        <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(74,144,217,0.2),rgba(74,144,217,0.05));display:flex;align-items:center;justify-content:center;border:1px solid rgba(74,144,217,0.3)">
-          <i data-lucide="building-2" style="color:var(--gold);width:28px;height:28px"></i>
+      <!-- Data -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px;border-color:rgba(212,175,55,0.4)">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.3)">
+          <i data-lucide="bar-chart-3" style="color:var(--gold);width:24px;height:24px"></i>
         </div>
-        <h3 style="font-size:1.25rem;color:#fff">Smart Infrastructure &amp; GovTech</h3>
-        <p style="color:var(--muted);line-height:1.7">Fleet, construction, municipal, transport and infrastructure platforms for the African public and private sector.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Construction &amp; logistics</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Municipalities &amp; government</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><i data-lucide="check-circle" style="color:var(--green);width:16px;height:16px;flex-shrink:0"></i><span style="font-size:0.85rem;color:var(--muted)">Transport operators</span></div>
+        <h3 style="font-size:1.15rem;color:#fff">Data &amp; Analytics</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Data engineering, BI, and decision support to turn fragmented data into clear insights.</p>
+      </div>
+      <!-- Cybersecurity -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(0,200,248,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,200,248,0.3)">
+          <i data-lucide="shield-check" style="color:var(--teal);width:24px;height:24px"></i>
         </div>
-        <a href="#products" style="margin-top:auto;color:var(--gold);font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:6px">Explore Infrastructure <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+        <h3 style="font-size:1.15rem;color:#fff">Cybersecurity</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Security monitoring, resilience, and POPIA-aware governance for digital assets.</p>
+      </div>
+      <!-- Infrastructure -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(39,174,96,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(39,174,96,0.3)">
+          <i data-lucide="server" style="color:var(--green);width:24px;height:24px"></i>
+        </div>
+        <h3 style="font-size:1.15rem;color:#fff">Digital Infrastructure</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Cloud solutions, digital platforms, and integrations to modernise your operations.</p>
       </div>
     </div>
     <!-- Consult → Build → Manage → Subscribe Funnel -->
