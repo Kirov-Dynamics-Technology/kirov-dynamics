@@ -206,13 +206,14 @@
       border-bottom:1px solid var(--border);
       box-shadow:0 4px 30px rgba(0,0,0,0.5);
     }
-    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-inner { width:100%; max-width:1440px !important; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
     .nav-logo {
       display: flex;
       align-items: center;
       gap: 16px;
       text-decoration: none;
       margin: 0;
+      flex-shrink: 0;
     }
     .nav-logo img {
       height: 72px; width: auto; display: block;
@@ -250,12 +251,30 @@
       margin-top: 6px;
       text-shadow: 0 0 8px rgba(74,144,217,0.3);
     }
-    .nav-links { display:flex; align-items:center; gap:12px; }
+    .nav-links { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 28px; 
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-links li { flex-shrink: 0; }
     .nav-links a {
-      font-size:0.85rem; font-weight:700; color:#b8d0e8;
-      transition:var(--transition); position:relative; letter-spacing:0.02em;
-      text-shadow:0 1px 8px rgba(0,0,0,0.5);
-      white-space:nowrap;
+      font-size: 16px; 
+      font-weight: 600; 
+      color: #b8d0e8;
+      transition: all 0.25s ease; 
+      position: relative; 
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      background: none !important;
     }
     .nav-links a:hover { color:#fff; }
     .nav-links a::after {
@@ -264,12 +283,27 @@
       transform:scaleX(0); transform-origin:left; transition:var(--transition);
     }
     .nav-links a:hover::after { transform:scaleX(1); }
+    .nav-cta-btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
 
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:var(--transition); }
     .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
     .hamburger.open span:nth-child(2) { opacity:0; }
     .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+    @media (max-width: 1439px) and (min-width: 1200px) {
+      .nav-inner { gap: 16px; padding: 0 16px; }
+      .nav-links { gap: 16px; }
+      .nav-logo img { height: 60px; }
+    }
+    @media (max-width: 1199px) {
+      .nav-links { display: none !important; }
+      .hamburger { display: flex; }
+      .nav-inner { padding: 0 20px; }
+    }
 
     /* ============================================================
        CSS GLOBE LOGO
@@ -1033,8 +1067,7 @@
       .services-tabs { grid-template-columns:repeat(3,1fr); }
     }
     @media(max-width:768px){
-      .nav-links, .nav-cta-btn { display:none !important; }
-      .hamburger { display:flex; }
+      .nav-cta-btn { display:none !important; }
       #navbar { padding:10px 0; }
       #navbar.scrolled { padding:6px 0; }
       .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; max-width:100%; }
