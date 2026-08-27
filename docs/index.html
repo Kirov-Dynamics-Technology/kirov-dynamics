@@ -425,14 +425,10 @@
     ============================================================ */
     .hero {
       position:relative;
-      min-height: clamp(620px, 85vh, 900px);
-      height: auto;
+      min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #080d18 url('assets/images/hero-bg.jpg');
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: contain;
+      background: #080d18 url('assets/images/hero-bg.jpg') center center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
@@ -489,9 +485,9 @@
     }
     @media(max-width:768px) {
       .hero {
-        background-size: contain;
-        background-position: center top;
-        min-height: clamp(500px, 80vh, 800px);
+        background-size: cover;
+        background-position: center;
+        min-height: 100dvh;
       }
       .hero-content {
         padding: 90px 16px 0;
