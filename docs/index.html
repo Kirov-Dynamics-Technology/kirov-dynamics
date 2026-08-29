@@ -2006,6 +2006,7 @@
       <a href="#assessment" class="btn btn-primary" id="hero-assessment-btn"><i data-lucide="clipboard-check"></i> Book Free Assessment</a>
       <a href="#products" class="btn btn-outline" id="hero-explore-btn"><i data-lucide="layout-grid"></i> Explore Products</a>
       <a href="#roi" class="btn btn-outline"><i data-lucide="calculator"></i> ROI Calculator</a>
+      <button type="button" class="btn btn-outline" id="hero-profile-btn" onclick="document.getElementById('profile-modal').classList.add('open')"><i data-lucide="download"></i> Download Company Profile</button>
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
@@ -2520,7 +2521,7 @@
         </div>
         <div style="display:flex;gap:8px;align-items:center">
           <input type="number" id="vat-amount" placeholder="Enter amount (R)" style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <button onclick="calcVAT()" style="padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calc</button>
+          <button onclick="calcVAT()" style="padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate</button>
         </div>
         <div id="vat-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
       </div>
@@ -4833,6 +4834,141 @@
     sendBtn.addEventListener('click', processUserInput);
     inputField.addEventListener('keypress', function(e) { if (e.key === 'Enter') processUserInput(); });
   });
+</script>
+
+<!-- DOWNLOAD COMPANY PROFILE MODAL -->
+<style>
+  .profile-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .profile-modal-overlay.open { display: flex; }
+  .profile-modal {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 36px;
+    max-width: 440px; width: 100%; position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    animation: modalSlideIn 0.3s ease;
+  }
+  @keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+  .profile-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 1.4rem; color: var(--muted); cursor: pointer;
+    transition: color 0.2s; background: none; border: none;
+  }
+  .profile-modal-close:hover { color: #fff; }
+  .profile-modal h3 {
+    font-family: 'Outfit', sans-serif; font-size: 1.3rem;
+    font-weight: 800; color: #fff; margin-bottom: 8px;
+  }
+  .profile-modal .modal-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; color: #fff;
+  }
+  .profile-modal p {
+    color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;
+  }
+  .profile-modal .form-group { margin-bottom: 14px; }
+  .profile-modal .form-group label {
+    display: block; font-size: 0.72rem; font-weight: 700;
+    color: var(--muted); margin-bottom: 5px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .profile-modal .form-group input,
+  .profile-modal .form-group select {
+    width: 100%; padding: 11px 14px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 0.88rem;
+    outline: none; transition: border-color 0.2s;
+  }
+  .profile-modal .form-group input:focus,
+  .profile-modal .form-group select:focus {
+    border-color: var(--accent);
+  }
+  .profile-modal .form-group select option { background: var(--bg-card); }
+  .profile-modal .modal-submit {
+    width: 100%; padding: 13px; margin-top: 6px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff; border: none; border-radius: 8px;
+    font-family: 'Outfit', sans-serif; font-weight: 700;
+    font-size: 0.92rem; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .profile-modal .modal-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+  }
+  .profile-modal .modal-note {
+    font-size: 0.7rem; color: var(--muted); text-align: center;
+    margin-top: 12px; line-height: 1.5;
+  }
+  @media(max-width:500px){
+    .profile-modal { padding: 24px 20px; }
+    .profile-modal h3 { font-size: 1.1rem; }
+  }
+</style>
+
+<div class="profile-modal-overlay" id="profile-modal">
+  <div class="profile-modal">
+    <button class="profile-modal-close" onclick="document.getElementById('profile-modal').classList.remove('open')" aria-label="Close">&times;</button>
+    <div class="modal-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </div>
+    <h3>Download Company Profile</h3>
+    <p>Get our full company profile — capabilities, track record, and service catalogue. Perfect for tenders, RFQs, and procurement.</p>
+    <div class="form-group">
+      <label for="profile-name">Full Name</label>
+      <input type="text" id="profile-name" placeholder="e.g. John Smith" required>
+    </div>
+    <div class="form-group">
+      <label for="profile-email">Email Address</label>
+      <input type="email" id="profile-email" placeholder="e.g. john@company.co.za" required>
+    </div>
+    <div class="form-group">
+      <label for="profile-company">Company / Organisation</label>
+      <input type="text" id="profile-company" placeholder="e.g. ABC Pty Ltd">
+    </div>
+    <div class="form-group">
+      <label for="profile-need">What do you need?</label>
+      <select id="profile-need">
+        <option value="Company Profile">Company Profile</option>
+        <option value="Capability Statement">Capability Statement</option>
+        <option value="Service Catalogue">Service Catalogue</option>
+        <option value="All Documents">All Documents</option>
+      </select>
+    </div>
+    <button class="modal-submit" onclick="sendProfileRequest()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Send via WhatsApp
+    </button>
+    <div class="modal-note">We'll send the documents to your WhatsApp within a few minutes during business hours.</div>
+  </div>
+</div>
+<script>
+function sendProfileRequest() {
+  var name = document.getElementById('profile-name').value.trim();
+  var email = document.getElementById('profile-email').value.trim();
+  var company = document.getElementById('profile-company').value.trim();
+  var need = document.getElementById('profile-need').value;
+  if (!name || !email) { alert('Please enter your name and email.'); return; }
+  var msg = 'Hi Kirov Dynamics,\n\nI\'d like to request the following documents:\n\n' +
+    'Document: ' + need + '\n' +
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    (company ? 'Company: ' + company + '\n' : '') +
+    '\nPlease send them at your earliest convenience. Thank you.';
+  var url = 'https://wa.me/27781172470?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+  document.getElementById('profile-modal').classList.remove('open');
+}
 </script>
 
 <!-- WHATSAPP FAB -->
