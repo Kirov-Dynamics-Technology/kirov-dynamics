@@ -100,6 +100,126 @@
       --glow:        0 0 40px rgba(74,144,217,0.2);
       --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
     }
+    body.light {
+      --bg:          #f5f7fa;
+      --bg-card:     #ffffff;
+      --bg-alt:      #eef1f6;
+      --primary:     #1a3664;
+      --accent:      #2563eb;
+      --accent-lite: #3b82f6;
+      --teal:        #0891b2;
+      --green:       #059669;
+      --gold:        #d97706;
+      --text:        #1e293b;
+      --muted:       #64748b;
+      --border:      rgba(0,0,0,0.08);
+      --glass:       rgba(255,255,255,0.92);
+      --shadow:      0 8px 40px rgba(0,0,0,0.08);
+      --glow:        0 0 40px rgba(37,99,235,0.1);
+    }
+    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
+    body.light .nav-links a { color: #475569; text-shadow: none; }
+    body.light .nav-links a:hover { color: #1e293b; }
+    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
+    body.light .logo-text-main span { color: var(--teal); }
+    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
+    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
+    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
+    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
+    body.light .hero { background-color: #eef1f6 !important; }
+    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.85) 0%, rgba(238,241,246,0.75) 55%, rgba(245,247,250,0.5) 100%); }
+    body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
+    body.light .hero-sub { color: #475569; }
+    body.light .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #1e293b; }
+    body.light .hero-btns .btn { color: #1e293b; border-color: rgba(0,0,0,0.12); background: rgba(37,99,235,0.06); }
+    body.light .hero-btns .btn-primary { color: #fff; }
+    body.light .stat-item { background: rgba(255,255,255,0.8); border-color: rgba(37,99,235,0.15); }
+    body.light .stat-num { text-shadow: none; }
+    body.light .stat-label { color: #475569; }
+    body.light .section-title { background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
+    body.light .section-sub { color: #64748b; }
+    body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
+    body.light .why-card, body.light .division-card, body.light .product-card,
+    body.light .project-card, body.light .testimonial-card, body.light .insight-card,
+    body.light .career-card, body.light .resource-card, body.light .security-item,
+    body.light .roadmap-year, body.light .leader-card, body.light .process-step,
+    body.light .journey-step, body.light .map-country, body.light .industry-tile {
+      background: #ffffff; border-color: rgba(0,0,0,0.06);
+    }
+    body.light .why-card h4, body.light .division-card h3, body.light .product-card h3,
+    body.light .project-body h4, body.light .testimonial-card blockquote,
+    body.light .insight-body h4, body.light .career-card h4, body.light .resource-card h4,
+    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4 {
+      color: #1e293b;
+    }
+    body.light .why-card p, body.light .division-card p, body.light .product-card p,
+    body.light .project-body p, body.light .insight-body p, body.light .career-card p,
+    body.light .resource-card p, body.light .leader-card p {
+      color: #64748b;
+    }
+    body.light .division-card-body { background: linear-gradient(135deg,rgba(255,255,255,0.95),rgba(245,247,250,0.9)); }
+    body.light .service-info h3 { color: #1e293b; }
+    body.light .service-info > p { color: #64748b; }
+    body.light .service-list li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
+    body.light .tab-btn { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
+    body.light .tab-btn.active, body.light .tab-btn:hover { color: #fff; }
+    body.light .contact-form { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .contact-form h3 { color: #1e293b; }
+    body.light .form-group input, body.light .form-group textarea, body.light .form-group select {
+      background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b;
+    }
+    body.light footer { background: #f8fafc; border-top-color: rgba(0,0,0,0.06); }
+    body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #64748b; }
+    body.light .footer-col h4 { color: #1e293b; }
+    body.light .consult-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .consult-card h3 { color: #1e293b; }
+    body.light .consult-card p { color: #64748b; }
+    body.light .consult-option { background: #f5f7fa; border-color: rgba(0,0,0,0.08); }
+    body.light .consult-option span { color: #1e293b; }
+    body.light .roadmap-year ul li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
+    body.light .testimonial-stars { filter: none; }
+    body.light .stack-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .partner-logo { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .cert-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .hero-gradient-mesh { opacity: 0.3; }
+    body.light #chatbot-container .chatbot-header { background: #1a3664; }
+    body.light .chatbot-messages { background: #f5f7fa; }
+    body.light .chatbot-option-btn { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
+    body.light #chatbot-input { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
+    body.light .hc-opt { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
+    body.light .hc-opt:hover, body.light .hc-opt:has(input:checked) { border-color: var(--accent); color: #1e293b; }
+    body.light .hamburger span { background: #1e293b; }
+    body.light .mobile-menu { background: #ffffff; }
+    body.light .mobile-menu a { color: #1e293b; }
+    body.light .profile-modal { background: #ffffff; }
+    body.light .profile-modal h3 { color: #1e293b; }
+    body.light .profile-modal p { color: #64748b; }
+    body.light .profile-modal .form-group input,
+    body.light .profile-modal .form-group select { background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b; }
+    body.light .wa-popup { background: #ffffff; border-color: rgba(0,0,0,0.08); }
+    body.light .wa-popup .msg { background: #f5f7fa; border-color: rgba(0,0,0,0.08); color: #1e293b; }
+    body.light .wa-popup .quick-btns a { background: rgba(37,149,235,0.06); border-color: rgba(37,149,235,0.15); color: #059669; }
+    body.light .about-stat-box { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
+    body.light .about-stat-box .num { color: var(--accent); }
+    body.light .about-stat-box .lbl { color: #64748b; }
+    body.light .expertise-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .expertise-card h4 { color: #1e293b; }
+    body.light .expertise-card p { color: #64748b; }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease; flex-shrink: 0; font-size: 1.1rem;
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.15); transform: scale(1.08); }
+    body.light .theme-toggle { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); color: #1e293b; }
+    body.light .theme-toggle:hover { background: rgba(0,0,0,0.1); }
+    @media(max-width:768px){
+      .theme-toggle { width: 32px; height: 32px; font-size: 0.95rem; }
+    }
 
     /* ============================================================
        RESET & BASE
@@ -1962,6 +2082,10 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#assessment" class="btn btn-primary nav-cta-btn">Free Assessment</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -4539,6 +4663,33 @@
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 </div>
+
+<!-- Theme Toggle -->
+<script>
+(function() {
+  var toggle = document.getElementById('theme-toggle');
+  var sunIcon = toggle.querySelector('.icon-sun');
+  var moonIcon = toggle.querySelector('.icon-moon');
+  var saved = localStorage.getItem('kirov-theme');
+  function applyTheme(mode) {
+    if (mode === 'light') {
+      document.body.classList.add('light');
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      document.body.classList.remove('light');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+  }
+  applyTheme(saved || 'dark');
+  toggle.addEventListener('click', function() {
+    var isLight = document.body.classList.toggle('light');
+    localStorage.setItem('kirov-theme', isLight ? 'light' : 'dark');
+    applyTheme(isLight ? 'light' : 'dark');
+  });
+})();
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
