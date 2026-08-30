@@ -107,77 +107,81 @@
       --shadow:      0 8px 40px rgba(0,0,0,0.08);
       --glow:        0 0 40px rgba(37,99,235,0.1);
     }
-    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
-    body.light .nav-links a { color: #475569; text-shadow: none; }
-    body.light .nav-links a:hover { color: #1e293b; }
-    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
-    body.light .logo-text-main span { color: var(--teal); }
-    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
-    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
-    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
-    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
-    body.light .hero { background-color: #eef1f6 !important; background-image: none !important; }
-    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.88) 0%, rgba(238,241,246,0.78) 55%, rgba(245,247,250,0.55) 100%); }
-    body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
-    body.light .hero-sub { color: #475569; }
-    body.light .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #1e293b; }
-    body.light .hero-btns .btn { color: #1e293b; border-color: rgba(0,0,0,0.12); background: rgba(37,99,235,0.06); }
-    body.light .hero-btns .btn-primary { color: #fff; }
+    /* ---- LIGHT MODE HERO: keep the image, just lighten the overlay ---- */
+    body.light .hero { background-color: #0a1628 !important; background-image: inherit !important; }
+    body.light .hero::before { background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(230,240,255,0.25) 55%, rgba(255,255,255,0.10) 100%); }
+    body.light .hero-title .line1 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    body.light .hero-title .line2 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    body.light .hero-sub { color: rgba(255,255,255,0.92); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+    body.light .hero-badge { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.35); color: #fff; }
+    body.light .hero-btns .btn { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); }
+    body.light .hero-btns .btn-primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+    /* ---- LIGHT MODE STATS BAR ---- */
     body.light .stat-item { background: rgba(255,255,255,0.8); border-color: rgba(37,99,235,0.15); }
-    body.light .stat-num { text-shadow: none; }
+    body.light .stat-num { text-shadow: none; color: var(--accent); }
     body.light .stat-label { color: #475569; }
+
+    /* ---- LIGHT MODE SECTIONS ---- */
     body.light .section-title { background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
     body.light .section-sub { color: #64748b; }
     body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
+
+    /* ---- LIGHT MODE CARDS: blue-tinted, never white on white ---- */
     body.light .why-card, body.light .division-card, body.light .product-card,
     body.light .project-card, body.light .testimonial-card, body.light .insight-card,
     body.light .career-card, body.light .resource-card, body.light .security-item,
     body.light .roadmap-year, body.light .leader-card, body.light .process-step,
-    body.light .journey-step, body.light .map-country, body.light .industry-tile {
-      background: #ffffff; border-color: rgba(0,0,0,0.06);
+    body.light .journey-step, body.light .map-country, body.light .industry-tile,
+    body.light .engine-card {
+      background: #eef4ff; border-color: rgba(37,99,235,0.12);
     }
     body.light .why-card h4, body.light .division-card h3, body.light .product-card h3,
     body.light .project-body h4, body.light .testimonial-card blockquote,
     body.light .insight-body h4, body.light .career-card h4, body.light .resource-card h4,
-    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4 {
-      color: #1e293b;
-    }
+    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4,
+    body.light .engine-card h3 { color: #1e293b; }
     body.light .why-card p, body.light .division-card p, body.light .product-card p,
     body.light .project-body p, body.light .insight-body p, body.light .career-card p,
-    body.light .resource-card p, body.light .leader-card p {
-      color: #64748b;
-    }
-    body.light .division-card-body { background: linear-gradient(135deg,rgba(255,255,255,0.95),rgba(245,247,250,0.9)); }
+    body.light .resource-card p, body.light .leader-card p, body.light .engine-card p { color: #475569; }
+
+    /* Any inline h3 / h4 / p with color:#fff should render dark in light mode */
+    body.light [style*="color:#fff"], body.light [style*="color: #fff"] { color: #1e293b !important; }
+    body.light [style*="color:var(--muted)"] { color: #475569 !important; }
+    body.light [style*="background:var(--bg-card)"] { background: #eef4ff !important; }
+    body.light [style*="background: var(--bg-card)"] { background: #eef4ff !important; }
+    body.light [style*="border:1px solid var(--border)"] { border-color: rgba(37,99,235,0.12) !important; }
+
+    body.light .division-card-body { background: linear-gradient(135deg,rgba(255,255,255,0.95),rgba(238,244,255,0.9)); }
     body.light .service-info h3 { color: #1e293b; }
     body.light .service-info > p { color: #64748b; }
-    body.light .service-list li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
-    body.light .tab-btn { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
+    body.light .service-list li { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.10); color: #1e293b; }
+    body.light .tab-btn { background: #eef4ff; border-color: rgba(37,99,235,0.15); color: #475569; }
     body.light .tab-btn.active, body.light .tab-btn:hover { color: #fff; }
-    body.light .contact-form { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .contact-form { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
     body.light .contact-form h3 { color: #1e293b; }
     body.light .form-group input, body.light .form-group textarea, body.light .form-group select {
       background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b;
     }
-    body.light footer { background: #f8fafc; border-top-color: rgba(0,0,0,0.06); }
+    body.light footer { background: #f0f5ff; border-top-color: rgba(37,99,235,0.1); }
     body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #64748b; }
     body.light .footer-col h4 { color: #1e293b; }
-    body.light .consult-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .consult-card { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
     body.light .consult-card h3 { color: #1e293b; }
     body.light .consult-card p { color: #64748b; }
-    body.light .consult-option { background: #f5f7fa; border-color: rgba(0,0,0,0.08); }
+    body.light .consult-option { background: #e0eaff; border-color: rgba(37,99,235,0.15); }
     body.light .consult-option span { color: #1e293b; }
-    body.light .roadmap-year ul li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
+    body.light .roadmap-year ul li { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.10); color: #1e293b; }
     body.light .testimonial-stars { filter: none; }
-    body.light .stack-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
-    body.light .partner-logo { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
-    body.light .cert-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .stack-item { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
+    body.light .partner-logo { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
+    body.light .cert-item { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
     body.light .hero-gradient-mesh { opacity: 0.3; }
     body.light #chatbot-container .chatbot-header { background: #1a3664; }
     body.light .chatbot-messages { background: #f5f7fa; }
     body.light .chatbot-option-btn { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
     body.light #chatbot-input { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
-    body.light .hc-opt { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
+    body.light .hc-opt { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #475569; }
     body.light .hc-opt:hover, body.light .hc-opt:has(input:checked) { border-color: var(--accent); color: #1e293b; }
     body.light .hamburger span { background: #1e293b; }
     body.light .mobile-menu { background: #ffffff; }
@@ -190,12 +194,23 @@
     body.light .wa-popup { background: #ffffff; border-color: rgba(0,0,0,0.08); }
     body.light .wa-popup .msg { background: #f5f7fa; border-color: rgba(0,0,0,0.08); color: #1e293b; }
     body.light .wa-popup .quick-btns a { background: rgba(37,149,235,0.06); border-color: rgba(37,149,235,0.15); color: #059669; }
-    body.light .about-stat-box { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
+    body.light .about-stat-box { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
     body.light .about-stat-box .num { color: var(--accent); }
     body.light .about-stat-box .lbl { color: #64748b; }
-    body.light .expertise-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+    body.light .expertise-card { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
     body.light .expertise-card h4 { color: #1e293b; }
     body.light .expertise-card p { color: #64748b; }
+
+    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
+    body.light .nav-links a { color: #475569; text-shadow: none; }
+    body.light .nav-links a:hover { color: #1e293b; }
+    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
+    body.light .logo-text-main span { color: var(--teal); }
+    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
+    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
+    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
+    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
 
     /* Theme toggle button */
     .theme-toggle {
@@ -2192,7 +2207,7 @@
   <div class="container">
     <div class="reveal text-center">
       <span class="section-tag">Core Capabilities</span>
-      <h2 class="section-title" id="solutions-title">Five Core Capabilities. One Platform.</h2>
+      <h2 class="section-title" id="solutions-title">Six Core Capabilities. One Platform.</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub" style="margin:0 auto">Kirov turns technology, data and AI into practical business outcomes for South African organisations.</p>
     </div>
@@ -2236,6 +2251,14 @@
         </div>
         <h3 style="font-size:1.15rem;color:#fff">Digital Infrastructure</h3>
         <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Cloud solutions, digital platforms, and integrations to modernise your operations.</p>
+      </div>
+      <!-- GovTech -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.3)">
+          <i data-lucide="landmark" style="color:var(--gold);width:24px;height:24px"></i>
+        </div>
+        <h3 style="font-size:1.15rem;color:#fff">GovTech &amp; Smart Infrastructure</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Fleet, construction, municipal and transport platforms built for African public and private sector organisations.</p>
       </div>
     </div>
     <!-- Consult → Build → Manage → Subscribe Funnel -->
