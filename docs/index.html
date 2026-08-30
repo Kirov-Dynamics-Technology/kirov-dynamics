@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics (placeholder — replace G-XXXXX with your measurement ID) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXX');
-  </script> -->
+
+
   <meta charset="UTF-8">
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
@@ -41,12 +35,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Kirov Dynamics Technology",
-    "url": "https://kirov-dynamics-technology.github.io/kirov-dynamics/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://kirov-dynamics-technology.github.io/kirov-dynamics/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://kirov-dynamics-technology.github.io/kirov-dynamics/"
   }
   </script>
   <script type="application/ld+json">
@@ -665,32 +654,6 @@
         font-size: 0.65rem;
         padding: 5px 12px;
         margin-bottom: 14px;
-      }
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        margin-top: 8px;
-        max-width: 100%;
-      }
-      .stat-item {
-        min-height: unset;
-        padding: 8px 4px;
-        border-radius: 8px;
-      }
-      .stat-num {
-        font-size: 1.1rem;
-      }
-      .stat-label {
-        font-size: 0.55rem;
-        margin-top: 2px;
-      }
-      .cipc-badge i {
-        width: 16px !important;
-        height: 16px !important;
-      }
-      .cipc-badge span {
-        font-size: 0.5rem;
       }
     }
     .hero-gradient-mesh {
@@ -2069,7 +2032,7 @@
         <div class="logo-text-sub">Technology</div>
       </div>
     </a>
-        <ul class="nav-links" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links" aria-label="Main navigation">
       <li><a href="#home">Home</a></li>
       <li><a href="#solutions">Solutions</a></li>
       <li><a href="#products">Products</a></li>
@@ -2642,7 +2605,7 @@
           <h4 style="color:#fff;font-size:1rem">VAT Calculator</h4>
         </div>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="number" id="vat-amount" placeholder="Enter amount (R)" style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
           <button onclick="calcVAT()" style="padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate</button>
         </div>
         <div id="vat-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
@@ -2653,8 +2616,8 @@
           <h4 style="color:#fff;font-size:1rem">Profit Margin Calculator</h4>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="pm-revenue" placeholder="Revenue (R)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pm-cost" placeholder="Cost (R)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="pm-revenue" placeholder="Revenue (R)" aria-label="Revenue in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="pm-cost" placeholder="Cost (R)" aria-label="Cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
           <button onclick="calcMargin()" style="padding:10px;background:var(--green);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Margin</button>
         </div>
         <div id="pm-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
@@ -2665,9 +2628,9 @@
           <h4 style="color:#fff;font-size:1rem">Fleet Fuel Cost Calculator</h4>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="fuel-km" placeholder="Monthly km" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="fuel-l100" placeholder="Litres / 100km" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="fuel-price" placeholder="Fuel price (R/L)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="fuel-km" placeholder="Monthly km" aria-label="Monthly kilometers driven" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="fuel-l100" placeholder="Litres / 100km" aria-label="Fuel consumption in litres per 100 kilometres" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="fuel-price" placeholder="Fuel price (R/L)" aria-label="Fuel price in Rand per litre" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
           <button onclick="calcFuel()" style="padding:10px;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Cost</button>
         </div>
         <div id="fuel-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
@@ -2678,9 +2641,9 @@
           <h4 style="color:#fff;font-size:1rem">Project Cost Estimator</h4>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="pc-labour" placeholder="Labour cost (R)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pc-materials" placeholder="Materials cost (R)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pc-margin" placeholder="Target margin (%)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="pc-labour" placeholder="Labour cost (R)" aria-label="Labour cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="pc-materials" placeholder="Materials cost (R)" aria-label="Materials cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+          <input type="number" id="pc-margin" placeholder="Target margin (%)" aria-label="Target profit margin percentage" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
           <button onclick="calcProject()" style="padding:10px;background:linear-gradient(135deg,#92400e,#f59e0b);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Quote</button>
         </div>
         <div id="pc-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
@@ -2785,7 +2748,7 @@
         </div>
       </div>
       <div class="project-card">
-        <img class="project-thumb" src="assets/images/project-edu-verification.jpg" alt="Educational Verification" loading="lazy">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" alt="Educational Verification" loading="lazy">
         <div class="project-body">
           <span class="project-tag">EdTech</span>
           <h4>Educational Verification Platform</h4>
@@ -3504,7 +3467,7 @@
   <div class="container">
     <div class="industries-header reveal">
       <span class="section-tag">Who We Serve</span>
-      <h2 class="section-title" id="industries-title">Industries We Serve</h2>
+      <h2 class="section-title" id="industries-deep-title">Industries We Serve</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">We are not limited to one market. Our technology reaches across Africa's most critical and fast-growing sectors.</p>
     </div>
@@ -3609,7 +3572,7 @@
   <div class="container" style="position:relative; z-index:1;">
     <div class="solutions-header reveal">
       <span class="section-tag">Featured Platforms</span>
-      <h2 class="section-title" id="solutions-title">Our Product Ecosystem</h2>
+      <h2 class="section-title" id="platforms-title">Our Product Ecosystem</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub">
         Enterprise SaaS platforms built for African organisations — from AI workplace assistants to municipal ERP systems.
@@ -4654,7 +4617,7 @@
   </div>
   <div id="chatbot-messages" class="chatbot-messages"></div>
   <div class="chatbot-input-area">
-    <input type="text" id="chatbot-input" placeholder="Type or pick an option..." autocomplete="off" />
+    <input type="text" id="chatbot-input" placeholder="Type or pick an option..." autocomplete="off" aria-label="Chat message input" />
     <button id="chatbot-send" aria-label="Send message">Send</button>
   </div>
 </div>
