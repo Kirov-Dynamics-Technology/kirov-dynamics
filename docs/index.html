@@ -1602,9 +1602,9 @@
 /* Chatbot Styles */
 .chatbot-container {
   display: none; position: fixed; bottom: 200px; right: 32px; z-index: 1000;
-  width: 360px; height: 480px; background: var(--bg-card);
-  border: 1px solid var(--border); border-radius: var(--radius-lg);
-  box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
+  width: 360px; height: 480px; background: #ffffff;
+  border: 1px solid #e2e8f0; border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18); flex-direction: column; overflow: hidden;
 }
 .chatbot-container.open { display: flex; }
 .chatbot-header {
@@ -1616,27 +1616,28 @@
 .chatbot-close-btn { color: #fff; font-size: 1.5rem; cursor: pointer; }
 .chatbot-messages {
   flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+  background: #f8fafc;
 }
 .chat-message { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.9rem; line-height: 1.4; }
-.chat-message.bot { background: rgba(74,144,217,0.1); color: #fff; border-bottom-left-radius: 4px; align-self: flex-start; }
+.chat-message.bot { background: #e8f0fe; color: #1e293b; border-bottom-left-radius: 4px; align-self: flex-start; }
 .chat-message.user { background: var(--accent); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
 .chatbot-options {
   display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
 }
 .chatbot-option-btn {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  color: var(--muted); font-size: 0.8rem; padding: 6px 12px; border-radius: 16px;
+  background: #fff; border: 1px solid #cbd5e1;
+  color: #475569; font-size: 0.8rem; padding: 6px 12px; border-radius: 16px;
   cursor: pointer; transition: 0.2s;
 }
 .chatbot-option-btn:hover {
-  background: rgba(74,144,217,0.2); border-color: var(--accent); color: #fff;
+  background: rgba(74,144,217,0.1); border-color: var(--accent); color: var(--accent);
 }
 .chatbot-input-area {
-  padding: 12px 16px; border-top: 1px solid var(--border); display: flex;
+  padding: 12px 16px; border-top: 1px solid #e2e8f0; display: flex; background: #fff;
 }
 #chatbot-input {
-  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05); color: var(--text); outline: none;
+  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid #e2e8f0;
+  background: #f8fafc; color: #1e293b; outline: none;
 }
 #chatbot-send {
   background: var(--accent); color: #fff; border-radius: 20px;
@@ -2111,9 +2112,14 @@
         <div class="stat-label">GitHub Repos</div>
       </div>
       <div class="stat-item">
-        <div class="cipc-badge">
-          <i data-lucide="scroll" style="width:22px;height:22px;color:var(--teal)"></i>
-          <div class="stat-label" style="margin-top:6px">CIPC<br>Registered</div>
+        <div class="cipc-badge" style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(0,200,248,0.2),rgba(212,175,55,0.15));border:2px solid var(--teal);box-shadow:0 0 16px rgba(0,200,248,0.3)">
+            <i data-lucide="badge-check" style="width:22px;height:22px;color:var(--teal)"></i>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(0,200,248,0.1));border:1px solid rgba(212,175,55,0.4);border-radius:20px;padding:3px 10px;text-align:center">
+            <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);white-space:nowrap">CIPC</div>
+            <div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.8)">Registered</div>
+          </div>
         </div>
       </div>
     </div>
@@ -2604,8 +2610,8 @@
           <i data-lucide="percent" style="color:var(--accent);width:24px;height:24px"></i>
           <h4 style="color:#fff;font-size:1rem">VAT Calculator</h4>
         </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
+          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
           <button onclick="calcVAT()" style="padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate</button>
         </div>
         <div id="vat-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
