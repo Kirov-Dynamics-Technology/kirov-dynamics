@@ -544,11 +544,11 @@
       min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #0a1628 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
+      background: #0a1628 url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(10,22,40,0.65) 0%, rgba(15,30,55,0.50) 55%, rgba(10,22,40,0.30) 100%);
+      background:linear-gradient(135deg, rgba(8,13,24,0.65) 0%, rgba(13,22,39,0.50) 55%, rgba(8,13,24,0.20) 100%);
       z-index:0;
     }
     /* Large hero globe */
@@ -602,7 +602,7 @@
     @media(max-width:768px) {
       .hero {
         background-size: cover;
-        background-position: center;
+        background-position: 30% center;
         min-height: 100dvh;
       }
       .hero-content {
@@ -1643,10 +1643,10 @@
   padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
 }
 .chatbot-toggle-btn {
-  position: fixed; bottom: 120px; right: 32px; z-index: 1000;
+  position: fixed; bottom: 120px; right: 24px; z-index: 1000;
   width: 68px; height: 68px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
+  background: #ffffff;
+  color: var(--accent); border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: chatbot-pulse 2.5s infinite;
