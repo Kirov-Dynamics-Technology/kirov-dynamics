@@ -428,11 +428,11 @@
       min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #080d18 url('assets/images/hero-bg.jpg') center center/cover no-repeat;
+      background: #080d18 url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(8,13,24,0.82) 0%, rgba(13,22,39,0.70) 55%, rgba(8,13,24,0.40) 100%);
+      background:linear-gradient(135deg, rgba(8,13,24,0.65) 0%, rgba(13,22,39,0.50) 55%, rgba(8,13,24,0.20) 100%);
       z-index:0;
     }
     /* Large hero globe */
@@ -1561,10 +1561,10 @@
   padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
 }
 .chatbot-toggle-btn {
-  position: fixed; bottom: 120px; right: 32px; z-index: 1000;
+  position: fixed; bottom: 120px; right: 24px; z-index: 1000;
   width: 68px; height: 68px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
+  background: #ffffff;
+  color: var(--accent); border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: chatbot-pulse 2.5s infinite;
@@ -4194,8 +4194,8 @@
     <button id="chatbot-send" aria-label="Send message">Send</button>
   </div>
 </div>
-<div id="chatbot-launcher" style="position:fixed;bottom:80px;right:32px;z-index:1001;display:flex;align-items:center;gap:10px;">
-  <button id="chatbot-toggle" class="chatbot-toggle-btn" style="position:static;" aria-label="Open chat assistant">
+<div id="chatbot-launcher" class="chatbot-launcher">
+  <button id="chatbot-toggle" class="chatbot-toggle-btn" aria-label="Open chat assistant">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 </div>
