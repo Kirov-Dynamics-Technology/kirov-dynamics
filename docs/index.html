@@ -107,81 +107,77 @@
       --shadow:      0 8px 40px rgba(0,0,0,0.08);
       --glow:        0 0 40px rgba(37,99,235,0.1);
     }
-    /* ---- LIGHT MODE HERO: keep the image, just lighten the overlay ---- */
-    body.light .hero { background-color: #0a1628 !important; background-image: inherit !important; }
-    body.light .hero::before { background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(230,240,255,0.25) 55%, rgba(255,255,255,0.10) 100%); }
-    body.light .hero-title .line1 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-    body.light .hero-title .line2 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-    body.light .hero-sub { color: rgba(255,255,255,0.92); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
-    body.light .hero-badge { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.35); color: #fff; }
-    body.light .hero-btns .btn { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); }
-    body.light .hero-btns .btn-primary { color: #fff; background: var(--accent); border-color: var(--accent); }
-
-    /* ---- LIGHT MODE STATS BAR ---- */
+    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
+    body.light .nav-links a { color: #475569; text-shadow: none; }
+    body.light .nav-links a:hover { color: #1e293b; }
+    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
+    body.light .logo-text-main span { color: var(--teal); }
+    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
+    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
+    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
+    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
+    body.light .hero { background-color: #eef1f6 !important; background-image: none !important; }
+    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.88) 0%, rgba(238,241,246,0.78) 55%, rgba(245,247,250,0.55) 100%); }
+    body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
+    body.light .hero-sub { color: #475569; }
+    body.light .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #1e293b; }
+    body.light .hero-btns .btn { color: #1e293b; border-color: rgba(0,0,0,0.12); background: rgba(37,99,235,0.06); }
+    body.light .hero-btns .btn-primary { color: #fff; }
     body.light .stat-item { background: rgba(255,255,255,0.8); border-color: rgba(37,99,235,0.15); }
-    body.light .stat-num { text-shadow: none; color: var(--accent); }
+    body.light .stat-num { text-shadow: none; }
     body.light .stat-label { color: #475569; }
-
-    /* ---- LIGHT MODE SECTIONS ---- */
     body.light .section-title { background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
     body.light .section-sub { color: #64748b; }
     body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
-
-    /* ---- LIGHT MODE CARDS: blue-tinted, never white on white ---- */
     body.light .why-card, body.light .division-card, body.light .product-card,
     body.light .project-card, body.light .testimonial-card, body.light .insight-card,
     body.light .career-card, body.light .resource-card, body.light .security-item,
     body.light .roadmap-year, body.light .leader-card, body.light .process-step,
-    body.light .journey-step, body.light .map-country, body.light .industry-tile,
-    body.light .engine-card {
-      background: #eef4ff; border-color: rgba(37,99,235,0.12);
+    body.light .journey-step, body.light .map-country, body.light .industry-tile {
+      background: #ffffff; border-color: rgba(0,0,0,0.06);
     }
     body.light .why-card h4, body.light .division-card h3, body.light .product-card h3,
     body.light .project-body h4, body.light .testimonial-card blockquote,
     body.light .insight-body h4, body.light .career-card h4, body.light .resource-card h4,
-    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4,
-    body.light .engine-card h3 { color: #1e293b; }
+    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4 {
+      color: #1e293b;
+    }
     body.light .why-card p, body.light .division-card p, body.light .product-card p,
     body.light .project-body p, body.light .insight-body p, body.light .career-card p,
-    body.light .resource-card p, body.light .leader-card p, body.light .engine-card p { color: #475569; }
-
-    /* Any inline h3 / h4 / p with color:#fff should render dark in light mode */
-    body.light [style*="color:#fff"], body.light [style*="color: #fff"] { color: #1e293b !important; }
-    body.light [style*="color:var(--muted)"] { color: #475569 !important; }
-    body.light [style*="background:var(--bg-card)"] { background: #eef4ff !important; }
-    body.light [style*="background: var(--bg-card)"] { background: #eef4ff !important; }
-    body.light [style*="border:1px solid var(--border)"] { border-color: rgba(37,99,235,0.12) !important; }
-
-    body.light .division-card-body { background: linear-gradient(135deg,rgba(255,255,255,0.95),rgba(238,244,255,0.9)); }
+    body.light .resource-card p, body.light .leader-card p {
+      color: #64748b;
+    }
+    body.light .division-card-body { background: linear-gradient(135deg,rgba(255,255,255,0.95),rgba(245,247,250,0.9)); }
     body.light .service-info h3 { color: #1e293b; }
     body.light .service-info > p { color: #64748b; }
-    body.light .service-list li { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.10); color: #1e293b; }
-    body.light .tab-btn { background: #eef4ff; border-color: rgba(37,99,235,0.15); color: #475569; }
+    body.light .service-list li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
+    body.light .tab-btn { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
     body.light .tab-btn.active, body.light .tab-btn:hover { color: #fff; }
-    body.light .contact-form { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
+    body.light .contact-form { background: #ffffff; border-color: rgba(0,0,0,0.06); }
     body.light .contact-form h3 { color: #1e293b; }
     body.light .form-group input, body.light .form-group textarea, body.light .form-group select {
       background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b;
     }
-    body.light footer { background: #f0f5ff; border-top-color: rgba(37,99,235,0.1); }
+    body.light footer { background: #f8fafc; border-top-color: rgba(0,0,0,0.06); }
     body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #64748b; }
     body.light .footer-col h4 { color: #1e293b; }
-    body.light .consult-card { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
+    body.light .consult-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
     body.light .consult-card h3 { color: #1e293b; }
     body.light .consult-card p { color: #64748b; }
-    body.light .consult-option { background: #e0eaff; border-color: rgba(37,99,235,0.15); }
+    body.light .consult-option { background: #f5f7fa; border-color: rgba(0,0,0,0.08); }
     body.light .consult-option span { color: #1e293b; }
-    body.light .roadmap-year ul li { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.10); color: #1e293b; }
+    body.light .roadmap-year ul li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
     body.light .testimonial-stars { filter: none; }
-    body.light .stack-item { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light .partner-logo { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light .cert-item { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
+    body.light .stack-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .partner-logo { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
+    body.light .cert-item { background: #fff; border-color: rgba(0,0,0,0.06); color: #1e293b; }
     body.light .hero-gradient-mesh { opacity: 0.3; }
     body.light #chatbot-container .chatbot-header { background: #1a3664; }
     body.light .chatbot-messages { background: #f5f7fa; }
     body.light .chatbot-option-btn { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
     body.light #chatbot-input { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
-    body.light .hc-opt { background: #eef4ff; border-color: rgba(37,99,235,0.12); color: #475569; }
+    body.light .hc-opt { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
     body.light .hc-opt:hover, body.light .hc-opt:has(input:checked) { border-color: var(--accent); color: #1e293b; }
     body.light .hamburger span { background: #1e293b; }
     body.light .mobile-menu { background: #ffffff; }
@@ -194,23 +190,12 @@
     body.light .wa-popup { background: #ffffff; border-color: rgba(0,0,0,0.08); }
     body.light .wa-popup .msg { background: #f5f7fa; border-color: rgba(0,0,0,0.08); color: #1e293b; }
     body.light .wa-popup .quick-btns a { background: rgba(37,149,235,0.06); border-color: rgba(37,149,235,0.15); color: #059669; }
-    body.light .about-stat-box { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
+    body.light .about-stat-box { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
     body.light .about-stat-box .num { color: var(--accent); }
     body.light .about-stat-box .lbl { color: #64748b; }
-    body.light .expertise-card { background: #eef4ff; border-color: rgba(37,99,235,0.12); }
+    body.light .expertise-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
     body.light .expertise-card h4 { color: #1e293b; }
     body.light .expertise-card p { color: #64748b; }
-
-    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
-    body.light .nav-links a { color: #475569; text-shadow: none; }
-    body.light .nav-links a:hover { color: #1e293b; }
-    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
-    body.light .logo-text-main span { color: var(--teal); }
-    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
-    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
-    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
-    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
 
     /* Theme toggle button */
     .theme-toggle {
@@ -525,18 +510,6 @@
       opacity: 0.7;
     }
 
-    .float-contact {
-      display:none; position:fixed; bottom:24px; right:24px; z-index:998;
-      width:56px; height:56px; border-radius:50%;
-      background:linear-gradient(135deg,var(--primary),var(--accent));
-      border:none; color:#fff; font-size:1.3rem;
-      box-shadow:0 4px 20px rgba(74,144,217,0.4);
-      cursor:pointer; transition:all 0.3s ease;
-      align-items:center; justify-content:center;
-    }
-    .float-contact:hover { transform:scale(1.1); box-shadow:0 6px 30px rgba(74,144,217,0.6); }
-    @media(max-width:768px){ .float-contact { display:flex; } }
-
     .mobile-menu {
       display:none; position:fixed; inset:0; background:var(--bg-card);
       z-index:999; flex-direction:column; align-items:center;
@@ -559,11 +532,11 @@
       min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #0a1628 url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
+      background: #0a1628 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(8,13,24,0.65) 0%, rgba(13,22,39,0.50) 55%, rgba(8,13,24,0.20) 100%);
+      background:linear-gradient(135deg, rgba(10,22,40,0.65) 0%, rgba(15,30,55,0.50) 55%, rgba(10,22,40,0.30) 100%);
       z-index:0;
     }
     /* Large hero globe */
@@ -617,7 +590,7 @@
     @media(max-width:768px) {
       .hero {
         background-size: cover;
-        background-position: 30% center;
+        background-position: center;
         min-height: 100dvh;
       }
       .hero-content {
@@ -804,7 +777,6 @@
       box-shadow:0 0 10px var(--teal); animation:pulse 2s infinite;
     }
 
-    @keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 55%{transform:translateX(-50%) translateY(10px)} }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-22px)} to{opacity:1;transform:none} }
     @keyframes fadeInUp   { from{opacity:0;transform:translateY(32px)}  to{opacity:1;transform:none} }
@@ -1265,9 +1237,6 @@
     /* ============================================================
        NEW SECTIONS — Why Choose, Projects, Stack, Process, etc.
     ============================================================ */
-    .section-pad { padding:110px 0; }
-    .section-dark { background:var(--bg-alt); }
-    .text-center { text-align:center; }
 
     /* ---- Why Choose ---- */
     #why-choose { padding:110px 0; background:var(--bg-alt); }
@@ -1335,10 +1304,6 @@
     }
     .process-step h4 { font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; }
     .process-step p { font-size:0.72rem; color:var(--muted); margin-top:4px; }
-    .process-arrow {
-      display:none; position:absolute; top:50%; right:-12px;
-      transform:translateY(-50%); color:var(--accent); font-size:1.2rem;
-    }
 
     /* ---- Client Journey ---- */
     #journey { padding:90px 0; }
@@ -1614,12 +1579,24 @@
       .consult-option { min-width:100%; }
     }
   
+/* ---- UTILITY CLASSES ---- */
+.btn-gradient-primary { padding:12px 28px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; border:none; border-radius:var(--radius); font-weight:700; cursor:pointer; transition:0.3s; }
+.btn-gradient-gold { padding:10px; background:linear-gradient(135deg,#92400e,#f59e0b); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:600; }
+.card-tool { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+.card-tool-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.card-tool-title { color:#fff; font-size:1rem; }
+.card-tool-inputs { display:flex; flex-direction:column; gap:8px; }
+.card-tool-input { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:#fff; outline:none; font-size:0.9rem; }
+.card-tool-btn { padding:10px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }
+.card-tool-result { margin-top:12px; color:var(--muted); font-size:0.85rem; }
+.sec-check-label { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:0.85rem; cursor:pointer; }
+
 /* Chatbot Styles */
 .chatbot-container {
   display: none; position: fixed; bottom: 200px; right: 32px; z-index: 1000;
-  width: 360px; height: 480px; background: #ffffff;
-  border: 1px solid #e2e8f0; border-radius: var(--radius-lg);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.18); flex-direction: column; overflow: hidden;
+  width: 360px; height: 480px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); flex-direction: column; overflow: hidden;
 }
 .chatbot-container.open { display: flex; }
 .chatbot-header {
@@ -1631,38 +1608,37 @@
 .chatbot-close-btn { color: #fff; font-size: 1.5rem; cursor: pointer; }
 .chatbot-messages {
   flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
-  background: #f8fafc;
 }
 .chat-message { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.9rem; line-height: 1.4; }
-.chat-message.bot { background: #e8f0fe; color: #1e293b; border-bottom-left-radius: 4px; align-self: flex-start; }
+.chat-message.bot { background: rgba(74,144,217,0.1); color: #fff; border-bottom-left-radius: 4px; align-self: flex-start; }
 .chat-message.user { background: var(--accent); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
 .chatbot-options {
   display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
 }
 .chatbot-option-btn {
-  background: #fff; border: 1px solid #cbd5e1;
-  color: #475569; font-size: 0.8rem; padding: 6px 12px; border-radius: 16px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--muted); font-size: 0.8rem; padding: 6px 12px; border-radius: 16px;
   cursor: pointer; transition: 0.2s;
 }
 .chatbot-option-btn:hover {
-  background: rgba(74,144,217,0.1); border-color: var(--accent); color: var(--accent);
+  background: rgba(74,144,217,0.2); border-color: var(--accent); color: #fff;
 }
 .chatbot-input-area {
-  padding: 12px 16px; border-top: 1px solid #e2e8f0; display: flex; background: #fff;
+  padding: 12px 16px; border-top: 1px solid var(--border); display: flex;
 }
 #chatbot-input {
-  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid #e2e8f0;
-  background: #f8fafc; color: #1e293b; outline: none;
+  flex: 1; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05); color: var(--text); outline: none;
 }
 #chatbot-send {
   background: var(--accent); color: #fff; border-radius: 20px;
   padding: 8px 16px; margin-left: 8px; font-weight: 600; font-size: 0.85rem;
 }
 .chatbot-toggle-btn {
-  position: fixed; bottom: 120px; right: 24px; z-index: 1000;
+  position: fixed; bottom: 120px; right: 32px; z-index: 1000;
   width: 68px; height: 68px; border-radius: 50%;
-  background: #ffffff;
-  color: var(--accent); border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: chatbot-pulse 2.5s infinite;
@@ -1685,9 +1661,6 @@
       right: 24px !important;
       bottom: 120px !important;
       transform: scale(0.9);
-    }
-    .float-contact {
-      display: none !important;
     }
   }
 
@@ -1816,7 +1789,6 @@
 
   /* ---- SECTION PADDING mobile ---- */
   @media(max-width:768px){
-    .section-pad,
     #why-choose, #projects, #process, #journey, #stack,
     #testimonials, #leadership, #security, #partners,
     #certifications, #insights, #africa-map, #consultation,
@@ -1827,7 +1799,6 @@
     }
   }
   @media(max-width:500px){
-    .section-pad,
     #why-choose, #projects, #process, #journey, #stack,
     #testimonials, #leadership, #security, #partners,
     #certifications, #insights, #africa-map, #consultation,
@@ -2107,7 +2078,7 @@
       <a href="#assessment" class="btn btn-primary" id="hero-assessment-btn"><i data-lucide="clipboard-check"></i> Book Free Assessment</a>
       <a href="#products" class="btn btn-outline" id="hero-explore-btn"><i data-lucide="layout-grid"></i> Explore Products</a>
       <a href="#roi" class="btn btn-outline"><i data-lucide="calculator"></i> ROI Calculator</a>
-      <button type="button" class="btn btn-outline" id="hero-profile-btn" onclick="document.getElementById('profile-modal').classList.add('open')"><i data-lucide="download"></i> Download Company Profile</button>
+      <button type="button" class="btn btn-outline" id="hero-profile-btn"><i data-lucide="download"></i> Download Company Profile</button>
     </div>
     <div class="hero-stats" aria-label="Company statistics">
       <div class="stat-item">
@@ -2127,14 +2098,9 @@
         <div class="stat-label">GitHub Repos</div>
       </div>
       <div class="stat-item">
-        <div class="cipc-badge" style="display:flex;flex-direction:column;align-items:center;gap:6px">
-          <div style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(0,200,248,0.2),rgba(212,175,55,0.15));border:2px solid var(--teal);box-shadow:0 0 16px rgba(0,200,248,0.3)">
-            <i data-lucide="badge-check" style="width:22px;height:22px;color:var(--teal)"></i>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(0,200,248,0.1));border:1px solid rgba(212,175,55,0.4);border-radius:20px;padding:3px 10px;text-align:center">
-            <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);white-space:nowrap">CIPC</div>
-            <div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.8)">Registered</div>
-          </div>
+        <div class="cipc-badge">
+          <i data-lucide="scroll" style="width:22px;height:22px;color:var(--teal)"></i>
+          <div class="stat-label" style="margin-top:6px">CIPC<br>Registered</div>
         </div>
       </div>
     </div>
@@ -2207,7 +2173,7 @@
   <div class="container">
     <div class="reveal text-center">
       <span class="section-tag">Core Capabilities</span>
-      <h2 class="section-title" id="solutions-title">Six Core Capabilities. One Platform.</h2>
+      <h2 class="section-title" id="solutions-title">Five Core Capabilities. One Platform.</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub" style="margin:0 auto">Kirov turns technology, data and AI into practical business outcomes for South African organisations.</p>
     </div>
@@ -2251,14 +2217,6 @@
         </div>
         <h3 style="font-size:1.15rem;color:#fff">Digital Infrastructure</h3>
         <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Cloud solutions, digital platforms, and integrations to modernise your operations.</p>
-      </div>
-      <!-- GovTech -->
-      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
-        <div style="width:48px;height:48px;border-radius:12px;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.3)">
-          <i data-lucide="landmark" style="color:var(--gold);width:24px;height:24px"></i>
-        </div>
-        <h3 style="font-size:1.15rem;color:#fff">GovTech &amp; Smart Infrastructure</h3>
-        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Fleet, construction, municipal and transport platforms built for African public and private sector organisations.</p>
       </div>
     </div>
     <!-- Consult → Build → Manage → Subscribe Funnel -->
@@ -2488,7 +2446,7 @@
           <input type="number" id="roi-pct" value="40" min="10" max="80" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;color:#fff;font-size:1rem;outline:none">
         </div>
       </div>
-      <button onclick="calcROI()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;transition:0.3s">Calculate My Savings</button>
+          <button id="calc-roi-btn" class="btn-gradient-primary" style="width:100%;font-size:1rem">Calculate My Savings</button>
       <div id="roi-result" style="display:none;margin-top:28px;padding:28px;background:linear-gradient(135deg,rgba(74,144,217,0.1),rgba(74,144,217,0.02));border:1px solid var(--border);border-radius:var(--radius)">
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:center">
           <div>
@@ -2600,7 +2558,7 @@
         </div>
         <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:center">
           <div id="hc-progress" style="color:var(--muted);font-size:0.85rem">Question 1 of 8</div>
-          <button id="hc-next" onclick="hcNext()" style="padding:12px 28px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;border-radius:var(--radius);font-weight:700;cursor:pointer">Next →</button>
+          <button id="hc-next" class="btn-gradient-primary">Next →</button>
         </div>
         <div id="hc-result" style="display:none;margin-top:28px">
           <div style="text-align:center;padding:28px;background:linear-gradient(135deg,rgba(74,144,217,0.1),rgba(74,144,217,0.02));border:1px solid var(--border);border-radius:var(--radius)">
@@ -2628,69 +2586,69 @@
       <p class="section-sub" style="margin:0 auto">Free tools that save you time — and show you what Kirov automation can do for your business.</p>
     </div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px">
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div class="card-tool">
+        <div class="card-tool-header">
           <i data-lucide="percent" style="color:var(--accent);width:24px;height:24px"></i>
-          <h4 style="color:#fff;font-size:1rem">VAT Calculator</h4>
+          <h4 class="card-tool-title">VAT Calculator</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
-          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <button onclick="calcVAT()" style="padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate</button>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" class="card-tool-input" style="flex:1">
+          <button id="calc-vat-btn" class="card-tool-btn" style="padding:10px 14px;background:var(--accent);color:#fff">Calculate</button>
         </div>
-        <div id="vat-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
+        <div id="vat-result" class="card-tool-result"></div>
       </div>
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div class="card-tool">
+        <div class="card-tool-header">
           <i data-lucide="trending-up" style="color:var(--green);width:24px;height:24px"></i>
-          <h4 style="color:#fff;font-size:1rem">Profit Margin Calculator</h4>
+          <h4 class="card-tool-title">Profit Margin Calculator</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="pm-revenue" placeholder="Revenue (R)" aria-label="Revenue in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pm-cost" placeholder="Cost (R)" aria-label="Cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <button onclick="calcMargin()" style="padding:10px;background:var(--green);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Margin</button>
+        <div class="card-tool-inputs">
+          <input type="number" id="pm-revenue" placeholder="Revenue (R)" aria-label="Revenue in Rand" class="card-tool-input">
+          <input type="number" id="pm-cost" placeholder="Cost (R)" aria-label="Cost in Rand" class="card-tool-input">
+          <button id="calc-margin-btn" class="card-tool-btn" style="padding:10px;background:var(--green);color:#fff">Calculate Margin</button>
         </div>
-        <div id="pm-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
+        <div id="pm-result" class="card-tool-result"></div>
       </div>
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div class="card-tool">
+        <div class="card-tool-header">
           <i data-lucide="fuel" style="color:var(--gold);width:24px;height:24px"></i>
-          <h4 style="color:#fff;font-size:1rem">Fleet Fuel Cost Calculator</h4>
+          <h4 class="card-tool-title">Fleet Fuel Cost Calculator</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="fuel-km" placeholder="Monthly km" aria-label="Monthly kilometers driven" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="fuel-l100" placeholder="Litres / 100km" aria-label="Fuel consumption in litres per 100 kilometres" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="fuel-price" placeholder="Fuel price (R/L)" aria-label="Fuel price in Rand per litre" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <button onclick="calcFuel()" style="padding:10px;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Cost</button>
+        <div class="card-tool-inputs">
+          <input type="number" id="fuel-km" placeholder="Monthly km" aria-label="Monthly kilometers driven" class="card-tool-input">
+          <input type="number" id="fuel-l100" placeholder="Litres / 100km" aria-label="Fuel consumption in litres per 100 kilometres" class="card-tool-input">
+          <input type="number" id="fuel-price" placeholder="Fuel price (R/L)" aria-label="Fuel price in Rand per litre" class="card-tool-input">
+          <button id="calc-fuel-btn" class="card-tool-btn" style="padding:10px;background:var(--gold);color:#000">Calculate Cost</button>
         </div>
-        <div id="fuel-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
+        <div id="fuel-result" class="card-tool-result"></div>
       </div>
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div class="card-tool">
+        <div class="card-tool-header">
           <i data-lucide="hard-hat" style="color:var(--gold);width:24px;height:24px"></i>
-          <h4 style="color:#fff;font-size:1rem">Project Cost Estimator</h4>
+          <h4 class="card-tool-title">Project Cost Estimator</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <input type="number" id="pc-labour" placeholder="Labour cost (R)" aria-label="Labour cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pc-materials" placeholder="Materials cost (R)" aria-label="Materials cost in Rand" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <input type="number" id="pc-margin" placeholder="Target margin (%)" aria-label="Target profit margin percentage" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#fff;outline:none;font-size:0.9rem">
-          <button onclick="calcProject()" style="padding:10px;background:linear-gradient(135deg,#92400e,#f59e0b);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Calculate Quote</button>
+        <div class="card-tool-inputs">
+          <input type="number" id="pc-labour" placeholder="Labour cost (R)" aria-label="Labour cost in Rand" class="card-tool-input">
+          <input type="number" id="pc-materials" placeholder="Materials cost (R)" aria-label="Materials cost in Rand" class="card-tool-input">
+          <input type="number" id="pc-margin" placeholder="Target margin (%)" aria-label="Target profit margin percentage" class="card-tool-input">
+          <button id="calc-project-btn" class="btn-gradient-gold">Calculate Quote</button>
         </div>
-        <div id="pc-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
+        <div id="pc-result" class="card-tool-result"></div>
       </div>
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div class="card-tool">
+        <div class="card-tool-header">
           <i data-lucide="shield-alert" style="color:var(--teal);width:24px;height:24px"></i>
-          <h4 style="color:#fff;font-size:1rem">Cybersecurity Checklist</h4>
+          <h4 class="card-tool-title">Cybersecurity Checklist</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <label style="display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.85rem;cursor:pointer"><input type="checkbox" id="sec1"> Multi-factor authentication (MFA) enabled</label>
-          <label style="display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.85rem;cursor:pointer"><input type="checkbox" id="sec2"> Regular automated backups</label>
-          <label style="display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.85rem;cursor:pointer"><input type="checkbox" id="sec3"> Antivirus/EDR on all devices</label>
-          <label style="display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.85rem;cursor:pointer"><input type="checkbox" id="sec4"> Employee security training done</label>
-          <label style="display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.85rem;cursor:pointer"><input type="checkbox" id="sec5"> POPIA privacy policy in place</label>
-          <button onclick="calcSecurity()" style="margin-top:8px;padding:10px;background:var(--teal);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:600">Check My Score</button>
+        <div class="card-tool-inputs">
+          <label class="sec-check-label"><input type="checkbox" id="sec1"> Multi-factor authentication (MFA) enabled</label>
+          <label class="sec-check-label"><input type="checkbox" id="sec2"> Regular automated backups</label>
+          <label class="sec-check-label"><input type="checkbox" id="sec3"> Antivirus/EDR on all devices</label>
+          <label class="sec-check-label"><input type="checkbox" id="sec4"> Employee security training done</label>
+          <label class="sec-check-label"><input type="checkbox" id="sec5"> POPIA privacy policy in place</label>
+          <button id="calc-security-btn" class="card-tool-btn" style="margin-top:8px;padding:10px;background:var(--teal);color:#000">Check My Score</button>
         </div>
-        <div id="sec-result" style="margin-top:12px;color:var(--muted);font-size:0.85rem"></div>
+        <div id="sec-result" class="card-tool-result"></div>
       </div>
       <div style="background:linear-gradient(135deg,rgba(74,144,217,0.15),rgba(74,144,217,0.03));border:1px solid rgba(74,144,217,0.4);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px">
         <i data-lucide="wrench" style="color:var(--accent);width:36px;height:36px"></i>
@@ -5061,7 +5019,7 @@
 
 <div class="profile-modal-overlay" id="profile-modal">
   <div class="profile-modal">
-    <button class="profile-modal-close" onclick="document.getElementById('profile-modal').classList.remove('open')" aria-label="Close">&times;</button>
+    <button class="profile-modal-close" id="profile-modal-close" aria-label="Close">&times;</button>
     <div class="modal-icon">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
     </div>
@@ -5088,7 +5046,7 @@
         <option value="All Documents">All Documents</option>
       </select>
     </div>
-    <button class="modal-submit" onclick="sendProfileRequest()">
+    <button class="modal-submit" id="modal-submit-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Send via WhatsApp
     </button>
@@ -5134,7 +5092,7 @@ function sendProfileRequest() {
   @media(max-width:480px){.wa-popup{width:calc(100vw - 48px);right:24px}}
 </style>
 
-<button class="wa-fab" id="wa-fab" aria-label="Chat on WhatsApp" onclick="document.getElementById('wa-popup').classList.toggle('open')">
+<button class="wa-fab" id="wa-fab" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </button>
 <div class="wa-popup" id="wa-popup">
@@ -5299,6 +5257,36 @@ document.addEventListener('click', function(e) {
     else { msg = `Only ${done}/5 controls. High risk — contact Kirov Secure.`; color = '#f87171'; }
     document.getElementById('sec-result').innerHTML = `<strong style="color:${color}">Score: ${Math.round(score)}%</strong><br>${msg}${score < 100 ? '<br><a href="#assessment" style="color:var(--teal);font-size:0.8rem">Get a free security assessment →</a>' : ''}`;
   }
+</script>
+
+<script>
+  (function() {
+    var heroProfileBtn = document.getElementById('hero-profile-btn');
+    var profileModal = document.getElementById('profile-modal');
+    var profileModalClose = document.getElementById('profile-modal-close');
+    var modalSubmitBtn = document.getElementById('modal-submit-btn');
+    var waFab = document.getElementById('wa-fab');
+    var waPopup = document.getElementById('wa-popup');
+    var calcRoiBtn = document.getElementById('calc-roi-btn');
+    var hcNextBtn = document.getElementById('hc-next');
+    var calcVatBtn = document.getElementById('calc-vat-btn');
+    var calcMarginBtn = document.getElementById('calc-margin-btn');
+    var calcFuelBtn = document.getElementById('calc-fuel-btn');
+    var calcProjectBtn = document.getElementById('calc-project-btn');
+    var calcSecurityBtn = document.getElementById('calc-security-btn');
+
+    if (heroProfileBtn && profileModal) heroProfileBtn.addEventListener('click', function() { profileModal.classList.add('open'); });
+    if (profileModalClose && profileModal) profileModalClose.addEventListener('click', function() { profileModal.classList.remove('open'); });
+    if (modalSubmitBtn) modalSubmitBtn.addEventListener('click', sendProfileRequest);
+    if (waFab && waPopup) waFab.addEventListener('click', function() { waPopup.classList.toggle('open'); });
+    if (calcRoiBtn) calcRoiBtn.addEventListener('click', calcROI);
+    if (hcNextBtn) hcNextBtn.addEventListener('click', hcNext);
+    if (calcVatBtn) calcVatBtn.addEventListener('click', calcVAT);
+    if (calcMarginBtn) calcMarginBtn.addEventListener('click', calcMargin);
+    if (calcFuelBtn) calcFuelBtn.addEventListener('click', calcFuel);
+    if (calcProjectBtn) calcProjectBtn.addEventListener('click', calcProject);
+    if (calcSecurityBtn) calcSecurityBtn.addEventListener('click', calcSecurity);
+  })();
 </script>
 
 </body>
