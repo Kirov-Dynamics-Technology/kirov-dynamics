@@ -108,13 +108,13 @@
       --glow:        0 0 40px rgba(37,99,235,0.1);
     }
     /* ---- LIGHT MODE HERO: keep the image, just lighten the overlay ---- */
-    body.light .hero { background-color: #0a1628 !important; background-image: inherit !important; }
-    body.light .hero::before { background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(230,240,255,0.25) 55%, rgba(255,255,255,0.10) 100%); }
-    body.light .hero-title .line1 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-    body.light .hero-title .line2 { color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-    body.light .hero-sub { color: rgba(255,255,255,0.92); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
-    body.light .hero-badge { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.35); color: #fff; }
-    body.light .hero-btns .btn { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); }
+    body.light .hero { background-color: #f8fafc !important; background-image: inherit !important; }
+    body.light .hero::before { background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.65) 55%, rgba(255,255,255,0.30) 100%); }
+    body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
+    body.light .hero-title .line2 { color: #1e293b; text-shadow: none; }
+    body.light .hero-sub { color: #475569; text-shadow: none; }
+    body.light .hero-badge { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.3); color: #1e293b; }
+    body.light .hero-btns .btn { color: #1e293b; border-color: rgba(0,0,0,0.12); background: rgba(255,255,255,0.5); }
     body.light .hero-btns .btn-primary { color: #fff; background: var(--accent); border-color: var(--accent); }
 
     /* ---- LIGHT MODE STATS BAR ---- */
@@ -559,11 +559,11 @@
       min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #0a1628 url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
+      background: #0a1628 url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(8,13,24,0.65) 0%, rgba(13,22,39,0.50) 55%, rgba(8,13,24,0.20) 100%);
+      background:linear-gradient(135deg, rgba(8,13,24,0.60) 0%, rgba(13,22,39,0.45) 55%, rgba(8,13,24,0.15) 100%);
       z-index:0;
     }
     /* Large hero globe */
@@ -1661,8 +1661,8 @@
 .chatbot-toggle-btn {
   position: fixed; bottom: 120px; right: 24px; z-index: 1000;
   width: 68px; height: 68px; border-radius: 50%;
-  background: #ffffff;
-  color: var(--accent); border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #ffffff; border: none; box-shadow: 0 4px 20px rgba(74,144,217,0.4);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: chatbot-pulse 2.5s infinite;
