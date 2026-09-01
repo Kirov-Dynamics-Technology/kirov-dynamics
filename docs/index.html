@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <script>
+    (function(){
+      var t = localStorage.getItem('kirov-theme');
+      if (t === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+  <style>html.light body{background:#f5f7fa!important}</style>
 
   <meta charset="UTF-8">
   <!-- JSON-LD Structured Data for SEO -->
@@ -122,16 +128,16 @@
     body.light .hero { background-color: #f5f7fa !important; }
     body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
     body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.70) 0%, rgba(238,241,246,0.55) 55%, rgba(245,247,250,0.35) 100%); }
-    body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
-    body.light .hero-sub { color: rgba(71,85,105,0.8); }
-    body.light .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #1e293b; }
-    body.light .hero-btns .btn { color: #1e293b; border-color: rgba(0,0,0,0.12); background: rgba(37,99,235,0.06); }
+    body.light .hero-title .line1 { color: #0f172a; text-shadow: 0 2px 8px rgba(255,255,255,0.5); }
+    body.light .hero-sub { color: #334155; font-weight: 500; }
+    body.light .hero-badge { background: rgba(37,99,235,0.12); border-color: rgba(37,99,235,0.3); color: #0f172a; font-weight: 600; }
+    body.light .hero-btns .btn { color: #0f172a; border-color: rgba(0,0,0,0.15); background: rgba(255,255,255,0.8); }
     body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: 0 4px 20px rgba(37,99,235,0.3); }
-    body.light .stat-item { background: rgba(255,255,255,0.8); border-color: rgba(37,99,235,0.15); }
-    body.light .stat-num { text-shadow: none; }
-    body.light .stat-label { color: #475569; }
-    body.light .section-title { background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
-    body.light .section-sub { color: #64748b; }
+    body.light .stat-item { background: rgba(255,255,255,0.85); border-color: rgba(37,99,235,0.15); }
+    body.light .stat-num { text-shadow: none; color: #0f172a; }
+    body.light .stat-label { color: #475569; font-weight: 500; }
+    body.light .section-title { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    body.light .section-sub { color: #475569; font-weight: 400; }
     body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
     body.light .why-card, body.light .division-card, body.light .product-card,
     body.light .project-card, body.light .testimonial-card, body.light .insight-card,
@@ -162,12 +168,16 @@
     body.light .form-group input, body.light .form-group textarea, body.light .form-group select {
       background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b;
     }
-    body.light footer { background: #f8fafc; border-top-color: rgba(0,0,0,0.06); }
-    body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #64748b; }
-    body.light .footer-col h4 { color: #1e293b; }
+    body.light footer { background: #f1f5f9 !important; border-top-color: rgba(0,0,0,0.06); }
+    body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #475569; }
+    body.light .footer-col h4 { color: #0f172a; }
+    body.light .footer-cta { background: rgba(37,99,235,0.06) !important; border-color: rgba(37,99,235,0.15) !important; }
+    body.light .footer-cta h3 { color: #0f172a !important; }
+    body.light .footer-cta p { color: #475569 !important; }
+    body.light .footer-cta input { background: #fff; border-color: rgba(0,0,0,0.12); color: #1e293b; }
     body.light .consult-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
-    body.light .consult-card h3 { color: #1e293b; }
-    body.light .consult-card p { color: #64748b; }
+    body.light .consult-card h3 { color: #0f172a; }
+    body.light .consult-card p { color: #475569; }
     body.light .consult-option { background: #f5f7fa; border-color: rgba(0,0,0,0.08); }
     body.light .consult-option span { color: #1e293b; }
     body.light .roadmap-year ul li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.08); color: #1e293b; }
@@ -180,25 +190,33 @@
     body.light .chatbot-messages { background: #f5f7fa; }
     body.light .chatbot-option-btn { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
     body.light #chatbot-input { background: #fff; border-color: rgba(0,0,0,0.1); color: #1e293b; }
-    body.light .hc-opt { background: #fff; border-color: rgba(0,0,0,0.08); color: #64748b; }
+    body.light .hc-opt { background: #fff; border-color: rgba(0,0,0,0.08); color: #475569; }
     body.light .hc-opt:hover, body.light .hc-opt:has(input:checked) { border-color: var(--accent); color: #1e293b; }
     body.light .hamburger span { background: #1e293b; }
     body.light .mobile-menu { background: #ffffff; }
     body.light .mobile-menu a { color: #1e293b; }
     body.light .profile-modal { background: #ffffff; }
-    body.light .profile-modal h3 { color: #1e293b; }
-    body.light .profile-modal p { color: #64748b; }
+    body.light .profile-modal h3 { color: #0f172a; }
+    body.light .profile-modal p { color: #475569; }
     body.light .profile-modal .form-group input,
     body.light .profile-modal .form-group select { background: #f5f7fa; border-color: rgba(0,0,0,0.1); color: #1e293b; }
     body.light .wa-popup { background: #ffffff; border-color: rgba(0,0,0,0.08); }
-    body.light .wa-popup .msg { background: #f5f7fa; border-color: rgba(0,0,0,0.08); color: #1e293b; }
+    body.light .wa-popup-header { background: #2563eb; }
+    body.light .wa-popup .msg { background: #f1f5f9; border-color: rgba(0,0,0,0.08); color: #1e293b; }
     body.light .wa-popup .quick-btns a { background: rgba(37,149,235,0.06); border-color: rgba(37,149,235,0.15); color: #059669; }
     body.light .about-stat-box { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
     body.light .about-stat-box .num { color: var(--accent); }
-    body.light .about-stat-box .lbl { color: #64748b; }
+    body.light .about-stat-box .lbl { color: #475569; }
     body.light .expertise-card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
-    body.light .expertise-card h4 { color: #1e293b; }
-    body.light .expertise-card p { color: #64748b; }
+    body.light .expertise-card h4 { color: #0f172a; }
+    body.light .expertise-card p { color: #475569; }
+    body.light #metrics { background: #eef1f6 !important; }
+    body.light #metrics .metric-val { color: #0f172a; }
+    body.light #metrics .metric-label { color: #475569; }
+    body.light #terminal { background: #f5f7fa !important; }
+    body.light #terminal .term-bar { background: #e2e8f0; }
+    body.light #terminal .term-content { background: #f8fafc; color: #1e293b; }
+    body.light #terminal .term-line { color: #475569; }
 
     /* Theme toggle button */
     .theme-toggle {
@@ -538,8 +556,8 @@
       background: #0a1628;
     }
     .hero-slide {
-      position:absolute; inset:0; background-size:cover; background-position:center; opacity:0;
-      animation: heroFade 18s infinite;
+      position:absolute; inset:0; background-size:cover; background-position:center center; opacity:0;
+      animation: heroFade 24s infinite;
     }
     .hero-slide:nth-child(1) {
       background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80');
@@ -553,9 +571,13 @@
       background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80');
       animation-delay: 12s;
     }
+    .hero-slide:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');
+      animation-delay: 18s;
+    }
     @keyframes heroFade {
-      0%, 28% { opacity:1; }
-      33%, 95% { opacity:0; }
+      0%, 22% { opacity:1; }
+      25%, 97% { opacity:0; }
       100% { opacity:0; }
     }
     .hero::before {
@@ -1765,15 +1787,16 @@
       text-align: center !important;
     }
     .hero-title {
-      font-size: clamp(1.8rem, 6vw, 2.4rem) !important;
+      font-size: clamp(2rem, 7vw, 2.8rem) !important;
       margin-bottom: 10px !important;
       line-height: 1.15 !important;
     }
     .hero-sub {
-      font-size: 0.88rem !important;
-      line-height: 1.6 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.65 !important;
       margin-bottom: 16px !important;
       max-width: 100% !important;
+      padding: 0 4px !important;
     }
     .hero-btns {
       display: flex !important;
@@ -2106,21 +2129,22 @@
   <div class="hero-slide" aria-hidden="true"></div>
   <div class="hero-slide" aria-hidden="true"></div>
   <div class="hero-slide" aria-hidden="true"></div>
+  <div class="hero-slide" aria-hidden="true"></div>
   <div class="hero-gradient-mesh" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      AI-Ready &bull; Responsible &bull; Secure &bull; Built for Real Business Outcomes
+      AI &bull; Cybersecurity &bull; Software Engineering &bull; Smart Infrastructure
     </div>
     <h1 class="hero-title">
       <span class="line1">
-        <span class="word" style="animation-delay:0.3s">Automate.</span>
-        <span class="word accent" style="animation-delay:0.52s">Secure.</span>
-        <span class="word" style="animation-delay:0.74s">Scale.</span>
+        <span class="word" style="animation-delay:0.3s">We Build</span>
+        <span class="word accent" style="animation-delay:0.52s">Intelligent</span>
+        <span class="word" style="animation-delay:0.74s">Systems.</span>
       </span>
     </h1>
     <p class="hero-sub">
-      Kirov Dynamics Technology helps South African organisations automate operations, protect digital assets and build intelligent infrastructure — without waiting for funding.
+      Custom AI platforms, cybersecurity solutions, and enterprise software for African businesses and government — from concept to deployment, we own the full lifecycle.
     </p>
     <div class="hero-btns">
       <a href="#assessment" class="btn btn-primary" id="hero-assessment-btn"><i data-lucide="clipboard-check"></i> Book Free Assessment</a>
