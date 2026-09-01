@@ -539,7 +539,7 @@
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(10,22,40,0.65) 0%, rgba(15,30,55,0.50) 55%, rgba(10,22,40,0.30) 100%);
+      background:linear-gradient(135deg, rgba(10,22,40,0.45) 0%, rgba(15,30,55,0.30) 55%, rgba(10,22,40,0.15) 100%);
       z-index:0;
     }
     .hero::after {
@@ -2197,7 +2197,7 @@
   <div class="container">
     <div class="reveal text-center">
       <span class="section-tag">Core Capabilities</span>
-      <h2 class="section-title" id="solutions-title">Five Core Capabilities. One Platform.</h2>
+      <h2 class="section-title" id="solutions-title">Six Core Capabilities. One Platform.</h2>
       <div class="divider divider-center"></div>
       <p class="section-sub" style="margin:0 auto">Kirov turns technology, data and AI into practical business outcomes for South African organisations.</p>
     </div>
@@ -2241,6 +2241,14 @@
         </div>
         <h3 style="font-size:1.15rem;color:#fff">Digital Infrastructure</h3>
         <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Cloud solutions, digital platforms, and integrations to modernise your operations.</p>
+      </div>
+      <!-- Cloud & DevOps -->
+      <div class="engine-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;border:1px solid rgba(245,158,11,0.3)">
+          <i data-lucide="cloud" style="color:var(--gold);width:24px;height:24px"></i>
+        </div>
+        <h3 style="font-size:1.15rem;color:#fff">Cloud & DevOps</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">Cloud migration, CI/CD pipelines, Kubernetes, and infrastructure automation on AWS, Azure, and GCP.</p>
       </div>
     </div>
     <!-- Consult → Build → Manage → Subscribe Funnel -->
@@ -2615,8 +2623,8 @@
           <i data-lucide="percent" style="color:var(--accent);width:24px;height:24px"></i>
           <h4 class="card-tool-title">VAT Calculator</h4>
         </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" class="card-tool-input" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" class="card-tool-input">
           <button id="calc-vat-btn" class="card-tool-btn" style="background:var(--accent);color:#fff">Calculate</button>
         </div>
         <div id="vat-result" class="card-tool-result"></div>
