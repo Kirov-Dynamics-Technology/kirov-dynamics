@@ -62,6 +62,8 @@
   <meta name="twitter:description" content="Technology, AI, Cybersecurity &amp; Smart Infrastructure for Africa's Digital Economy">
   <meta name="twitter:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/assets/images/kirov-logo.png">
   <link rel="preload" href="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80" as="image" fetchpriority="high">
+  <link rel="preload" href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1920&q=80" as="image">
+  <link rel="preload" href="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -107,18 +109,19 @@
       --shadow:      0 8px 40px rgba(0,0,0,0.08);
       --glow:        0 0 40px rgba(37,99,235,0.1);
     }
-    body.light #navbar { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light #navbar { background: rgba(255,255,255,0.95); border-bottom-color: rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
     body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
     body.light .nav-links a { color: #475569; text-shadow: none; }
     body.light .nav-links a:hover { color: #1e293b; }
-    body.light .logo-text-main { color: #1e293b; text-shadow: none; }
-    body.light .logo-text-main span { color: var(--teal); }
-    body.light .logo-text-sub { color: var(--accent); text-shadow: none; }
+    body.light .logo-text-main { color: #0f172a; text-shadow: none; font-weight: 900; }
+    body.light .logo-text-main span { color: #2563eb; }
+    body.light .logo-text-sub { color: #1e40af; text-shadow: none; letter-spacing: 0.25em; }
     body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
     body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
     body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
-    body.light .hero { background-color: #eef1f6 !important; background-image: none !important; }
-    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.88) 0%, rgba(238,241,246,0.78) 55%, rgba(245,247,250,0.55) 100%); }
+    body.light .hero { background-color: #f5f7fa !important; }
+    body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
+    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.70) 0%, rgba(238,241,246,0.55) 55%, rgba(245,247,250,0.35) 100%); }
     body.light .hero-title .line1 { color: #1e293b; text-shadow: none; }
     body.light .hero-sub { color: rgba(71,85,105,0.8); }
     body.light .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #1e293b; }
@@ -532,7 +535,28 @@
       min-height: 100vh;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-      background: #0a1628 url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
+      background: #0a1628;
+    }
+    .hero-slide {
+      position:absolute; inset:0; background-size:cover; background-position:center; opacity:0;
+      animation: heroFade 18s infinite;
+    }
+    .hero-slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80');
+      animation-delay: 0s;
+    }
+    .hero-slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1920&q=80');
+      animation-delay: 6s;
+    }
+    .hero-slide:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80');
+      animation-delay: 12s;
+    }
+    @keyframes heroFade {
+      0%, 28% { opacity:1; }
+      33%, 95% { opacity:0; }
+      100% { opacity:0; }
     }
     .hero::before {
       content:''; position:absolute; inset:0;
@@ -2079,6 +2103,9 @@
      HERO
 ============================================================ -->
 <section id="home" class="hero" aria-label="Hero">
+  <div class="hero-slide" aria-hidden="true"></div>
+  <div class="hero-slide" aria-hidden="true"></div>
+  <div class="hero-slide" aria-hidden="true"></div>
   <div class="hero-gradient-mesh" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-badge">
