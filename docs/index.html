@@ -131,7 +131,7 @@
     body.light .hero-content { background: rgba(255,255,255,0.55); border-color: rgba(0,0,0,0.06); }
     body.light .hero-title .line1 { color: #0f172a; text-shadow: 0 2px 12px rgba(255,255,255,0.7), 0 4px 20px rgba(255,255,255,0.4); }
     body.light .hero-sub { color: #1e293b; text-shadow: 0 1px 8px rgba(255,255,255,0.6); font-weight: 500; }
-    body.light .hero-badge { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.35); color: #0f172a; font-weight: 600; text-shadow: none; }
+    body.light .hero-badge { background: transparent; border: none; color: #0f172a; font-weight: 600; text-shadow: none; }
     body.light .hero-btns .btn { color: #0f172a; border-color: rgba(0,0,0,0.15); background: rgba(255,255,255,0.75); box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-shadow: none; }
     body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: 0 4px 20px rgba(37,99,235,0.3); }
     body.light .stat-item { background: rgba(255,255,255,0.85); border: none; }
@@ -749,12 +749,29 @@
     .hero-accent {
       color: var(--teal);
       font-weight: 700;
+      background: rgba(0,200,248,0.12);
+      padding: 1px 8px;
+      border-radius: 4px;
     }
     body.light .hero-accent {
       color: #1a56db;
+      background: rgba(37,99,235,0.08);
+    }
+    body.light .hl-teal {
+      background: rgba(37,99,235,0.08);
     }
     @keyframes wordReveal {
       to { opacity:1; transform: none; }
+    }
+
+    /* Teal text highlight — hugs the text, no border container */
+    .hl-teal {
+      display: inline;
+      background: rgba(0,200,248,0.12);
+      padding: 2px 12px;
+      border-radius: 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
 
@@ -831,8 +848,8 @@
     /* HERO BADGE INLINE */
     .hero-badge {
       display:inline-flex; align-items:center; gap:10px;
-      background:rgba(74,144,217,0.18); border:1px solid rgba(74,144,217,0.35);
-      padding:9px 22px; border-radius:50px;
+      background:transparent; border:none;
+      padding:0; border-radius:0;
       font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
       color:#fff; margin-bottom:28px;
       text-shadow: 0 1px 4px rgba(0,0,0,0.5);
@@ -2153,9 +2170,10 @@
     </div>
     <h1 class="hero-title">
       <span class="line1">
-        <span class="word" style="animation-delay:0.3s">We Build</span>
-        <span class="word accent" style="animation-delay:0.52s">Intelligent</span>
-        <span class="word" style="animation-delay:0.74s">Systems.</span>
+        <span class="hl-teal"><span class="word" style="animation-delay:0.3s">We Build</span> <span class="word accent" style="animation-delay:0.52s">Intelligent</span></span>
+      </span>
+      <span class="line1">
+        <span class="hl-teal"><span class="word" style="animation-delay:0.74s">Systems.</span></span>
       </span>
     </h1>
     <p class="hero-sub">
