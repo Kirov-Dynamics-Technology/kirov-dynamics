@@ -128,7 +128,7 @@
     body.light .hero { background-color: #f5f7fa !important; }
     body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
     body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.75) 0%, rgba(238,241,246,0.60) 55%, rgba(245,247,250,0.45) 100%); }
-    body.light .hero-content { background: rgba(255,255,255,0.55); border-color: rgba(0,0,0,0.06); }
+    body.light .hero-content { }
     body.light .hero-title .line1 { color: #0f172a; text-shadow: 0 2px 12px rgba(255,255,255,0.7), 0 4px 20px rgba(255,255,255,0.4); }
     body.light .hero-sub { color: #1e293b; text-shadow: 0 1px 8px rgba(255,255,255,0.6); font-weight: 500; }
     body.light .hero-badge { background: transparent; border: none; color: #0f172a; font-weight: 600; text-shadow: none; }
@@ -716,10 +716,6 @@
     .hero-content {
       position:relative; z-index:2;
       text-align:center; max-width:920px; padding:110px 28px 0;
-      background: rgba(5,12,28,0.45);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.06);
     }
     /* HERO LOGO */
     .hero-title {
@@ -772,6 +768,7 @@
       border-radius: 6px;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
+      color: #fff;
     }
 
 
@@ -2177,7 +2174,7 @@
       </span>
     </h1>
     <p class="hero-sub">
-      Custom <span class="hero-accent">AI</span> platforms, <span class="hero-accent">cybersecurity</span> solutions, and enterprise software for <span class="hero-accent">African</span> businesses and government — from concept to deployment, we own the full lifecycle.
+      <span class="hl-teal">Custom AI platforms, cybersecurity solutions, and enterprise software for African businesses and government</span> — <span class="hl-teal">from concept to deployment, we own the full lifecycle.</span>
     </p>
     <div class="hero-btns">
       <a href="#assessment" class="btn btn-primary" id="hero-assessment-btn"><i data-lucide="clipboard-check"></i> Book Free Assessment</a>
