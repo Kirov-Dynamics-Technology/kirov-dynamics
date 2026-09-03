@@ -134,9 +134,8 @@
     body.light .hero-badge { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.35); color: #0f172a; font-weight: 600; text-shadow: none; }
     body.light .hero-btns .btn { color: #0f172a; border-color: rgba(0,0,0,0.15); background: rgba(255,255,255,0.75); box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-shadow: none; }
     body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: 0 4px 20px rgba(37,99,235,0.3); }
-    body.light .hero-stats { background: rgba(255,255,255,0.7); border: 1.5px solid rgba(37,99,235,0.25); border-radius: 16px; padding: 8px; }
-    body.light .stat-item { background: rgba(255,255,255,0.85); border: 1.5px solid rgba(37,99,235,0.25); }
-    body.light .stat-item:hover { border-color: rgba(37,99,235,0.50); box-shadow: 0 0 20px rgba(37,99,235,0.10); }
+    body.light .stat-item { background: rgba(255,255,255,0.85); border: none; }
+    body.light .stat-item:hover { box-shadow: 0 0 20px rgba(37,99,235,0.08); }
     body.light .stat-num { text-shadow: none; color: #0f172a; }
     body.light .stat-label { color: #475569; font-weight: 500; }
     body.light .section-title { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -569,7 +568,6 @@
     .hero-slide:nth-child(2) {
       background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1920&q=80');
       animation-delay: 6s;
-      background-position: center 20%;
     }
     .hero-slide:nth-child(3) {
       background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80');
@@ -748,6 +746,13 @@
       background-clip: text;
       text-shadow: none;
     }
+    .hero-accent {
+      color: var(--teal);
+      font-weight: 700;
+    }
+    body.light .hero-accent {
+      color: #1a56db;
+    }
     @keyframes wordReveal {
       to { opacity:1; transform: none; }
     }
@@ -784,12 +789,6 @@
       margin-top: 12px;
       width: 100%;
       max-width: 860px;
-      border: 1.5px solid rgba(0,200,248,0.25);
-      border-radius: 16px;
-      padding: 8px;
-      background: rgba(8,13,24,0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
     .stat-item { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:90px; }
     .stat-item {
@@ -798,13 +797,12 @@
       background: rgba(8,13,24,0.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1.5px solid rgba(0,200,248,0.30);
+      border: none;
       border-radius: 12px;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      transition: box-shadow 0.3s;
     }
     .stat-item:hover {
-      border-color: rgba(0,200,248,0.60);
-      box-shadow: 0 0 28px rgba(0,200,248,0.18);
+      box-shadow: 0 0 28px rgba(0,200,248,0.12);
     }
     .stat-item:last-child { border-right: none; }
     .stat-num {
@@ -2151,7 +2149,7 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      AI &bull; Cybersecurity &bull; Software Engineering &bull; Smart Infrastructure
+      <span class="hero-accent">AI</span> &bull; <span class="hero-accent">Cybersecurity</span> &bull; <span class="hero-accent">Software Engineering</span> &bull; <span class="hero-accent">Smart Infrastructure</span>
     </div>
     <h1 class="hero-title">
       <span class="line1">
@@ -2161,7 +2159,7 @@
       </span>
     </h1>
     <p class="hero-sub">
-      Custom AI platforms, cybersecurity solutions, and enterprise software for African businesses and government — from concept to deployment, we own the full lifecycle.
+      Custom <span class="hero-accent">AI</span> platforms, <span class="hero-accent">cybersecurity</span> solutions, and enterprise software for <span class="hero-accent">African</span> businesses and government — from concept to deployment, we own the full lifecycle.
     </p>
     <div class="hero-btns">
       <a href="#assessment" class="btn btn-primary" id="hero-assessment-btn"><i data-lucide="clipboard-check"></i> Book Free Assessment</a>
