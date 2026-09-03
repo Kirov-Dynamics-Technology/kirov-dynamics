@@ -129,19 +129,17 @@
     body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
     body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.75) 0%, rgba(238,241,246,0.60) 55%, rgba(245,247,250,0.45) 100%); }
     body.light .hero-content { }
-    body.light .hero-title .line1 { color: #0f172a; text-shadow: 0 2px 12px rgba(255,255,255,0.7), 0 4px 20px rgba(255,255,255,0.4); }
-    body.light .hero-sub { color: #1e293b; text-shadow: 0 1px 8px rgba(255,255,255,0.6); font-weight: 500; }
+    body.light .hero-title .line1 { color: #0f172a; text-shadow: none; }
+    body.light .hero-sub { color: #1e293b; text-shadow: none; font-weight: 500; }
     body.light .hero-badge { background: transparent; border: none; color: #0f172a; font-weight: 600; text-shadow: none; }
     body.light .hero-btns .btn { color: #fff; border: none; background: rgba(0,0,0,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 8px rgba(0,0,0,0.12); text-shadow: none; }
     body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: 0 4px 20px rgba(37,99,235,0.3); }
     body.light .stat-item { background: rgba(0,0,0,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: none; }
-    body.light .stat-item .stat-label { color: #ffffff !important; text-shadow: none; }
-    body.light .stat-item .stat-num { color: #ffffff !important; text-shadow: 0 0 24px rgba(255,255,255,0.3); }
+    body.light .stat-item .stat-label { color: #ffffff !important; text-shadow: none !important; }
+    body.light .stat-item .stat-num { color: #ffffff !important; text-shadow: none !important; }
     body.light .cipc-badge i { color: #ffffff !important; }
     body.light .cipc-badge span { color: #ffffff !important; }
     body.light .stat-item:hover { box-shadow: 0 0 28px rgba(0,200,248,0.12); }
-    body.light .stat-num { text-shadow: none; color: #0f172a; }
-    body.light .stat-label { color: #475569; font-weight: 500; }
     body.light .section-title { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
     body.light .section-sub { color: #475569; font-weight: 400; }
     body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
@@ -191,7 +189,7 @@
     body.light .stack-item { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
     body.light .partner-logo { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
     body.light .cert-item { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light .hero-gradient-mesh { opacity: 0.3; }
+    body.light .hero-gradient-mesh { display: none; }
     body.light #chatbot-container .chatbot-header { background: #1a3664; }
     body.light .chatbot-messages { background: #f5f7fa; }
     body.light .chatbot-option-btn { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
@@ -829,16 +827,16 @@
     .stat-item:last-child { border-right: none; }
     .stat-num {
       font-family:'Outfit',sans-serif; font-size:2rem; font-weight:900;
-      color:var(--teal); display:block; line-height:1; font-variant-numeric:tabular-nums;
-      text-shadow: 0 0 24px rgba(0, 200, 248, 0.7);
+      color:#ffffff; display:block; line-height:1; font-variant-numeric:tabular-nums;
+      text-shadow: none;
     }
     .stat-num.rolling { animation:rollBlur 0.08s ease-in-out; }
     @keyframes rollBlur { 0%{filter:blur(0)} 50%{filter:blur(3px)} 100%{filter:blur(0)} }
     .stat-item:nth-child(even) .stat-num {
-      color: var(--accent-lite);
-      text-shadow: 0 0 24px rgba(74,144,217,0.7);
+      color: #ffffff;
+      text-shadow: none;
     }
-    .stat-label { font-size:0.72rem; color:rgba(255,255,255,0.9); margin-top:6px; letter-spacing:0.05em; font-weight:700; text-transform:uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    .stat-label { font-size:0.72rem; color:#ffffff; margin-top:6px; letter-spacing:0.05em; font-weight:700; text-transform:uppercase; text-shadow: none; }
 
     .cipc-badge {
       display:flex; flex-direction:column; align-items:center; gap:4px;
