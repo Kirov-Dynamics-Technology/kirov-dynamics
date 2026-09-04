@@ -127,13 +127,13 @@
     body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
     body.light .hero { background-color: #f5f7fa !important; }
     body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
-    body.light .hero::before { background: linear-gradient(135deg, rgba(245,247,250,0.75) 0%, rgba(238,241,246,0.60) 55%, rgba(245,247,250,0.45) 100%); }
+    body.light .hero::before { background: transparent; }
     body.light .hero-content { }
     body.light .hero-title .line1 { color: #0f172a; text-shadow: none; }
     body.light .hero-sub { color: #1e293b; text-shadow: none; font-weight: 500; }
     body.light .hero-badge { background: transparent; border: none; color: #ffffff; font-weight: 600; text-shadow: none; }
-    body.light .hero-btns .btn { color: #fff; border: none; background: rgba(0,0,0,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 8px rgba(0,0,0,0.12); text-shadow: none; }
-    body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: 0 4px 20px rgba(37,99,235,0.3); }
+    body.light .hero-btns .btn { color: #fff; border: none; background: rgba(0,0,0,0.82); box-shadow: none; text-shadow: none; }
+    body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: none; }
     body.light .stat-item { background: rgba(0,0,0,0.82); border: none; }
     body.light .stat-item .stat-label { color: #ffffff !important; text-shadow: none !important; }
     body.light .stat-item .stat-num { color: #ffffff !important; text-shadow: none !important; }
@@ -592,7 +592,7 @@
     }
     .hero::after {
       content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
-      background:linear-gradient(to bottom, transparent, var(--bg-alt));
+      background:transparent;
       z-index:2; pointer-events:none;
     }
     /* Large hero globe */
@@ -791,10 +791,8 @@
       color: #fff;
       border: none;
       background: rgba(0,0,0,0.82);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      box-shadow: none;
+      text-shadow: none;
     }
     .hero-btns .btn:active {
       transform: scale(0.95);
