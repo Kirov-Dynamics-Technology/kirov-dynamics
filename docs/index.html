@@ -1676,8 +1676,8 @@
 .card-tool { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
 .card-tool-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
 .card-tool-title { color:#fff; font-size:1rem; }
-.card-tool-inputs { display:flex; flex-direction:column; gap:8px; }
-.card-tool-input { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:#fff; outline:none; font-size:0.9rem; }
+.card-tool-inputs { display:flex; flex-direction:row; flex-wrap:wrap; gap:8px; align-items:center; }
+.card-tool-input { flex:1; min-width:120px; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:#fff; outline:none; font-size:0.9rem; }
 .card-tool-btn { padding:13px 26px; border:none; border-radius:var(--radius); font-family:'Outfit',sans-serif; font-weight:700; font-size:0.9rem; cursor:pointer; transition:var(--transition); }
 .card-tool-result { margin-top:12px; color:var(--muted); font-size:0.85rem; }
 .sec-check-label { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:0.85rem; cursor:pointer; }
@@ -2696,7 +2696,7 @@
           <i data-lucide="percent" style="color:var(--accent);width:24px;height:24px"></i>
           <h4 class="card-tool-title">VAT Calculator</h4>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;align-items:center">
           <input type="number" id="vat-amount" placeholder="Enter amount (R)" aria-label="Amount in Rand" class="card-tool-input">
           <button id="calc-vat-btn" class="card-tool-btn" style="background:var(--accent);color:#fff">Calculate</button>
         </div>
