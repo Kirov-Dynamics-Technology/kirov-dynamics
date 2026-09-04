@@ -1650,7 +1650,7 @@
       .careers-grid { grid-template-columns:1fr; }
       .roadmap-grid { grid-template-columns:1fr; }
       .process-steps { grid-template-columns:1fr 1fr; gap:12px; }
-      .consult-options { flex-direction:column; align-items:center; }
+      .consult-options { flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:stretch; }
       .consult-card { padding:24px; }
     }
     @media(max-width:500px){
@@ -1658,7 +1658,7 @@
       .map-grid { grid-template-columns:1fr; }
       .process-steps { grid-template-columns:1fr; }
       .consult-card { padding:18px; }
-      .consult-option { min-width:100%; }
+      .consult-option { min-width:0; flex:1 1 100px; }
     }
   
 /* ---- UTILITY CLASSES ---- */
