@@ -122,10 +122,9 @@
     body.light .logo-text-main { color: #0f172a; text-shadow: none; font-weight: 900; }
     body.light .logo-text-main span { color: #2563eb; }
     body.light .logo-text-sub { color: #1e40af; text-shadow: none; letter-spacing: 0.25em; }
-    body.light .css-globe { animation: none; transform-style: flat; }
-    body.light .css-globe .ring { border-color: #1a3664; box-shadow: none; border-width: 2.5px; }
-    body.light .css-globe .ring-equator { border-color: #0891b2; box-shadow: none; border-width: 2.5px; }
-    body.light .css-globe .core { box-shadow: none; opacity: 1; background: #0891b2; }
+    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
+    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
+    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
     body.light .hero { background-color: #f5f7fa !important; }
     body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
     body.light .hero::before { background: transparent; }
@@ -174,6 +173,8 @@
     }
     body.light footer { background: #f1f5f9 !important; border-top-color: rgba(37,99,235,0.10); }
     body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #475569; }
+    body.light .footer-brand .nav-logo-title { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    body.light .footer-brand .nav-logo-subtitle { color: var(--accent); }
     body.light .footer-col h4 { color: #0f172a; }
     body.light .footer-cta { background: rgba(37,99,235,0.06) !important; border-color: rgba(37,99,235,0.15) !important; }
     body.light .footer-cta h3 { color: #0f172a !important; }
@@ -184,6 +185,8 @@
     body.light .consult-card p { color: #475569; }
     body.light .consult-option { background: #f5f7fa; border-color: rgba(37,99,235,0.12); }
     body.light .consult-option span { color: #1e293b; }
+    body.light .consult-option .co-icon { background: #0f172a; color: #ffffff; box-shadow: none; border: none; }
+    body.light .consult-option .co-icon::after { display: none; }
     body.light .roadmap-year ul li { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.10); color: #1e293b; }
     body.light .testimonial-stars { filter: none; }
     body.light .stack-item { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
@@ -471,7 +474,7 @@
     .css-globe .ring {
       position: absolute;
       inset: 0;
-      border: 2px solid var(--accent);
+      border: 1.5px solid var(--accent);
       border-radius: 50%;
       box-shadow: 0 0 8px rgba(74,144,217,0.3) inset, 0 0 8px rgba(74,144,217,0.3);
     }
