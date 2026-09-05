@@ -1435,22 +1435,49 @@
       background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,144,217,0.04) 0%, transparent 70%);
       pointer-events:none;
     }
-    .stack-track-wrap { margin-top:48px; overflow:hidden; padding: 10px 0; }
-    .stack-track { display:grid; grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; gap:20px; width:max-content; animation:stackScroll 40s linear infinite; }
-    .stack-track:hover { animation-play-state:paused; }
+    /* ---- Stack Carousel ---- */
+    .carousel-wrap { margin-top:48px; position:relative; }
+    .carousel-viewport { overflow:hidden; }
+    .carousel-track {
+      display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .carousel-slide {
+      min-width:100%; display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+      gap:20px; padding:8px 4px;
+    }
     .stack-item {
       background:rgba(13,22,37,0.7); border:1px solid rgba(74,144,217,0.12);
-      border-radius:16px; padding:24px 20px;
-      display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
-      width: 220px; height: 180px; justify-content:center;
-      transition:var(--transition); flex-shrink:0;
+      border-radius:16px; padding:24px 16px;
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
+      transition:var(--transition);
       backdrop-filter:blur(4px);
     }
-    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15), inset 0 0 20px rgba(74,144,217,0.03); transform:translateY(-4px); }
-    .stack-item i { font-size:2.8rem; margin-bottom:4px; }
-    .stack-item .ai-badge { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:12px; font-size:1.2rem; font-weight:700; margin-bottom:4px; }
-    .stack-item h4 { font-size:1.1rem; font-weight:700; margin:0; color:var(--text); }
-    .stack-item p { font-size:0.8rem; color:var(--muted); line-height:1.4; margin:0; white-space:normal; }
+    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); transform:translateY(-4px); }
+    .stack-item i { font-size:2.6rem; }
+    .stack-item .ai-badge { display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; font-size:1.1rem; font-weight:700; }
+    .stack-item h4 { font-size:1rem; font-weight:700; margin:0; color:var(--text); }
+    .stack-item p { font-size:0.78rem; color:var(--muted); line-height:1.4; margin:0; }
+    /* carousel nav */
+    .carousel-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(74,144,217,0.15); border:1px solid rgba(74,144,217,0.3);
+      color:var(--accent); font-size:1.2rem;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:var(--transition); z-index:10;
+      backdrop-filter:blur(8px);
+    }
+    .carousel-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .carousel-btn.prev { left:-22px; }
+    .carousel-btn.next { right:-22px; }
+    .carousel-dots { display:flex; justify-content:center; gap:8px; margin-top:24px; }
+    .carousel-dot {
+      width:8px; height:8px; border-radius:50%;
+      background:rgba(74,144,217,0.3); border:none; padding:0;
+      cursor:pointer; transition:var(--transition);
+    }
+    .carousel-dot.active { background:var(--accent); transform:scale(1.3); }
     @keyframes stackScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ---- Testimonials ---- */
@@ -1521,9 +1548,10 @@
 
     /* ---- Partners ---- */
     #partners { padding:110px 0; overflow:hidden; }
-    .partners-track-wrap { margin-top:48px; overflow:hidden; }
-    .partners-track { display:flex; gap:20px; width:max-content; animation:stackScroll 35s linear infinite; }
-    .partners-track:hover { animation-play-state:paused; }
+    .partners-carousel-wrap { margin-top:48px; position:relative; }
+    .partners-viewport { overflow:hidden; }
+    .partners-track { display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .partners-slide { min-width:100%; display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px; padding:8px 4px; }
     .partner-logo {
       background:var(--bg-card); border:1px solid var(--border);
       border-radius:var(--radius); padding:16px 24px;
@@ -2967,40 +2995,74 @@
         Modern, battle-tested technologies across frontend, backend, AI, cloud, and infrastructure.
       </p>
     </div>
-    <div class="stack-track-wrap reveal">
-      <div class="stack-track" id="stackTrack">
+    <div class="carousel-wrap" id="stackCarouselWrap">
+      <button class="carousel-btn prev" aria-label="Previous" onclick="stackCarousel.prev()">&#8249;</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="stackCarouselTrack">
+          <div class="carousel-slide">
         <div class="stack-item"><i class="devicon-react-original colored"></i><h4>React</h4><p>Modern UI library for web apps.</p></div>
         <div class="stack-item"><i class="devicon-nextjs-original colored"></i><h4>Next.js</h4><p>React framework for production.</p></div>
         <div class="stack-item"><i class="devicon-python-plain colored"></i><h4>Python</h4><p>Versatile backend programming.</p></div>
-        <div class="stack-item"><i class="devicon-fastapi-plain colored"></i><h4>FastAPI</h4><p>High-performance Python web framework for APIs.</p></div>
-        <div class="stack-item"><i class="devicon-nodejs-plain colored"></i><h4>Node.js</h4><p>Event-driven JavaScript runtime for scalable apps.</p></div>
-        <div class="stack-item"><i class="devicon-java-plain colored"></i><h4>Java</h4><p>Robust, enterprise-ready backend development.</p></div>
-        <div class="stack-item"><i class="devicon-spring-plain colored"></i><h4>Spring Boot</h4><p>Production-ready Java framework for microservices.</p></div>
-        <div class="stack-item"><i class="devicon-docker-plain colored"></i><h4>Docker</h4><p>Containerization platform for consistent deployments.</p></div>
-        <div class="stack-item"><i class="devicon-kubernetes-plain colored"></i><h4>Kubernetes</h4><p>Automated container orchestration at scale.</p></div>
+        <div class="stack-item"><i class="devicon-fastapi-plain colored"></i><h4>FastAPI</h4><p>High-performance Python web framework.</p></div>
+        <div class="stack-item"><i class="devicon-nodejs-plain colored"></i><h4>Node.js</h4><p>Event-driven JavaScript runtime.</p></div>
+        <div class="stack-item"><i class="devicon-java-plain colored"></i><h4>Java</h4><p>Enterprise-ready backend development.</p></div>
+        <div class="stack-item"><i class="devicon-spring-plain colored"></i><h4>Spring Boot</h4><p>Java framework for microservices.</p></div>
+        <div class="stack-item"><i class="devicon-docker-plain colored"></i><h4>Docker</h4><p>Containerization for consistent deployments.</p></div>
+        <div class="stack-item"><i class="devicon-kubernetes-plain colored"></i><h4>Kubernetes</h4><p>Automated container orchestration.</p></div>
         <div class="stack-item"><i class="devicon-azure-plain colored"></i><h4>Azure</h4><p>Enterprise cloud computing platform.</p></div>
+          </div>
+          <div class="carousel-slide">
         <div class="stack-item"><i class="devicon-amazonwebservices-plain-wordmark colored"></i><h4>AWS</h4><p>Scalable cloud infrastructure.</p></div>
         <div class="stack-item"><i class="devicon-googlecloud-plain colored"></i><h4>Google Cloud</h4><p>High-performance cloud services.</p></div>
         <div class="stack-item"><i class="devicon-postgresql-plain colored"></i><h4>PostgreSQL</h4><p>Advanced open-source relational DB.</p></div>
         <div class="stack-item"><i class="devicon-mongodb-plain colored"></i><h4>MongoDB</h4><p>Flexible NoSQL database.</p></div>
         <div class="stack-item"><i class="devicon-redis-plain colored"></i><h4>Redis</h4><p>In-memory data store for caching.</p></div>
-        <div class="stack-item"><i class="devicon-tensorflow-original colored"></i><h4>TensorFlow</h4><p>End-to-end machine learning platform.</p></div>
+        <div class="stack-item"><i class="devicon-tensorflow-original colored"></i><h4>TensorFlow</h4><p>Machine learning platform.</p></div>
         <div class="stack-item"><i class="devicon-pytorch-original colored"></i><h4>PyTorch</h4><p>Flexible deep learning framework.</p></div>
-        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,50,0.15);color:#10d67c;">AI</span><h4>OpenAI</h4><p>Advanced AI models & APIs.</p></div>
-        <div class="stack-item"><span class="ai-badge" style="background:rgba(100,100,255,0.15);color:#8888ff;">AI</span><h4>Ollama</h4><p>Run large language models locally.</p></div>
-        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,248,0.15);color:var(--teal);">AI</span><h4>LangChain</h4><p>Building applications with LLMs.</p></div>
         <div class="stack-item"><i class="devicon-githubactions-plain colored"></i><h4>GitHub Actions</h4><p>Automate software workflows.</p></div>
         <div class="stack-item"><i class="devicon-linux-plain colored"></i><h4>Linux</h4><p>Open-source operating system.</p></div>
         <div class="stack-item"><i class="devicon-terraform-plain colored"></i><h4>Terraform</h4><p>Infrastructure as code.</p></div>
+          </div>
+          <div class="carousel-slide">
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,50,0.15);color:#10d67c;">AI</span><h4>OpenAI</h4><p>Advanced AI models & APIs.</p></div>
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(100,100,255,0.15);color:#8888ff;">AI</span><h4>Ollama</h4><p>Run large language models locally.</p></div>
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,248,0.15);color:var(--teal);">AI</span><h4>LangChain</h4><p>Building applications with LLMs.</p></div>
+          </div>
+        </div>
       </div>
-    </div>
+      <button class="carousel-btn next" aria-label="Next" onclick="stackCarousel.next()">&#8250;</button>
+      <div class="carousel-dots" id="stackDots"></div>
     </div>
     <script>
       (function() {
-        var track = document.getElementById('stackTrack');
-        if (!track) return;
-        var clone = track.cloneNode(true);
-        track.parentNode.appendChild(clone);
+        var stackCarousel = window.stackCarousel = (function() {
+          var track = document.getElementById('stackCarouselTrack');
+          var dotsEl = document.getElementById('stackDots');
+          var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+          var cur = 0;
+          function render() {
+            if (!track) return;
+            track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+            if (dotsEl) {
+              dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+                d.classList.toggle('active', i === cur);
+              });
+            }
+          }
+          if (dotsEl && slides.length) {
+            slides.forEach(function(_, i) {
+              var d = document.createElement('button');
+              d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+              d.setAttribute('aria-label', 'Slide ' + (i+1));
+              d.onclick = function() { cur = i; render(); };
+              dotsEl.appendChild(d);
+            });
+          }
+          return {
+            prev: function() { cur = (cur - 1 + slides.length) % slides.length; render(); },
+            next: function() { cur = (cur + 1) % slides.length; render(); }
+          };
+        })();
       })();
     </script>
   </div>
@@ -3820,47 +3882,79 @@
         We collaborate with world-class technology platforms to deliver enterprise solutions.
       </p>
     </div>
-    <div class="partners-track-wrap reveal">
-      <div class="partners-track" id="partnersTrack">
-        <!-- Cloud & Platform -->
+    <div class="partners-carousel-wrap" id="partnersCarouselWrap">
+      <button class="carousel-btn prev" aria-label="Previous" onclick="partnersCarousel.prev()">&#8249;</button>
+      <div class="partners-viewport">
+        <div class="partners-track" id="partnersCarouselTrack">
+          <div class="partners-slide">
         <div class="partner-logo"><i class="devicon-microsoft-plain colored"></i>Microsoft</div>
         <div class="partner-logo"><i class="devicon-googlecloud-plain colored"></i>Google Cloud</div>
         <div class="partner-logo"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</div>
         <div class="partner-logo"><i class="devicon-azure-plain colored"></i>Microsoft Azure</div>
         <div class="partner-logo"><i class="devicon-oracle-original colored"></i>Oracle</div>
         <div class="partner-logo"><i class="devicon-ibm-plain colored"></i>IBM</div>
-        <!-- DevOps & Open Source -->
         <div class="partner-logo"><i class="devicon-github-original colored"></i>GitHub</div>
         <div class="partner-logo"><i class="devicon-gitlab-original colored"></i>GitLab</div>
         <div class="partner-logo"><i class="devicon-docker-plain colored"></i>Docker</div>
         <div class="partner-logo"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</div>
+          </div>
+          <div class="partners-slide">
         <div class="partner-logo"><i class="devicon-linux-plain colored"></i>Linux Foundation</div>
         <div class="partner-logo"><i class="devicon-nginx-original colored"></i>NGINX</div>
         <div class="partner-logo"><i class="devicon-ubuntu-plain colored"></i>Ubuntu</div>
         <div class="partner-logo"><i class="devicon-terraform-plain colored"></i>HashiCorp</div>
-        <!-- AI & Data -->
         <div class="partner-logo"><span style="font-weight:700;background:rgba(0,200,50,0.15);color:#10d67c;padding:2px 6px;border-radius:4px">AI</span>OpenAI</div>
         <div class="partner-logo"><span style="font-weight:700;background:rgba(100,100,255,0.15);color:#8888ff;padding:2px 6px;border-radius:4px">AI</span>Anthropic</div>
         <div class="partner-logo"><span style="font-weight:700;background:rgba(0,200,248,0.15);color:var(--teal);padding:2px 6px;border-radius:4px">AI</span>Hugging Face</div>
         <div class="partner-logo"><i class="devicon-tensorflow-original colored"></i>TensorFlow</div>
         <div class="partner-logo"><i class="devicon-mongodb-plain colored"></i>MongoDB</div>
         <div class="partner-logo"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</div>
-        <!-- Web & Hosting -->
-        <div class="partner-logo"><span style="font-weight:700;color:#fff">▲</span>Vercel</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#f6821f">☁️</span>Cloudflare</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#7952b3">🟣</span>Netlify</div>
-        <!-- SA Gov & Regulatory -->
-        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">🇿🇦</span>CIPC</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">🏛️</span>SARS</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">🏢</span>DTIC</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">📡</span>SITA</div>
-        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">🌐</span>ICASA</div>
+          </div>
+          <div class="partners-slide">
+        <div class="partner-logo"><span style="font-weight:700;color:#fff">&#9650;</span>Vercel</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#f6821f">&#9729;&#65039;</span>Cloudflare</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#7952b3">&#11044;</span>Netlify</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127470;&#127462;</span>CIPC</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127963;&#65039;</span>SARS</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127970;</span>DTIC</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128225;</span>SITA</div>
+        <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127760;</span>ICASA</div>
+          </div>
+        </div>
       </div>
+      <button class="carousel-btn next" aria-label="Next" onclick="partnersCarousel.next()">&#8250;</button>
+      <div class="carousel-dots" id="partnersDots"></div>
     </div>
     <script>
       (function() {
-        var t = document.getElementById('partnersTrack');
-        if (t) t.parentNode.appendChild(t.cloneNode(true));
+        var partnersCarousel = window.partnersCarousel = (function() {
+          var track = document.getElementById('partnersCarouselTrack');
+          var dotsEl = document.getElementById('partnersDots');
+          var slides = track ? track.querySelectorAll('.partners-slide') : [];
+          var cur = 0;
+          function render() {
+            if (!track) return;
+            track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+            if (dotsEl) {
+              dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+                d.classList.toggle('active', i === cur);
+              });
+            }
+          }
+          if (dotsEl && slides.length) {
+            slides.forEach(function(_, i) {
+              var d = document.createElement('button');
+              d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+              d.setAttribute('aria-label', 'Slide ' + (i+1));
+              d.onclick = function() { cur = i; render(); };
+              dotsEl.appendChild(d);
+            });
+          }
+          return {
+            prev: function() { cur = (cur - 1 + slides.length) % slides.length; render(); },
+            next: function() { cur = (cur + 1) % slides.length; render(); }
+          };
+        })();
       })();
     </script>
   </div>
