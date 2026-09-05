@@ -1435,19 +1435,22 @@
       background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,144,217,0.04) 0%, transparent 70%);
       pointer-events:none;
     }
-    .stack-track-wrap { margin-top:48px; overflow:hidden; }
-    .stack-track { display:flex; gap:20px; width:max-content; animation:stackScroll 40s linear infinite; }
+    .stack-track-wrap { margin-top:48px; overflow:hidden; padding: 10px 0; }
+    .stack-track { display:grid; grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; gap:20px; width:max-content; animation:stackScroll 40s linear infinite; }
     .stack-track:hover { animation-play-state:paused; }
     .stack-item {
       background:rgba(13,22,37,0.7); border:1px solid rgba(74,144,217,0.12);
-      border-radius:var(--radius); padding:20px 30px;
-      display:flex; align-items:center; gap:12px;
-      font-size:0.95rem; font-weight:700; white-space:nowrap;
+      border-radius:16px; padding:24px 20px;
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
+      width: 220px; height: 180px; justify-content:center;
       transition:var(--transition); flex-shrink:0;
       backdrop-filter:blur(4px);
     }
-    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15), inset 0 0 20px rgba(74,144,217,0.03); }
-    .stack-item i { font-size:2.2rem; }
+    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15), inset 0 0 20px rgba(74,144,217,0.03); transform:translateY(-4px); }
+    .stack-item i { font-size:2.8rem; margin-bottom:4px; }
+    .stack-item .ai-badge { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:12px; font-size:1.2rem; font-weight:700; margin-bottom:4px; }
+    .stack-item h4 { font-size:1.1rem; font-weight:700; margin:0; color:var(--text); }
+    .stack-item p { font-size:0.8rem; color:var(--muted); line-height:1.4; margin:0; white-space:normal; }
     @keyframes stackScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ---- Testimonials ---- */
@@ -2966,30 +2969,31 @@
     </div>
     <div class="stack-track-wrap reveal">
       <div class="stack-track" id="stackTrack">
-        <div class="stack-item"><i class="devicon-react-original colored"></i>React</div>
-        <div class="stack-item"><i class="devicon-nextjs-original colored"></i>Next.js</div>
-        <div class="stack-item"><i class="devicon-python-plain colored"></i>Python</div>
-        <div class="stack-item"><i class="devicon-fastapi-plain colored"></i>FastAPI</div>
-        <div class="stack-item"><i class="devicon-nodejs-plain colored"></i>Node.js</div>
-        <div class="stack-item"><i class="devicon-java-plain colored"></i>Java</div>
-        <div class="stack-item"><i class="devicon-spring-plain colored"></i>Spring Boot</div>
-        <div class="stack-item"><i class="devicon-docker-plain colored"></i>Docker</div>
-        <div class="stack-item"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</div>
-        <div class="stack-item"><i class="devicon-azure-plain colored"></i>Azure</div>
-        <div class="stack-item"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</div>
-        <div class="stack-item"><i class="devicon-googlecloud-plain colored"></i>Google Cloud</div>
-        <div class="stack-item"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</div>
-        <div class="stack-item"><i class="devicon-mongodb-plain colored"></i>MongoDB</div>
-        <div class="stack-item"><i class="devicon-redis-plain colored"></i>Redis</div>
-        <div class="stack-item"><i class="devicon-tensorflow-original colored"></i>TensorFlow</div>
-        <div class="stack-item"><i class="devicon-pytorch-original colored"></i>PyTorch</div>
-        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(0,200,50,0.15);color:#10d67c;padding:2px 6px;border-radius:4px">AI</span>OpenAI</div>
-        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(100,100,255,0.15);color:#8888ff;padding:2px 6px;border-radius:4px">AI</span>Ollama</div>
-        <div class="stack-item" style="gap:4px"><span style="font-size:1.1rem;font-weight:700;background:rgba(0,200,248,0.15);color:var(--teal);padding:2px 6px;border-radius:4px">AI</span>LangChain</div>
-        <div class="stack-item"><i class="devicon-githubactions-plain colored"></i>GitHub Actions</div>
-        <div class="stack-item"><i class="devicon-linux-plain colored"></i>Linux</div>
-        <div class="stack-item"><i class="devicon-terraform-plain colored"></i>Terraform</div>
+        <div class="stack-item"><i class="devicon-react-original colored"></i><h4>React</h4><p>Modern UI library for web apps.</p></div>
+        <div class="stack-item"><i class="devicon-nextjs-original colored"></i><h4>Next.js</h4><p>React framework for production.</p></div>
+        <div class="stack-item"><i class="devicon-python-plain colored"></i><h4>Python</h4><p>Versatile backend programming.</p></div>
+        <div class="stack-item"><i class="devicon-fastapi-plain colored"></i><h4>FastAPI</h4><p>High-performance Python web framework for APIs.</p></div>
+        <div class="stack-item"><i class="devicon-nodejs-plain colored"></i><h4>Node.js</h4><p>Event-driven JavaScript runtime for scalable apps.</p></div>
+        <div class="stack-item"><i class="devicon-java-plain colored"></i><h4>Java</h4><p>Robust, enterprise-ready backend development.</p></div>
+        <div class="stack-item"><i class="devicon-spring-plain colored"></i><h4>Spring Boot</h4><p>Production-ready Java framework for microservices.</p></div>
+        <div class="stack-item"><i class="devicon-docker-plain colored"></i><h4>Docker</h4><p>Containerization platform for consistent deployments.</p></div>
+        <div class="stack-item"><i class="devicon-kubernetes-plain colored"></i><h4>Kubernetes</h4><p>Automated container orchestration at scale.</p></div>
+        <div class="stack-item"><i class="devicon-azure-plain colored"></i><h4>Azure</h4><p>Enterprise cloud computing platform.</p></div>
+        <div class="stack-item"><i class="devicon-amazonwebservices-plain-wordmark colored"></i><h4>AWS</h4><p>Scalable cloud infrastructure.</p></div>
+        <div class="stack-item"><i class="devicon-googlecloud-plain colored"></i><h4>Google Cloud</h4><p>High-performance cloud services.</p></div>
+        <div class="stack-item"><i class="devicon-postgresql-plain colored"></i><h4>PostgreSQL</h4><p>Advanced open-source relational DB.</p></div>
+        <div class="stack-item"><i class="devicon-mongodb-plain colored"></i><h4>MongoDB</h4><p>Flexible NoSQL database.</p></div>
+        <div class="stack-item"><i class="devicon-redis-plain colored"></i><h4>Redis</h4><p>In-memory data store for caching.</p></div>
+        <div class="stack-item"><i class="devicon-tensorflow-original colored"></i><h4>TensorFlow</h4><p>End-to-end machine learning platform.</p></div>
+        <div class="stack-item"><i class="devicon-pytorch-original colored"></i><h4>PyTorch</h4><p>Flexible deep learning framework.</p></div>
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,50,0.15);color:#10d67c;">AI</span><h4>OpenAI</h4><p>Advanced AI models & APIs.</p></div>
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(100,100,255,0.15);color:#8888ff;">AI</span><h4>Ollama</h4><p>Run large language models locally.</p></div>
+        <div class="stack-item"><span class="ai-badge" style="background:rgba(0,200,248,0.15);color:var(--teal);">AI</span><h4>LangChain</h4><p>Building applications with LLMs.</p></div>
+        <div class="stack-item"><i class="devicon-githubactions-plain colored"></i><h4>GitHub Actions</h4><p>Automate software workflows.</p></div>
+        <div class="stack-item"><i class="devicon-linux-plain colored"></i><h4>Linux</h4><p>Open-source operating system.</p></div>
+        <div class="stack-item"><i class="devicon-terraform-plain colored"></i><h4>Terraform</h4><p>Infrastructure as code.</p></div>
       </div>
+    </div>
     </div>
     <script>
       (function() {
