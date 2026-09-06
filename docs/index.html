@@ -1436,7 +1436,7 @@
       pointer-events:none;
     }
     /* ---- Stack Carousel ---- */
-    .carousel-wrap { margin-top:48px; position:relative; }
+    .carousel-wrap { margin-top:48px; position:relative; padding:0 50px; }
     .carousel-viewport { overflow:hidden; }
     .carousel-track {
       display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
@@ -1469,8 +1469,8 @@
       backdrop-filter:blur(8px);
     }
     .carousel-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-    .carousel-btn.prev { left:-22px; }
-    .carousel-btn.next { right:-22px; }
+    .carousel-btn.prev { left:0; }
+    .carousel-btn.next { right:0; }
     .carousel-dots { display:flex; justify-content:center; gap:8px; margin-top:24px; }
     .carousel-dot {
       width:8px; height:8px; border-radius:50%;
@@ -1480,6 +1480,25 @@
     .carousel-dot.active { background:var(--accent); transform:scale(1.3); }
     @keyframes stackScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
+    
+    @media (max-width: 768px) {
+      .carousel-wrap, .partners-carousel-wrap { padding: 0; }
+      .carousel-btn { display: none !important; }
+      .carousel-slide, .partners-slide {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 16px;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+      }
+      .stack-item, .partner-card {
+        min-width: 240px;
+        scroll-snap-align: center;
+        flex-shrink: 0;
+      }
+    }
     /* ---- Testimonials ---- */
     #testimonials { padding:110px 0; background:var(--bg-alt); }
     .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
@@ -1548,7 +1567,7 @@
 
     /* ---- Partners ---- */
     #partners { padding:110px 0; overflow:hidden; }
-    .partners-carousel-wrap { margin-top:48px; position:relative; }
+    .partners-carousel-wrap { margin-top:48px; position:relative; padding:0 50px; }
     .partners-viewport { overflow:hidden; }
     .partners-track { display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
     .partners-slide { min-width:100%; display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px; padding:8px 4px; }
@@ -4443,35 +4462,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     TERMINAL
-============================================================ -->
-<section id="terminal" aria-hidden="true" style="background:#020308;padding:70px 0;border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="reveal" style="max-width:680px;margin:0 auto">
-      <div style="background:#0a0e17;border:1px solid rgba(74,144,217,0.15);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6)">
-        <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;background:rgba(74,144,217,0.05);border-bottom:1px solid rgba(74,144,217,0.1)">
-          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></span>
-          <span style="width:10px;height:10px;border-radius:50%;background:#febb2e"></span>
-          <span style="width:10px;height:10px;border-radius:50%;background:#28c840"></span>
-          <span style="font-size:0.72rem;color:var(--muted);margin-left:12px;font-family:'Consolas','Courier New',monospace">terminal — kirov-dynamics — 80×24</span>
-        </div>
-        <div style="padding:20px 24px 28px;font-family:'Consolas','Courier New',monospace;font-size:0.82rem;line-height:1.8">
-          <div><span style="color:var(--muted)">#</span> <span style="color:#10d67c">npm install</span> kirov-dynamics</div>
-          <div style="color:var(--muted)"><span style="color:#f59e0b">⠋</span> Installing dependencies...</div>
-          <div id="term-lines">
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Loaded 42 modules</div>
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> AI engine initialized</div>
-            <div style="color:var(--muted)"><span style="color:#10d67c">✔</span> Cloud services connected</div>
-          </div>
-          <div id="term-cursor" style="margin-top:4px">
-            <span style="color:#10d67c">kirov@dynamics</span>:<span style="color:var(--accent)">~/platform</span><span style="color:#fff">$</span> <span id="term-typing" style="color:#fff"></span><span style="display:inline-block;width:8px;height:15px;background:var(--accent);animation:blink 0.8s step-end infinite;vertical-align:text-bottom;margin-left:2px"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============================================================
      FOOTER
