@@ -1207,14 +1207,14 @@
 
     .footer-bottom {
       border-top:1px solid var(--border); padding-top:26px;
-      display:flex; justify-content:space-between; align-items:center;
-      flex-wrap:wrap; gap:14px;
+      display:flex; flex-direction:column; align-items:center;
+      gap:16px; text-align:center;
     }
     .footer-bottom p { font-size:0.78rem; color:var(--muted); }
     .footer-bottom a { color:var(--accent); }
-    .footer-links { display:flex; gap:22px; }
-    .footer-links a { font-size:0.78rem; color:var(--muted); transition:var(--transition); }
-    .footer-links a:hover { color:var(--text); }
+    .footer-links { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+    .footer-links a { font-size:0.78rem; color:var(--muted); transition:var(--transition); text-decoration:underline; text-underline-offset:3px; }
+    .footer-links a:hover { color:var(--accent); }
 
     /* ============================================================
        SCROLL PROGRESS BAR
