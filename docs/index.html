@@ -190,6 +190,8 @@
     body.light .roadmap-year ul li { background: rgba(26,54,100,0.15); border-color: #2563eb; color: #ffffff; }
     body.light .testimonial-stars { filter: none; }
     body.light .stack-item { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
+    body.light .stack-item h4 { color: #ffffff; }
+    body.light .stack-item i { filter: brightness(0) invert(1); }
     body.light .partner-logo { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
     body.light .partner-logo i { filter: brightness(0) invert(1); }
     body.light .partner-logo span { color: #ffffff !important; }
@@ -1445,17 +1447,18 @@
       gap:20px; padding:8px 4px;
     }
     .stack-item {
-      background:rgba(13,22,37,0.7); border:1px solid rgba(74,144,217,0.12);
-      border-radius:16px; padding:24px 16px;
-      display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
-      transition:var(--transition);
-      backdrop-filter:blur(4px);
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:16px 22px;
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; font-size:0.88rem; white-space:nowrap;
+      transition:var(--transition); flex-shrink:0;
+      color:var(--text);
     }
-    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 30px rgba(74,144,217,0.15); transform:translateY(-4px); }
-    .stack-item i { font-size:2.6rem; }
-    .stack-item .ai-badge { display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; font-size:1.1rem; font-weight:700; }
-    .stack-item h4 { font-size:1rem; font-weight:700; margin:0; color:var(--text); }
-    .stack-item p { font-size:0.78rem; color:var(--muted); line-height:1.4; margin:0; }
+    .stack-item:hover { border-color:var(--accent); box-shadow:0 0 20px rgba(74,144,217,0.15); }
+    .stack-item i { font-size:1.8rem; flex-shrink:0; }
+    .stack-item .ai-badge { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:8px; font-size:0.85rem; font-weight:700; flex-shrink:0; }
+    .stack-item h4 { font-size:0.88rem; font-weight:700; margin:0; color:var(--text); white-space:nowrap; }
+    .stack-item p { display:none; }
     /* carousel nav */
     .carousel-btn {
       position:absolute; top:50%; transform:translateY(-50%);
