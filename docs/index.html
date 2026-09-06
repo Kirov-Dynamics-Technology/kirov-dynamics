@@ -1437,7 +1437,27 @@
     }
     /* ---- Stack Carousel ---- */
     .carousel-wrap { margin-top:48px; position:relative; padding:0 50px; }
-    .carousel-viewport { overflow:hidden; }
+    .carousel-viewport {
+      overflow:hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 0;
+      background: rgba(13,22,37,0.45);
+      backdrop-filter: blur(6px);
+    }
+    .partners-viewport {
+      overflow:hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 0;
+      background: rgba(13,22,37,0.45);
+      backdrop-filter: blur(6px);
+    }
+    body.light .carousel-viewport,
+    body.light .partners-viewport {
+      background: rgba(255,255,255,0.7);
+      border-color: rgba(37,99,235,0.2);
+    }
     .carousel-track {
       display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
     }
@@ -1581,7 +1601,7 @@
     /* ---- Partners ---- */
     #partners { padding:110px 0; overflow:hidden; }
     .partners-carousel-wrap { margin-top:48px; position:relative; padding:0 50px; }
-    .partners-viewport { overflow:hidden; }
+    /* partners-viewport styled above with border */
     .partners-track { display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
     .partners-slide { min-width:100%; display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px; padding:8px 4px; }
     .partner-logo {
