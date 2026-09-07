@@ -150,7 +150,20 @@
     }
     body.light .trusted-card p, body.light .expertise-card p { color: #94a3b8 !important; }
 
-    body.light .section-title { color: #0f172a; }
+    body.light .section-title { 
+      -webkit-text-fill-color: #0f172a !important; 
+      color: #0f172a !important; 
+      background: none !important; 
+    }
+    body.light .section-tag { 
+      color: #1e40af !important; 
+      background: rgba(37,99,235,0.1) !important; 
+      border-color: rgba(30,64,175,0.2) !important; 
+    }
+    body.light .section-tag::before {
+      background: #1e40af; box-shadow: 0 0 6px rgba(30,64,175,0.4);
+    }
+
     body.light .section-sub { color: #475569; }
     
     /* Footer */
