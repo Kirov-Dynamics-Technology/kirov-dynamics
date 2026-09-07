@@ -194,6 +194,34 @@
     body.light .roadmap-year ul li { color: #ffffff !important; background: rgba(255,255,255,0.07) !important; border-color: rgba(255,255,255,0.12) !important; }
     body.light .roadmap-year ul li::before { background: #60a5fa !important; }
 
+
+    /* ======== BATCH LIGHT MODE FIXES ======== */
+
+    /* icon-tile boxes → white background with blue border (like the GitHub icon in screenshot) */
+    body.light .icon-tile {
+      background: #ffffff !important;
+      border: 1px solid rgba(37,99,235,0.2) !important;
+      color: #1a3664 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    }
+    body.light .icon-tile::after { background: none !important; }
+    body.light .icon-tile i, body.light .icon-tile svg { color: #1a3664 !important; stroke: #1a3664 !important; }
+
+    /* Journey steps → white text */
+    body.light .journey-step h4 { color: #ffffff !important; }
+    body.light .journey-step { color: #ffffff !important; }
+    body.light .journey-arrow { color: #60a5fa !important; }
+    body.light .j-icon { color: #ffffff !important; }
+
+    /* Contact form heading → white */
+    body.light .contact-form h3 { color: #ffffff !important; }
+    body.light .contact-form label { color: #94a3b8 !important; }
+
+    /* Career cards → white text */
+    body.light .career-card h4 { color: #ffffff !important; }
+    body.light .career-card p { color: #94a3b8 !important; }
+    body.light .career-card h3 { color: #ffffff !important; }
+
     /* ============================================================
        RESET & BASE
     ============================================================ */
