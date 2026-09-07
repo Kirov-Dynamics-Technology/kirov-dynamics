@@ -367,6 +367,26 @@
       overflow-wrap: normal;
     }
 
+    
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-left: 16px;
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:var(--transition); }
     .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
@@ -382,7 +402,27 @@
       .nav-links { display: none !important; }
       .theme-toggle { margin-right: 12px; } /* Give space between toggle and hamburger */
       .nav-cta-btn { display: none !important; } /* Hide CTA on mobile navbar to save space */
-      .hamburger { display: flex; }
+      
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-left: 16px;
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
+    .hamburger { display: flex; }
       .nav-inner { padding: 0 20px; }
     }
 
@@ -1778,6 +1818,26 @@
     .logo-text-sub::before, .logo-text-sub::after { max-width: 12px !important; }
     .logo-container { gap: 10px !important; }
     .nav-cta-btn { display: none !important; }
+    
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-left: 16px;
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
     .hamburger { display: flex !important; }
     .nav-links { display: none !important; }
   }
@@ -4040,19 +4100,19 @@
     <!-- Trust stats bar -->
     <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:56px;text-align:center;">
       <div>
-        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">50+</div>
+        <div class="stat-counter" data-target="50" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Projects Delivered</div>
       </div>
       <div>
-        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">20+</div>
+        <div class="stat-counter" data-target="20" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Clients Served</div>
       </div>
       <div>
-        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">98%</div>
+        <div class="stat-counter" data-target="98" data-suffix="%" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Client Satisfaction</div>
       </div>
       <div>
-        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">8</div>
+        <div class="stat-counter" data-target="8" data-suffix="" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Industries Served</div>
       </div>
     </div>
