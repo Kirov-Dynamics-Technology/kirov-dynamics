@@ -197,6 +197,33 @@
 
     /* ======== BATCH LIGHT MODE FIXES ======== */
 
+    /* ======== NEW BATCH FIXES ======== */
+
+    /* Force footer logo to not be blurry */
+    body.light .footer-brand .nav-logo-title {
+      -webkit-text-fill-color: #0f172a !important;
+      color: #0f172a !important;
+      background: none !important;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+    body.light .footer-brand .nav-logo-subtitle {
+      -webkit-text-fill-color: #1e40af !important;
+      color: #1e40af !important;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+
+    /* Force "Trusted By" industry card icons to be white in light mode */
+    body.light .trusted-icon-box {
+      color: #ffffff !important;
+    }
+    body.light .trusted-icon-box i, body.light .trusted-icon-box svg {
+      color: #ffffff !important;
+      stroke: #ffffff !important;
+    }
+
+
     /* Social Buttons — white in light mode */
     body.light .soc-btn {
       background: #ffffff !important;
