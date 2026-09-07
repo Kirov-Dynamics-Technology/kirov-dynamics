@@ -4064,6 +4064,21 @@
 <!-- ============================================================
      TRUSTED BY
 ============================================================ -->
+
+<style>
+  .trusted-grid-8 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 992px) {
+    .trusted-grid-8 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .trusted-grid-8 { grid-template-columns: 1fr; }
+  }
+</style>
 <section id="trusted-by" aria-labelledby="trusted-title" style="padding:80px 0; background:var(--bg-alt);">
   <div class="container">
     <div class="reveal text-center">
@@ -4074,7 +4089,7 @@
         Organisations and individuals across sectors rely on Kirov Dynamics to build, scale, and secure their digital future.
       </p>
     </div>
-    <div class="trusted-grid reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px;">
+    <div class="trusted-grid-8 reveal">
       <div class="trusted-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:12px;transition:var(--transition);">
         <div class="trusted-icon-box" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:16px;margin-bottom:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:var(--text);"><i data-lucide="building-2" style="width:28px;height:28px;"></i></div>
         <h4 style="font-size:1rem;font-weight:800;color:var(--text);margin:0;">Small &amp; Medium Enterprises</h4>
@@ -4130,7 +4145,7 @@
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Client Satisfaction</div>
       </div>
       <div>
-        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">7</div>
+        <div style="font-size:2.2rem;font-weight:900;color:var(--accent);">8</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Industries Served</div>
       </div>
     </div>
