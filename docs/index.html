@@ -197,6 +197,17 @@
 
     /* ======== BATCH LIGHT MODE FIXES ======== */
 
+    /* Social Buttons — white in light mode */
+    body.light .soc-btn {
+      background: #ffffff !important;
+      border: 1px solid rgba(37,99,235,0.2) !important;
+      color: #1a3664 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    }
+    body.light .soc-btn svg, body.light .soc-btn i { color: #1a3664 !important; stroke: #1a3664 !important; fill: #1a3664 !important; }
+    body.light .soc-btn:hover { border-color: #2563eb !important; }
+
+
     /* icon-tile boxes → white background with blue border (like the GitHub icon in screenshot) */
     body.light .icon-tile {
       background: #ffffff !important;
@@ -4151,19 +4162,19 @@
     <!-- Trust stats bar -->
     <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:56px;text-align:center;">
       <div>
-        <div class="stat-counter" data-target="50" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
+        <div class="stat-counter" data-target="50" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">50+</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Projects Delivered</div>
       </div>
       <div>
-        <div class="stat-counter" data-target="20" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
+        <div class="stat-counter" data-target="20" data-suffix="+" style="font-size:2.2rem;font-weight:900;color:var(--accent);">20+</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Clients Served</div>
       </div>
       <div>
-        <div class="stat-counter" data-target="98" data-suffix="%" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
+        <div class="stat-counter" data-target="98" data-suffix="%" style="font-size:2.2rem;font-weight:900;color:var(--accent);">98%</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Client Satisfaction</div>
       </div>
       <div>
-        <div class="stat-counter" data-target="8" data-suffix="" style="font-size:2.2rem;font-weight:900;color:var(--accent);">0</div>
+        <div class="stat-counter" data-target="8" data-suffix="" style="font-size:2.2rem;font-weight:900;color:var(--accent);">8</div>
         <div style="color:var(--muted);font-size:0.85rem;font-weight:600;">Industries Served</div>
       </div>
     </div>
