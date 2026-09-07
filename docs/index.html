@@ -100,171 +100,64 @@
     }
     body.light {
       --bg:          #ffffff;
-      --bg-card:     #ffffff;
-      --bg-alt:      #ffffff;
-      --primary:     #1a3664;
-      --accent:      #2563eb;
-      --accent-lite: #3b82f6;
-      --teal:        #0891b2;
-      --green:       #059669;
-      --gold:        #d97706;
-      --text:        #1e293b;
-      --muted:       #64748b;
-      --border:      rgba(37,99,235,0.12);
-      --glass:       rgba(255,255,255,0.92);
-      --shadow:      0 8px 40px rgba(0,0,0,0.08);
-      --glow:        0 0 40px rgba(37,99,235,0.1);
+      --bg-alt:      #f5f7fa;
+      --text:        #0f172a;
+      --muted:       #475569;
+      --border:      rgba(37,99,235,0.2);
+      /* Make cards slightly more opaque dark blue to contrast against white background */
+      --bg-card:     rgba(13,22,37,0.95);
     }
-    body.light #navbar { background: rgba(255,255,255,0.95); border-bottom-color: rgba(37,99,235,0.10); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-    body.light #navbar.scrolled { background: rgba(255,255,255,0.97); }
-    body.light .nav-links a { color: #475569; text-shadow: none; }
-    body.light .nav-links a:hover { color: #1e293b; }
-    body.light .logo-text-main { color: #0f172a; text-shadow: none; font-weight: 900; }
-    body.light .logo-text-main span { color: #2563eb; }
-    body.light .logo-text-sub { color: #1e40af; text-shadow: none; letter-spacing: 0.25em; }
-    body.light .css-globe .ring { border-color: var(--accent); box-shadow: 0 0 6px rgba(37,99,235,0.2); }
-    body.light .css-globe .ring-equator { border-color: var(--teal); box-shadow: 0 0 6px rgba(8,145,178,0.2); }
-    body.light .css-globe .core { box-shadow: 0 0 8px var(--teal); }
-    body.light .hero { background-color: #ffffff !important; }
-    body.light .hero-slide { filter: brightness(1.2) saturate(0.8); }
-    body.light .hero::before { background: transparent; }
-    body.light .hero-content { }
-    body.light .hero-title .line1 { color: #0f172a; text-shadow: none; }
-    body.light .hero-sub { color: #1e293b; text-shadow: none; font-weight: 500; }
-    body.light .hero-badge { background: transparent; border: none; color: #ffffff; font-weight: 600; text-shadow: none; }
-    body.light .hero-btns .btn { color: #fff; border: none; background: rgba(0,0,0,0.82); box-shadow: none; text-shadow: none; }
-    body.light .hero-btns .btn-primary { background: linear-gradient(135deg, #1a3664, #2563eb); color: #fff; border-color: transparent; box-shadow: none; }
-    body.light .stat-item { background: rgba(0,0,0,0.82); border: none; }
-    body.light .stat-item .stat-label { color: #ffffff !important; text-shadow: none !important; }
-    body.light .stat-item .stat-num { color: #ffffff !important; text-shadow: none !important; }
-    body.light .cipc-badge i { color: #ffffff !important; }
-    body.light .cipc-badge span { color: #ffffff !important; }
-    body.light .section-title { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    body.light .section-sub { color: #1e40af; font-weight: 500; }
-    body.light .section-tag { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.15); color: var(--accent); }
+    
+    /* KEEP HERO EXACTLY LIKE DARK MODE */
+    body.light .hero { 
+      background-color: #03050a !important; 
+      color: #f1f5f9 !important;
+    }
+    body.light .hero .hero-title .line1, 
+    body.light .hero .hero-sub,
+    body.light .hero p { color: #f1f5f9 !important; }
+    
+    /* NAVBAR IN LIGHT MODE */
+    body.light #navbar { background: rgba(255,255,255,0.95); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    body.light .nav-links a { color: #475569; }
+    body.light .nav-links a:hover { color: #0f172a; }
+    body.light .logo-text-main { color: #0f172a; }
+    body.light .logo-text-sub { color: #1e40af; }
+    body.light .hamburger span { background: #0f172a; }
+    
+    /* FORCE ALL CARDS AND UI ELEMENTS TO HAVE WHITE TEXT (Since they use dark backgrounds) */
     body.light .why-card, body.light .division-card, body.light .product-card,
     body.light .project-card, body.light .testimonial-card, body.light .insight-card,
     body.light .career-card, body.light .resource-card, body.light .security-item,
     body.light .roadmap-year, body.light .leader-card, body.light .process-step,
-    body.light .journey-step, body.light .map-country, body.light .industry-tile {
-      background: #1a3664; border: 2px solid #2563eb; color: #ffffff;
+    body.light .journey-step, body.light .map-country, body.light .industry-tile,
+    body.light .stack-item, body.light .partner-logo, body.light .trusted-card,
+    body.light .carousel-viewport, body.light .partners-viewport, body.light .expertise-card,
+    body.light .consult-card, body.light .consult-option, body.light .engine-card {
+       color: #f1f5f9 !important;
     }
-    body.light .why-card h4, body.light .division-card h3, body.light .product-card h3,
-    body.light .project-body h4, body.light .testimonial-card blockquote,
-    body.light .insight-body h4, body.light .career-card h4, body.light .resource-card h4,
-    body.light .security-item h4, body.light .roadmap-year h3, body.light .leader-card h4 {
-      color: #ffffff;
+    body.light .why-card h3, body.light .why-card h4, body.light .why-card p,
+    body.light .division-card h3, body.light .division-card p,
+    body.light .product-card h3, body.light .product-card p,
+    body.light .project-card h3, body.light .project-card h4, body.light .project-card p,
+    body.light .testimonial-card blockquote, body.light .testimonial-card h4,
+    body.light .trusted-card h4, body.light .trusted-card p,
+    body.light .stack-item h4, body.light .stack-item p,
+    body.light .partner-logo span,
+    body.light .expertise-card h4, body.light .expertise-card p,
+    body.light .engine-card h3, body.light .engine-card h4, body.light .engine-card p, body.light .engine-card span {
+       color: #f1f5f9 !important;
     }
-    body.light .why-card p, body.light .division-card p, body.light .product-card p,
-    body.light .project-body p, body.light .insight-body p, body.light .career-card p,
-    body.light .resource-card p, body.light .leader-card p {
-      color: #c7d2de;
-    }
-    body.light .division-card-body { background: linear-gradient(135deg,rgba(26,54,100,0.95),rgba(15,29,54,0.9)); }
-    body.light .service-info h3 { color: #1e293b; }
-    body.light .service-info > p { color: #64748b; }
-    body.light .service-list li { background: #1a3664; border-color: transparent; color: #ffffff; }
-    body.light .tab-btn { background: #1a3664; border-color: #2563eb; color: #c7d2de; }
-    body.light .tab-btn.active, body.light .tab-btn:hover { color: #ffffff; }
-    body.light .contact-form { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .contact-form h3 { color: #ffffff; }
-    body.light .form-group input, body.light .form-group textarea, body.light .form-group select {
-      background: #0f1d36; border-color: #2563eb; color: #ffffff;
-    }
-    body.light footer { background: #ffffff !important; border-top-color: rgba(37,99,235,0.10); }
+    body.light .trusted-card p, body.light .expertise-card p { color: #94a3b8 !important; }
+
+    body.light .section-title { color: #0f172a; }
+    body.light .section-sub { color: #475569; }
+    
+    /* Footer */
+    body.light footer { background: #ffffff !important; border-top: 1px solid var(--border); }
     body.light .footer-brand p, body.light .footer-col ul a, body.light .footer-bottom p, body.light .footer-links a { color: #475569; }
-    body.light .footer-brand .nav-logo-title { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    body.light .footer-brand .nav-logo-subtitle { color: var(--accent); }
+    body.light .footer-brand .nav-logo-title { color: #0f172a; }
     body.light .footer-col h4 { color: #0f172a; }
-    body.light .footer-cta { background: rgba(37,99,235,0.06) !important; border-color: rgba(37,99,235,0.15) !important; }
-    body.light .footer-cta h3 { color: #0f172a !important; }
-    body.light .footer-cta p { color: #475569 !important; }
-    body.light .footer-cta input { background: #fff; border-color: rgba(0,0,0,0.12); color: #1e293b; }
-    body.light .consult-card { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .consult-card h3 { color: #ffffff; }
-    body.light .consult-card p { color: #c7d2de; }
-    body.light .consult-option { background: #1a3664; border: 2px solid #2563eb; }
-    body.light .consult-option span { color: #ffffff; }
-    body.light .consult-option .co-icon { background: #0f172a; color: #ffffff; box-shadow: none; border: none; }
-    body.light .consult-option .co-icon::after { display: none; }
-    body.light .roadmap-year ul li { background: rgba(26,54,100,0.15); border-color: #2563eb; color: #ffffff; }
-    body.light .testimonial-stars { filter: none; }
-    body.light .stack-item { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .stack-item h4 { color: #ffffff; }
-    body.light .stack-item i { filter: brightness(0) invert(1); }
-    body.light .partner-logo { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .partner-logo i { filter: brightness(0) invert(1); }
-    body.light .partner-logo span { color: #ffffff !important; }
-
-    body.light .trusted-icon-box { background: rgba(0,0,0,0.03) !important; border-color: rgba(0,0,0,0.1) !important; color: var(--text) !important; }
-
-    body.light .cert-item { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .cert-item i { filter: brightness(0) invert(1); }
-    body.light .cert-item span { color: #ffffff !important; }
-    body.light .hero-gradient-mesh { display: none; }
-    body.light #chatbot-container .chatbot-header { background: #1a3664; }
-    body.light .chatbot-messages { background: #f5f7fa; }
-    body.light .chatbot-option-btn { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light #chatbot-input { background: #fff; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light .hc-opt { background: #fff; border-color: rgba(37,99,235,0.12); color: #475569; }
-    body.light .hc-opt:hover, body.light .hc-opt:has(input:checked) { border-color: var(--accent); color: #1e293b; }
-    body.light .hamburger span { background: #1e293b; }
-    body.light .mobile-menu { background: #ffffff; }
-    body.light .mobile-menu a { color: #1e293b; }
-    body.light .profile-modal { background: #ffffff; }
-    body.light .profile-modal h3 { color: #0f172a; }
-    body.light .profile-modal p { color: #475569; }
-    body.light .profile-modal .form-group input,
-    body.light .profile-modal .form-group select { background: #f5f7fa; border-color: rgba(37,99,235,0.12); color: #1e293b; }
-    body.light .wa-popup { background: #ffffff; border-color: rgba(37,99,235,0.12); }
-    body.light .wa-popup-header { background: #2563eb; }
-    body.light .wa-popup .msg { background: #f1f5f9; border-color: rgba(37,99,235,0.10); color: #1e293b; }
-    body.light .wa-popup .quick-btns a { background: rgba(37,149,235,0.06); border-color: rgba(37,149,235,0.15); color: #059669; }
-    body.light .about-stat-box { background: rgba(255,255,255,0.9); border-color: rgba(37,99,235,0.12); }
-    body.light .about-stat-box .num { color: var(--accent); }
-    body.light .about-stat-box .lbl { color: #475569; }
-    body.light .expertise-card { background: #1a3664; border: 2px solid #2563eb; color: #ffffff; }
-    body.light .expertise-card h4 { color: #ffffff; }
-    body.light .expertise-card p { color: #c7d2de; }
-    body.light .engine-card { background: #1a3664 !important; border: 2px solid #2563eb !important; color: #ffffff; }
-    body.light .engine-card h3, body.light .engine-card h4 { color: #ffffff !important; }
-    body.light .engine-card p { color: #ffffff !important; }
-    body.light .engine-card span { color: #ffffff !important; }
-    body.light [style*="background:var(--bg-card)"] { background: #1a3664 !important; border-color: #2563eb !important; }
-    body.light [style*="background:var(--bg-card)"] h3 { color: #ffffff !important; }
-    body.light [style*="background:var(--bg-card)"] p { color: #ffffff !important; }
-    body.light [style*="background:var(--bg-card)"] span { color: #ffffff !important; }
-    body.light #roi-employees, body.light #roi-hours, body.light #roi-rate, body.light #roi-pct {
-      background: #ffffff !important; color: #000000 !important; border-color: #2563eb !important;
-    }
-    body.light #roi-result { background: linear-gradient(135deg,rgba(26,54,100,0.1),rgba(37,99,235,0.05)) !important; border-color: #2563eb !important; }
-    body.light #roi-result div { color: #000000 !important; }
-    body.light #roi-result div div { color: #1a3664 !important; }
-    body.light #roi-result div span { color: #1a3664 !important; }
-
-    /* Cash-flow section: white text → blue in light mode */
-    body.light [style*="color:#fff"] { color: #ffffff !important; }
-    body.light [style*="color: #fff"] { color: #ffffff !important; }
-    body.light .expertise-card h4 { color: #0f172a; }
-    body.light .expertise-card p { color: #475569; }
-    body.light .btn-outline { background: #2563eb !important; color: #ffffff !important; border-color: #2563eb !important; }
-    body.light .process-step { background: #1a3664 !important; border: 2px solid #2563eb !important; color: #ffffff !important; }
-    body.light .process-step h4, body.light .process-step p, body.light .process-step span { color: #ffffff !important; }
-    body.light #metrics { background: #ffffff !important; }
-    body.light #metrics .metric-val { color: #0f172a; }
-    body.light #metrics .metric-label { color: #475569; }
-                
-    /* Theme toggle button */
-    .theme-toggle {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease; flex-shrink: 0; font-size: 1.1rem;
-    }
-    .theme-toggle:hover { background: rgba(255,255,255,0.15); transform: scale(1.08); }
-    body.light .theme-toggle { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); color: #1e293b; }
-    body.light .theme-toggle:hover { background: rgba(0,0,0,0.1); }
-
     /* ============================================================
        RESET & BASE
     ============================================================ */
