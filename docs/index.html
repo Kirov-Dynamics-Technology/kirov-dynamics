@@ -104,11 +104,10 @@
     body.light {
       --bg:          #ffffff;
       --bg-alt:      #ffffff;
+      --bg-card:     #ffffff;
       --text:        #0f172a;
       --muted:       #475569;
-      --border:      rgba(37,99,235,0.2);
-      /* Make cards slightly more opaque dark blue to contrast against white background */
-      --bg-card:     rgba(13,22,37,0.95);
+      --border:      rgba(37,99,235,0.15);
     }
     
     /* KEEP HERO EXACTLY LIKE DARK MODE */
@@ -128,30 +127,71 @@
     body.light .logo-text-sub { color: #1e40af; }
     body.light .hamburger span { background: #0f172a; }
     
-    /* FORCE ALL CARDS AND UI ELEMENTS TO HAVE WHITE TEXT (Since they use dark backgrounds) */
+    /* =========  ALL LIGHT MODE CARDS → WHITE BACKGROUND + DARK TEXT  ========= */
     body.light .why-card, body.light .division-card, body.light .product-card,
     body.light .project-card, body.light .testimonial-card, body.light .insight-card,
-    body.light .career-card, body.light .resource-card, body.light .security-item,
-    body.light .roadmap-year, body.light .leader-card, body.light .process-step,
+    body.light .career-card, body.light .security-item,
+    body.light .leader-card, body.light .process-step,
     body.light .journey-step, body.light .map-country, body.light .industry-tile,
-    body.light .stack-item, body.light .partner-logo, body.light .trusted-card,
-    body.light .carousel-viewport, body.light .partners-viewport, body.light .expertise-card,
-    body.light .consult-card, body.light .consult-option, body.light .engine-card {
-       color: #f1f5f9 !important;
+    body.light .trusted-card, body.light .expertise-card,
+    body.light .consult-card, body.light .engine-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(37,99,235,0.12) !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+      color: #0f172a !important;
     }
+
+    /* Dark text on headings / body for all light cards */
     body.light .why-card h3, body.light .why-card h4, body.light .why-card p,
-    body.light .division-card h3, body.light .division-card p,
-    body.light .product-card h3, body.light .product-card p,
+    body.light .division-card h3, body.light .division-card h4, body.light .division-card p,
+    body.light .product-card h3, body.light .product-card h4, body.light .product-card p,
     body.light .project-card h3, body.light .project-card h4, body.light .project-card p,
-    body.light .testimonial-card blockquote, body.light .testimonial-card h4,
-    body.light .trusted-card h4, body.light .trusted-card p,
-    body.light .stack-item h4, body.light .stack-item p,
-    body.light .partner-logo span,
-    body.light .expertise-card h4, body.light .expertise-card p,
-    body.light .engine-card h3, body.light .engine-card h4, body.light .engine-card p, body.light .engine-card span {
-       color: #f1f5f9 !important;
+    body.light .testimonial-card blockquote, body.light .testimonial-card h4, body.light .testimonial-card p,
+    body.light .trusted-card h4,
+    body.light .stack-item h4,
+    body.light .expertise-card h4,
+    body.light .engine-card h3, body.light .engine-card h4, body.light .engine-card p, body.light .engine-card span,
+    body.light .leader-card h4, body.light .leader-card p, body.light .leader-card span,
+    body.light .career-card h3, body.light .career-card h4, body.light .career-card p,
+    body.light .process-step h4, body.light .process-step p,
+    body.light .journey-step h4, body.light .journey-step p {
+      color: #0f172a !important;
     }
-    body.light .trusted-card p, body.light .expertise-card p { color: #94a3b8 !important; }
+
+    /* Muted text for descriptions */
+    body.light .why-card p, body.light .division-card p, body.light .product-card p,
+    body.light .project-card p, body.light .testimonial-card blockquote,
+    body.light .trusted-card p, body.light .expertise-card p, body.light .engine-card p,
+    body.light .leader-card p, body.light .career-card p, body.light .process-step p,
+    body.light .journey-step p {
+      color: #475569 !important;
+    }
+
+    /* Carousel wrappers */
+    body.light .carousel-viewport, body.light .partners-viewport {
+      background: #f8fafc !important;
+      border: 1px solid rgba(37,99,235,0.12) !important;
+    }
+
+    /* Stack + Partner items */
+    body.light .stack-item, body.light .partner-logo {
+      background: #ffffff !important;
+      border: 1px solid rgba(37,99,235,0.1) !important;
+    }
+    body.light .stack-item h4, body.light .stack-item p, body.light .partner-logo span {
+      color: #0f172a !important;
+    }
+
+    /* Consult options */
+    body.light .consult-option {
+      background: #ffffff !important;
+      border: 1px solid rgba(37,99,235,0.2) !important;
+    }
+
+    /* Resource cards stay dark (they have dark image backgrounds) */
+    body.light .resource-card {
+      background: var(--bg-card) !important;
+    }
 
     body.light .section-title { 
       -webkit-text-fill-color: #0f172a !important; 
@@ -182,20 +222,20 @@
     /* Calendly / Google Meet / Microsoft Teams — black text in light mode */
     body.light .consult-option { background: #ffffff !important; border: 1px solid rgba(37,99,235,0.25) !important; }
     body.light .consult-option span:last-child { color: #0f172a !important; font-weight: 600; }
-    body.light .consult-card h3 { color: #ffffff !important; }
-    body.light .consult-card p { color: #94a3b8 !important; }
+    body.light .consult-card h3 { color: #0f172a !important; }
+    body.light .consult-card p { color: #475569 !important; }
 
-    /* Resource cards — white text in light mode */
-    body.light .resource-card { color: #ffffff !important; }
+    /* Resource cards — keep dark background since they have image overlays */
+    body.light .resource-card { background: #0d1625 !important; color: #ffffff !important; }
     body.light .resource-card h4 { color: #ffffff !important; }
     body.light .resource-card p { color: #94a3b8 !important; }
     body.light .resource-card a { color: #60a5fa !important; }
     body.light .resource-card a:hover { color: #ffffff !important; }
 
     /* Roadmap — white text on dark cards in light mode */
-    body.light .roadmap-year h3 { color: #60a5fa !important; }
-    body.light .roadmap-year ul li { color: #ffffff !important; background: rgba(255,255,255,0.07) !important; border-color: rgba(255,255,255,0.12) !important; }
-    body.light .roadmap-year ul li::before { background: #60a5fa !important; }
+    body.light .roadmap-year h3 { color: #1e40af !important; }
+    body.light .roadmap-year ul li { color: #0f172a !important; background: rgba(37,99,235,0.06) !important; border-color: rgba(37,99,235,0.15) !important; }
+    body.light .roadmap-year ul li::before { background: #2563eb !important; }
 
 
     /* ======== BATCH LIGHT MODE FIXES ======== */
@@ -228,11 +268,13 @@
 
     /* Force "Trusted By" industry card icons to be white in light mode */
     body.light .trusted-icon-box {
-      color: #ffffff !important;
+      background: rgba(37,99,235,0.08) !important;
+      border: 1px solid rgba(37,99,235,0.2) !important;
+      color: #2563eb !important;
     }
     body.light .trusted-icon-box i, body.light .trusted-icon-box svg {
-      color: #ffffff !important;
-      stroke: #ffffff !important;
+      color: #2563eb !important;
+      stroke: #2563eb !important;
     }
 
 
@@ -249,28 +291,28 @@
 
     /* icon-tile boxes → white background with blue border (like the GitHub icon in screenshot) */
     body.light .icon-tile {
-      background: #ffffff !important;
+      background: rgba(37,99,235,0.08) !important;
       border: 1px solid rgba(37,99,235,0.2) !important;
-      color: #1a3664 !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+      color: #2563eb !important;
+      box-shadow: none !important;
     }
     body.light .icon-tile::after { background: none !important; }
-    body.light .icon-tile i, body.light .icon-tile svg { color: #1a3664 !important; stroke: #1a3664 !important; }
+    body.light .icon-tile i, body.light .icon-tile svg { color: #2563eb !important; stroke: #2563eb !important; }
 
     /* Journey steps → white text */
-    body.light .journey-step h4 { color: #ffffff !important; }
-    body.light .journey-step { color: #ffffff !important; }
-    body.light .journey-arrow { color: #60a5fa !important; }
-    body.light .j-icon { color: #ffffff !important; }
+    body.light .journey-step h4 { color: #0f172a !important; }
+    body.light .journey-step { color: #0f172a !important; }
+    body.light .journey-arrow { color: #2563eb !important; }
+    body.light .j-icon { color: #2563eb !important; }
 
     /* Contact form heading → white */
-    body.light .contact-form h3 { color: #ffffff !important; }
-    body.light .contact-form label { color: #94a3b8 !important; }
+    body.light .contact-form h3 { color: #0f172a !important; }
+    body.light .contact-form label { color: #475569 !important; }
 
     /* Career cards → white text */
-    body.light .career-card h4 { color: #ffffff !important; }
-    body.light .career-card p { color: #94a3b8 !important; }
-    body.light .career-card h3 { color: #ffffff !important; }
+    body.light .career-card h4 { color: #0f172a !important; }
+    body.light .career-card p { color: #475569 !important; }
+    body.light .career-card h3 { color: #0f172a !important; }
 
     /* Force ALL sections white in light mode */
     body.light section { background: #ffffff !important; }
