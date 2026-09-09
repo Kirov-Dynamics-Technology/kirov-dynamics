@@ -4,10 +4,13 @@
   <script>
     (function(){
       var t = localStorage.getItem('kirov-theme');
-      if (t === 'light') document.documentElement.classList.add('light');
+      if (t === 'light') {
+        document.documentElement.classList.add('light');
+        window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light'); });
+      }
     })();
   </script>
-  <style>html.light body{background:#f5f7fa!important}</style>
+  <style>html.light body, body.light { background: #ffffff !important; }</style>
 
   <meta charset="UTF-8">
   <!-- JSON-LD Structured Data for SEO -->
@@ -100,7 +103,7 @@
     }
     body.light {
       --bg:          #ffffff;
-      --bg-alt:      #f5f7fa;
+      --bg-alt:      #ffffff;
       --text:        #0f172a;
       --muted:       #475569;
       --border:      rgba(37,99,235,0.2);
@@ -268,6 +271,10 @@
     body.light .career-card h4 { color: #ffffff !important; }
     body.light .career-card p { color: #94a3b8 !important; }
     body.light .career-card h3 { color: #ffffff !important; }
+
+    /* Force ALL sections white in light mode */
+    body.light section { background: #ffffff !important; }
+    body.light { background: #ffffff !important; }
 
     /* ============================================================
        RESET & BASE
@@ -4043,11 +4050,11 @@
           <div class="partner-logo"><span style="font-weight:700;color:#fff">&#9650;</span>Vercel</div>
           <div class="partner-logo"><span style="font-weight:700;color:#f6821f">&#9729;&#65039;</span>Cloudflare</div>
           <div class="partner-logo"><span style="font-weight:700;color:#7952b3">&#11044;</span>Netlify</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127470;&#127462;</span>CIPC</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127963;&#65039;</span>SARS</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127970;</span>DTIC</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128225;</span>SITA</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127760;</span>ICASA</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128203;</span>CIPC</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128176;</span>SARS</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127981;</span>DTIC</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128187;</span>SITA</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128246;</span>ICASA</div>
           <!-- belt clone -->
           <div class="partner-logo"><i class="devicon-microsoft-plain colored"></i>Microsoft</div>
           <div class="partner-logo"><i class="devicon-googlecloud-plain colored"></i>Google Cloud</div>
@@ -4072,11 +4079,11 @@
           <div class="partner-logo"><span style="font-weight:700;color:#fff">&#9650;</span>Vercel</div>
           <div class="partner-logo"><span style="font-weight:700;color:#f6821f">&#9729;&#65039;</span>Cloudflare</div>
           <div class="partner-logo"><span style="font-weight:700;color:#7952b3">&#11044;</span>Netlify</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127470;&#127462;</span>CIPC</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127963;&#65039;</span>SARS</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127970;</span>DTIC</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128225;</span>SITA</div>
-          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127760;</span>ICASA</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128203;</span>CIPC</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128176;</span>SARS</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#127981;</span>DTIC</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128187;</span>SITA</div>
+          <div class="partner-logo"><span style="font-weight:700;color:#007A4D">&#128246;</span>ICASA</div>
         </div>
       </div>
     </div>
@@ -4722,10 +4729,10 @@
     <div class="footer-bottom">
       <p>&copy; 2025–2026 Kirov Dynamics Technology. All rights reserved. Built for Africa.</p>
       <div class="footer-links" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 10px;">
-        <a href="https://kirov-dynamics-technology.github.io/kirov-dynamics/#">Privacy Policy &amp; Data Disclosure</a>
-        <a href="https://kirov-dynamics-technology.github.io/kirov-dynamics/#">Terms of Use</a>
-        <a href="https://kirov-dynamics-technology.github.io/kirov-dynamics/#">Data &amp; Compliance</a>
-        <a href="https://kirov-dynamics-technology.github.io/kirov-dynamics/#">IP Infringement</a>
+        <a href="privacy.html">Privacy Policy &amp; Data Disclosure</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="compliance.html">Data &amp; Compliance</a>
+        <a href="ip.html">IP Infringement</a>
       </div>
     </div>
   </div>
@@ -5065,8 +5072,9 @@
   var body = document.body;
   function switchTheme() {
     body.classList.toggle('light');
+    document.documentElement.classList.toggle('light');
     var isLight = body.classList.contains('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    localStorage.setItem('kirov-theme', isLight ? 'light' : 'dark');
     var suns = document.querySelectorAll('.icon-sun');
     var moons = document.querySelectorAll('.icon-moon');
     suns.forEach(s => s.style.display = isLight ? 'block' : 'none');
