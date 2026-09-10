@@ -6,11 +6,27 @@
       var t = localStorage.getItem('kirov-theme');
       if (t === 'light') {
         document.documentElement.classList.add('light');
-        window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light'); });
+        // Apply immediately to <html> so CSS vars resolve correctly before body paints
       }
     })();
   </script>
-  <style>html.light body, body.light { background: #ffffff !important; }</style>
+  <style>
+    /* Apply light CSS variables to html.light so sections resolve var(--bg-alt) correctly
+       even before <body> is parsed. This eliminates grey flash and mobile grey sections. */
+    html.light, html.light body {
+      --bg:       #ffffff !important;
+      --bg-alt:   #ffffff !important;
+      --bg-card:  #ffffff !important;
+      --text:     #0f172a !important;
+      --muted:    #475569 !important;
+      --border:   rgba(37,99,235,0.15) !important;
+      background: #ffffff !important;
+    }
+    /* Belt carousels keep slight tint so they stand out */
+    html.light .carousel-viewport, html.light .partners-viewport {
+      background: #f8fafc !important;
+    }
+  </style>
 
   <meta charset="UTF-8">
   <!-- JSON-LD Structured Data for SEO -->
@@ -5117,6 +5133,8 @@
     document.documentElement.classList.toggle('light');
     var isLight = body.classList.contains('light');
     localStorage.setItem('kirov-theme', isLight ? 'light' : 'dark');
+    // Force background immediately so no grey flash on toggle
+    document.body.style.background = isLight ? '#ffffff' : '';
     var suns = document.querySelectorAll('.icon-sun');
     var moons = document.querySelectorAll('.icon-moon');
     suns.forEach(s => s.style.display = isLight ? 'block' : 'none');
