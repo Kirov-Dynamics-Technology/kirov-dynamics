@@ -865,7 +865,7 @@
     }
     .hero::before {
       content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg, rgba(5,12,25,0.70) 0%, rgba(10,22,45,0.55) 50%, rgba(5,15,30,0.40) 100%);
+      background:linear-gradient(135deg, rgba(5,12,25,0.30) 0%, rgba(10,22,45,0.15) 50%, rgba(5,15,30,0.10) 100%);
       z-index:0;
     }
     .hero::after {
@@ -1026,16 +1026,18 @@
     .hero-accent {
       color: #ffffff;
       font-weight: 700;
-      background: rgba(0,0,0,0.82);
+      background: rgba(10,22,45,0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 1px 8px;
       border-radius: 4px;
     }
     body.light .hero-accent {
       color: #ffffff;
-      background: rgba(0,0,0,0.82);
+      background: rgba(10,22,45,0.35);
     }
     body.light .hl-teal {
-      background: rgba(0,0,0,0.82);
+      background: rgba(10,22,45,0.35);
     }
     @keyframes wordReveal {
       to { opacity:1; transform: none; }
@@ -1044,7 +1046,9 @@
     /* Dark text highlight — hugs the text, matches stat cards */
     .hl-teal {
       display: inline;
-      background: rgba(0,0,0,0.82);
+      background: rgba(10,22,45,0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 2px 12px;
       border-radius: 6px;
       box-decoration-break: clone;
@@ -1067,14 +1071,16 @@
       padding: 10px 18px;
       font-size: 0.85rem;
       color: #fff;
-      border: none;
-      background: rgba(0,0,0,0.82);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,22,45,0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       box-shadow: none;
       text-shadow: none;
     }
     .hero-btns .btn:active {
       transform: scale(0.95);
-      background: rgba(8,13,24,0.80);
+      background: rgba(10,22,45,0.50);
     }
 
     .hero-stats {
@@ -1089,8 +1095,10 @@
     .stat-item {
       text-align: center;
       padding: 16px 10px;
-      background: rgba(0,0,0,0.82);
-      border: none;
+      background: rgba(10,22,45,0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 12px;
     }
     .stat-item:last-child { border-right: none; }
@@ -1199,8 +1207,9 @@
     .division-card:hover .division-card-bg { opacity:0.85; }
     .division-card-body {
       position:relative; z-index:1; padding:28px 30px;
-      background:linear-gradient(135deg,rgba(13,22,37,0.92) 0%,rgba(8,13,24,0.88) 100%);
-      backdrop-filter:blur(2px);
+      background:linear-gradient(135deg,rgba(13,22,37,0.55) 0%,rgba(8,13,24,0.40) 100%);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
       border-radius:var(--radius-lg);
       min-height:100%;
     }
