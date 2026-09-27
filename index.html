@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1628">
+<link rel="canonical" href="https://kirov-dynamics-technology.github.io/kirov-dynamics/">
+<title>Kirov Dynamics Technology | We Find What's Slowing You Down — Then Fix It</title>
+<meta name="description" content="Kirov Dynamics Technology helps organisations automate repetitive work, organise their information and build secure digital systems that drive real business value. South Africa's Technology & Infrastructure Partner.">
+<meta name="keywords" content="business automation, digital transformation, AI solutions, cybersecurity, South Africa, Gauteng, technology company, software development, fleet management, construction technology">
+<meta property="og:title" content="Kirov Dynamics Technology">
+<meta property="og:description" content="We find what's slowing your organisation down — then build the technology to fix it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/">
+<meta property="og:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/assets/images/kirov-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Kirov Dynamics Technology","url":"https://kirov-dynamics-technology.github.io/kirov-dynamics/","description":"Kirov Dynamics Technology helps organisations automate repetitive work, organise their information and build secure digital systems.","foundingDate":"2025","address":{"@type":"PostalAddress","addressCountry":"ZA","addressRegion":"Gauteng"},"contactPoint":{"@type":"ContactPoint","telephone":"+27781172470","contactType":"sales"},"serviceType":["Business Automation","Cybersecurity","Software Development","AI Solutions","Cloud Computing","Digital Infrastructure"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+============================================================ */
+:root {
+  --navy:      #0a1628;
+  --navy-mid:  #0d1e35;
+  --navy-lt:   #132340;
+  --teal:      #00c8f8;
+  --teal-dk:   #00a8d4;
+  --blue:      #1a56db;
+  --white:     #ffffff;
+  --off:       #f8faff;
+  --dark:      #0f172a;
+  --mid:       #374151;
+  --muted:     #6b7280;
+  --border:    rgba(0,0,0,0.08);
+  --border-n:  rgba(255,255,255,0.12);
+  --sh-sm:     0 2px 8px rgba(0,0,0,0.06);
+  --sh-md:     0 8px 32px rgba(0,0,0,0.14);
+  --sh-lg:     0 24px 64px rgba(0,0,0,0.2);
+  --r:         10px;
+  --r-lg:      16px;
+  --r-xl:      24px;
+  --ease:      0.28s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Outfit',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.container{max-width:1200px;margin:0 auto;padding:0 32px;width:100%}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.tag::before{content:'';display:block;width:28px;height:2px;background:var(--teal);border-radius:2px}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:16px}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:680px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;padding:13px 26px;border-radius:var(--r);transition:var(--ease);cursor:pointer;white-space:nowrap;line-height:1;position:relative;overflow:hidden}
+.btn-teal{background:var(--teal);color:var(--navy);box-shadow:0 4px 20px rgba(0,200,248,.4)}
+.btn-teal:hover{background:var(--teal-dk);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,200,248,.5)}
+.btn-ghost{border:2px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--navy-lt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,.4)}
+.btn-outline{border:2px solid var(--dark);color:var(--dark);background:transparent}
+.btn-outline:hover{background:var(--dark);color:#fff;transform:translateY(-2px)}
+
+/* ============================================================
+   SPINNING GLOBE (CSS)
+============================================================ */
+.globe-wrap{
+  width:52px;height:52px;position:relative;
+  transform-style:preserve-3d;
+  animation:globeSpin 10s linear infinite;
+  flex-shrink:0;
+}
+.globe-wrap .gr{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--teal);
+  box-shadow:0 0 10px rgba(0,200,248,.4) inset, 0 0 10px rgba(0,200,248,.4);
+}
+.globe-wrap .gr1{transform:rotateY(0deg)}
+.globe-wrap .gr2{transform:rotateY(60deg)}
+.globe-wrap .gr3{transform:rotateY(120deg)}
+.globe-wrap .geq{
+  transform:rotateX(90deg);
+  border-color:rgba(0,200,248,.7);
+  box-shadow:0 0 8px rgba(0,200,248,.5) inset, 0 0 8px rgba(0,200,248,.5);
+}
+.globe-wrap .gcore{
+  position:absolute;inset:30%;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#4dd9f8,#0090b8);
+  box-shadow:0 0 14px var(--teal);
+  animation:corePulse 3s ease-in-out infinite;
+}
+@keyframes globeSpin{
+  0%{transform:rotateX(18deg) rotateY(0deg)}
+  100%{transform:rotateX(18deg) rotateY(360deg)}
+}
+@keyframes corePulse{
+  0%,100%{opacity:.85;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.12)}
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(8,14,28,.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  transition:all .3s ease;
+}
+#navbar.scrolled{background:rgba(8,14,28,.97);box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:70px;max-width:1440px;margin:0 auto;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{
+  font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:900;
+  color:#fff;letter-spacing:.02em;line-height:1;
+}
+.nav-logo-name .t{color:var(--teal)}
+.nav-logo-sub{
+  font-size:.6rem;font-weight:700;color:rgba(0,200,248,.75);
+  letter-spacing:.28em;text-transform:uppercase;margin-top:4px;
+}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{
+  font-size:.85rem;font-weight:600;color:rgba(255,255,255,.72);
+  padding:8px 14px;border-radius:var(--r);transition:var(--ease);position:relative;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:2px;left:14px;right:14px;
+  height:2px;background:var(--teal);border-radius:2px;
+}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--ease)}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.3rem;font-weight:700;color:#fff;transition:var(--ease)}
+.mobile-menu a:hover{color:var(--teal)}
+.mob-close{position:absolute;top:20px;right:24px;font-size:2rem;color:rgba(255,255,255,.5);cursor:pointer;line-height:1}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;overflow:hidden;
+  padding-top:70px;
+}
+/* SLIDING BACKGROUND */
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.4s ease;
+}
+.hero-slide.active{opacity:1}
+.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1920&q=80')}
+.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80')}
+.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80')}
+
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(
+    105deg,
+    rgba(8,14,28,.96) 0%,
+    rgba(8,14,28,.90) 42%,
+    rgba(8,14,28,.55) 70%,
+    rgba(8,14,28,.30) 100%
+  );
+}
+.hero-body{
+  position:relative;z-index:2;
+  display:flex;flex:1;max-width:1440px;width:100%;margin:0 auto;padding:0 32px;
+  align-items:center;
+}
+.hero-left{max-width:620px;padding:60px 0}
+
+/* Big company name inside hero */
+.hero-brand{
+  font-family:'Outfit',sans-serif;font-weight:900;line-height:1.08;
+  margin-bottom:20px;
+}
+.hero-brand .line1{
+  display:block;font-size:clamp(2.4rem,5.5vw,4.4rem);
+  color:#fff;letter-spacing:-.01em;
+  text-shadow:0 2px 20px rgba(0,0,0,.6);
+}
+.hero-brand .line2{
+  display:block;font-size:clamp(1.6rem,3.8vw,3rem);
+  color:var(--teal);letter-spacing:.22em;text-transform:uppercase;
+  text-shadow:0 0 30px rgba(0,200,248,.5);
+}
+.hero-divider{
+  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+}
+.hero-divider::before{content:'';width:28px;height:2px;background:var(--teal);border-radius:2px}
+.hero-divider span{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+
+.hero-headline{
+  font-size:clamp(1.6rem,3vw,2.6rem);font-weight:900;
+  color:#fff;line-height:1.2;margin-bottom:20px;
+}
+.hero-headline .teal{color:var(--teal)}
+.hero-desc{
+  font-size:1.0rem;color:rgba(255,255,255,.75);line-height:1.8;
+  max-width:500px;margin-bottom:28px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.hero-trust-note{
+  display:flex;align-items:center;gap:10px;
+  font-size:.78rem;color:rgba(255,255,255,.5);
+}
+.hero-trust-note svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2;flex-shrink:0}
+
+/* TRUST BAR */
+.hero-trust{
+  position:relative;z-index:2;
+  background:rgba(8,14,28,.85);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.trust-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  max-width:1440px;margin:0 auto;padding:0 32px;
+}
+.trust-item{
+  display:flex;align-items:center;gap:14px;
+  padding:22px 24px 22px 0;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.trust-item:first-child{padding-left:0}
+.trust-item:not(:first-child){padding-left:24px}
+.trust-item:last-child{border-right:none}
+.t-icon{
+  width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(0,200,248,.4);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.t-icon svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.8}
+.t-text h5{font-size:.75rem;font-weight:800;color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.t-text p{font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.4}
+
+/* SLIDE DOTS */
+.slide-dots{
+  position:absolute;bottom:88px;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;gap:8px;
+}
+.sd{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:var(--ease)}
+.sd.active{background:var(--teal);width:24px;border-radius:4px}
+
+/* ============================================================
+   CORE SERVICES
+============================================================ */
+#services{padding:100px 0;background:#fff}
+.svc-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.svc-sticky{position:sticky;top:90px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-card{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:28px 24px;transition:var(--ease);
+}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:rgba(0,200,248,.3)}
+.svc-icon{
+  width:50px;height:50px;border-radius:12px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-lt));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;font-size:1.3rem;
+}
+.svc-card h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:8px}
+.svc-card p{font-size:.87rem;color:var(--muted);line-height:1.65}
+.svc-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+  font-size:.78rem;font-weight:700;color:var(--teal);
+  text-transform:uppercase;letter-spacing:.08em;transition:var(--ease);
+}
+.svc-link:hover{gap:10px}
+.svc-link svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:2.5}
+
+/* ============================================================
+   FLYWHEEL / BUSINESS MODEL
+============================================================ */
+#flywheel{padding:100px 0;background:var(--navy)}
+.fly-head{text-align:center;margin-bottom:64px}
+.fly-head .section-title{color:#fff}
+.fly-head .section-sub{color:rgba(255,255,255,.55);margin:0 auto}
+.fly-steps{
+  display:flex;align-items:flex-start;gap:0;
+  position:relative;flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;
+}
+.fly-step{
+  flex:1;min-width:130px;text-align:center;position:relative;
+  padding:0 8px;
+}
+.fly-step::after{
+  content:'→';position:absolute;right:-14px;top:22px;
+  font-size:1.2rem;color:var(--teal);opacity:.6;
+  font-weight:900;
+}
+.fly-step:last-child::after{display:none}
+.fly-num{
+  width:50px;height:50px;border-radius:50%;
+  border:2px solid var(--teal);
+  background:rgba(0,200,248,.08);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;
+  font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:900;color:var(--teal);
+}
+.fly-step h4{font-size:.82rem;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.3}
+.fly-step p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5}
+.fly-revenue{
+  margin-top:64px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.rev-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);padding:28px 20px;transition:var(--ease);
+}
+.rev-card:hover{border-color:rgba(0,200,248,.3);background:rgba(0,200,248,.05)}
+.rev-tag{
+  font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:10px;
+}
+.rev-card h3{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px}
+.rev-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6}
+.rev-price{
+  margin-top:14px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:900;
+  color:var(--teal);
+}
+
+/* ============================================================
+   BEFORE → AFTER
+============================================================ */
+#before-after{padding:100px 0;background:var(--off)}
+.ba-head{text-align:center;margin-bottom:64px}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ba-card{border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border)}
+.ba-label{
+  padding:14px 24px;font-family:'Outfit',sans-serif;font-size:.75rem;
+  font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+}
+.ba-before .ba-label{background:#fee2e2;color:#991b1b}
+.ba-after .ba-label{background:#d1fae5;color:#065f46}
+.ba-body{padding:28px 24px;background:#fff}
+.ba-item{
+  display:flex;align-items:flex-start;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.ba-item:last-child{border-bottom:none}
+.ba-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.ba-before .ba-dot{background:#ef4444}
+.ba-after .ba-dot{background:#10b981}
+.ba-item p{font-size:.88rem;color:var(--mid);line-height:1.55}
+
+/* ============================================================
+   PRICING PACKAGES
+============================================================ */
+#pricing{padding:100px 0;background:#fff}
+.price-head{text-align:center;margin-bottom:64px}
+.price-journey{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-bottom:64px;
+  border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;
+}
+.pj-step{
+  padding:28px 20px;border-right:1px solid var(--border);
+  transition:var(--ease);text-align:center;
+}
+.pj-step:last-child{border-right:none}
+.pj-step:hover{background:var(--navy);color:#fff}
+.pj-step:hover h4,.pj-step:hover p{color:#fff}
+.pj-step:hover .pj-icon{background:rgba(0,200,248,.15);border-color:var(--teal);color:var(--teal)}
+.pj-icon{
+  width:52px;height:52px;border-radius:12px;
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;font-size:1.4rem;transition:var(--ease);
+}
+.pj-step h4{font-size:.95rem;font-weight:800;color:var(--dark);margin-bottom:6px;transition:var(--ease)}
+.pj-step .pj-price{
+  font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:800;
+  color:var(--teal);margin-bottom:6px;
+}
+.pj-step p{font-size:.78rem;color:var(--muted);line-height:1.5;transition:var(--ease)}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pkg-card{
+  border-radius:var(--r-xl);border:1px solid var(--border);
+  overflow:hidden;transition:var(--ease);background:#fff;
+}
+.pkg-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
+.pkg-card.featured{
+  border-color:var(--teal);
+  box-shadow:0 0 0 1px var(--teal), var(--sh-md);
+}
+.pkg-header{padding:28px 28px 0}
+.pkg-badge{
+  display:inline-block;background:var(--teal);color:var(--navy);
+  font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 12px;border-radius:50px;margin-bottom:14px;
+}
+.pkg-card h3{font-size:1.2rem;font-weight:900;color:var(--dark);margin-bottom:6px}
+.pkg-card .pkg-price{
+  font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;color:var(--navy);
+  margin-bottom:4px;
+}
+.pkg-card .pkg-price span{font-size:.9rem;font-weight:500;color:var(--muted)}
+.pkg-card .pkg-desc{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+.pkg-divider{height:1px;background:var(--border)}
+.pkg-body{padding:24px 28px 28px}
+.pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.pkg-feat{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.85rem;color:var(--mid);line-height:1.5;
+}
+.pf-check{
+  width:20px;height:20px;border-radius:50%;background:var(--teal);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.pf-check svg{width:10px;height:10px;stroke:var(--navy);fill:none;stroke-width:3}
+
+/* ============================================================
+   ROI CALCULATOR
+============================================================ */
+#roi{padding:100px 0;background:var(--navy);overflow:hidden}
+.roi-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.roi-left h2{color:#fff;margin-bottom:16px}
+.roi-left p{color:rgba(255,255,255,.6);margin-bottom:32px}
+.roi-calc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:36px 32px}
+.roi-field{margin-bottom:20px}
+.roi-field label{display:block;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:6px;letter-spacing:.04em}
+.roi-field input,.roi-field select{
+  width:100%;padding:12px 16px;
+  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  border-radius:var(--r);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;
+  outline:none;transition:var(--ease);-webkit-appearance:none;
+}
+.roi-field input:focus,.roi-field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,200,248,.12)}
+.roi-field input::placeholder{color:rgba(255,255,255,.3)}
+.roi-result{
+  background:rgba(0,200,248,.08);border:1px solid rgba(0,200,248,.25);
+  border-radius:var(--r-lg);padding:24px;margin-top:8px;
+}
+.roi-result h4{font-size:.75rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px}
+.roi-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(0,200,248,.1)}
+.roi-row:last-child{border-bottom:none;margin-top:8px;padding-top:14px}
+.roi-row span{font-size:.85rem;color:rgba(255,255,255,.65)}
+.roi-row strong{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:900;color:#fff}
+.roi-row.highlight strong{color:var(--teal);font-size:1.4rem}
+.roi-cta{margin-top:20px}
+
+/* ============================================================
+   TECH SCORE
+============================================================ */
+#tech-score{padding:100px 0;background:var(--off)}
+.score-head{text-align:center;margin-bottom:64px}
+.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.score-areas{display:flex;flex-direction:column;gap:16px}
+.score-area{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px}
+.score-area-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.score-area-top h5{font-size:.88rem;font-weight:700;color:var(--dark)}
+.score-pct{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:800;color:var(--teal)}
+.score-bar{height:6px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden}
+.score-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--blue));transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.score-right{text-align:center}
+.score-dial{
+  width:220px;height:220px;border-radius:50%;
+  border:12px solid rgba(0,0,0,.06);
+  margin:0 auto 28px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--teal) 0% 0%,rgba(0,0,0,.06) 0% 100%);
+  transition:background 1.2s ease;
+}
+.score-dial-inner{
+  position:absolute;inset:12px;border-radius:50%;background:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.score-dial-num{font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:900;color:var(--navy);line-height:1}
+.score-dial-label{font-size:.72rem;color:var(--muted);margin-top:4px;font-weight:600}
+.score-right p{font-size:.9rem;color:var(--muted);max-width:280px;margin:0 auto 24px}
+
+/* ============================================================
+   WHY KIROV
+============================================================ */
+#why{padding:100px 0;background:#fff}
+.why-head{margin-bottom:64px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:32px 28px;transition:var(--ease);
+}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:rgba(0,200,248,.2)}
+.why-num{
+  font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:900;
+  color:var(--teal);opacity:.25;line-height:1;margin-bottom:8px;
+}
+.why-card h3{font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:10px}
+.why-card p{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+/* ============================================================
+   IMPACT STATS
+============================================================ */
+#impact{padding:80px 0;background:var(--teal)}
+.imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.imp-item{
+  text-align:center;padding:40px 24px;
+  border-right:1px solid rgba(10,22,40,.15);
+}
+.imp-item:last-child{border-right:none}
+.imp-num{
+  font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;
+  color:var(--navy);line-height:1;margin-bottom:8px;
+}
+.imp-label{font-size:.8rem;font-weight:700;color:rgba(10,22,40,.6);text-transform:uppercase;letter-spacing:.1em}
+
+/* ============================================================
+   SOLUTIONS
+============================================================ */
+#solutions{padding:100px 0;background:var(--off)}
+.sol-head{text-align:center;margin-bottom:64px}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sol-card{
+  border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--border);background:#fff;transition:var(--ease);
+}
+.sol-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
+.sol-img{height:190px;overflow:hidden;position:relative}
+.sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.sol-card:hover .sol-img img{transform:scale(1.06)}
+.sol-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.8),transparent 60%)}
+.sol-body{padding:24px}
+.sol-cat{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.sol-body h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:8px}
+.sol-body p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.sol-arrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.08em;transition:var(--ease);
+}
+.sol-arrow:hover{color:var(--teal);gap:10px}
+.sol-arrow svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5}
+
+/* ============================================================
+   INDUSTRIES
+============================================================ */
+#industries{padding:100px 0;background:#fff}
+.ind-head{text-align:center;margin-bottom:60px}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ind-card{
+  border-radius:var(--r-lg);padding:28px 20px;text-align:center;
+  background:var(--off);border:1px solid var(--border);transition:var(--ease);
+}
+.ind-card:hover{background:var(--navy);transform:translateY(-4px);box-shadow:var(--sh-md)}
+.ind-card:hover h4,.ind-card:hover p{color:#fff}
+.ind-card:hover .ind-icon{background:rgba(0,200,248,.15);color:var(--teal)}
+.ind-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:rgba(10,22,40,.07);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;font-size:1.4rem;transition:var(--ease);
+}
+.ind-card h4{font-size:.92rem;font-weight:800;color:var(--dark);margin-bottom:5px;transition:var(--ease)}
+.ind-card p{font-size:.8rem;color:var(--muted);transition:var(--ease)}
+
+/* ============================================================
+   TECH STACK
+============================================================ */
+#stack{padding:100px 0;background:var(--navy)}
+.stack-head{text-align:center;margin-bottom:60px}
+.stack-head .section-title{color:#fff}
+.stack-head .section-sub{color:rgba(255,255,255,.5);margin:0 auto}
+.stack-cats{display:flex;flex-direction:column;gap:36px}
+.stack-cat-lbl{
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:14px;
+}
+.stack-pills{display:flex;flex-wrap:wrap;gap:10px}
+.stack-pill{
+  display:flex;align-items:center;gap:9px;padding:9px 16px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:50px;transition:var(--ease);
+}
+.stack-pill:hover{background:rgba(0,200,248,.1);border-color:rgba(0,200,248,.4)}
+.stack-pill span{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.72)}
+
+/* ============================================================
+   PROCESS
+============================================================ */
+#process{padding:100px 0;background:var(--off)}
+.proc-head{text-align:center;margin-bottom:64px}
+.proc-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;
+}
+.proc-steps::before{
+  content:'';position:absolute;top:27px;
+  left:calc(12.5% + 14px);right:calc(12.5% + 14px);
+  height:2px;background:linear-gradient(90deg,var(--teal),var(--blue));z-index:0;
+}
+.proc-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.proc-num{
+  width:54px;height:54px;border-radius:50%;background:var(--navy);
+  color:var(--teal);font-family:'Outfit',sans-serif;font-size:1rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  border:3px solid var(--teal);box-shadow:0 0 20px rgba(0,200,248,.25);
+}
+.proc-step h4{font-size:.92rem;font-weight:800;color:var(--dark);margin-bottom:8px}
+.proc-step p{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+#testimonials{padding:100px 0;background:#fff}
+.test-head{text-align:center;margin-bottom:60px}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.test-card{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:30px 26px;transition:var(--ease);
+}
+.test-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:rgba(0,200,248,.2)}
+.test-stars{display:flex;gap:3px;margin-bottom:14px;color:var(--teal);font-size:.95rem}
+.test-card blockquote{
+  font-size:.92rem;color:var(--mid);line-height:1.75;margin-bottom:22px;
+  font-style:italic;
+}
+.test-card blockquote::before{
+  content:'\201C';font-size:2rem;color:var(--teal);
+  line-height:0;vertical-align:-.45em;margin-right:3px;font-style:normal;
+}
+.test-auth{display:flex;align-items:center;gap:12px}
+.test-av{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;font-weight:900;font-size:.85rem;color:#fff;flex-shrink:0;
+}
+.test-auth h5{font-size:.85rem;font-weight:700;color:var(--dark)}
+.test-auth p{font-size:.75rem;color:var(--muted)}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+#about{padding:100px 0;background:var(--off)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img-wrap{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
+.about-img-wrap img{width:100%;height:460px;object-fit:cover}
+.about-badge{
+  position:absolute;bottom:24px;left:24px;
+  background:#fff;border-radius:var(--r-lg);padding:14px 18px;
+  box-shadow:var(--sh-md);display:flex;align-items:center;gap:12px;
+}
+.about-badge-icon{
+  width:42px;height:42px;border-radius:10px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.about-badge-text h5{font-size:.92rem;font-weight:800;color:var(--navy)}
+.about-badge-text p{font-size:.75rem;color:var(--muted)}
+.about-list{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.about-li{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px;background:#fff;border-radius:var(--r);border:1px solid var(--border);
+}
+.chk{
+  width:26px;height:26px;border-radius:50%;background:var(--teal);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+}
+.chk svg{width:12px;height:12px;stroke:var(--navy);fill:none;stroke-width:3}
+.about-li h5{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:2px}
+.about-li p{font-size:.82rem;color:var(--muted)}
+
+/* ============================================================
+   CTA BAND
+============================================================ */
+#cta-band{
+  padding:90px 0;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-lt) 60%,#0d2a4a 100%);
+  overflow:hidden;position:relative;
+}
+#cta-band::before{
+  content:'';position:absolute;right:-150px;top:-150px;
+  width:550px;height:550px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,200,248,.09) 0%,transparent 70%);
+}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-inner h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:14px}
+.cta-inner h2 span{color:var(--teal)}
+.cta-inner p{font-size:1rem;color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 32px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+#contact{padding:100px 0;background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;color:var(--dark);margin-bottom:14px}
+.contact-left p{font-size:.98rem;color:var(--muted);line-height:1.75;margin-bottom:28px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.c-item{
+  display:flex;align-items:center;gap:14px;
+  padding:14px;background:var(--off);border-radius:var(--r);border:1px solid var(--border);
+}
+.c-icon{
+  width:38px;height:38px;border-radius:9px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.c-icon svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:1.8}
+.c-item h5{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.c-item a,.c-item p{font-size:.9rem;color:var(--dark);font-weight:600}
+.c-item a:hover{color:var(--teal)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--mid);margin-bottom:6px;letter-spacing:.04em}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:12px 15px;
+  background:var(--off);border:1.5px solid var(--border);
+  border-radius:var(--r);font-family:'Inter',sans-serif;font-size:.9rem;
+  color:var(--dark);outline:none;transition:var(--ease);-webkit-appearance:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,200,248,.12);
+}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{
+  width:100%;padding:14px;background:var(--navy);color:#fff;
+  font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:800;
+  border-radius:var(--r);cursor:pointer;border:none;transition:var(--ease);
+}
+.form-submit:hover{background:var(--teal);color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,248,.35)}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{background:var(--navy);color:#fff;padding:80px 0 0}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px}
+.foot-brand p{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75;margin-top:14px;max-width:280px}
+.foot-col h4{
+  font-size:.68rem;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:18px;
+}
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col ul a{font-size:.85rem;color:rgba(255,255,255,.45);transition:var(--ease)}
+.foot-col ul a:hover{color:#fff;padding-left:4px}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.07);padding:22px 0;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.foot-bottom p{font-size:.78rem;color:rgba(255,255,255,.35)}
+.foot-bottom a{color:rgba(255,255,255,.35);transition:var(--ease)}
+.foot-bottom a:hover{color:#fff}
+.foot-social{display:flex;gap:10px}
+.soc-btn{
+  width:34px;height:34px;border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.45);transition:var(--ease);
+}
+.soc-btn:hover{border-color:var(--teal);color:var(--teal)}
+.soc-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media(max-width:1100px){
+  .svc-layout,.about-grid,.contact-grid,.roi-inner,.score-grid{grid-template-columns:1fr}
+  .svc-sticky{position:static}
+  .fly-revenue,.price-journey{grid-template-columns:1fr 1fr}
+  .pkg-grid,.sol-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .why-grid,.ind-grid{grid-template-columns:repeat(2,1fr)}
+  .imp-grid{grid-template-columns:repeat(2,1fr)}
+  .imp-item:nth-child(2){border-right:none}
+  .test-grid{grid-template-columns:1fr 1fr}
+  .proc-steps{grid-template-columns:1fr 1fr;gap:36px}
+  .proc-steps::before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .trust-inner{grid-template-columns:1fr 1fr;padding:0 20px}
+  .trust-item:nth-child(2){border-right:none}
+}
+@media(max-width:768px){
+  .nav-links,.nav-right .btn{display:none}
+  .hamburger{display:flex}
+  .container{padding:0 20px}
+  .hero-left{padding:40px 0}
+  .hero-brand .line1{font-size:clamp(2rem,8vw,3rem)}
+  .hero-brand .line2{font-size:clamp(1.2rem,5vw,2rem)}
+  .trust-inner{grid-template-columns:1fr 1fr}
+  .trust-item{border-right:none!important;padding:12px 8px!important}
+  .fly-steps{gap:8px}
+  .fly-step::after{display:none}
+  .fly-revenue,.price-journey,.pkg-grid,.sol-grid,.ba-grid{grid-template-columns:1fr}
+  .why-grid,.ind-grid,.test-grid{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- Spinning CSS globe -->
+      <div class="globe-wrap" aria-hidden="true">
+        <div class="gr gr1"></div>
+        <div class="gr gr2"></div>
+        <div class="gr gr3"></div>
+        <div class="gr geq"></div>
+        <div class="gcore"></div>
+      </div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">KIROV <span class="t">DYNAMICS</span></div>
+        <div class="nav-logo-sub">Technology</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#pricing">Products</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#roi">Free Tools</a></li>
+      <li><a href="#about">Company</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-teal">Free Assessment &rarr;</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mob-close" id="mobClose">&times;</span>
+  <a href="#" onclick="closeMob()">Home</a>
+  <a href="#solutions" onclick="closeMob()">Solutions</a>
+  <a href="#pricing" onclick="closeMob()">Products</a>
+  <a href="#industries" onclick="closeMob()">Industries</a>
+  <a href="#about" onclick="closeMob()">Company</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#contact" class="btn btn-teal" onclick="closeMob()">Free Assessment &rarr;</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="home">
+  <!-- Sliding backgrounds -->
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <!-- Slide dots -->
+  <div class="slide-dots" id="slideDots">
+    <div class="sd active" onclick="goSlide(0)"></div>
+    <div class="sd" onclick="goSlide(1)"></div>
+    <div class="sd" onclick="goSlide(2)"></div>
+    <div class="sd" onclick="goSlide(3)"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="hero-body">
+    <div class="hero-left reveal">
+      <!-- Large company name displayed inside hero -->
+      <div class="hero-brand">
+        <span class="line1">KIROV DYNAMICS</span>
+        <span class="line2">TECHNOLOGY</span>
+      </div>
+      <div class="hero-divider">
+        <span>South Africa's Technology &amp; Infrastructure Partner</span>
+      </div>
+      <h1 class="hero-headline">
+        We Make<br>
+        <span class="teal">Technology Work</span><br>
+        for Your Organisation.
+      </h1>
+      <p class="hero-desc">
+        Kirov Dynamics Technology helps organisations automate repetitive work,
+        organise their information and build secure digital systems that drive
+        real business value.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-teal">Get a Free Assessment &rarr;</a>
+        <a href="#solutions" class="btn btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+          Watch Our Video
+        </a>
+      </div>
+      <div class="hero-trust-note">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        No technical knowledge required. You tell us what isn't working — we figure out the technology.
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust bar anchored at bottom -->
+  <div class="hero-trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="t-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="t-text">
+          <h5>CIPC Registered</h5>
+          <p>Legitimate · Compliant · Trusted</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="t-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <div class="t-text">
+          <h5>Africa-First</h5>
+          <p>South African businesses &amp; government</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="t-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="t-text">
+          <h5>Expert Team</h5>
+          <p>AI · Cybersecurity · Cloud · Infrastructure</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="t-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="t-text">
+          <h5>Proven Results</h5>
+          <p>Smarter systems. Greater efficiency.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CORE SERVICES
+============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-sticky reveal">
+        <div class="tag">Our Core Services</div>
+        <h2 class="section-title">Complete Technology Solutions for a Stronger Tomorrow.</h2>
+        <p class="section-sub">From digital transformation to secure infrastructure, we build solutions that power businesses, communities and the nation.</p>
+        <a href="#contact" class="btn btn-outline" style="margin-top:28px;">Talk to an Expert &rarr;</a>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal">
+          <div class="svc-icon">🤖</div>
+          <h3>AI Solutions</h3>
+          <p>Smarter decisions, better outcomes. Custom AI models, predictive analytics and intelligent automation built for your context.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon">🔒</div>
+          <h3>Cybersecurity</h3>
+          <p>Protecting what matters most. Threat detection, POPIA compliance and incident response.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon">&lt;/&gt;</div>
+          <h3>Software Engineering</h3>
+          <p>Custom systems, real business value. Enterprise-grade web platforms, APIs, mobile apps and internal tools.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon">🏙️</div>
+          <h3>Smart Infrastructure</h3>
+          <p>Connected, efficient, future-ready. IoT systems, cloud architecture and digital infrastructure for cities and enterprises.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon">☁️</div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Scalable, resilient and cost-efficient. AWS, Azure, GCP with full CI/CD pipeline automation.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon">🏛️</div>
+          <h3>GovTech</h3>
+          <p>Digital government, empowered citizens. E-governance platforms, compliance systems and public-sector transformation.</p>
+          <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUSINESS FLYWHEEL
+============================================================ -->
+<section id="flywheel">
+  <div class="container">
+    <div class="fly-head reveal">
+      <div class="tag" style="justify-content:center;">How Kirov Works</div>
+      <h2 class="section-title" style="color:#fff;">From Problem to Paid Solution to Recurring Revenue</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55);margin:0 auto;">Every engagement follows a flywheel that converts your operational problems into long-term, reusable technology assets.</p>
+    </div>
+    <div class="fly-steps">
+      <div class="fly-step reveal">
+        <div class="fly-num">1</div>
+        <h4>Free Problem Check</h4>
+        <p>15-minute conversation. You tell us what's slowing you down.</p>
+      </div>
+      <div class="fly-step reveal">
+        <div class="fly-num">2</div>
+        <h4>Paid Assessment</h4>
+        <p>Process map, inefficiency analysis &amp; full technology recommendation.</p>
+      </div>
+      <div class="fly-step reveal">
+        <div class="fly-num">3</div>
+        <h4>Build Solution</h4>
+        <p>We implement the right fix — automation, software or infrastructure.</p>
+      </div>
+      <div class="fly-step reveal">
+        <div class="fly-num">4</div>
+        <h4>Monthly Support</h4>
+        <p>Kirov Care — hosting, maintenance, security &amp; ongoing improvements.</p>
+      </div>
+      <div class="fly-step reveal">
+        <div class="fly-num">5</div>
+        <h4>Productise It</h4>
+        <p>Repeated solutions become reusable products for more customers.</p>
+      </div>
+      <div class="fly-step reveal">
+        <div class="fly-num">6</div>
+        <h4>Software Subscription</h4>
+        <p>BusinessOS, Fleet, Construction — monthly SaaS revenue.</p>
+      </div>
+    </div>
+    <div class="fly-revenue">
+      <div class="rev-card reveal">
+        <div class="rev-tag">Layer 1</div>
+        <h3>Free Check-Up</h3>
+        <p>15-minute problem identification session. No obligation. Identifies the biggest inefficiency in your business.</p>
+        <div class="rev-price">Free</div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-tag">Layer 2 — Service</div>
+        <h3>Digital Efficiency Assessment</h3>
+        <p>Full process map, automation opportunities, cybersecurity observations and implementation quotation.</p>
+        <div class="rev-price">R1,500 – R5,000</div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-tag">Layer 3 — Project</div>
+        <h3>Implementation</h3>
+        <p>Quick Fix, Business Automation or Business Operating System — scoped to your organisation's size and needs.</p>
+        <div class="rev-price">R2,500 – R100,000+</div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-tag">Layer 4 — Recurring</div>
+        <h3>Kirov Care + SaaS</h3>
+        <p>Monthly technology maintenance, hosting, security monitoring, minor improvements and software subscriptions.</p>
+        <div class="rev-price">R1,500 – R10,000+/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BEFORE → AFTER
+============================================================ -->
+<section id="before-after">
+  <div class="container">
+    <div class="ba-head reveal">
+      <div class="tag" style="justify-content:center;">Before &amp; After</div>
+      <h2 class="section-title">What Changes When Kirov Gets Involved</h2>
+      <p class="section-sub" style="margin:0 auto;">Real transformation doesn't need technical language. Here's what your team actually experiences.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card ba-before reveal">
+        <div class="ba-label">❌ Before Kirov</div>
+        <div class="ba-body">
+          <div class="ba-item"><div class="ba-dot"></div><p>5 employees manually capture customer information into spreadsheets every day.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Reports take 8 hours to compile. By the time they're ready, the data is stale.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Customer enquiries arrive via WhatsApp, email and phone — nobody knows who responded to what.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Vehicles tracked by calling drivers. No real-time visibility, no fuel records, no history.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>No backups. One failed hard drive means permanent data loss.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Staff time consumed by tasks that add no strategic value.</p></div>
+        </div>
+      </div>
+      <div class="ba-card ba-after reveal">
+        <div class="ba-label">✓ After Kirov</div>
+        <div class="ba-body">
+          <div class="ba-item"><div class="ba-dot"></div><p>Customer submits one form. Data enters the system automatically. Staff get notified instantly.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Reports generate automatically overnight. Dashboard is live by 7am, every morning.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>All enquiries route into one system. Every conversation is tracked, assigned and followed up.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Live fleet dashboard shows every vehicle, fuel level, route and driver report in real time.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Automated daily backups. Disaster recovery tested monthly. Zero data loss risk.</p></div>
+          <div class="ba-item"><div class="ba-dot"></div><p>Staff focus on decisions and customers — not on capturing, chasing or compiling.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING PACKAGES
+============================================================ -->
+<section id="pricing">
+  <div class="container">
+    <div class="price-head reveal">
+      <div class="tag" style="justify-content:center;">Productised Services</div>
+      <h2 class="section-title">Clear Packages. No Guessing.</h2>
+      <p class="section-sub" style="margin:0 auto;">No quoting from scratch every time. Choose the package that fits your organisation's size and ambition, then we scope the exact solution.</p>
+    </div>
+    <!-- Customer Journey Steps -->
+    <div class="price-journey reveal">
+      <div class="pj-step">
+        <div class="pj-icon">🔍</div>
+        <h4>Free Problem Check</h4>
+        <div class="pj-price">Free · 15 minutes</div>
+        <p>Identify your biggest operational bottleneck. No commitment required.</p>
+      </div>
+      <div class="pj-step">
+        <div class="pj-icon">📋</div>
+        <h4>Digital Efficiency Assessment</h4>
+        <div class="pj-price">R1,500 – R5,000</div>
+        <p>Full process audit, automation map and implementation proposal.</p>
+      </div>
+      <div class="pj-step">
+        <div class="pj-icon">⚙️</div>
+        <h4>Implementation</h4>
+        <div class="pj-price">R2,500 – R100,000+</div>
+        <p>We build and deploy the solution. Fixed scope, fixed price.</p>
+      </div>
+      <div class="pj-step">
+        <div class="pj-icon">🔄</div>
+        <h4>Kirov Care</h4>
+        <div class="pj-price">R1,500 – R10,000+/mo</div>
+        <p>Ongoing support, hosting, security and monthly improvements.</p>
+      </div>
+    </div>
+    <!-- Package Cards -->
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-header">
+          <div class="pkg-badge">Package A</div>
+          <h3>Quick Fix</h3>
+          <div class="pkg-price">R2,500 <span>– R8,000</span></div>
+          <p class="pkg-desc">For businesses with one clear, contained problem that needs a fast, practical solution.</p>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-body">
+          <div class="pkg-features">
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Automated forms &amp; data capture</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>WhatsApp or email automation</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Simple reporting dashboard</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Invoice or document workflow</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Website improvements</div>
+          </div>
+          <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started &rarr;</a>
+        </div>
+      </div>
+      <div class="pkg-card featured reveal">
+        <div class="pkg-header">
+          <div class="pkg-badge" style="background:var(--navy);color:#fff;">Package B — Most Popular</div>
+          <h3>Business Automation</h3>
+          <div class="pkg-price">R8,000 <span>– R40,000+</span></div>
+          <p class="pkg-desc">For organisations with bigger operational challenges across multiple departments or processes.</p>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-body">
+          <div class="pkg-features">
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>CRM or customer management system</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Quotation &amp; document management</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>AI assistant or chatbot</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Workflow automation engine</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Analytics &amp; reporting dashboard</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Customer or employee portal</div>
+          </div>
+          <a href="#contact" class="btn btn-teal" style="width:100%;justify-content:center;">Get Started &rarr;</a>
+        </div>
+      </div>
+      <div class="pkg-card reveal">
+        <div class="pkg-header">
+          <div class="pkg-badge" style="background:var(--navy);color:var(--teal);">Package C</div>
+          <h3>BusinessOS</h3>
+          <div class="pkg-price">R25,000 <span>– R100,000+</span></div>
+          <p class="pkg-desc">Your complete business operating system. Customers, quotes, invoices, tasks, staff, reports — all in one platform.</p>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-body">
+          <div class="pkg-features">
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Full customer &amp; quote lifecycle</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Invoice, payment &amp; document management</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Staff tasks &amp; workflow management</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>AI assistant built in</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Executive dashboards &amp; analytics</div>
+            <div class="pkg-feat"><div class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ongoing Kirov Care included</div>
+          </div>
+          <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">Get Started &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROI CALCULATOR
+============================================================ -->
+<section id="roi">
+  <div class="container">
+    <div class="roi-inner">
+      <div class="roi-left reveal">
+        <div class="tag">ROI Calculator</div>
+        <h2 class="section-title" style="color:#fff;">How Much Is Manual Work Costing Your Business?</h2>
+        <p style="color:rgba(255,255,255,.6);margin-bottom:32px;">Enter your current situation and see the estimated annual cost of manual processes — and what automation could recover for you.</p>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xl);padding:28px 24px;margin-bottom:24px;">
+          <h4 style="color:#fff;margin-bottom:12px;font-size:.95rem;">The Kirov Sales Conversation</h4>
+          <p style="color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7;">We don't open with <em style="color:rgba(255,255,255,.7);">"Do you need AI?"</em><br>We ask: <strong style="color:var(--teal);">"What is taking your staff too long?"</strong><br>Then: <em style="color:rgba(255,255,255,.7);">"How are you doing it today?"</em><br>Then: <em style="color:rgba(255,255,255,.7);">"What would it be worth to reduce that?"</em><br>Only then: <strong style="color:var(--teal);">"We can automate this."</strong></p>
+        </div>
+        <a href="#contact" class="btn btn-teal">Book Free Problem Check &rarr;</a>
+      </div>
+      <div class="reveal">
+        <div class="roi-calc">
+          <h4 style="color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;">Workload Cost Estimator</h4>
+          <div class="roi-field">
+            <label>Number of employees doing this task</label>
+            <input type="number" id="roi-emp" value="3" min="1" oninput="calcROI()">
+          </div>
+          <div class="roi-field">
+            <label>Hours per week spent on this task (per employee)</label>
+            <input type="number" id="roi-hrs" value="10" min="1" oninput="calcROI()">
+          </div>
+          <div class="roi-field">
+            <label>Estimated hourly cost per employee (R)</label>
+            <input type="number" id="roi-rate" value="150" min="50" oninput="calcROI()">
+          </div>
+          <div class="roi-field">
+            <label>Estimated automation reduction (%)</label>
+            <select id="roi-red" onchange="calcROI()">
+              <option value="0.5">50% reduction (conservative)</option>
+              <option value="0.7" selected>70% reduction (typical)</option>
+              <option value="0.85">85% reduction (high automation)</option>
+            </select>
+          </div>
+          <div class="roi-result">
+            <h4>Your Estimated Annual Impact</h4>
+            <div class="roi-row"><span>Current annual cost of this task</span><strong id="r-current">R0</strong></div>
+            <div class="roi-row"><span>Hours recovered per year</span><strong id="r-hours">0 hrs</strong></div>
+            <div class="roi-row highlight"><span>Estimated annual saving</span><strong id="r-saving">R0</strong></div>
+          </div>
+          <div class="roi-cta">
+            <a href="#contact" class="btn btn-teal" style="width:100%;justify-content:center;">Want us to identify what can be automated? &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TECHNOLOGY SCORE
+============================================================ -->
+<section id="tech-score">
+  <div class="container">
+    <div class="score-head reveal">
+      <div class="tag" style="justify-content:center;">Digital Readiness</div>
+      <h2 class="section-title">How Digitally Ready Is Your Organisation?</h2>
+      <p class="section-sub" style="margin:0 auto;">Most South African businesses score below 50%. Knowing your gaps is the first step to closing them.</p>
+    </div>
+    <div class="score-grid">
+      <div class="score-areas reveal">
+        <div class="score-area" data-score="30">
+          <div class="score-area-top"><h5>Process Automation</h5><span class="score-pct">30%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:30%"></div></div>
+        </div>
+        <div class="score-area" data-score="45">
+          <div class="score-area-top"><h5>Business Software</h5><span class="score-pct">45%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:45%"></div></div>
+        </div>
+        <div class="score-area" data-score="55">
+          <div class="score-area-top"><h5>Data &amp; Reporting</h5><span class="score-pct">55%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:55%"></div></div>
+        </div>
+        <div class="score-area" data-score="40">
+          <div class="score-area-top"><h5>Cybersecurity</h5><span class="score-pct">40%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:40%"></div></div>
+        </div>
+        <div class="score-area" data-score="60">
+          <div class="score-area-top"><h5>Digital Infrastructure</h5><span class="score-pct">60%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:60%"></div></div>
+        </div>
+        <div class="score-area" data-score="25">
+          <div class="score-area-top"><h5>AI Readiness</h5><span class="score-pct">25%</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:25%"></div></div>
+        </div>
+      </div>
+      <div class="score-right reveal">
+        <div class="score-dial" id="scoreDial">
+          <div class="score-dial-inner">
+            <div class="score-dial-num" id="scoreNum">43</div>
+            <div class="score-dial-label">Average Score</div>
+          </div>
+        </div>
+        <h3 style="margin-bottom:12px;color:var(--dark);">Typical South African Organisation</h3>
+        <p>Most businesses score between 30–55%. Your biggest opportunity is usually process automation — where the quickest ROI lives.</p>
+        <a href="#contact" class="btn btn-teal" style="margin-top:20px;">Get Your Free Technology Score &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY KIROV
+============================================================ -->
+<section id="why">
+  <div class="container">
+    <div class="why-head reveal">
+      <div class="tag">Why Kirov Dynamics</div>
+      <h2 class="section-title">Built Different. Built for Africa.</h2>
+      <p class="section-sub">We don't just implement technology — we engineer outcomes that endure. Here's what sets us apart.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <h3>Problem-First Philosophy</h3>
+        <p>We don't lead with products. We start with your operational pain — then identify the technology that solves it. Technology is the answer, not the pitch.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <h3>Africa-First Approach</h3>
+        <p>We understand load shedding, connectivity constraints, regulatory requirements and the South African business environment. We engineer for your reality.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">03</div>
+        <h3>Full-Stack Capability</h3>
+        <p>AI, cybersecurity, cloud, software, infrastructure and GovTech — one partner for your entire digital transformation. No vendor juggling required.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">04</div>
+        <h3>Measurable ROI</h3>
+        <p>Every proposal quantifies the cost of your current process and the expected return. We don't guess — we calculate, then we validate against real outcomes.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">05</div>
+        <h3>Security by Default</h3>
+        <p>Security is embedded in everything we build. Every system is POPIA-compliant, access-controlled and backed up by default — not bolted on after the fact.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">06</div>
+        <h3>Long-Term Partnership</h3>
+        <p>We become an extension of your team. Post-delivery support, training, documentation and continuous improvement are standard, not optional extras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section id="impact">
+  <div class="container">
+    <div class="imp-grid">
+      <div class="imp-item reveal">
+        <div class="imp-num" data-target="50">0</div>
+        <div class="imp-label">Projects Delivered</div>
+      </div>
+      <div class="imp-item reveal">
+        <div class="imp-num" data-target="98">0</div>
+        <div class="imp-label">Client Satisfaction %</div>
+      </div>
+      <div class="imp-item reveal">
+        <div class="imp-num" data-target="5">0</div>
+        <div class="imp-label">African Countries</div>
+      </div>
+      <div class="imp-item reveal">
+        <div class="imp-num" data-target="12">0</div>
+        <div class="imp-label">Industries Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOLUTIONS
+============================================================ -->
+<section id="solutions">
+  <div class="container">
+    <div class="sol-head reveal">
+      <div class="tag" style="justify-content:center;">Product Roadmap</div>
+      <h2 class="section-title">Our Technology Products</h2>
+      <p class="section-sub" style="margin:0 auto;">Purpose-built platforms for specific industries and operational challenges — all built from real customer problems.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="BusinessOS"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Now Available · BusinessOS</div>
+          <h3>Kirov BusinessOS</h3>
+          <p>Your complete business operating system — customers, quotes, invoices, tasks, employees, documents, dashboards and AI assistant in one platform.</p>
+          <a href="#contact" class="sol-arrow">Explore Product <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fit=crop&w=600&q=80" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Coming Next · Fleet</div>
+          <h3>Fleet Intelligence</h3>
+          <p>Real-time vehicle tracking, fuel management, driver reports, route optimisation and maintenance scheduling for transport and logistics companies.</p>
+          <a href="#contact" class="sol-arrow">Join Waitlist <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Coming Next · Construction</div>
+          <h3>Construction Intelligence</h3>
+          <p>Project tracking, site reports, document management, cost control and real-time dashboards for construction and engineering firms.</p>
+          <a href="#contact" class="sol-arrow">Join Waitlist <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Later · Security</div>
+          <h3>Kirov Secure</h3>
+          <p>Managed cybersecurity platform — threat monitoring, endpoint protection, access control, POPIA compliance and incident response for South African businesses.</p>
+          <a href="#contact" class="sol-arrow">Express Interest <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80" alt="GovTech"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Future · Government</div>
+          <h3>Kirov GovTech</h3>
+          <p>E-governance portals, citizen services, compliance systems and public-sector digital transformation platforms — built for African municipalities and departments.</p>
+          <a href="#contact" class="sol-arrow">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="AI Solutions"><div class="sol-img-ov"></div></div>
+        <div class="sol-body">
+          <div class="sol-cat">Ongoing · AI Services</div>
+          <h3>AI &amp; Automation Services</h3>
+          <p>Custom AI deployment — document processing, customer support automation, forecasting, anomaly detection and intelligent reporting across any industry.</p>
+          <a href="#contact" class="sol-arrow">Discuss Your Project <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="ind-head reveal">
+      <div class="tag" style="justify-content:center;">Target Markets</div>
+      <h2 class="section-title">Three Priority Customer Groups</h2>
+      <p class="section-sub" style="margin:0 auto;">We focus where we can create the most repeatable value — SMEs, construction &amp; engineering, and transport &amp; logistics.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card reveal">
+        <div class="ind-icon">🏢</div>
+        <h4>SMEs</h4>
+        <p>Still using WhatsApp, Excel and paper? We automate and organise.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">🏗️</div>
+        <h4>Construction</h4>
+        <p>Projects, documents, costs and site reports — all connected.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">🚛</div>
+        <h4>Transport &amp; Logistics</h4>
+        <p>Fleet, drivers, fuel, routes and maintenance dashboards.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">🏦</div>
+        <h4>Financial Services</h4>
+        <p>Automation, compliance and secure client management systems.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">🏥</div>
+        <h4>Healthcare</h4>
+        <p>Patient data, scheduling, records and digital workflows.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">📚</div>
+        <h4>Education</h4>
+        <p>Student portals, LMS platforms and administrative automation.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">🏛️</div>
+        <h4>Government</h4>
+        <p>E-governance, citizen services and compliance systems.</p>
+      </div>
+      <div class="ind-card reveal">
+        <div class="ind-icon">⚡</div>
+        <h4>Energy &amp; Utilities</h4>
+        <p>Smart monitoring, IoT and infrastructure automation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="container">
+    <div class="stack-head reveal">
+      <div class="tag" style="justify-content:center;">Technology Stack</div>
+      <h2 class="section-title">Best-in-Class Tools</h2>
+      <p class="section-sub">Our team is certified and experienced across leading technology platforms.</p>
+    </div>
+    <div class="stack-cats">
+      <div class="reveal">
+        <div class="stack-cat-lbl">AI &amp; Machine Learning</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><span>🐍</span><span>Python</span></div>
+          <div class="stack-pill"><span>🔥</span><span>PyTorch</span></div>
+          <div class="stack-pill"><span>🧠</span><span>TensorFlow</span></div>
+          <div class="stack-pill"><span>🤗</span><span>Hugging Face</span></div>
+          <div class="stack-pill"><span>🔮</span><span>OpenAI API</span></div>
+          <div class="stack-pill"><span>🎯</span><span>LangChain</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="stack-cat-lbl">Cloud &amp; DevOps</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><span>☁️</span><span>AWS</span></div>
+          <div class="stack-pill"><span>🔷</span><span>Azure</span></div>
+          <div class="stack-pill"><span>🌐</span><span>Google Cloud</span></div>
+          <div class="stack-pill"><span>🐳</span><span>Docker</span></div>
+          <div class="stack-pill"><span>☸️</span><span>Kubernetes</span></div>
+          <div class="stack-pill"><span>🔧</span><span>Terraform</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="stack-cat-lbl">Software Engineering</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><span>⚡</span><span>Go</span></div>
+          <div class="stack-pill"><span>🦀</span><span>Rust</span></div>
+          <div class="stack-pill"><span>🟨</span><span>TypeScript</span></div>
+          <div class="stack-pill"><span>⚛️</span><span>React</span></div>
+          <div class="stack-pill"><span>🔺</span><span>Next.js</span></div>
+          <div class="stack-pill"><span>🐘</span><span>PostgreSQL</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="stack-cat-lbl">Security &amp; Observability</div>
+        <div class="stack-pills">
+          <div class="stack-pill"><span>📊</span><span>Grafana</span></div>
+          <div class="stack-pill"><span>🔍</span><span>Prometheus</span></div>
+          <div class="stack-pill"><span>🔭</span><span>OpenTelemetry</span></div>
+          <div class="stack-pill"><span>🛡️</span><span>Wazuh</span></div>
+          <div class="stack-pill"><span>🔒</span><span>Vault</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="proc-head reveal">
+      <div class="tag" style="justify-content:center;">Our Process</div>
+      <h2 class="section-title">How We Deliver Excellence</h2>
+      <p class="section-sub" style="margin:0 auto;">A four-phase engagement model that ensures clarity, quality and results at every step.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step reveal">
+        <div class="proc-num">01</div>
+        <h4>Discovery &amp; Assessment</h4>
+        <p>Audit your current systems, understand your goals and identify the highest-impact opportunities.</p>
+      </div>
+      <div class="proc-step reveal">
+        <div class="proc-num">02</div>
+        <h4>Strategy &amp; Design</h4>
+        <p>Technology roadmap, architecture blueprint and implementation plan with clear milestones and KPIs.</p>
+      </div>
+      <div class="proc-step reveal">
+        <div class="proc-num">03</div>
+        <h4>Build &amp; Deploy</h4>
+        <p>Agile execution with continuous integration, rigorous QA and transparent progress reporting.</p>
+      </div>
+      <div class="proc-step reveal">
+        <div class="proc-num">04</div>
+        <h4>Support &amp; Grow</h4>
+        <p>Kirov Care — monitoring, maintenance, training and continuous improvement to maximise long-term ROI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="test-head reveal">
+      <div class="tag" style="justify-content:center;">Client Stories</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>Kirov automated our entire back-office workflow. We reduced manual data processing time by 70% within the first 3 months.</blockquote>
+        <div class="test-auth">
+          <div class="test-av">TM</div>
+          <div><h5>Thabo Molefe</h5><p>COO, FinServ Group · Johannesburg</p></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>The cybersecurity and endpoint monitoring system they deployed gave us complete visibility into our network for the first time. World-class work.</blockquote>
+        <div class="test-auth">
+          <div class="test-av">NK</div>
+          <div><h5>Nomvula Khumalo</h5><p>IT Director, Government Agency · Pretoria</p></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>From cloud migration to a fully custom platform — delivered on time, on budget. The code quality is exceptional. Best vendor decision we've made.</blockquote>
+        <div class="test-auth">
+          <div class="test-av">SA</div>
+          <div><h5>Sipho Andile</h5><p>CTO, E-Commerce Platform · Cape Town</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Kirov Dynamics team">
+        <div class="about-badge">
+          <div class="about-badge-icon">🇿🇦</div>
+          <div class="about-badge-text"><h5>Founded 2025</h5><p>Proudly South African</p></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="tag">About Kirov Dynamics</div>
+        <h2 class="section-title">We Find Expensive Operational Problems — Then Solve Them With Technology.</h2>
+        <p class="section-sub">Kirov Dynamics Technology was founded with a clear mission: to make world-class technology accessible to African businesses and governments. We are CIPC-registered, Africa-focused, and driven by a team that understands both technology and the African context.</p>
+        <div class="about-list">
+          <div class="about-li">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><h5>CIPC Registered &amp; POPIA Compliant</h5><p>A legitimate, accountable business partner for long-term engagements.</p></div>
+          </div>
+          <div class="about-li">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><h5>Multi-Disciplinary Expert Team</h5><p>AI engineers, cybersecurity specialists, cloud architects and software developers.</p></div>
+          </div>
+          <div class="about-li">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><h5>Pan-African Reach</h5><p>South Africa, Nigeria, Kenya, Ghana, Botswana and beyond.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="tag" style="justify-content:center;color:rgba(0,200,248,.8);">Get Started Today</div>
+      <h2>Ready to <span>Transform</span> Your Organisation?</h2>
+      <p>Book a free 15-minute problem check. We'll identify the biggest inefficiency in your business and tell you exactly how technology can fix it.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn btn-teal">Book Free Problem Check &rarr;</a>
+        <a href="tel:+27781172470" class="btn btn-ghost">📞 +27 78 117 2470</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="tag">Contact Us</div>
+        <h2 class="section-title">Let's Start the Conversation.</h2>
+        <p class="section-sub" style="margin-bottom:28px;">You bring us the problem. We figure out the technology. Start with a free 15-minute call — no technical knowledge required.</p>
+        <div class="contact-info">
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.4 2.82 2 2 0 012 .85h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.1 8.64a16 16 0 006.29 6.29l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><h5>Phone</h5><a href="tel:+27781172470">+27 78 117 2470</a></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><h5>Email</h5><a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h5>Location</h5><p>Gauteng, South Africa</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Koketso" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Raphasha" required></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@company.co.za" required></div>
+          <div class="form-group"><label>Company / Organisation</label><input type="text" placeholder="Your Company Name"></div>
+          <div class="form-group">
+            <label>What's slowing your organisation down?</label>
+            <select required>
+              <option value="" disabled selected>Select the biggest problem</option>
+              <option>Too much manual data capture</option>
+              <option>Reports take too long to produce</option>
+              <option>No visibility into operations (fleet, projects, etc.)</option>
+              <option>Customer enquiries not tracked properly</option>
+              <option>Cybersecurity concerns</option>
+              <option>Need a custom software system</option>
+              <option>Cloud / infrastructure issues</option>
+              <option>General technology assessment</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Tell us more</label><textarea placeholder="Briefly describe what's happening and what you'd like to achieve..."></textarea></div>
+          <button type="submit" class="form-submit">Book Free Problem Check &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="nav-logo">
+          <div class="globe-wrap" style="width:40px;height:40px;" aria-hidden="true">
+            <div class="gr gr1"></div><div class="gr gr2"></div>
+            <div class="gr gr3"></div><div class="gr geq"></div>
+            <div class="gcore"></div>
+          </div>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name">KIROV <span class="t">DYNAMICS</span></div>
+            <div class="nav-logo-sub">Technology</div>
+          </div>
+        </a>
+        <p>We find what's slowing your organisation down — then build the technology to fix it. South Africa's Technology &amp; Infrastructure Partner.</p>
+        <div class="foot-social" style="margin-top:18px;">
+          <a href="https://github.com/Kirov-Dynamics-Technology" class="soc-btn" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/kirov-dynamics-technology" class="soc-btn" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="mailto:info@kirovdynamics.co.za" class="soc-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#solutions">BusinessOS</a></li>
+          <li><a href="#solutions">Fleet Intelligence</a></li>
+          <li><a href="#solutions">Construction Intelligence</a></li>
+          <li><a href="#solutions">Kirov Secure</a></li>
+          <li><a href="#solutions">AI &amp; Automation</a></li>
+          <li><a href="#solutions">GovTech</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why Kirov</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#testimonials">Client Stories</a></li>
+          <li><a href="#contact">Careers</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="#contact">Free Problem Check</a></li>
+          <li><a href="#pricing">Pricing Packages</a></li>
+          <li><a href="#roi">ROI Calculator</a></li>
+          <li><a href="#tech-score">Technology Score</a></li>
+          <li><a href="tel:+27781172470">+27 78 117 2470</a></li>
+          <li><a href="mailto:info@kirovdynamics.co.za">Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2025 Kirov Dynamics Technology (Pty) Ltd · CIPC Registered · Gauteng, South Africa</p>
+      <p><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">POPIA</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script>
+/* === Scroll Reveal === */
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+    const idx = siblings.indexOf(e.target);
+    setTimeout(() => e.target.classList.add('visible'), idx * 75);
+    ro.unobserve(e.target);
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* === Navbar === */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* === Active nav link === */
+const secs = document.querySelectorAll('section[id]');
+const nls = document.querySelectorAll('.nav-links a');
+const ao = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      nls.forEach(a => a.classList.remove('active'));
+      const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-35% 0px -35% 0px' });
+secs.forEach(s => ao.observe(s));
+
+/* === Mobile Menu === */
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobileMenu');
+const mc = document.getElementById('mobClose');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+mc.addEventListener('click', closeMob);
+function closeMob() {
+  ham.classList.remove('open');
+  mob.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* === Sliding Hero Images === */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.sd');
+
+function goSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+let slideTimer = setInterval(() => {
+  goSlide((currentSlide + 1) % slides.length);
+}, 6000);
+
+// Pause on hover
+document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(slideTimer));
+document.querySelector('.hero').addEventListener('mouseleave', () => {
+  slideTimer = setInterval(() => goSlide((currentSlide + 1) % slides.length), 6000);
+});
+
+/* === Counter Animations === */
+function animCount(el) {
+  const target = +el.dataset.target;
+  let cur = 0;
+  const step = Math.ceil(target / 50);
+  const t = setInterval(() => {
+    cur = Math.min(cur + step, target);
+    el.textContent = cur + (target > 10 ? '+' : '');
+    if (cur >= target) clearInterval(t);
+  }, 30);
+}
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animCount(e.target); cObs.unobserve(e.target); }
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.imp-num[data-target]').forEach(el => cObs.observe(el));
+
+/* === ROI Calculator === */
+function calcROI() {
+  const emp = +document.getElementById('roi-emp').value || 0;
+  const hrs = +document.getElementById('roi-hrs').value || 0;
+  const rate = +document.getElementById('roi-rate').value || 0;
+  const red = +document.getElementById('roi-red').value || 0;
+  const annualCost = emp * hrs * rate * 52;
+  const hoursRecovered = Math.round(emp * hrs * red * 52);
+  const saving = Math.round(annualCost * red);
+  const fmt = n => 'R' + n.toLocaleString('en-ZA');
+  document.getElementById('r-current').textContent = fmt(annualCost);
+  document.getElementById('r-hours').textContent = hoursRecovered.toLocaleString() + ' hrs';
+  document.getElementById('r-saving').textContent = fmt(saving);
+}
+calcROI();
+
+/* === Score Dial === */
+(function() {
+  const scores = [30, 45, 55, 40, 60, 25];
+  const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+  const dial = document.getElementById('scoreDial');
+  const num = document.getElementById('scoreNum');
+  const dialObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      num.textContent = avg;
+      dial.style.background = `conic-gradient(var(--teal) 0% ${avg}%, rgba(0,0,0,0.06) ${avg}% 100%)`;
+      dialObs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  if (dial) dialObs.observe(dial);
+})();
+
+/* === Form Submit === */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✓ Received! We\'ll be in touch within 24 hours.';
+  btn.style.background = 'var(--teal)';
+  btn.style.color = 'var(--navy)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Book Free Problem Check →';
+    btn.style.background = '';
+    btn.style.color = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 5000);
+}
+
+/* === Ripple effect === */
+document.querySelectorAll('.btn,.btn-teal,.btn-dark,.form-submit').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const r = document.createElement('span');
+    r.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,.22);
+      width:${size}px;height:${size}px;
+      left:${e.clientX-rect.left-size/2}px;
+      top:${e.clientY-rect.top-size/2}px;
+      transform:scale(0);animation:ripple .5s ease-out;pointer-events:none;z-index:10`;
+    this.style.position = 'relative';
+    this.style.overflow = 'hidden';
+    this.appendChild(r);
+    setTimeout(() => r.remove(), 500);
+  });
+});
+const rs = document.createElement('style');
+rs.textContent = '@keyframes ripple{to{transform:scale(3);opacity:0}}';
+document.head.appendChild(rs);
+</script>
+</body>
+</html>
