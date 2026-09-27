@@ -200,7 +200,55 @@ ul{list-style:none}
   display:flex;flex:1;max-width:1440px;width:100%;margin:0 auto;padding:0 32px;
   align-items:center;
 }
-.hero-left{max-width:620px;padding:30px 0}
+
+  .hero-body { justify-content: space-between; }
+  .hero-right {
+    display: none;
+    position: relative;
+    width: 320px;
+    height: 640px;
+    margin-right: 40px;
+    transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+    transform-style: preserve-3d;
+    animation: floatPhone 6s ease-in-out infinite;
+  }
+  @media(min-width: 992px) {
+    .hero-right { display: block; }
+  }
+  @keyframes floatPhone {
+    0%, 100% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(-15px); }
+  }
+  .phone-mockup {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 40px;
+    border: 12px solid #1a2235;
+    box-shadow: -20px 20px 50px rgba(0,0,0,0.5), inset 0 0 0 2px #334155;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1a2235;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #0a1628;
+  }
+
+  .hero-left{max-width:620px;padding:30px 0; position:relative; z-index:5;}
 
 /* Big company name inside hero */
 .hero-brand{
@@ -394,7 +442,9 @@ ul{list-style:none}
 .pj-step:last-child{border-right:none}
 .pj-step:hover{background:var(--navy);color:#fff}
 .pj-step:hover h4,.pj-step:hover p{color:#fff}
-.pj-step:hover .pj-icon{background:rgba(0,200,248,.15);border-color:var(--teal);color:var(--teal)}
+.pj-step:hover .pj-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+.pj-icon{background:rgba(0,200,248,.15);border-color:var(--teal);color:var(--teal)}
+.pj-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
 .pj-icon{
   width:52px;height:52px;border-radius:12px;
   border:1.5px solid var(--border);
@@ -1138,7 +1188,7 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
     </div>
     <div class="ba-grid">
       <div class="ba-card ba-before reveal">
-        <div class="ba-label">❌ Before Kirov</div>
+        <div class="ba-label"><svg viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Before Kirov</div>
         <div class="ba-body">
           <div class="ba-item"><div class="ba-dot"></div><p>5 employees manually capture customer information into spreadsheets every day.</p></div>
           <div class="ba-item"><div class="ba-dot"></div><p>Reports take 8 hours to compile. By the time they're ready, the data is stale.</p></div>
@@ -1149,7 +1199,7 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
         </div>
       </div>
       <div class="ba-card ba-after reveal">
-        <div class="ba-label">✓ After Kirov</div>
+        <div class="ba-label"><svg viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg> After Kirov</div>
         <div class="ba-body">
           <div class="ba-item"><div class="ba-dot"></div><p>Customer submits one form. Data enters the system automatically. Staff get notified instantly.</p></div>
           <div class="ba-item"><div class="ba-dot"></div><p>Reports generate automatically overnight. Dashboard is live by 7am, every morning.</p></div>
@@ -1176,25 +1226,25 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
     <!-- Customer Journey Steps -->
     <div class="price-journey reveal">
       <div class="pj-step">
-        <div class="pj-icon">🔍</div>
+        <div class="pj-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h4>Free Problem Check</h4>
         <div class="pj-price">Free · 15 minutes</div>
         <p>Identify your biggest operational bottleneck. No commitment required.</p>
       </div>
       <div class="pj-step">
-        <div class="pj-icon">📋</div>
+        <div class="pj-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <h4>Digital Efficiency Assessment</h4>
         <div class="pj-price">R1,500 – R5,000</div>
         <p>Full process audit, automation map and implementation proposal.</p>
       </div>
       <div class="pj-step">
-        <div class="pj-icon">⚙️</div>
+        <div class="pj-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
         <h4>Implementation</h4>
         <div class="pj-price">R2,500 – R100,000+</div>
         <p>We build and deploy the solution. Fixed scope, fixed price.</p>
       </div>
       <div class="pj-step">
-        <div class="pj-icon">🔄</div>
+        <div class="pj-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
         <h4>Kirov Care</h4>
         <div class="pj-price">R1,500 – R10,000+/mo</div>
         <p>Ongoing support, hosting, security and monthly improvements.</p>
@@ -1738,7 +1788,7 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
       <p>Book a free 15-minute problem check. We'll identify the biggest inefficiency in your business and tell you exactly how technology can fix it.</p>
       <div class="cta-btns">
         <a href="#contact" class="btn btn-teal">Book Free Problem Check &rarr;</a>
-        <a href="tel:+27781172470" class="btn btn-ghost">📞 +27 78 117 2470</a>
+        <a href="tel:+27781172470" class="btn btn-ghost"><svg viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;display:inline-block;vertical-align:text-bottom;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +27 78 117 2470</a>
       </div>
     </div>
   </div>
@@ -1996,7 +2046,7 @@ calcROI();
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✓ Received! We\'ll be in touch within 24 hours.';
+  btn.textContent = '<svg viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg> Received! We\'ll be in touch within 24 hours.';
   btn.style.background = 'var(--teal)';
   btn.style.color = 'var(--navy)';
   btn.disabled = true;
