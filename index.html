@@ -248,7 +248,57 @@ ul{list-style:none}
     background: #0a1628;
   }
 
+  
+  .hero-body { justify-content: space-between; }
+  .hero-right {
+    display: none;
+    position: relative;
+    width: 320px;
+    height: 640px;
+    margin-right: 40px;
+    transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+    transform-style: preserve-3d;
+    animation: floatPhone 6s ease-in-out infinite;
+  }
+  @media(min-width: 992px) {
+    .hero-right { display: block; }
+  }
+  @keyframes floatPhone {
+    0%, 100% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(-15px); }
+  }
+  .phone-mockup {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 40px;
+    border: 12px solid #1a2235;
+    box-shadow: -20px 20px 50px rgba(0,0,0,0.5), inset 0 0 0 2px #334155;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1a2235;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #0a1628;
+  }
+
+
   .hero-left{max-width:620px;padding:30px 0; position:relative; z-index:5;}
+  .hero-left { position:relative; z-index:5; }
 
 /* Big company name inside hero */
 .hero-brand{
@@ -1005,9 +1055,13 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         No technical knowledge required. You tell us what isn't working — we figure out the technology.
       </div>
+    
+      <div class="hero-right reveal" style="transition-delay: 0.3s">
+        <div class="phone-mockup">
+          <iframe class="phone-screen" src="?mobile=1" title="Mobile Preview"></iframe>
+        </div>
+      </div>
     </div>
-  </div>
-
   <!-- Trust bar anchored at bottom -->
   <div class="hero-trust">
     <div class="trust-inner">
