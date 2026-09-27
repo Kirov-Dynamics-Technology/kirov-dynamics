@@ -176,8 +176,8 @@ ul{list-style:none}
 .hero-slides{position:absolute;inset:0;z-index:0}
 .hero-slide{
   position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transition:opacity 1.4s ease;
+  background-size:cover;background-position:center 20%;
+  opacity:0;transition:opacity 0.6s ease;
 }
 .hero-slide.active{opacity:1}
 .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80')}
@@ -200,39 +200,39 @@ ul{list-style:none}
   display:flex;flex:1;max-width:1440px;width:100%;margin:0 auto;padding:0 32px;
   align-items:center;
 }
-.hero-left{max-width:620px;padding:60px 0}
+.hero-left{max-width:620px;padding:30px 0}
 
 /* Big company name inside hero */
 .hero-brand{
   font-family:'Outfit',sans-serif;font-weight:900;line-height:1.08;
-  margin-bottom:20px;
+  margin-bottom:12px;
 }
 .hero-brand .line1{
-  display:block;font-size:clamp(2.4rem,5.5vw,4.4rem);
+  display:block;font-size:clamp(2rem,4.5vw,3.6rem);
   color:#fff;letter-spacing:-.01em;
   text-shadow:0 2px 20px rgba(0,0,0,.6);
 }
 .hero-brand .line2{
-  display:block;font-size:clamp(1.6rem,3.8vw,3rem);
+  display:block;font-size:clamp(1.2rem,3vw,2rem);
   color:var(--teal);letter-spacing:.22em;text-transform:uppercase;
   text-shadow:0 0 30px rgba(0,200,248,.5);
 }
 .hero-divider{
-  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;margin-bottom:12px;
 }
 .hero-divider::before{content:'';width:28px;height:2px;background:var(--teal);border-radius:2px}
 .hero-divider span{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
 
 .hero-headline{
-  font-size:clamp(1.6rem,3vw,2.6rem);font-weight:900;
-  color:#fff;line-height:1.2;margin-bottom:20px;
+  font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:900;
+  color:#fff;line-height:1.2;margin-bottom:14px;
 }
 .hero-headline .teal{color:var(--teal)}
 .hero-desc{
   font-size:1.0rem;color:rgba(255,255,255,.75);line-height:1.8;
-  max-width:500px;margin-bottom:28px;
+  max-width:500px;margin-bottom:20px;
 }
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
 .hero-trust-note{
   display:flex;align-items:center;gap:10px;
   font-size:.78rem;color:rgba(255,255,255,.5);
@@ -252,7 +252,7 @@ ul{list-style:none}
 }
 .trust-item{
   display:flex;align-items:center;gap:14px;
-  padding:22px 24px 22px 0;
+  padding:14px 24px 14px 0;
   border-right:1px solid rgba(255,255,255,.08);
 }
 .trust-item:first-child{padding-left:0}
@@ -590,24 +590,54 @@ ul{list-style:none}
 /* ============================================================
    TECH STACK
 ============================================================ */
-#stack{padding:100px 0;background:var(--navy)}
-.stack-head{text-align:center;margin-bottom:60px}
+#stack{padding:100px 0;background:var(--navy);overflow:hidden;}
+.stack-head{text-align:center;margin-bottom:60px;position:relative;z-index:2;}
 .stack-head .section-title{color:#fff}
 .stack-head .section-sub{color:rgba(255,255,255,.5);margin:0 auto}
-.stack-cats{display:flex;flex-direction:column;gap:36px}
-.stack-cat-lbl{
-  font-size:.68rem;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--teal);margin-bottom:14px;
-}
-.stack-pills{display:flex;flex-wrap:wrap;gap:10px}
-.stack-pill{
-  display:flex;align-items:center;gap:9px;padding:9px 16px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  border-radius:50px;transition:var(--ease);
-}
-.stack-pill:hover{background:rgba(0,200,248,.1);border-color:rgba(0,200,248,.4)}
-.stack-pill span{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.72)}
 
+.marquee-wrap{
+  display:flex;flex-direction:column;gap:24px;
+  width:100%;max-width:100vw;overflow:hidden;position:relative;
+}
+.marquee-wrap::before, .marquee-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none;
+}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--navy),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--navy),transparent);}
+
+.marquee-track{
+  display:flex;align-items:center;gap:20px;width:max-content;
+  animation:scrollLeft 40s linear infinite;
+}
+.marquee-track.reverse{
+  animation:scrollRight 45s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused;}
+
+@keyframes scrollLeft{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+@keyframes scrollRight{
+  0%{transform:translateX(-50%)}
+  100%{transform:translateX(0)}
+}
+
+.stack-pill{
+  display:flex;align-items:center;gap:12px;padding:12px 24px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:50px;transition:var(--ease);flex-shrink:0;
+}
+.stack-pill:hover{
+  background:rgba(0,200,248,.1);border-color:rgba(0,200,248,.4);
+  transform:translateY(-2px);
+}
+.stack-pill img{
+  width:24px;height:24px;object-fit:contain;
+}
+.stack-pill span{
+  font-size:.9rem;font-weight:600;color:rgba(255,255,255,.85);
+}
 /* ============================================================
    PROCESS
 ============================================================ */
@@ -985,37 +1015,37 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
       </div>
       <div class="svc-grid">
         <div class="svc-card reveal">
-          <div class="svc-icon">🤖</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></div>
           <h3>AI Solutions</h3>
           <p>Smarter decisions, better outcomes. Custom AI models, predictive analytics and intelligent automation built for your context.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">🔒</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
           <h3>Cybersecurity</h3>
           <p>Protecting what matters most. Threat detection, POPIA compliance and incident response.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">&lt;/&gt;</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <h3>Software Engineering</h3>
           <p>Custom systems, real business value. Enterprise-grade web platforms, APIs, mobile apps and internal tools.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">🏙️</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22"/><line x1="15" y1="22" x2="15" y2="22"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
           <h3>Smart Infrastructure</h3>
           <p>Connected, efficient, future-ready. IoT systems, cloud architecture and digital infrastructure for cities and enterprises.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">☁️</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 116.71-9h1.79a4.5 4.5 0 110 9Z"/></svg></div>
           <h3>Cloud &amp; DevOps</h3>
           <p>Scalable, resilient and cost-efficient. AWS, Azure, GCP with full CI/CD pipeline automation.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">🏛️</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 22 7 12 2"/><line x1="6" y1="22" x2="6" y2="7"/><line x1="10" y1="22" x2="10" y2="7"/><line x1="14" y1="22" x2="14" y2="7"/><line x1="18" y1="22" x2="18" y2="7"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
           <h3>GovTech</h3>
           <p>Digital government, empowered citizens. E-governance platforms, compliance systems and public-sector transformation.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
@@ -1489,42 +1519,42 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
     </div>
     <div class="ind-grid">
       <div class="ind-card reveal">
-        <div class="ind-icon">🏢</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
         <h4>SMEs</h4>
         <p>Still using WhatsApp, Excel and paper? We automate and organise.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">🏗️</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a1 1 0 011-1h1"/><path d="M14 14.76V21a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 00-1-1h-2a1 1 0 00-1 1v4"/><path d="M21 14.76V3.5a1 1 0 00-1-1h-1"/><path d="M10 21h4"/><path d="M10 14h4"/><path d="M4 21V10a2 2 0 012-2h4"/><path d="M8 12.5l3-3"/><path d="M4 14.5l6-6"/><path d="M4 16.5l6-6"/></svg></div>
         <h4>Construction</h4>
         <p>Projects, documents, costs and site reports — all connected.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">🚛</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 00-1.17-2.83L19 9h-5v8h2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
         <h4>Transport &amp; Logistics</h4>
         <p>Fleet, drivers, fuel, routes and maintenance dashboards.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">🏦</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 22 7 12 2"/><line x1="6" y1="22" x2="6" y2="7"/><line x1="10" y1="22" x2="10" y2="7"/><line x1="14" y1="22" x2="14" y2="7"/><line x1="18" y1="22" x2="18" y2="7"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
         <h4>Financial Services</h4>
         <p>Automation, compliance and secure client management systems.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">🏥</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22"/><line x1="15" y1="22" x2="15" y2="22"/><path d="M12 6v4"/><path d="M10 8h4"/></svg></div>
         <h4>Healthcare</h4>
         <p>Patient data, scheduling, records and digital workflows.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">📚</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
         <h4>Education</h4>
         <p>Student portals, LMS platforms and administrative automation.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">🏛️</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 22 7 12 2"/><line x1="6" y1="22" x2="6" y2="7"/><line x1="10" y1="22" x2="10" y2="7"/><line x1="14" y1="22" x2="14" y2="7"/><line x1="18" y1="22" x2="18" y2="7"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
         <h4>Government</h4>
         <p>E-governance, citizen services and compliance systems.</p>
       </div>
       <div class="ind-card reveal">
-        <div class="ind-icon">⚡</div>
+        <div class="ind-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h4>Energy &amp; Utilities</h4>
         <p>Smart monitoring, IoT and infrastructure automation.</p>
       </div>
@@ -1534,59 +1564,67 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
 
 <!-- TECH STACK -->
 <section id="stack">
-  <div class="container">
+  <div class="container" style="max-width:100%;padding:0;">
     <div class="stack-head reveal">
       <div class="tag" style="justify-content:center;">Technology Stack</div>
       <h2 class="section-title">Best-in-Class Tools</h2>
       <p class="section-sub">Our team is certified and experienced across leading technology platforms.</p>
     </div>
-    <div class="stack-cats">
-      <div class="reveal">
-        <div class="stack-cat-lbl">AI &amp; Machine Learning</div>
-        <div class="stack-pills">
-          <div class="stack-pill"><span>🐍</span><span>Python</span></div>
-          <div class="stack-pill"><span>🔥</span><span>PyTorch</span></div>
-          <div class="stack-pill"><span>🧠</span><span>TensorFlow</span></div>
-          <div class="stack-pill"><span>🤗</span><span>Hugging Face</span></div>
-          <div class="stack-pill"><span>🔮</span><span>OpenAI API</span></div>
-          <div class="stack-pill"><span>🎯</span><span>LangChain</span></div>
-        </div>
+    
+    <div class="marquee-wrap reveal">
+      <!-- Row 1: AI, Cloud & DevOps -->
+      <div class="marquee-track">
+        <!-- Group A -->
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch"><span>PyTorch</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><span>TensorFlow</span></div>
+        <div class="stack-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="filter:invert(1)"><span>OpenAI</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" style="filter:invert(1)"><span>AWS</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="Azure"><span>Azure</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud"><span>Google Cloud</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"><span>Kubernetes</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="Terraform"><span>Terraform</span></div>
+        <!-- Group A Duplicated for infinite scroll -->
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch"><span>PyTorch</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><span>TensorFlow</span></div>
+        <div class="stack-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="filter:invert(1)"><span>OpenAI</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" style="filter:invert(1)"><span>AWS</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="Azure"><span>Azure</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud"><span>Google Cloud</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"><span>Kubernetes</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="Terraform"><span>Terraform</span></div>
       </div>
-      <div class="reveal">
-        <div class="stack-cat-lbl">Cloud &amp; DevOps</div>
-        <div class="stack-pills">
-          <div class="stack-pill"><span>☁️</span><span>AWS</span></div>
-          <div class="stack-pill"><span>🔷</span><span>Azure</span></div>
-          <div class="stack-pill"><span>🌐</span><span>Google Cloud</span></div>
-          <div class="stack-pill"><span>🐳</span><span>Docker</span></div>
-          <div class="stack-pill"><span>☸️</span><span>Kubernetes</span></div>
-          <div class="stack-pill"><span>🔧</span><span>Terraform</span></div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="stack-cat-lbl">Software Engineering</div>
-        <div class="stack-pills">
-          <div class="stack-pill"><span>⚡</span><span>Go</span></div>
-          <div class="stack-pill"><span>🦀</span><span>Rust</span></div>
-          <div class="stack-pill"><span>🟨</span><span>TypeScript</span></div>
-          <div class="stack-pill"><span>⚛️</span><span>React</span></div>
-          <div class="stack-pill"><span>🔺</span><span>Next.js</span></div>
-          <div class="stack-pill"><span>🐘</span><span>PostgreSQL</span></div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="stack-cat-lbl">Security &amp; Observability</div>
-        <div class="stack-pills">
-          <div class="stack-pill"><span>📊</span><span>Grafana</span></div>
-          <div class="stack-pill"><span>🔍</span><span>Prometheus</span></div>
-          <div class="stack-pill"><span>🔭</span><span>OpenTelemetry</span></div>
-          <div class="stack-pill"><span>🛡️</span><span>Wazuh</span></div>
-          <div class="stack-pill"><span>🔒</span><span>Vault</span></div>
-        </div>
+      
+      <!-- Row 2: Software & Security -->
+      <div class="marquee-track reverse">
+        <!-- Group B -->
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go"><span>Go</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" style="filter:invert(1)"><span>Rust</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span>React</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" style="filter:invert(1)"><span>Next.js</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana"><span>Grafana</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus"><span>Prometheus</span></div>
+        <div class="stack-pill"><img src="https://raw.githubusercontent.com/wazuh/wazuh/master/src/win32/wazuh.ico" alt="Wazuh"><span>Wazuh</span></div>
+        <!-- Group B Duplicated -->
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go"><span>Go</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" style="filter:invert(1)"><span>Rust</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span>React</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" style="filter:invert(1)"><span>Next.js</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana"><span>Grafana</span></div>
+        <div class="stack-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus"><span>Prometheus</span></div>
+        <div class="stack-pill"><img src="https://raw.githubusercontent.com/wazuh/wazuh/master/src/win32/wazuh.ico" alt="Wazuh"><span>Wazuh</span></div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- PROCESS -->
 <section id="process">
@@ -1664,7 +1702,7 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
       <div class="about-img-wrap reveal">
         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Kirov Dynamics team">
         <div class="about-badge">
-          <div class="about-badge-icon">🇿🇦</div>
+          <div class="about-badge-icon"><svg viewBox="0 0 24 24"><path d="M2 12A10 10 0 1022 12 10 10 0 102 12Z"/></svg></div>
           <div class="about-badge-text"><h5>Founded 2025</h5><p>Proudly South African</p></div>
         </div>
       </div>
@@ -1896,12 +1934,12 @@ function goSlide(n) {
 
 let slideTimer = setInterval(() => {
   goSlide((currentSlide + 1) % slides.length);
-}, 6000);
+}, 3500);
 
 // Pause on hover
 document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(slideTimer));
 document.querySelector('.hero').addEventListener('mouseleave', () => {
-  slideTimer = setInterval(() => goSlide((currentSlide + 1) % slides.length), 6000);
+  slideTimer = setInterval(() => goSlide((currentSlide + 1) % slides.length), 3500);
 });
 
 /* === Counter Animations === */
