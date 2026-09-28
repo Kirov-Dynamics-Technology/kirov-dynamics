@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-home="./">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,6 +161,22 @@
     .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
+<!-- refresh-to-home -->
+<script>
+/* Refreshing ANY page returns to the homepage. Only a genuine reload
+   (F5 / Ctrl+R / reload button) is redirected - clicking a link into a
+   sub-page still opens that page normally. */
+(function(){
+  try{
+    var n=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{};
+    if(n.type!=='reload'&&!(performance.navigation&&performance.navigation.type===1))return;
+    var home=document.documentElement.getAttribute('data-home')||'./';
+    var target=new URL(home,location.href).pathname.replace(/\/+$/,'/');
+    if(location.pathname.replace(/\/+$/,'/')===target)return;
+    location.replace(target);
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 
@@ -543,7 +559,7 @@
     </div>
   </div>
   <div class="wa-popup-body">
-    <div class="msg">Hi there! 👋 How can we help you today?</div>
+    <div class="msg">Hi there! How can we help you today?</div>
     <div class="quick-btns">
       <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%27d%20like%20a%20quote%20for%20AI%20solutions" target="_blank">Get an AI Quote</a>
       <a href="https://wa.me/27781172470?text=Hi%20Kirov%2C%20I%20need%20a%20security%20assessment" target="_blank">Security Assessment</a>

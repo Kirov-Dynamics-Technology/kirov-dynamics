@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-home="../">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +79,22 @@
     .more-card a{font-size:0.82rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:4px}
     footer{padding:30px 0;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);text-align:center}
   </style>
+<!-- refresh-to-home -->
+<script>
+/* Refreshing ANY page returns to the homepage. Only a genuine reload
+   (F5 / Ctrl+R / reload button) is redirected - clicking a link into a
+   sub-page still opens that page normally. */
+(function(){
+  try{
+    var n=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{};
+    if(n.type!=='reload'&&!(performance.navigation&&performance.navigation.type===1))return;
+    var home=document.documentElement.getAttribute('data-home')||'./';
+    var target=new URL(home,location.href).pathname.replace(/\/+$/,'/');
+    if(location.pathname.replace(/\/+$/,'/')===target)return;
+    location.replace(target);
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 
