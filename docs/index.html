@@ -206,42 +206,44 @@ ul{list-style:none}
    (crop=faces keeps people framed) so `cover` barely crops at all. Requesting
    only w=1920 returned a 1920x2880 PORTRAIT for slide 2, which cover then
    squeezed to a thin band and cut the subject's face off. */
-.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&crop=faces&w=800&h=1780&q=80')}
-.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&crop=faces&w=800&h=1780&q=80')}
-.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&crop=faces&w=800&h=1780&q=80')}
-.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&crop=faces&w=800&h=1780&q=80')}
+.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
+.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
+.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
 /* Phones: bias upward so heads stay in frame */
 .hero-slide{background-position:center 28%}
 @media(min-width:600px){
-  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&crop=faces&w=1000&h=1250&q=80')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&crop=faces&w=1000&h=1250&q=80')}
-  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&crop=faces&w=1000&h=1250&q=80')}
-  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&crop=faces&w=1000&h=1250&q=80')}
+  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
+  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
+  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide{background-position:center 32%}
 }
 @media(min-width:1024px){
-  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&crop=faces&w=1920&h=1080&q=80')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&crop=faces&w=1920&h=1080&q=80')}
-  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&crop=faces&w=1920&h=1080&q=80')}
-  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&crop=faces&w=1920&h=1080&q=80')}
+  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
+  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
+  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
   .hero-slide{background-position:center 38%}
 }
 /* Ultrawide: 21:9 so 2560x1080 and similar lose nothing */
 @media(min-width:1024px) and (min-aspect-ratio:2/1){
-  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&crop=faces&w=2560&h=1100&q=80')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&crop=faces&w=2560&h=1100&q=80')}
-  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&crop=faces&w=2560&h=1100&q=80')}
-  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&crop=faces&w=2560&h=1100&q=80')}
+  .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
+  .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
+  .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
 }
 
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
+  /* was .96/.90/.55/.30 - the left 40% was so dark the photograph was invisible
+     behind the text. Lightened, with a text shadow carrying the legibility. */
   background:linear-gradient(
     105deg,
-    rgba(8,14,28,.96) 0%,
-    rgba(8,14,28,.90) 42%,
-    rgba(8,14,28,.55) 70%,
-    rgba(8,14,28,.30) 100%
+    rgba(8,14,28,.90) 0%,
+    rgba(8,14,28,.80) 40%,
+    rgba(8,14,28,.42) 72%,
+    rgba(8,14,28,.12) 100%
   );
 }
 .hero-body{
@@ -263,7 +265,7 @@ ul{list-style:none}
 }
 .hero-brand .line2{
   display:block;font-size:clamp(1.6rem,3.8vw,3rem);
-  color:var(--teal-ink);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal);letter-spacing:.22em;text-transform:uppercase;
   text-shadow:0 0 30px rgba(0,200,248,.5);
 }
 .hero-divider{
@@ -272,11 +274,14 @@ ul{list-style:none}
 .hero-divider::before{content:'';width:28px;height:2px;background:var(--teal);border-radius:2px}
 .hero-divider span{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-ink)}
 
+/* the overlay is lighter now, so hero copy carries its own shadow rather than
+   relying on a near-opaque backdrop */
+.hero-headline,.hero-desc{ text-shadow:0 1px 3px rgba(6,11,22,.5),0 2px 12px rgba(6,11,22,.4); }
 .hero-headline{
   font-size:clamp(1.6rem,3vw,2.6rem);font-weight:900;
   color:#fff;line-height:1.2;margin-bottom:20px;
 }
-.hero-headline .teal{color:var(--teal-ink)}
+.hero-headline .teal{color:var(--teal)}
 .hero-desc{
   font-size:1.0rem;color:rgba(255,255,255,.75);line-height:1.8;
   max-width:500px;margin-bottom:28px;
@@ -316,12 +321,9 @@ ul{list-style:none}
 .t-text p{font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.4}
 
 /* SLIDE DOTS */
-.slide-dots{
-  position:absolute;bottom:88px;left:50%;transform:translateX(-50%);
-  z-index:10;display:flex;gap:8px;
-}
-.sd{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:var(--ease)}
-.sd.active{background:var(--teal);width:24px;border-radius:4px}
+
+
+
 
 /* ============================================================
    CORE SERVICES
@@ -353,14 +355,8 @@ ul{list-style:none}
 .fly-head{text-align:center;margin-bottom:64px}
 .fly-head .section-title{color:#fff}
 .fly-head .section-sub{color:rgba(255,255,255,.55);margin:0 auto}
-.fly-steps{
-  display:flex;align-items:flex-start;gap:0;
-  position:relative;flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;
-}
-.fly-step{
-  flex:1;min-width:130px;text-align:center;position:relative;
-  padding:0 8px;
-}
+.fly-steps{ display:grid;grid-template-columns:repeat(2,1fr);gap:30px 16px; position:relative;overflow-x:visible; }
+.fly-step{ min-width:0;text-align:center;position:relative; padding:0 4px; }
 .fly-step::after{
   content:'→';position:absolute;right:-14px;top:22px;
   font-size:1.2rem;color:var(--teal-ink);opacity:.6;
@@ -784,7 +780,8 @@ ul{list-style:none}
   width:38px;height:38px;border-radius:9px;background:var(--navy);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.c-icon svg{width:16px;height:16px;stroke:var(--teal-ink);fill:none;stroke-width:1.8} /* every other icon holder on the site follows the contact-block style: navy plate, teal stroke */.svc-icon,.pj-icon,.ind-icon{ display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:12px; background:linear-gradient(135deg,var(--navy),var(--navy-lt)); }.svc-icon{ width:50px;height:50px;margin-bottom:16px; }.pj-icon{ width:52px;height:52px;margin:0 auto 14px;transition:var(--ease); }.ind-icon{ width:56px;height:56px;margin:0 auto 16px;transition:var(--ease); }.svc-icon svg,.pj-icon svg,.ind-icon svg{ width:24px;height:24px;stroke:var(--teal-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round; }.pj-step:hover .pj-icon{ box-shadow:0 0 0 2px var(--teal); }.ind-card:hover .ind-icon{ box-shadow:0 0 0 2px var(--teal); }.about-badge-icon .sa-flag{ width:26px;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.28); }
+/* white drawing on the dark navy plate: ~15:1, where teal-ink was only ~2.5:1 */
+  .c-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.8} /* every other icon holder on the site follows the contact-block style: navy plate, white stroke */.svc-icon,.pj-icon,.ind-icon{ display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:12px; background:linear-gradient(135deg,var(--navy),var(--navy-lt)); }.svc-icon{ width:50px;height:50px;margin-bottom:16px; }.pj-icon{ width:52px;height:52px;margin:0 auto 14px;transition:var(--ease); }.ind-icon{ width:56px;height:56px;margin:0 auto 16px;transition:var(--ease); }.svc-icon svg,.pj-icon svg,.ind-icon svg{ width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round; }.pj-step:hover .pj-icon{ box-shadow:0 0 0 2px var(--teal); }.ind-card:hover .ind-icon{ box-shadow:0 0 0 2px var(--teal); }.about-badge-icon .sa-flag{ width:26px;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.28); }
 .c-item h5{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .c-item a,.c-item p{font-size:.9rem;color:var(--dark);font-weight:600}
 .c-item a:hover{color:var(--teal-ink)}
@@ -899,7 +896,6 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
   /* Side-by-side CTAs: stacking them cost 54px of the first screen on phones */
   .hero-btns{gap:10px}
   .hero-btns .btn{flex:1 1 0;min-width:0;justify-content:center;padding:12px 10px;font-size:.8rem;line-height:1.25;text-align:center}
-  .fly-steps{gap:8px}
   .fly-step::after{display:none}
   .fly-revenue,.price-journey,.pkg-grid,.sol-grid,.ba-grid{grid-template-columns:1fr}
   .why-grid,.ind-grid,.test-grid{grid-template-columns:1fr}
@@ -945,6 +941,47 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
    surfaces all teal text and icons fall back to --teal-ink (#007190, 5.58:1).
    Dark surfaces opt back into the bright teal. */
 #home,#flywheel,#roi,#stack,#impact,#cta-band,footer{--teal-ink:var(--teal)}
+/* ---- mobile / touch fixes ---- */
+/* ================= MOBILE =================
+   Two things were pushing content sideways on a phone:
+   1. grid/flex children default to min-width:auto, so the single nowrap ROI
+      button label (359px min-content) dragged its whole column to 425px and it
+      got clipped by overflow-x:hidden;
+   2. the six flywheel steps were a non-wrapping flex row needing a swipe.
+   Neither now forces a sideways scroll at any width. */
+@media(max-width:560px){
+  /* two 156px cards + gap no longer fit a 320px phone */
+  .svc-grid{ grid-template-columns:1fr; }
+  .roi-inner>*,.svc-layout>*,.about-grid>*,.contact-grid>*,
+  .score-grid>*,.fly-revenue>*,.price-journey>*{ min-width:0; }
+  .roi-calc{ padding:24px 20px; }
+  .roi-cta .btn,.roi-inner .btn{ white-space:normal;line-height:1.35;padding:14px 18px; }
+}
+a[href^="tel:"],a[href^="mailto:"]{ display:inline-block;padding:8px 0; }
+@media(max-width:400px){
+  /* logo 234 + gap 10 + burger 44 = 288, so padding has to come down from 32 */
+  .nav-inner{ padding:0 12px;gap:10px; }
+}
+@media(pointer:coarse){
+  /* 44px is the smallest reliably tappable target on a real thumb */
+  .hamburger{ width:44px;height:44px;padding:11px 10px; }
+  .svc-link,.sol-arrow{ min-height:44px; }
+  .soc-btn{ width:44px;height:44px; }
+  .btn{ min-height:46px; }
+}
+
+/* ---- the six flywheel steps ----
+   2 columns on a phone, 3 on a tablet, and back to the original 6-across row
+   only when six columns genuinely fit. The -> connector is hidden below that
+   because a wrapped row would push an arrow past the right edge and force a
+   sideways scroll on the desktop. */
+@media(min-width:600px) and (max-width:1199px){
+  .fly-steps{ grid-template-columns:repeat(3,1fr);gap:30px 20px; }
+  .fly-step::after{ display:none; }
+}
+@media(min-width:1200px){
+  .fly-steps{ grid-template-columns:repeat(6,1fr);gap:0 12px; }
+}
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <!-- refresh-to-home -->
@@ -1054,13 +1091,6 @@ HERO
   <div class="hero-overlay"></div>
 
   <!-- Slide dots -->
-  <div class="slide-dots" id="slideDots">
-    <div class="sd active" onclick="goSlide(0)"></div>
-    <div class="sd" onclick="goSlide(1)"></div>
-    <div class="sd" onclick="goSlide(2)"></div>
-    <div class="sd" onclick="goSlide(3)"></div>
-  </div>
-
   <!-- Main content -->
   <div class="hero-body">
     <div class="hero-left reveal">
@@ -1591,7 +1621,7 @@ HERO
     </div>
     <div class="sol-grid">
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="BusinessOS"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&fit=crop&w=600&q=72" alt="BusinessOS"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Now Available · BusinessOS</div>
           <h3>Kirov BusinessOS</h3>
@@ -1600,7 +1630,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fit=crop&w=600&q=80" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Fleet</div>
           <h3>Fleet Intelligence</h3>
@@ -1609,7 +1639,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Construction</div>
           <h3>Construction Intelligence</h3>
@@ -1618,7 +1648,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Later · Security</div>
           <h3>Kirov Secure</h3>
@@ -1627,7 +1657,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80" alt="GovTech"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fm=webp&fit=crop&w=600&q=72" alt="GovTech"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Future · Government</div>
           <h3>Kirov GovTech</h3>
@@ -1636,7 +1666,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="AI Solutions"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fm=webp&fit=crop&w=600&q=72" alt="AI Solutions"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Ongoing · AI Services</div>
           <h3>AI &amp; Automation Services</h3>
@@ -1804,7 +1834,7 @@ HERO
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Kirov Dynamics team">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&w=800&q=76" alt="Kirov Dynamics team">
         <div class="about-badge">
           <div class="about-badge-icon"><svg class="sa-flag" viewBox="0 0 90 60" aria-hidden="true" focusable="false"><defs><clipPath id="saf-t"><path d="m0 0 45 30L0 60z"/></clipPath><clipPath id="saf-f"><path d="m0 0h90v60H0z"/></clipPath></defs><path fill="#E03C31" d="m0 0h90v30H45z"/><path fill="#001489" d="m0 60h90V30H45z"/><g clip-path="url(#saf-f)" fill="none"><path stroke="#FFF" stroke-width="20" d="m90 30H45L0 0v60l45-30"/><path fill="#000" stroke="#ffb81c" stroke-width="20" clip-path="url(#saf-t)" d="m0 0 45 30L0 60"/><path stroke="#007749" stroke-width="12" d="m0 0 45 30h45M0 60l45-30"/></g></svg></div>
           <div class="about-badge-text"><h5>Founded 2025</h5><p>Proudly South African</p></div>
@@ -2064,14 +2094,11 @@ mob.addEventListener('keydown', e => {
 /* === Sliding Hero Images === */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.sd');
 
 function goSlide(n) {
   slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
   currentSlide = n;
   slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
 }
 
 let slideTimer = setInterval(() => {
