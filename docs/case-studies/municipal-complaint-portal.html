@@ -98,20 +98,45 @@
   </style>
 <!-- refresh-to-home -->
 <script>
-/* Refreshing ANY page returns to the homepage. Only a genuine reload
-   (F5 / Ctrl+R / reload button) is redirected - clicking a link into a
-   sub-page still opens that page normally. */
+/* Refreshing ANY page returns to the homepage. Normal link navigation is left alone.
+   A reload is detected from three independent signals, because browsers disagree:
+   the Navigation Timing type can read "navigate" after a real refresh, and
+   performance.navigation is deprecated and missing from some browsers. */
 (function(){
-  try{
-    var n=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{};
-    if(n.type!=='reload'&&!(performance.navigation&&performance.navigation.type===1))return;
-    var home=document.documentElement.getAttribute('data-home')||'./';
-    var target=new URL(home,location.href).pathname.replace(/\/+$/,'/');
-    if(location.pathname.replace(/\/+$/,'/')===target)return;
-    location.replace(target);
-  }catch(e){}
+  if (window.top !== window.self) return;      // never fight our own device-mockup iframe
+  try {
+    var path = location.pathname.replace(/\/+$/, '/');
+    var home = new URL(document.documentElement.getAttribute('data-home') || './', location.href)
+                 .pathname.replace(/\/+$/, '/');
+    var reload = false;
+
+    // 1. Navigation Timing Level 2
+    try {
+      var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (n && n.type) reload = n.type === 'reload';
+    } catch (e) {}
+
+    // 2. deprecated Navigation Timing Level 1
+    if (!reload) {
+      try { reload = !!(performance.navigation && performance.navigation.type === 1); } catch (e) {}
+    }
+
+    // 3. Same URL as the previous document in this tab. A refresh re-enters the identical
+    //    URL; ordinary navigation always changes it. Recorded on every page, the
+    //    homepage included, so coming back to a page you already visited is not a
+    //    false positive. Needs no time window, so a slow reload still counts.
+    try {
+      var k = 'rth:last';
+      if (sessionStorage.getItem(k) === path) reload = true;
+      sessionStorage.setItem(k, path);
+    } catch (e) {}
+
+    if (reload && path !== home) location.replace(home);
+  } catch (e) {}
 })();
 </script>
+
+
 </head>
 <body>
 
