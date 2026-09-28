@@ -2,11 +2,23 @@
 <html lang="en" data-home="./">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- The palette is a fixed light/navy brand, not a theme: telling the UA
+     "light" stops iOS Safari, Android Chrome and Edge from force-inverting the
+     page in their battery-saver / auto-dark modes, which turned the white
+     sections grey and broke every contrast ratio. -->
+<meta name="color-scheme" content="light">
 <meta name="theme-color" content="#0a1628">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <link rel="canonical" href="https://kirov-dynamics-technology.github.io/kirov-dynamics/">
 <title>Kirov Dynamics | We Find What's Slowing You Down, Then Fix It</title>
+<!-- the first slide is the LCP element on a phone, so it is fetched at high priority -->
+<!-- The first slide is the LCP element. The 800x1780 crop is the one the phone
+     CSS actually paints, but at 600px+ the stylesheet switches to the
+     1000x1250 and 1920x1080 crops, so the preload is pinned to the phones it
+     was sized for - otherwise every desktop visitor downloaded 128KB of
+     portrait image it then threw away. -->
+<link rel="preload" as="image" media="(max-width: 767px)" href="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72" fetchpriority="high">
 <meta name="description" content="Kirov Dynamics Technology helps organisations automate repetitive work, organise their information and build secure digital systems that drive real business value. South Africa's Technology & Infrastructure Partner.">
 <meta name="keywords" content="business automation, digital transformation, AI solutions, cybersecurity, South Africa, Gauteng, technology company, software development, fleet management, construction technology">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -35,9 +47,12 @@
 {"@type":"ProfessionalService","@id":"https://kirov-dynamics-technology.github.io/kirov-dynamics/#service","name":"Kirov Dynamics Technology","image":"https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png","url":"https://kirov-dynamics-technology.github.io/kirov-dynamics/","telephone":"+27781172470","priceRange":"R15,000 - R150,000+","areaServed":{"@type":"Country","name":"South Africa"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Technology Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Business Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cybersecurity Assessment"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Software Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI & Data Analytics"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Government Technology (GovTech)"}}]}}
 ]}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fonts are self-hosted variable woff2: 79KB covers every weight, the page
+     makes no third-party font request, so no visitor IP goes to Google. -->
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/inter-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/outfit-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
 <style>
 /* ============================================================
    TOKENS
@@ -48,7 +63,7 @@
   --navy-lt:   #132340;
   --teal:      #00c8f8;
   --teal-dk:   #00a8d4;
-  --teal-ink:  #007190;   /* 5.58:1 on white - brand teal is only 1.98:1 */
+  --teal-ink:  #007190; --teal-on-dark: #2fb6d8;   /* 5.58:1 on white - brand teal is only 1.98:1 */
   --blue:      #1a56db;
   --white:     #ffffff;
   --off:       #f8faff;
@@ -70,8 +85,25 @@
    RESET
 ============================================================ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:hidden}
-body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark);line-height:1.6;overflow-x:hidden}
+/* iOS Safari inflates text in landscape and, because the layout is
+   width-driven, that inflation used to push a sideways scroll. */
+html{
+  scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:hidden;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+  color-scheme:light;
+  /* stop the sideways rubber-band gesture on iOS and the pull-to-refresh
+     overscroll on Android Chrome from being read as a broken layout */
+  overscroll-behavior-x:none;
+}
+body{
+  font-family:'Inter',sans-serif;background:#fff;color:var(--dark);line-height:1.6;
+  overflow-x:hidden;
+  /* variable fonts must never be faux-bolded by the browser */
+  font-synthesis-weight:none;-webkit-font-smoothing:antialiased;
+  /* let the hero the full window on iOS standalone/fullscreen, but keep the
+     page off the browser chrome on a normal tab */
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
+}
 h1,h2,h3,h4,h5{font-family:'Outfit',sans-serif;line-height:1.2}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto;display:block}
@@ -93,7 +125,7 @@ ul{list-style:none}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;padding:13px 26px;border-radius:var(--r);transition:var(--ease);cursor:pointer;white-space:nowrap;line-height:1;position:relative;overflow:hidden}
 .btn-teal{background:var(--teal);color:var(--navy);box-shadow:0 4px 20px rgba(0,200,248,.4)}
 .btn-teal:hover{background:var(--teal-dk);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,200,248,.5)}
-.btn-ghost{border:2px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(8px)}
+.btn-ghost{border:2px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.15);transform:translateY(-2px)}
 .btn-dark{background:var(--navy);color:#fff}
 .btn-dark:hover{background:var(--navy-lt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,.4)}
@@ -156,7 +188,7 @@ ul{list-style:none}
   font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:900;
   color:#fff;letter-spacing:.02em;line-height:1;
 }
-.nav-logo-name .t{color:var(--teal-ink)}
+.nav-logo-name .t{color:var(--teal-on-dark)}
 .nav-logo-sub{
   font-size:.6rem;font-weight:700;color:rgba(0,200,248,.75);
   letter-spacing:.28em;text-transform:uppercase;margin-top:4px;
@@ -177,11 +209,11 @@ ul{list-style:none}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.3rem;font-weight:700;color:#fff;transition:var(--ease)}
 .mobile-menu a:hover{color:var(--teal-ink)}
-.mob-close{position:absolute;top:20px;right:24px;font-size:2rem;color:rgba(255,255,255,.5);cursor:pointer;line-height:1}
+.mob-close{position:absolute;top:max(20px,env(safe-area-inset-top));right:24px;font-size:2rem;color:rgba(255,255,255,.5);cursor:pointer;line-height:1;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
 
 /* ============================================================
    HERO
@@ -206,13 +238,13 @@ ul{list-style:none}
    (crop=faces keeps people framed) so `cover` barely crops at all. Requesting
    only w=1920 returned a 1920x2880 PORTRAIT for slide 2, which cover then
    squeezed to a thin band and cut the subject's face off. */
-.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
-.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
-.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
-.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=1780&q=72')}
+.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
+.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
+.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
 /* Phones: bias upward so heads stay in frame */
 .hero-slide{background-position:center 28%}
-@media(min-width:600px){
+@media(min-width:768px){
   .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
@@ -246,6 +278,75 @@ ul{list-style:none}
     rgba(8,14,28,.12) 100%
   );
 }
+/* On a phone the copy spans the full width, and on a tablet portrait it still
+   takes 620 of 768px, so a full-bleed shade that is dark enough to carry white
+   text also hides the photograph completely - the hero measured 1.5:1 for the
+   trust note and 2.1:1 for the description, both under WCAG AA, and the pictures
+   were invisible at the same time.
+   The shade is therefore split in two: a light film over the whole hero so the
+   photograph reads, plus a soft scrim sized to the copy block so the text still
+   sits on a controlled, dark, predictable background. The horizontal shade above
+   is only kept from 1280px up: below that the 620px copy column reaches past its
+   dark plateau, which measured 3.79:1 for the trust note at 1024px. */
+@media(max-width:1279px){
+  .hero-overlay{
+    background:linear-gradient(
+      180deg,
+      rgba(8,14,28,.40) 0%,
+      rgba(8,14,28,.22) 38%,
+      rgba(8,14,28,.20) 66%,
+      rgba(8,14,28,.40) 100%
+    );
+  }
+  .hero-left{position:relative;isolation:isolate}
+  .hero-left::before{
+    content:'';position:absolute;
+    /* bleed past the text so the scrim has no visible edge, top to bottom */
+    inset:-40px -24px;
+    background:radial-gradient(125% 105% at 32% 50%,
+      rgba(8,14,28,.90) 0%,
+      rgba(8,14,28,.84) 40%,
+      rgba(8,14,28,.58) 66%,
+      rgba(8,14,28,0) 84%);
+    z-index:-1;pointer-events:none;
+  }
+}
+
+/* PHONE LAYOUT: photo above, copy below.
+   On a 390px screen the brand line, headline, description and buttons cover
+   the entire hero, so any shade strong enough to hold white text at WCAG AA
+   also hides the photograph. That was measured rather than guessed: across
+   100 combinations of film, scrim and copy-trimming, the brightest shade that
+   still passed AA left the picture no brighter than the one it replaced. So on
+   phones the photograph becomes a full-bleed banner with no copy on it at all,
+   and the copy moves underneath onto a solid panel - the picture is then
+   completely unobstructed and the text contrast no longer depends on a photo
+   at all. Tablet and desktop keep the text-over-image hero. */
+@media(max-width:767px){
+  .hero{min-height:0}
+  .hero-slides{
+    position:relative;inset:auto;
+    height:clamp(240px,36svh,320px);
+  }
+  .hero-slide{background-position:center 30%}
+  /* a light film only, to settle the image against the panel below it */
+  .hero-overlay{
+    background:linear-gradient(180deg,
+      rgba(8,14,28,.34) 0%,
+      rgba(8,14,28,.06) 55%,
+      rgba(8,14,28,.20) 100%);
+  }
+  .hero-left::before{display:none}
+  .hero-body{
+    background:#080e1c;
+    padding:0 20px;
+    align-items:flex-start;
+  }
+  .hero-left{max-width:none;padding:30px 0 40px}
+  /* the copy no longer sits on a photograph, so it needs no shadow */
+  .hero-brand .line1,.hero-brand .line2,.hero-headline,.hero-desc{text-shadow:none}
+}
+
 .hero-body{
   position:relative;z-index:2;
   display:flex;flex:1;max-width:1440px;width:100%;margin:0 auto;padding:0 32px;
@@ -283,13 +384,13 @@ ul{list-style:none}
 }
 .hero-headline .teal{color:var(--teal)}
 .hero-desc{
-  font-size:1.0rem;color:rgba(255,255,255,.75);line-height:1.8;
+  font-size:1.0rem;color:rgba(255,255,255,.88);
   max-width:500px;margin-bottom:28px;
 }
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
 .hero-trust-note{
   display:flex;align-items:center;gap:10px;
-  font-size:.78rem;color:rgba(255,255,255,.5);
+  font-size:.78rem;color:rgba(255,255,255,.78);
 }
 .hero-trust-note svg{width:16px;height:16px;stroke:var(--teal-ink);fill:none;stroke-width:2;flex-shrink:0}
 
@@ -298,6 +399,7 @@ ul{list-style:none}
   position:relative;z-index:2;
   background:rgba(8,14,28,.85);
   backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   border-top:1px solid rgba(255,255,255,.1);
 }
 .trust-inner{
@@ -318,7 +420,7 @@ ul{list-style:none}
 }
 .t-icon svg{width:18px;height:18px;stroke:var(--teal-ink);fill:none;stroke-width:1.8}
 .t-text h5{font-size:.75rem;font-weight:800;color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
-.t-text p{font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.4}
+.t-text p{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4}
 
 /* SLIDE DOTS */
 
@@ -332,21 +434,30 @@ ul{list-style:none}
 .svc-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
 .svc-sticky{position:sticky;top:90px}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+/* The service cards were #f8faff with dark text, so the white icon drawings
+   landed on a light card. Dark navy cards fix that and match the icon plates,
+   the flywheel revenue cards and the industry cards on hover. */
 .svc-card{
-  background:var(--off);border:1px solid var(--border);
+  background:linear-gradient(150deg,var(--navy) 0%,var(--navy-lt) 100%);
+  border:1px solid var(--border-n);
   border-radius:var(--r-lg);padding:28px 24px;transition:var(--ease);
 }
-.svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:rgba(0,200,248,.3)}
+.svc-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(0,200,248,.45);
+  box-shadow:0 12px 34px rgba(10,22,40,.28);
+}
 
-.svc-card h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:8px}
-.svc-card p{font-size:.87rem;color:var(--muted);line-height:1.65}
+.svc-card h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:8px}
+.svc-card p{font-size:.87rem;color:rgba(255,255,255,.66);line-height:1.65}
+/* on navy the bright teal is the readable one (--teal-ink is tuned for white) */
 .svc-link{
   display:inline-flex;align-items:center;gap:6px;margin-top:14px;
-  font-size:.78rem;font-weight:700;color:var(--teal-ink);
+  font-size:.78rem;font-weight:700;color:var(--teal);
   text-transform:uppercase;letter-spacing:.08em;transition:var(--ease);
 }
-.svc-link:hover{gap:10px}
-.svc-link svg{width:13px;height:13px;stroke:var(--teal-ink);fill:none;stroke-width:2.5}
+.svc-link:hover{gap:10px;color:#7fe3ff}
+.svc-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5}
 
 /* ============================================================
    FLYWHEEL / BUSINESS MODEL
@@ -372,7 +483,7 @@ ul{list-style:none}
   font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:900;color:var(--teal-ink);
 }
 .fly-step h4{font-size:.82rem;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.3}
-.fly-step p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5}
+.fly-step p{font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5}
 .fly-revenue{
   margin-top:64px;
   display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
@@ -502,6 +613,13 @@ ul{list-style:none}
 }
 .roi-field input:focus,.roi-field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,200,248,.12)}
 .roi-field input::placeholder{color:rgba(255,255,255,.3)}
+/* -webkit-appearance:none drops the native select arrow, which left the ROI
+   dropdown with no affordance at all on iOS and Android. */
+.roi-field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:15px;
+  padding-right:38px;
+}
 .roi-result{
   background:rgba(0,200,248,.08);border:1px solid rgba(0,200,248,.25);
   border-radius:var(--r-lg);padding:24px;margin-top:8px;
@@ -576,7 +694,7 @@ ul{list-style:none}
   font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;
   color:var(--navy);line-height:1;margin-bottom:8px;
 }
-.imp-label{font-size:.8rem;font-weight:700;color:rgba(10,22,40,.6);text-transform:uppercase;letter-spacing:.1em}
+.imp-label{font-size:.8rem;font-weight:700;color:rgba(10,22,40,.85);text-transform:uppercase;letter-spacing:.1em}
 
 /* ============================================================
    SOLUTIONS
@@ -644,15 +762,23 @@ ul{list-style:none}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
 }
-/* the track holds two identical runs; shifting by -50% loops seamlessly */
+/* the track holds two identical runs; shifting by -50% loops seamlessly.
+   The 12px spacing lives on each chip as margin-right rather than as a flex gap,
+   so a chip + its trailing space is one repeatable unit. With `gap` the track was
+   12w + 11*12 wide and -50% landed 6px short of a real run boundary, which showed
+   up as a small hitch once per loop, on every belt. */
 .stack-belt-track{
-  display:flex;align-items:center;gap:12px;width:max-content;
+  display:flex;align-items:center;width:max-content;
   animation:stack-belt-scroll 44s linear infinite;
   will-change:transform;
 }
 .stack-belt:hover .stack-belt-track{animation-play-state:paused}
 @keyframes stack-belt-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
-.stack-logo{ display:flex;align-items:center;gap:10px;flex-shrink:0; padding:9px 16px;border-radius:50px; background:#fff; border:1px solid #e3eaf3; transition:var(--ease); }.stack-logo:hover{ border-color:var(--c,#00c8f8); box-shadow:0 6px 22px rgba(0,200,248,.28); transform:translateY(-2px); }.stack-logo svg{ height:22px;width:auto;max-width:118px;flex-shrink:0; }.stack-logo span{font-size:.83rem;font-weight:600;color:#0f1d33;white-space:nowrap}
+.stack-logo{ display:flex;align-items:center;gap:10px;flex-shrink:0; padding:9px 16px;border-radius:50px; background:#fff; border:1px solid #e3eaf3; transition:var(--ease); margin-right:12px; }.stack-logo:hover{ border-color:var(--c,#00c8f8); box-shadow:0 6px 22px rgba(0,200,248,.28); transform:translateY(-2px); }.stack-logo svg{ height:22px;width:auto;max-width:118px;flex-shrink:0; }.stack-logo span{font-size:.83rem;font-weight:600;color:#0f1d33;white-space:nowrap}
+/* wordmark-only chip (Snyk) - no redistributable mark, so the name carries the
+   same optical weight the 22px logo marks do. */
+.stack-logo--text{padding:12px 20px}
+.stack-logo--text span{font-weight:700;letter-spacing:-.01em}
 
 /* one path per logo, painted in the brand's own colour */
 
@@ -675,7 +801,7 @@ ul{list-style:none}
 .proc-step{text-align:center;padding:0 16px;position:relative;z-index:1}
 .proc-num{
   width:54px;height:54px;border-radius:50%;background:var(--navy);
-  color:var(--teal-ink);font-family:'Outfit',sans-serif;font-size:1rem;font-weight:900;
+  color:var(--teal-on-dark);font-family:'Outfit',sans-serif;font-size:1rem;font-weight:900;
   display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
   border:3px solid var(--teal);box-shadow:0 0 20px rgba(0,200,248,.25);
 }
@@ -796,6 +922,11 @@ ul{list-style:none}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
   border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,200,248,.12);
 }
+.form-group select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:15px;
+  padding-right:38px;
+}
 .form-group textarea{resize:vertical;min-height:110px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-submit{
@@ -839,20 +970,20 @@ ul{list-style:none}
    ============================================================ */
 footer{background:var(--navy);color:#fff;padding:80px 0 0}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px}
-.foot-brand p{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75;margin-top:14px;max-width:280px}
+.foot-brand p{font-size:.87rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:14px;max-width:280px}
 .foot-col h4{
   font-size:.68rem;font-weight:800;letter-spacing:.2em;
   text-transform:uppercase;color:var(--teal-ink);margin-bottom:18px;
 }
 .foot-col ul{display:flex;flex-direction:column;gap:10px}
-.foot-col ul a{font-size:.85rem;color:rgba(255,255,255,.45);transition:var(--ease)}
+.foot-col ul a{font-size:.85rem;color:rgba(255,255,255,.55);transition:var(--ease)}
 .foot-col ul a:hover{color:#fff;padding-left:4px}
 .foot-bottom{
   border-top:1px solid rgba(255,255,255,.07);padding:22px 0;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
 }
-.foot-bottom p{font-size:.78rem;color:rgba(255,255,255,.35)}
-.foot-bottom a{color:rgba(255,255,255,.35);transition:var(--ease)}
+.foot-bottom p{font-size:.78rem;color:rgba(255,255,255,.55)}
+.foot-bottom a{color:rgba(255,255,255,.55);transition:var(--ease)}
 .foot-bottom a:hover{color:#fff}
 .foot-social{display:flex;gap:10px}
 .soc-btn{
@@ -957,7 +1088,29 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
   .roi-calc{ padding:24px 20px; }
   .roi-cta .btn,.roi-inner .btn{ white-space:normal;line-height:1.35;padding:14px 18px; }
 }
-a[href^="tel:"],a[href^="mailto:"]{ display:inline-block;padding:8px 0; }
+/* ---- the four impact stats ----
+   These sat 2-up x 2-down on a phone, so the band read as a small 2x2 block
+   instead of the single row of four results it is on a desktop. Four columns
+   do fit at 320px as long as the numerals and labels scale with the viewport,
+   so the row stays one line and the vertical rules stay between the stats. */
+@media(max-width:768px){
+  .imp-grid{ grid-template-columns:repeat(4,1fr); }
+  .imp-item{ min-width:0; padding:22px 6px; }
+  /* the 900px rule above drops the divider after stat 2; put it back */
+  .imp-item:nth-child(2){ border-right:1px solid rgba(10,22,40,.15); }
+  .imp-num{ font-size:clamp(1.35rem,5.6vw,1.9rem); margin-bottom:6px; }
+  .imp-label{
+    font-size:clamp(.5rem,2.1vw,.62rem);
+    letter-spacing:.04em;line-height:1.35;overflow-wrap:break-word;
+  }
+}
+/* the bare phone / email links in the contact rows and footer were 17px tall.
+   :not(.btn):not(.soc-btn) matters - a bare attribute selector outranks .btn and
+   was flattening the padding on the real buttons. */
+a[href^="tel:"]:not(.btn):not(.soc-btn),
+a[href^="mailto:"]:not(.btn):not(.soc-btn){
+  display:inline-flex;align-items:center;min-height:44px;
+}
 @media(max-width:400px){
   /* logo 234 + gap 10 + burger 44 = 288, so padding has to come down from 32 */
   .nav-inner{ padding:0 12px;gap:10px; }
@@ -968,6 +1121,32 @@ a[href^="tel:"],a[href^="mailto:"]{ display:inline-block;padding:8px 0; }
   .svc-link,.sol-arrow{ min-height:44px; }
   .soc-btn{ width:44px;height:44px; }
   .btn{ min-height:46px; }
+  /* iOS Safari zooms the viewport on focus for any field below 16px and never
+     zooms back out, which used to leave the ROI calculator stuck magnified and
+     scrolled sideways. */
+  .roi-field input,.roi-field select,
+  .form-group input,.form-group select,.form-group textarea{ font-size:16px; }
+}
+
+/* Windows High Contrast, and the equivalent modes in macOS and iOS, throw away
+   background colours and box-shadows. Everything the layout was separated by
+   therefore needs a real border to stay readable. */
+@media(forced-colors:active){
+  .svc-card,.why-card,.ind-card,.pkg-card,.test-card,.rev-card,.score-area,
+  .c-item,.about-li,.roi-calc,.roi-result,.stack-logo,.pf-check,.chk,
+  .t-icon,.proc-num,.about-badge,.about-badge-icon,.svc-icon,.pj-icon,
+  .ind-icon,.c-icon,.test-av,.nav-links a,.btn,.btn-outline,.btn-teal,
+  .btn-dark,.btn-ghost,.form-submit,.soc-btn{
+    border:1px solid CanvasText !important;
+  }
+  .svc-card h3,.why-card h3,.why-card p,.rev-card h3,.rev-card p,
+  .pkg-card h3,.pkg-card .pkg-desc,.ind-card h4,.ind-card p,
+  .test-auth h5,.score-area-top h5,.contact-left h2,.section-title{
+    color:CanvasText !important;
+  }
+  .svc-link,.sol-arrow,.nav-links a,.c-item a{color:LinkText !important}
+  :focus-visible{outline:3px solid Highlight !important}
+  .stack-belt-track{animation:none}
 }
 
 /* ---- the six flywheel steps ----
@@ -1196,7 +1375,7 @@ HERO
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div class="svc-card reveal">
-          <div class="svc-icon">&lt;/&gt;</div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
           <h3>Software Engineering</h3>
           <p>Custom systems, real business value. Enterprise-grade web platforms, APIs, mobile apps and internal tools.</p>
           <a href="#solutions" class="svc-link">Learn more <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
@@ -1412,7 +1591,7 @@ HERO
       </div>
       <div class="pkg-card reveal">
         <div class="pkg-header">
-          <div class="pkg-badge" style="background:var(--navy);color:var(--teal-ink);">Package C</div>
+          <div class="pkg-badge" style="background:var(--navy);color:var(--teal-on-dark);">Package C</div>
           <h3>BusinessOS</h3>
           <div class="pkg-price">R25,000 <span>– R100,000+</span></div>
           <p class="pkg-desc">Your complete business operating system. Customers, quotes, invoices, tasks, staff, reports — all in one platform.</p>
@@ -1621,7 +1800,7 @@ HERO
     </div>
     <div class="sol-grid">
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&fit=crop&w=600&q=72" alt="BusinessOS"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&fit=crop&w=600&q=72" alt="BusinessOS"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Now Available · BusinessOS</div>
           <h3>Kirov BusinessOS</h3>
@@ -1630,7 +1809,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Fleet</div>
           <h3>Fleet Intelligence</h3>
@@ -1639,7 +1818,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Construction</div>
           <h3>Construction Intelligence</h3>
@@ -1648,7 +1827,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Later · Security</div>
           <h3>Kirov Secure</h3>
@@ -1657,7 +1836,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fm=webp&fit=crop&w=600&q=72" alt="GovTech"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fm=webp&fit=crop&w=600&q=72" alt="GovTech"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Future · Government</div>
           <h3>Kirov GovTech</h3>
@@ -1666,7 +1845,7 @@ HERO
         </div>
       </div>
       <div class="sol-card reveal">
-        <div class="sol-img"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fm=webp&fit=crop&w=600&q=72" alt="AI Solutions"><div class="sol-img-ov"></div></div>
+        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fm=webp&fit=crop&w=600&q=72" alt="AI Solutions"><div class="sol-img-ov"></div></div>
         <div class="sol-body">
           <div class="sol-cat">Ongoing · AI Services</div>
           <h3>AI &amp; Automation Services</h3>
@@ -1754,7 +1933,7 @@ HERO
       </div>
       <div class="reveal">
         <div class="stack-cat-lbl">Security &amp; Observability</div>
-        <div class="stack-belt" role="list" aria-label="Security and Observability platforms"><div class="stack-belt-track"><div class="stack-logo" role="listitem" style="--c:#F46800"><svg viewBox="0 0 24 24" fill="#F46800" aria-hidden="true" focusable="false"><title>Grafana</title><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg><span>Grafana</span></div><div class="stack-logo" role="listitem" style="--c:#E6522C"><svg viewBox="0 0 24 24" fill="#E6522C" aria-hidden="true" focusable="false"><title>Prometheus</title><path d="M12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.628-5.373-12-12-12zm0 22.46c-1.885 0-3.414-1.26-3.414-2.814h6.828c0 1.553-1.528 2.813-3.414 2.813zm5.64-3.745H6.36v-2.046h11.28v2.046zm-.04-3.098H6.391c-.037-.043-.075-.086-.111-.13-1.155-1.401-1.427-2.133-1.69-2.879-.005-.025 1.4.287 2.395.511 0 0 .513.119 1.262.255-.72-.843-1.147-1.915-1.147-3.01 0-2.406 1.845-4.508 1.18-6.207.648.053 1.34 1.367 1.387 3.422.689-.951.977-2.69.977-3.755 0-1.103.727-2.385 1.454-2.429-.648 1.069.168 1.984.894 4.256.272.854.237 2.29.447 3.201.07-1.892.395-4.652 1.595-5.605-.529 1.2.079 2.702.494 3.424.671 1.164 1.078 2.047 1.078 3.716a4.642 4.642 0 01-1.11 2.996c.792-.149 1.34-.283 1.34-.283l2.573-.502s-.374 1.538-1.81 3.019z"/></svg><span>Prometheus</span></div><div class="stack-logo" role="listitem" style="--c:#000000"><svg viewBox="0 0 24 24" fill="#000000" aria-hidden="true" focusable="false"><title>OpenTelemetry</title><path d="M12.6974 13.1173c-1.0224 1.0224-1.0224 2.68 0 3.7024 1.0224 1.0224 2.68 1.0224 3.7024 0 1.0224-1.0223 1.0224-2.68 0-3.7024-1.0223-1.0223-2.68-1.0223-3.7024 0zm2.7677 2.7701c-.5063.5063-1.3267.5063-1.833 0s-.5063-1.3266 0-1.833c.5063-.5062 1.3267-.5062 1.833 0 .5063.504.5063 1.3267 0 1.833zM16.356.2355l-1.6041 1.6042c-.314.314-.314.83 0 1.144L21.015 9.247c.314.314.83.314 1.144 0l1.6042-1.6041c.314-.314.314-.83 0-1.144L17.4976.2354c-.314-.314-.8276-.314-1.1416 0zM5.1173 20.734c.2848-.2848.2848-.7497 0-1.0345l-.8155-.8155c-.2848-.2848-.7497-.2848-1.0345 0l-1.6845 1.6845-.0024.0024-.4625-.4625c-.2556-.2556-.6718-.2556-.925 0-.2556.2556-.2556.6718 0 .925l2.775 2.775c.2556.2556.6718.2556.925 0 .2532-.2556.2556-.6718 0-.925l-.4625-.4625.0024-.0024zm8.4856-15.893-3.5637 3.5637c-.3164.3164-.3164.8374 0 1.1538l2.2006 2.2005c1.5554-1.1197 3.7365-.981 5.1361.4187l1.7819-1.7818c.3164-.3165.3164-.8374 0-1.1538l-4.401-4.401c-.3165-.319-.8374-.319-1.1539 0zm-2.2881 7.8455-1.2999-1.2999c-.3043-.3043-.8033-.3043-1.1076 0l-4.5836 4.586c-.3042.3043-.3042.8033 0 1.1076l2.5973 2.5973c.3043.3043.8033.3043 1.1076 0l2.9478-2.9527c-.6231-1.2877-.5112-2.8431.3384-4.0383z"/></svg><span>OpenTelemetry</span></div><div class="stack-logo" role="listitem" style="--c:#00A9E5"><svg viewBox="0 0 24 24" fill="#00A9E5" aria-hidden="true" focusable="false"><title>Wazuh</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Wazuh</span></div><div class="stack-logo" role="listitem" style="--c:#FFEC6E"><svg viewBox="0 0 24 24" fill="#FFEC6E" aria-hidden="true" focusable="false"><title>HashiCorp Vault</title><path d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z"/></svg><span>HashiCorp Vault</span></div><div class="stack-logo" aria-hidden="true" style="--c:#F46800"><svg viewBox="0 0 24 24" fill="#F46800" aria-hidden="true" focusable="false"><title>Grafana</title><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg><span>Grafana</span></div><div class="stack-logo" aria-hidden="true" style="--c:#E6522C"><svg viewBox="0 0 24 24" fill="#E6522C" aria-hidden="true" focusable="false"><title>Prometheus</title><path d="M12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.628-5.373-12-12-12zm0 22.46c-1.885 0-3.414-1.26-3.414-2.814h6.828c0 1.553-1.528 2.813-3.414 2.813zm5.64-3.745H6.36v-2.046h11.28v2.046zm-.04-3.098H6.391c-.037-.043-.075-.086-.111-.13-1.155-1.401-1.427-2.133-1.69-2.879-.005-.025 1.4.287 2.395.511 0 0 .513.119 1.262.255-.72-.843-1.147-1.915-1.147-3.01 0-2.406 1.845-4.508 1.18-6.207.648.053 1.34 1.367 1.387 3.422.689-.951.977-2.69.977-3.755 0-1.103.727-2.385 1.454-2.429-.648 1.069.168 1.984.894 4.256.272.854.237 2.29.447 3.201.07-1.892.395-4.652 1.595-5.605-.529 1.2.079 2.702.494 3.424.671 1.164 1.078 2.047 1.078 3.716a4.642 4.642 0 01-1.11 2.996c.792-.149 1.34-.283 1.34-.283l2.573-.502s-.374 1.538-1.81 3.019z"/></svg><span>Prometheus</span></div><div class="stack-logo" aria-hidden="true" style="--c:#000000"><svg viewBox="0 0 24 24" fill="#000000" aria-hidden="true" focusable="false"><title>OpenTelemetry</title><path d="M12.6974 13.1173c-1.0224 1.0224-1.0224 2.68 0 3.7024 1.0224 1.0224 2.68 1.0224 3.7024 0 1.0224-1.0223 1.0224-2.68 0-3.7024-1.0223-1.0223-2.68-1.0223-3.7024 0zm2.7677 2.7701c-.5063.5063-1.3267.5063-1.833 0s-.5063-1.3266 0-1.833c.5063-.5062 1.3267-.5062 1.833 0 .5063.504.5063 1.3267 0 1.833zM16.356.2355l-1.6041 1.6042c-.314.314-.314.83 0 1.144L21.015 9.247c.314.314.83.314 1.144 0l1.6042-1.6041c.314-.314.314-.83 0-1.144L17.4976.2354c-.314-.314-.8276-.314-1.1416 0zM5.1173 20.734c.2848-.2848.2848-.7497 0-1.0345l-.8155-.8155c-.2848-.2848-.7497-.2848-1.0345 0l-1.6845 1.6845-.0024.0024-.4625-.4625c-.2556-.2556-.6718-.2556-.925 0-.2556.2556-.2556.6718 0 .925l2.775 2.775c.2556.2556.6718.2556.925 0 .2532-.2556.2556-.6718 0-.925l-.4625-.4625.0024-.0024zm8.4856-15.893-3.5637 3.5637c-.3164.3164-.3164.8374 0 1.1538l2.2006 2.2005c1.5554-1.1197 3.7365-.981 5.1361.4187l1.7819-1.7818c.3164-.3165.3164-.8374 0-1.1538l-4.401-4.401c-.3165-.319-.8374-.319-1.1539 0zm-2.2881 7.8455-1.2999-1.2999c-.3043-.3043-.8033-.3043-1.1076 0l-4.5836 4.586c-.3042.3043-.3042.8033 0 1.1076l2.5973 2.5973c.3043.3043.8033.3043 1.1076 0l2.9478-2.9527c-.6231-1.2877-.5112-2.8431.3384-4.0383z"/></svg><span>OpenTelemetry</span></div><div class="stack-logo" aria-hidden="true" style="--c:#00A9E5"><svg viewBox="0 0 24 24" fill="#00A9E5" aria-hidden="true" focusable="false"><title>Wazuh</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Wazuh</span></div><div class="stack-logo" aria-hidden="true" style="--c:#FFEC6E"><svg viewBox="0 0 24 24" fill="#FFEC6E" aria-hidden="true" focusable="false"><title>HashiCorp Vault</title><path d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z"/></svg><span>HashiCorp Vault</span></div></div></div>
+        <div class="stack-belt" role="list" aria-label="Security and Observability platforms"><div class="stack-belt-track"><div class="stack-logo" role="listitem" style="--c:#F46800"><svg viewBox="0 0 24 24" fill="#F46800" aria-hidden="true" focusable="false"><title>Grafana</title><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg><span>Grafana</span></div><div class="stack-logo" role="listitem" style="--c:#E6522C"><svg viewBox="0 0 24 24" fill="#E6522C" aria-hidden="true" focusable="false"><title>Prometheus</title><path d="M12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.628-5.373-12-12-12zm0 22.46c-1.885 0-3.414-1.26-3.414-2.814h6.828c0 1.553-1.528 2.813-3.414 2.813zm5.64-3.745H6.36v-2.046h11.28v2.046zm-.04-3.098H6.391c-.037-.043-.075-.086-.111-.13-1.155-1.401-1.427-2.133-1.69-2.879-.005-.025 1.4.287 2.395.511 0 0 .513.119 1.262.255-.72-.843-1.147-1.915-1.147-3.01 0-2.406 1.845-4.508 1.18-6.207.648.053 1.34 1.367 1.387 3.422.689-.951.977-2.69.977-3.755 0-1.103.727-2.385 1.454-2.429-.648 1.069.168 1.984.894 4.256.272.854.237 2.29.447 3.201.07-1.892.395-4.652 1.595-5.605-.529 1.2.079 2.702.494 3.424.671 1.164 1.078 2.047 1.078 3.716a4.642 4.642 0 01-1.11 2.996c.792-.149 1.34-.283 1.34-.283l2.573-.502s-.374 1.538-1.81 3.019z"/></svg><span>Prometheus</span></div><div class="stack-logo" role="listitem" style="--c:#000000"><svg viewBox="0 0 24 24" fill="#000000" aria-hidden="true" focusable="false"><title>OpenTelemetry</title><path d="M12.6974 13.1173c-1.0224 1.0224-1.0224 2.68 0 3.7024 1.0224 1.0224 2.68 1.0224 3.7024 0 1.0224-1.0223 1.0224-2.68 0-3.7024-1.0223-1.0223-2.68-1.0223-3.7024 0zm2.7677 2.7701c-.5063.5063-1.3267.5063-1.833 0s-.5063-1.3266 0-1.833c.5063-.5062 1.3267-.5062 1.833 0 .5063.504.5063 1.3267 0 1.833zM16.356.2355l-1.6041 1.6042c-.314.314-.314.83 0 1.144L21.015 9.247c.314.314.83.314 1.144 0l1.6042-1.6041c.314-.314.314-.83 0-1.144L17.4976.2354c-.314-.314-.8276-.314-1.1416 0zM5.1173 20.734c.2848-.2848.2848-.7497 0-1.0345l-.8155-.8155c-.2848-.2848-.7497-.2848-1.0345 0l-1.6845 1.6845-.0024.0024-.4625-.4625c-.2556-.2556-.6718-.2556-.925 0-.2556.2556-.2556.6718 0 .925l2.775 2.775c.2556.2556.6718.2556.925 0 .2532-.2556.2556-.6718 0-.925l-.4625-.4625.0024-.0024zm8.4856-15.893-3.5637 3.5637c-.3164.3164-.3164.8374 0 1.1538l2.2006 2.2005c1.5554-1.1197 3.7365-.981 5.1361.4187l1.7819-1.7818c.3164-.3165.3164-.8374 0-1.1538l-4.401-4.401c-.3165-.319-.8374-.319-1.1539 0zm-2.2881 7.8455-1.2999-1.2999c-.3043-.3043-.8033-.3043-1.1076 0l-4.5836 4.586c-.3042.3043-.3042.8033 0 1.1076l2.5973 2.5973c.3043.3043.8033.3043 1.1076 0l2.9478-2.9527c-.6231-1.2877-.5112-2.8431.3384-4.0383z"/></svg><span>OpenTelemetry</span></div><div class="stack-logo" role="listitem" style="--c:#00A9E5"><svg viewBox="0 0 24 24" fill="#00A9E5" aria-hidden="true" focusable="false"><title>Wazuh</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Wazuh</span></div><div class="stack-logo" role="listitem" style="--c:#FFEC6E"><svg viewBox="0 0 24 24" fill="#FFEC6E" aria-hidden="true" focusable="false"><title>HashiCorp Vault</title><path d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z"/></svg><span>HashiCorp Vault</span></div><div class="stack-logo stack-logo--text" role="listitem" style="--c:#4C4A73"><span>Snyk</span></div><div class="stack-logo" aria-hidden="true" style="--c:#F46800"><svg viewBox="0 0 24 24" fill="#F46800" aria-hidden="true" focusable="false"><title>Grafana</title><path d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg><span>Grafana</span></div><div class="stack-logo" aria-hidden="true" style="--c:#E6522C"><svg viewBox="0 0 24 24" fill="#E6522C" aria-hidden="true" focusable="false"><title>Prometheus</title><path d="M12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.628-5.373-12-12-12zm0 22.46c-1.885 0-3.414-1.26-3.414-2.814h6.828c0 1.553-1.528 2.813-3.414 2.813zm5.64-3.745H6.36v-2.046h11.28v2.046zm-.04-3.098H6.391c-.037-.043-.075-.086-.111-.13-1.155-1.401-1.427-2.133-1.69-2.879-.005-.025 1.4.287 2.395.511 0 0 .513.119 1.262.255-.72-.843-1.147-1.915-1.147-3.01 0-2.406 1.845-4.508 1.18-6.207.648.053 1.34 1.367 1.387 3.422.689-.951.977-2.69.977-3.755 0-1.103.727-2.385 1.454-2.429-.648 1.069.168 1.984.894 4.256.272.854.237 2.29.447 3.201.07-1.892.395-4.652 1.595-5.605-.529 1.2.079 2.702.494 3.424.671 1.164 1.078 2.047 1.078 3.716a4.642 4.642 0 01-1.11 2.996c.792-.149 1.34-.283 1.34-.283l2.573-.502s-.374 1.538-1.81 3.019z"/></svg><span>Prometheus</span></div><div class="stack-logo" aria-hidden="true" style="--c:#000000"><svg viewBox="0 0 24 24" fill="#000000" aria-hidden="true" focusable="false"><title>OpenTelemetry</title><path d="M12.6974 13.1173c-1.0224 1.0224-1.0224 2.68 0 3.7024 1.0224 1.0224 2.68 1.0224 3.7024 0 1.0224-1.0223 1.0224-2.68 0-3.7024-1.0223-1.0223-2.68-1.0223-3.7024 0zm2.7677 2.7701c-.5063.5063-1.3267.5063-1.833 0s-.5063-1.3266 0-1.833c.5063-.5062 1.3267-.5062 1.833 0 .5063.504.5063 1.3267 0 1.833zM16.356.2355l-1.6041 1.6042c-.314.314-.314.83 0 1.144L21.015 9.247c.314.314.83.314 1.144 0l1.6042-1.6041c.314-.314.314-.83 0-1.144L17.4976.2354c-.314-.314-.8276-.314-1.1416 0zM5.1173 20.734c.2848-.2848.2848-.7497 0-1.0345l-.8155-.8155c-.2848-.2848-.7497-.2848-1.0345 0l-1.6845 1.6845-.0024.0024-.4625-.4625c-.2556-.2556-.6718-.2556-.925 0-.2556.2556-.2556.6718 0 .925l2.775 2.775c.2556.2556.6718.2556.925 0 .2532-.2556.2556-.6718 0-.925l-.4625-.4625.0024-.0024zm8.4856-15.893-3.5637 3.5637c-.3164.3164-.3164.8374 0 1.1538l2.2006 2.2005c1.5554-1.1197 3.7365-.981 5.1361.4187l1.7819-1.7818c.3164-.3165.3164-.8374 0-1.1538l-4.401-4.401c-.3165-.319-.8374-.319-1.1539 0zm-2.2881 7.8455-1.2999-1.2999c-.3043-.3043-.8033-.3043-1.1076 0l-4.5836 4.586c-.3042.3043-.3042.8033 0 1.1076l2.5973 2.5973c.3043.3043.8033.3043 1.1076 0l2.9478-2.9527c-.6231-1.2877-.5112-2.8431.3384-4.0383z"/></svg><span>OpenTelemetry</span></div><div class="stack-logo" aria-hidden="true" style="--c:#00A9E5"><svg viewBox="0 0 24 24" fill="#00A9E5" aria-hidden="true" focusable="false"><title>Wazuh</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Wazuh</span></div><div class="stack-logo" aria-hidden="true" style="--c:#FFEC6E"><svg viewBox="0 0 24 24" fill="#FFEC6E" aria-hidden="true" focusable="false"><title>HashiCorp Vault</title><path d="M0 0l11.955 24L24 0zm13.366 4.827h1.393v1.38h-1.393zm-2.77 5.569H9.22V8.993h1.389zm0-2.087H9.22V6.906h1.389zm0-2.086H9.22V4.819h1.389zm2.087 6.263h-1.377V11.08h1.388zm0-2.09h-1.377V8.993h1.388zm0-2.087h-1.377V6.906h1.388zm0-2.086h-1.377V4.819h1.388zm.683.683h1.393v1.389h-1.393zm0 3.475V8.993h1.389v1.388Z"/></svg><span>HashiCorp Vault</span></div><div class="stack-logo stack-logo--text" aria-hidden="true" style="--c:#4C4A73"><span>Snyk</span></div></div></div>
     </div>
   </div>
   </div>
@@ -1834,7 +2013,7 @@ HERO
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&w=800&q=76" alt="Kirov Dynamics team">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&w=800&q=76" alt="Kirov Dynamics team">
         <div class="about-badge">
           <div class="about-badge-icon"><svg class="sa-flag" viewBox="0 0 90 60" aria-hidden="true" focusable="false"><defs><clipPath id="saf-t"><path d="m0 0 45 30L0 60z"/></clipPath><clipPath id="saf-f"><path d="m0 0h90v60H0z"/></clipPath></defs><path fill="#E03C31" d="m0 0h90v30H45z"/><path fill="#001489" d="m0 60h90V30H45z"/><g clip-path="url(#saf-f)" fill="none"><path stroke="#FFF" stroke-width="20" d="m90 30H45L0 0v60l45-30"/><path fill="#000" stroke="#ffb81c" stroke-width="20" clip-path="url(#saf-t)" d="m0 0 45 30L0 60"/><path stroke="#007749" stroke-width="12" d="m0 0 45 30h45M0 60l45-30"/></g></svg></div>
           <div class="about-badge-text"><h5>Founded 2025</h5><p>Proudly South African</p></div>

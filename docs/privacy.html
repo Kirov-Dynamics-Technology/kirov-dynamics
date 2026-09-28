@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-home="./">
+<html lang="en-ZA" data-home="./">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,42 @@
 <meta name="description" content="How Kirov Dynamics Technology collects, uses and protects your personal information, in line with POPIA.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/inter-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/outfit-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+    :root{--navy:#0a1628;--navy-mid:#0d1e35;--teal:#00c8f8;--teal-ink:#2fb6d8;--ink:#e8eef7;--muted:#9db0c9;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#03050a;color:var(--ink);margin:0;padding:0 20px 80px;line-height:1.75;-webkit-text-size-adjust:100%}
+    .wrap{max-width:760px;margin:0 auto}
+    .back{display:inline-flex;align-items:center;gap:8px;margin:28px 0 8px;font:700 .82rem/1 'Outfit',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);text-decoration:none;min-height:44px}
+    .back:hover{color:#fff}
+    .kicker{font:800 .74rem/1 'Outfit',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,200,248,.85);margin:0 0 10px}
+    h1{font:900 clamp(1.7rem,5vw,2.5rem)/1.15 'Outfit',sans-serif;color:#fff;letter-spacing:-.01em;margin:0 0 14px}
+    .lede{color:var(--muted);font-size:1.02rem;margin:0 0 8px}
+    .meta{display:flex;flex-wrap:wrap;gap:8px 18px;padding:16px 0 26px;margin:0 0 8px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.85rem}
+    .meta b{color:#fff;font-weight:600}
+    h2{font:800 1.16rem/1.3 'Outfit',sans-serif;color:#fff;margin:38px 0 10px;padding-top:22px;border-top:1px solid var(--line)}
+    h3{font:700 .95rem/1.4 'Outfit',sans-serif;color:#dce7f5;margin:22px 0 6px}
+    p{margin:0 0 14px}
+    ul,ol{margin:0 0 14px;padding-left:22px}
+    li{margin:0 0 7px}
+    a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
+    .card{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 16px}
+    .card p:last-child{margin-bottom:0}
+    .note{border-left:3px solid var(--teal);background:rgba(0,200,248,.06);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 18px}
+    .note p:last-child{margin:0}
+    table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:.9rem}
+    th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{font:700 .78rem/1.4 'Outfit',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+    .foot{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+    @media(max-width:560px){ body{padding:0 16px 60px} table{font-size:.85rem} th,td{padding:9px 8px} }
+  </style>
 <meta property="og:site_name" content="Kirov Dynamics Technology">
-<meta property="og:title" content="Privacy Policy &amp; Data Disclosure - Kirov Dynamics">
+<meta property="og:title" content="Privacy Policy &amp; Data Disclosure | Kirov Dynamics">
 <meta property="og:description" content="How Kirov Dynamics Technology collects, uses and protects your personal information, in line with POPIA.">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_ZA">
 <meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/privacy.html">
 <meta property="og:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
@@ -22,18 +51,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kirov Dynamics Technology - automation, AI, data, cybersecurity and GovTech for South African organisations.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Privacy Policy &amp; Data Disclosure - Kirov Dynamics">
+<meta name="twitter:title" content="Privacy Policy &amp; Data Disclosure | Kirov Dynamics">
 <meta name="twitter:description" content="How Kirov Dynamics Technology collects, uses and protects your personal information, in line with POPIA.">
 <meta name="twitter:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
-  <title>Privacy Policy &amp; Data Disclosure - Kirov Dynamics</title>
-  <style>
-    body { font-family: 'Inter', sans-serif; background: #03050a; color: #f1f5f9; margin: 0; padding: 40px; line-height: 1.6; }
-    .container { max-width: 800px; margin: 0 auto; }
-    h1 { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-    a { color: #60a5fa; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
-  </style>
+  <title>Privacy Policy &amp; Data Disclosure | Kirov Dynamics</title>
 <!-- refresh-to-home -->
 <script>
 /* Refreshing ANY page returns to the homepage. Normal link navigation is left alone.
@@ -74,14 +95,118 @@
 })();
 </script>
 
-
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <a href="index.html" class="back">&larr; Back to Home</a>
-    <h1>Privacy Policy & Data Disclosure</h1>
-    <p>This page is currently being updated. Please check back later for the full Privacy Policy & Data Disclosure.</p>
-    <p>&copy; 2026 Kirov Dynamics Technology.</p>
+    <p class="kicker">Legal</p>
+    <h1>Privacy Policy &amp; Data Disclosure</h1>
+    <p class="lede">This site is built so that it does not need to know who you are. It sets no cookies, runs no analytics and collects no personal information unless you choose to contact us.</p>
+    <div class="meta"><p><b>Applies to</b> this website</p><p><b>Responsible party</b> Kirov Dynamics Technology (Pty) Ltd</p></div>
+
+    <h2>The short version</h2>
+    <div class="card">
+      <p><b>No cookies.</b> None are set by this site.</p>
+      <p><b>No analytics, tracking pixels or advertising tags.</b> There is no third-party script of any kind on this site.</p>
+      <p><b>No forms.</b> Nothing you can fill in here is transmitted to us or to anyone else.</p>
+      <p><b>No profiling and no automated decision-making.</b></p>
+      <p><b>Nothing is sold or shared for marketing.</b></p>
+    </div>
+    <p>If you read nothing else on this page, the above is the whole of our automated data collection. The rest of this document explains the few places where information can still arise, which is unavoidable for any website.</p>
+
+    <h2>1. Who is responsible for your information</h2>
+    <p>Kirov Dynamics Technology (Pty) Ltd ("Kirov Dynamics", "we", "us") is the responsible party for the personal information described in this policy. We are a company registered in South Africa and we handle your information in line with the Protection of Personal Information Act 4 of 2013 (POPIA) and, where applicable, the EU General Data Protection Regulation.</p>
+    <p>Our contact details appear at the foot of every page on this site. Queries about this policy, or a request to exercise any of your rights, can be sent to <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a> and will be answered in writing.</p>
+
+    <h2>2. Information this website collects on its own</h2>
+    <p>We have deliberately built this site so that visiting it does not create a record of you. Specifically:</p>
+    <ul>
+      <li><b>No cookies.</b> The site sets no cookies, first-party or otherwise.</li>
+      <li><b>No analytics or tracking.</b> There is no Google Analytics, no advertising pixel, no session recording, no heatmap tool and no tag manager. Every line of script on this site is served from our own domain.</li>
+      <li><b>No contact or lead forms.</b> There is no form on this site, so nothing you type is transmitted anywhere.</li>
+      <li><b>No embedded content.</b> We do not embed videos, maps, social widgets or third-party iframes, because each of those would report your visit to its own operator.</li>
+    </ul>
+    <h3>The one piece of data our site stores, and why</h3>
+    <p>Every page sets a single value in your browser's <i>session storage</i>, under the key <code>rth:last</code>. It holds the path of the page you were last on so that a page refresh returns you to the homepage instead of trapping you on a sub-page. It is:</p>
+    <ul>
+      <li>used only for that one function, with no other purpose;</li>
+      <li>never transmitted to us or to anyone else;</li>
+      <li>automatically deleted when you close the tab or window, because session storage does not survive the session.</li>
+    </ul>
+    <p>It cannot identify you, it is not shared, and blocking storage removes it with no effect on the site. You can clear it at any time through your browser's site-data controls.</p>
+
+    <h2>3. Information our hosting provider handles</h2>
+    <p>This site is hosted on GitHub Pages. As with any web host, GitHub processes technical connection information in order to serve you the page, which can include your IP address, the date and time of the request, the page requested and your browser's user-agent string. This is done on GitHub's infrastructure, which is outside South Africa, so it involves a cross-border transfer of that limited technical data. We do not add to it, and we do not ask GitHub to keep anything beyond its standard operational logs.</p>
+
+    <h2>4. Images supplied by Unsplash</h2>
+    <p>The photographs on our homepage are served from Unsplash's image delivery network rather than from our own server. When your browser fetches one of those images, Unsplash receives the request, which necessarily includes your IP address and the page you loaded it from. We have no access to that information and no control over Unsplash's own processing of it. Every other image on this site is hosted by us.</p>
+    <p>We have self-hosted our web fonts for the same reason: loading a font from a third-party server hands that provider your IP address. The fonts you are reading this with are served from this domain and go nowhere else.</p>
+
+    <h2>5. Information you give us directly</h2>
+    <p>This site has no form, so the only way information reaches us is if you choose to send it. If you email or call us, we will hold whatever you send us, which may include:</p>
+    <ul>
+      <li>your name, email address, telephone number, company or organisation and job title;</li>
+      <li>the business problem, process or system you describe, including documents, screenshots or data you choose to send;</li>
+      <li>our correspondence with you, including the substance of any engagement.</li>
+    </ul>
+
+    <h2>6. Why we are allowed to hold it, and what we do with it</h2>
+    <p>Under POPIA we may only process personal information where a lawful ground applies. Ours are:</p>
+    <table>
+      <tr><th>Purpose</th><th>Lawful ground</th></tr>
+      <tr><td>Answering your enquiry and arranging a free problem check</td><td>Taking steps at your request prior to entering a contract</td></tr>
+      <tr><td>Preparing and delivering an assessment, project or Kirov Care service</td><td>Performance of a contract with you</td></tr>
+      <tr><td>Record-keeping, invoicing and tax compliance</td><td>Compliance with a legal obligation, including the Tax Administration Act and Companies Act</td></tr>
+      <tr><td>Understanding recurring problems so we can improve our services</td><td>Our legitimate interests, balanced against your rights; we anonymise before doing so</td></tr>
+      <tr><td>Defending or claiming legal rights</td><td>Legitimate interests and your legal rights</td></tr>
+    </table>
+    <p>We do not use your information for marketing lists, and we do not sell it. If you ask us to add you to product announcements, that is a separate, optional consent which you can withdraw at any time.</p>
+
+    <h2>7. Special personal information</h2>
+    <p>Special categories such as health, biometric, genetic, religious or union information, and children's information, receive stricter protection under POPIA. We do not ask for, request or knowingly receive any of it through this site. If such information reaches us unintentionally, tell us and we will delete it promptly.</p>
+
+    <h2>8. Who else can see it</h2>
+    <p>We do not sell or share your personal information with third parties for their own purposes. We disclose it only where necessary and lawful, namely to:</p>
+    <ul>
+      <li><b>service providers</b> who host, secure or support our systems, under written confidentiality obligations;</li>
+      <li><b>professional advisers</b> such as our lawyers or accountants, where a legal or accounting duty requires it;</li>
+      <li><b>law enforcement or a regulator</b> where we are legally required to disclose it;</li>
+      <li><b>a buyer of the business</b> in a genuine corporate transaction, subject to this policy continuing to apply.</li>
+    </ul>
+    <p>Where we send information outside South Africa, we rely on an appropriate safeguard, which for us currently means standard contractual clauses and the provider's own published transfer terms.</p>
+
+    <h2>9. How long we keep it</h2>
+    <p>We keep enquiry information for as long as needed to deal with your request and any resulting engagement, and record-keeping information for the period the law requires, commonly five years for accounting records under the Tax Administration Act. Information that has no further purpose is deleted or anonymised when that purpose ends.</p>
+
+    <h2>10. How we protect it</h2>
+    <p>We apply technical and organisational measures proportionate to the risk: encryption in transit (TLS) wherever data is sent or served, access restricted to the people who need it, encryption at rest on systems holding client data, least-privilege administration, logging of administrative access, patching and vulnerability management, and confidentiality obligations in every contract we sign. No system is perfectly secure, and we will never ask you to send credentials or sensitive production data over ordinary email.</p>
+
+    <h2>11. Your rights</h2>
+    <p>Subject to the lawful exceptions in POPIA, you have the right to:</p>
+    <ul>
+      <li>be told whether we hold personal information about you, and get a copy of it;</li>
+      <li>ask us to correct information that is inaccurate or incomplete;</li>
+      <li>ask us to delete information we no longer have a lawful reason to keep;</li>
+      <li>object to processing based on our legitimate interests, and to direct processing to automated decision-making;</li>
+      <li>withdraw a consent you have given, without affecting the lawfulness of processing before you did;</li>
+      <li>complain to the Information Regulator of South Africa if you believe we have mishandled your information.</li>
+    </ul>
+    <p>Send requests to <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a>. We respond in writing within a reasonable period, normally 30 days, and we do not charge for a request unless it is manifestly unfounded or excessive. We may need to confirm your identity first; we will tell you if we do. You may appoint someone to make a request on your behalf.</p>
+
+    <h2>12. Children</h2>
+    <p>This site is a business site and is not directed at children. We do not knowingly collect personal information from anyone under 18. If you believe a child has sent us information, contact us and we will remove it.</p>
+
+    <h2>13. Changes to this policy</h2>
+    <p>We will update this page when our practices change, and we will change the date at the foot of the page. Material changes affecting your rights will be communicated directly to clients rather than only here.</p>
+
+    <div class="note">
+      <p><b>One thing worth being clear about.</b> This policy describes what this website does. A Kirov Care or SaaS engagement is governed by a separate written agreement, which is the document that sets out the processing we do on your behalf, the security measures we commit to, and your rights in that context. Where that agreement conflicts with this page, the agreement wins.</p>
+    </div>
+    <div class="foot">
+      <p>Kirov Dynamics Technology (Pty) Ltd &middot; South Africa<br>
+      <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a> &middot; <a href="tel:+27781172470">+27 78 117 2470</a></p>
+      <p>Last updated 28 September 2026.</p>
+    </div>
   </div>
 </body>
 </html>

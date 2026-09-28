@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" data-home="./">
+<html lang="en-ZA" data-home="./">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a1628">
 <link rel="canonical" href="https://kirov-dynamics-technology.github.io/kirov-dynamics/compliance.html">
-<meta name="description" content="Kirov Dynamics Technology data protection, POPIA and information security compliance information.">
+<meta name="description" content="How Kirov Dynamics Technology handles and protects personal information under POPIA, and the security practices behind our Kirov Care service.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/inter-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/outfit-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+    :root{--navy:#0a1628;--navy-mid:#0d1e35;--teal:#00c8f8;--teal-ink:#2fb6d8;--ink:#e8eef7;--muted:#9db0c9;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#03050a;color:var(--ink);margin:0;padding:0 20px 80px;line-height:1.75;-webkit-text-size-adjust:100%}
+    .wrap{max-width:760px;margin:0 auto}
+    .back{display:inline-flex;align-items:center;gap:8px;margin:28px 0 8px;font:700 .82rem/1 'Outfit',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);text-decoration:none;min-height:44px}
+    .back:hover{color:#fff}
+    .kicker{font:800 .74rem/1 'Outfit',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,200,248,.85);margin:0 0 10px}
+    h1{font:900 clamp(1.7rem,5vw,2.5rem)/1.15 'Outfit',sans-serif;color:#fff;letter-spacing:-.01em;margin:0 0 14px}
+    .lede{color:var(--muted);font-size:1.02rem;margin:0 0 8px}
+    .meta{display:flex;flex-wrap:wrap;gap:8px 18px;padding:16px 0 26px;margin:0 0 8px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.85rem}
+    .meta b{color:#fff;font-weight:600}
+    h2{font:800 1.16rem/1.3 'Outfit',sans-serif;color:#fff;margin:38px 0 10px;padding-top:22px;border-top:1px solid var(--line)}
+    h3{font:700 .95rem/1.4 'Outfit',sans-serif;color:#dce7f5;margin:22px 0 6px}
+    p{margin:0 0 14px}
+    ul,ol{margin:0 0 14px;padding-left:22px}
+    li{margin:0 0 7px}
+    a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
+    .card{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 16px}
+    .card p:last-child{margin-bottom:0}
+    .note{border-left:3px solid var(--teal);background:rgba(0,200,248,.06);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 18px}
+    .note p:last-child{margin:0}
+    table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:.9rem}
+    th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{font:700 .78rem/1.4 'Outfit',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+    .foot{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+    @media(max-width:560px){ body{padding:0 16px 60px} table{font-size:.85rem} th,td{padding:9px 8px} }
+  </style>
 <meta property="og:site_name" content="Kirov Dynamics Technology">
-<meta property="og:title" content="Data &amp; Compliance - Kirov Dynamics">
-<meta property="og:description" content="Kirov Dynamics Technology data protection, POPIA and information security compliance information.">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Data &amp; Compliance | Kirov Dynamics">
+<meta property="og:description" content="How Kirov Dynamics Technology handles and protects personal information under POPIA, and the security practices behind our Kirov Care service.">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_ZA">
 <meta property="og:url" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/compliance.html">
 <meta property="og:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
@@ -22,18 +51,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kirov Dynamics Technology - automation, AI, data, cybersecurity and GovTech for South African organisations.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Data &amp; Compliance - Kirov Dynamics">
-<meta name="twitter:description" content="Kirov Dynamics Technology data protection, POPIA and information security compliance information.">
+<meta name="twitter:title" content="Data &amp; Compliance | Kirov Dynamics">
+<meta name="twitter:description" content="How Kirov Dynamics Technology handles and protects personal information under POPIA, and the security practices behind our Kirov Care service.">
 <meta name="twitter:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
-  <title>Data &amp; Compliance - Kirov Dynamics</title>
-  <style>
-    body { font-family: 'Inter', sans-serif; background: #03050a; color: #f1f5f9; margin: 0; padding: 40px; line-height: 1.6; }
-    .container { max-width: 800px; margin: 0 auto; }
-    h1 { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-    a { color: #60a5fa; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
-  </style>
+  <title>Data &amp; Compliance | Kirov Dynamics</title>
 <!-- refresh-to-home -->
 <script>
 /* Refreshing ANY page returns to the homepage. Normal link navigation is left alone.
@@ -74,14 +95,102 @@
 })();
 </script>
 
-
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <a href="index.html" class="back">&larr; Back to Home</a>
-    <h1>Data & Compliance</h1>
-    <p>This page is currently being updated. Please check back later for the full Data & Compliance.</p>
-    <p>&copy; 2026 Kirov Dynamics Technology.</p>
+    <p class="kicker">Legal</p>
+    <h1>Data &amp; Compliance</h1>
+    <p class="lede">A plain description of how we handle personal information, the controls we operate, and what we will and will not claim to you.</p>
+    <div class="meta"><p><b>Applies to</b> this website</p><p><b>Responsible party</b> Kirov Dynamics Technology (Pty) Ltd</p></div>
+
+    <h2>1. Our commitment</h2>
+    <p>Kirov Dynamics Technology (Pty) Ltd processes personal information in line with the Protection of Personal Information Act 4 of 2013 (POPIA). Our default is to collect as little as possible, keep it only as long as we have a reason to, and to be able to explain who has access to it.</p>
+    <p>This page describes that approach in detail. Where a service we operate for a client is concerned, the signed agreement is the document that commits us to specific controls, and that agreement is what we are measured against.</p>
+
+    <h2>2. How we apply the POPIA principles</h2>
+    <table>
+      <tr><th>Principle</th><th>What it means in practice here</th></tr>
+      <tr><td>Accountability</td><td>We name an Information Officer internally and can show our procedures on request.</td></tr>
+      <tr><td>Purposeness</td><td>Information is collected for a stated purpose only, and we do not quietly repurpose it.</td></tr>
+      <tr><td>Minimality</td><td>We ask only for what the task actually needs. Our own website collects nothing automatically at all.</td></tr>
+      <tr><td>Correctness</td><td>We keep records you can ask us to correct, and we correct them on request.</td></tr>
+      <tr><td>Openness</td><td>We publish how we handle information: see the <a href="privacy.html">Privacy Policy</a>.</td></tr>
+      <tr><td>Purpose limitation</td><td>We do not use client or prospect information for unrelated purposes or marketing lists.</td></tr>
+      <tr><td>Security safeguards</td><td>See section 4.</td></tr>
+      <tr><td>Retention</td><td>Records are kept only as long as a purpose or a legal duty requires, then deleted or anonymised.</td></tr>
+      <tr><td>Prohibition on unauthorised disclosure</td><td>Access is limited to people who need it, under confidentiality obligations.</td></tr>
+    </table>
+
+    <h2>3. Data we handle on a client's behalf</h2>
+    <p>Under a Kirov Care or build engagement we may process personal information belonging to our client's customers, staff or citizens, such as names, contact details, identity numbers, account records, service histories or complaint records. In that situation the client is usually the responsible party and we act as its operator. Our commitments are then set out in the agreement, and include:</p>
+    <ul>
+      <li>processing personal information only on the client's documented instructions;</li>
+      <li>restricting access to named personnel who need it for the contracted purpose;</li>
+      <li>not using the client's data to train general models, to benchmark, or for our own commercial purposes;</li>
+      <li>flowing the same obligations down to any sub-processor we use;</li>
+      <li>assisting with a data subject's access, correction or deletion request;</li>
+      <li>returning or securely deleting the data when the engagement ends.</li>
+    </ul>
+
+    <h2>4. Security practices</h2>
+    <p>The measures below are the ones we actually operate, and they apply to systems we manage under Kirov Care. They are proportionate controls, not a claim of certification.</p>
+    <h3>Access control</h3>
+    <ul>
+      <li>unique, named accounts only, with no shared logins;</li>
+      <li>multi-factor authentication on administrative and remote access;</li>
+      <li>least-privilege permissions, reviewed and reduced when a role changes;</li>
+      <li>joiners, movers and leavers handled promptly, with access removed on the day someone leaves;</li>
+      <li>administrative access logged and periodically reviewed.</li>
+    </ul>
+    <h3>Technical</h3>
+    <ul>
+      <li>TLS for data in transit, including backups transferred off-site;</li>
+      <li>encryption at rest on systems holding client data;</li>
+      <li>automated backups with restore testing, so a backup is known to work rather than assumed to;</li>
+      <li>patching and vulnerability management on operating systems, applications and dependencies;</li>
+      <li>malware protection, secure configuration baselines, and separation of production from development;</li>
+      <li>logging and monitoring sufficient to investigate an incident, retained for an agreed period.</li>
+    </ul>
+    <h3>Physical and organisational</h3>
+    <ul>
+      <li>supplier and hosting providers held to written security and confidentiality terms;</li>
+      <li>confidentiality obligations in every contract with staff and contractors;</li>
+      <li>an incident response procedure to contain, investigate and report an incident;</li>
+      <li>staff awareness and secure-development training.</li>
+    </ul>
+
+    <h2>5. Incident response</h2>
+    <p>If we detect a suspected or confirmed personal information breach we will contain it, establish what was affected and who, preserve the evidence, and notify the responsible party without undue delay. Where we are ourselves the responsible party and the breach is likely to harm an individual's rights, we will notify the affected individuals and the Information Regulator, and provide the information the Regulator requires, within the timeframes POPIA allows. Notification itself is never a reason to delay containment.</p>
+
+    <h2>6. Data residency and cross-border processing</h2>
+    <p>Where we can, we host a client's data in South Africa, or in the region the client requires. Some managed platforms are only available in other jurisdictions, and we will say so plainly in the proposal rather than after the fact. In those cases the transfer is governed by a written agreement, security undertakings and, where required, standard contractual clauses. Data can be requested back in a portable format rather than being held hostage to a platform.</p>
+
+    <h2>7. Sector and statutory obligations</h2>
+    <p>Some data carries obligations beyond POPIA. In South Africa these commonly include:</p>
+    <ul>
+      <li><b>Public bodies</b> working with citizens' personal information, who must meet POPIA's special requirements and are accountable to Parliament;</li>
+      <li><b>Health information</b>, which is special personal information and carries additional protection;</li>
+      <li><b>Financial information</b>, where sector rules and the protection of Personal Accounts Information apply;</li>
+      <li><b>Records of the public sector</b> and any statutory retention duty;</li>
+      <li><b>Construction, municipal and utility environments</b>, where safety and operational records must be retained and traceable.</li>
+    </ul>
+    <p>Where a project is subject to a specific statute, we will identify the applicable duty at proposal stage and build the required controls into the design, rather than treating the legislation as an afterthought.</p>
+
+    <h2>8. Assessments and certifications</h2>
+    <div class="note">
+      <p><b>We want to be straight about this.</b> Kirov Dynamics is not currently certified to ISO/IEC 27001, ISO 27002, PCI DSS or a similar formal standard, and we do not hold SOC 2 reports. We work to the recognised practice those standards describe, and we will document our actual controls on request. If your procurement process requires a certificate, tell us early, because that changes the plan and often the cost, and we would rather be honest about it than imply a status we do not hold.</p>
+    </div>
+    <p>Where certification is a genuine requirement, we will help you assess the gap, and we can work inside a client's existing certified environment so that the certified boundary covers the system.</p>
+
+    <h2>9. Your rights and how to exercise them</h2>
+    <p>You may ask whether we hold information about you, ask for a copy, ask us to correct or delete it, or object to how we use it. For information we hold as your own, write to <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a>. For information we hold on behalf of a client, we will direct you to that client, who is the responsible party. If you are not satisfied with our response you may complain to the Information Regulator of South Africa.</p>
+    <p>Our own website's approach is set out in full in the <a href="privacy.html">Privacy Policy</a>.</p>
+    <div class="foot">
+      <p>Kirov Dynamics Technology (Pty) Ltd &middot; South Africa<br>
+      <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a> &middot; <a href="tel:+27781172470">+27 78 117 2470</a></p>
+      <p>Last updated 28 September 2026.</p>
+    </div>
   </div>
 </body>
 </html>

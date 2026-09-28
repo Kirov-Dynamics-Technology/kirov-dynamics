@@ -23,13 +23,14 @@
 <meta name="twitter:description" content="Transparent pricing for AI solutions, cybersecurity, software development, and cloud services. Get a custom quote for your business or government project.">
 <meta name="twitter:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
   <title>Pricing &amp; Packages | Kirov Dynamics Technology</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/inter-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/outfit-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
   <style>
     :root {
       --bg:#06080f;--bg-card:#0d1625;--bg-alt:#080d18;
-      --primary:#1a3664;--accent:#4a90d9;--accent-lite:#6aaee8;
+      --primary:#1a3664;--accent:#4a90d9;--accent-deep:#2d66a0;--accent-lite:#6aaee8;
       --teal:#00c8f8;--green:#10d67c;--gold:#f59e0b;
       --text:#f0f4ff;--muted:#7a9ab8;
       --border:rgba(74,144,217,0.18);--glass:rgba(8,13,24,0.9);
@@ -80,11 +81,11 @@
 
     /* BTN */
     .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.9rem;padding:13px 26px;border-radius:var(--radius);transition:var(--transition);cursor:pointer;white-space:nowrap;border:none}
-    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 20px rgba(74,144,217,0.35)}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent-deep));color:#fff;box-shadow:0 4px 20px rgba(74,144,217,0.35)}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(74,144,217,0.5)}
     .btn-outline{border:1px solid rgba(255,255,255,0.15);color:var(--text);background:rgba(255,255,255,0.03)}
     .btn-outline:hover{border-color:var(--accent);background:rgba(74,144,217,0.15);transform:translateY(-2px)}
-    .btn-green{background:linear-gradient(135deg,#155a32,#10d67c);color:#fff;box-shadow:0 4px 20px rgba(16,214,124,0.3)}
+    .btn-green{background:linear-gradient(135deg,#155a32,#0b7a54);color:#fff;box-shadow:0 4px 20px rgba(16,214,124,0.3)}
     .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(16,214,124,0.5)}
 
     /* PRICING CARDS */
@@ -95,7 +96,7 @@
     .price-card:hover::before{opacity:1}
     .price-card.featured{border-color:var(--accent);box-shadow:var(--glow)}
     .price-card.featured::before{opacity:1}
-    .price-badge{position:absolute;top:16px;right:16px;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:50px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff}
+    .price-badge{position:absolute;top:16px;right:16px;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:50px;background:linear-gradient(135deg,var(--primary),var(--accent-deep));color:#fff}
     .price-card h3{font-size:1.3rem;font-weight:800;margin-bottom:6px}
     .price-card .price{font-size:2.2rem;font-weight:900;color:var(--accent-lite);margin:16px 0 4px}
     .price-card .price-note{font-size:0.8rem;color:var(--muted);margin-bottom:20px}
@@ -111,7 +112,7 @@
     .comparison-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--muted)}
     .comparison-table tr:hover td{background:rgba(74,144,217,0.04)}
     .comparison-table .check{color:var(--green);font-weight:700}
-    .comparison-table .dash{color:rgba(255,255,255,0.15)}
+    .comparison-table .dash{color:rgba(255,255,255,0.5)}
     @media(max-width:768px){.comparison-table{font-size:0.78rem}.comparison-table th,.comparison-table td{padding:10px 8px}}
 
     /* FAQ */
