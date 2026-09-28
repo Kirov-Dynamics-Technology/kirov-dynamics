@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kirov Dynamics">
+  <rect width="64" height="64" rx="14" fill="#0a1628"/>
+  <g fill="none" stroke="#00c8f8" stroke-width="2.4">
+    <circle cx="32" cy="32" r="19"/>
+    <ellipse cx="32" cy="32" rx="7.5" ry="19"/>
+    <path d="M13.6 26.5h36.8M13.6 37.5h36.8"/>
+  </g>
+  <circle cx="32" cy="32" r="5.4" fill="#4dd9f8"/>
+</svg>

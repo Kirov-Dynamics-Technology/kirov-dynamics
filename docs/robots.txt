@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kirov-dynamics-technology.github.io/kirov-dynamics/sitemap.xml

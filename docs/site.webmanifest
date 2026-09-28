@@ -1,0 +1,30 @@
+{
+  "name": "Kirov Dynamics Technology",
+  "short_name": "Kirov Dynamics",
+  "description": "Automation, AI, data, cybersecurity and GovTech for South African organisations.",
+  "start_url": "/kirov-dynamics/",
+  "scope": "/kirov-dynamics/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "lang": "en-ZA",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
