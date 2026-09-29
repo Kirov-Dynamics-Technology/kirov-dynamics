@@ -257,21 +257,21 @@ ul{list-style:none}
    only w=1920 returned a 1920x2880 PORTRAIT for slide 2, which cover then
    squeezed to a thin band and cut the subject's face off. */
 .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
-.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
 .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
 .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=800&h=560&q=72')}
 /* Phones: bias upward so heads stay in frame */
 .hero-slide{background-position:center 28%}
 @media(min-width:768px){
   .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=1000&h=1250&q=72')}
   .hero-slide{background-position:center 32%}
 }
 @media(min-width:1024px){
   .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
   .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
   .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=1920&h=1080&q=72')}
   .hero-slide{background-position:center 38%}
@@ -279,7 +279,7 @@ ul{list-style:none}
 /* Ultrawide: 21:9 so 2560x1080 and similar lose nothing */
 @media(min-width:1024px) and (min-aspect-ratio:2/1){
   .hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
-  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
+  .hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
   .hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
   .hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&crop=faces&w=2560&h=1100&q=72')}
 }
@@ -1191,6 +1191,10 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
     .t-text h5{font-size:.56rem;white-space:normal;line-height:1.1}
     .hero-trust-note{display:none!important}
   }
+  /* last: company name stays large on every phone, even where the
+     viewport-height layers above tightened the rest of the copy. */
+  .hero-brand .line1{font-size:clamp(2.4rem,9vw,3.2rem)}
+  .hero-brand .line2{font-size:clamp(1.6rem,5.5vw,2rem)}
 }
 /* WCAG AA: brand teal #00c8f8 scores only 1.98:1 against white, so on light
    surfaces all teal text and icons fall back to --teal-ink (#007190, 5.58:1).
