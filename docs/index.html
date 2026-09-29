@@ -9,6 +9,7 @@
      JS the class is never set, so .reveal is never hidden and the page is fully
      readable. Do not move this below the stylesheet or rename the class. -->
 <script>document.documentElement.classList.add('js-reveal')</script>
+<script src="assets/js/tracking.js" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- The palette is a fixed light/navy brand, not a theme: telling the UA
      "light" stops iOS Safari, Android Chrome and Edge from force-inverting the
@@ -48,11 +49,9 @@
 <meta name="twitter:image" content="https://kirov-dynamics-technology.github.io/kirov-dynamics/og-image.png">
 <meta name="twitter:image:alt" content="Kirov Dynamics Technology — automation, AI, data, cybersecurity and GovTech for South African organisations.">
 <!--
-  Privacy-friendly analytics (self-hosted, cookieless): uncomment once Umami or
-  Plausible is set up, then replace the two placeholders below with your real
-  values. Nothing is loaded until then.
-  Umami:  <script async src="https://analytics.YOUR-DOMAIN/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
-  Plausible: <script defer data-domain="kirov-dynamics-technology.github.io" src="https://plausible.YOUR-DOMAIN/js/script.js"></script>
+  Privacy-friendly analytics (self-hosted, cookieless): loaded from assets/js/tracking.js
+  (the same file on every page). Nothing loads and nothing tracks until CONFIG.host and
+  CONFIG.websiteId are set inside assets/js/tracking.js. See docs/tracking-and-analytics.md.
 -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -2982,6 +2981,7 @@ form.addEventListener('submit', async function (e) {
 
     form.reset();
     setFormState('ok', "Thanks — your request is in. We'll be in touch within 24 hours.");
+    if (window.kdt && window.kdt.track) window.kdt.track('contact_submit', { page: location.pathname });
     formBtn.textContent = 'Request Sent';
     formBtn.style.background = 'var(--teal)';
     formBtn.style.color = 'var(--navy)';

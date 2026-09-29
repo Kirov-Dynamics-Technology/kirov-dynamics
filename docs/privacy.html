@@ -95,20 +95,23 @@
 })();
 </script>
 
+<script src="assets/js/tracking.js" defer></script>
+
 </head>
 <body>
   <div class="wrap">
     <a href="index.html" class="back">&larr; Back to Home</a>
     <p class="kicker">Legal</p>
     <h1>Privacy Policy &amp; Data Disclosure</h1>
-    <p class="lede">This site is built so that it does not need to know who you are. It sets no cookies, runs no analytics and collects no personal information unless you choose to contact us.</p>
+    <p class="lede">This site is built so that it does not need to know who you are. It sets no cookies, uses privacy-friendly cookieless analytics and collects no personal information unless you choose to contact us or submit our contact form.</p>
     <div class="meta"><p><b>Applies to</b> this website</p><p><b>Responsible party</b> Kirov Dynamics Technology (Pty) Ltd</p></div>
 
     <h2>The short version</h2>
     <div class="card">
       <p><b>No cookies.</b> None are set by this site.</p>
-      <p><b>No analytics, tracking pixels or advertising tags.</b> There is no third-party script of any kind on this site.</p>
-      <p><b>No forms.</b> Nothing you can fill in here is transmitted to us or to anyone else.</p>
+      <p><b>Cookieless analytics.</b> We use Umami, a self-hosted analytics tool, to count page views. It runs without cookies and without creating a profile that identifies you.</p>
+      <p><b>One contact form.</b> If you use it, the details you type in go to our form provider (Formspree) and then to us — see below.</p>
+      <p><b>No advertising tags, no session recording, no fingerprinting.</b></p>
       <p><b>No profiling and no automated decision-making.</b></p>
       <p><b>Nothing is sold or shared for marketing.</b></p>
     </div>
@@ -122,9 +125,9 @@
     <p>We have deliberately built this site so that visiting it does not create a record of you. Specifically:</p>
     <ul>
       <li><b>No cookies.</b> The site sets no cookies, first-party or otherwise.</li>
-      <li><b>No analytics or tracking.</b> There is no Google Analytics, no advertising pixel, no session recording, no heatmap tool and no tag manager. Every line of script on this site is served from our own domain.</li>
-      <li><b>No contact or lead forms.</b> There is no form on this site, so nothing you type is transmitted anywhere.</li>
-      <li><b>No embedded content.</b> We do not embed videos, maps, social widgets or third-party iframes, because each of those would report your visit to its own operator.</li>
+      <li><b>Cookieless analytics.</b> We use Umami, a self-hosted, privacy-friendly analytics tool, to count visits and page views in aggregate. Umami runs without cookies and without visitor identifiers: it does not profile you, does not build a personal profile, and cannot identify you. The only technical data involved is a short-lived count of page views, which keeps your visits anonymous.</li>
+      <li><b>One contact form.</b> The homepage has a single contact form ("Book Free Problem Check"). When you submit it, the details you enter (first name, last name, email, company, and your message) are transmitted over HTTPS to Formspree — a separate, third-party form provider — which forwards them to us by email. Neither Formspree nor we use that information for marketing lists or any other purpose.</li>
+      <li><b>No embedded content.</b> We do not embed videos, maps, social widgets or third-party iframes, because each of those would report your visit to its own operator. The analytics script described above is the only third-party request the site can make.</li>
     </ul>
     <h3>The one piece of data our site stores, and why</h3>
     <p>Every page sets a single value in your browser's <i>session storage</i>, under the key <code>rth:last</code>. It holds the path of the page you were last on so that a page refresh returns you to the homepage instead of trapping you on a sub-page. It is:</p>
@@ -137,13 +140,17 @@
 
     <h2>3. Information our hosting provider handles</h2>
     <p>This site is hosted on GitHub Pages. As with any web host, GitHub processes technical connection information in order to serve you the page, which can include your IP address, the date and time of the request, the page requested and your browser's user-agent string. This is done on GitHub's infrastructure, which is outside South Africa, so it involves a cross-border transfer of that limited technical data. We do not add to it, and we do not ask GitHub to keep anything beyond its standard operational logs.</p>
+    <ul>
+      <li><b>Analytics (Umami).</b> Our analytics tool is hosted by us (self-hosted, cookieless). It receives a page view even when you have not typed anything in, but is configured to track nothing identifying: no cookies, no visits are tied to you as a person.</li>
+      <li><b>Contact form (Formspree).</b> The homepage contact form submits to Formspree, a United States-based form service. Because Formspree's servers are outside South Africa, submitting the form involves a cross-border transfer of the information you type in §2. Formspree is bound to process it only to deliver it to us, and to retain it for only the short period needed for that delivery. You can equally reach us directly by email at the address below and avoid the form entirely.</li>
+    </ul>
 
     <h2>4. Images supplied by Unsplash</h2>
     <p>The photographs on our homepage are served from Unsplash's image delivery network rather than from our own server. When your browser fetches one of those images, Unsplash receives the request, which necessarily includes your IP address and the page you loaded it from. We have no access to that information and no control over Unsplash's own processing of it. Every other image on this site is hosted by us.</p>
     <p>We have self-hosted our web fonts for the same reason: loading a font from a third-party server hands that provider your IP address. The fonts you are reading this with are served from this domain and go nowhere else.</p>
 
     <h2>5. Information you give us directly</h2>
-    <p>This site has no form, so the only way information reaches us is if you choose to send it. If you email or call us, we will hold whatever you send us, which may include:</p>
+    <p>If you submit the contact form on the homepage, we receive the details you typed in (first name, last name, email address, company/organisation and your message). If you email or call us directly, we will hold whatever you send us, which may include:</p>
     <ul>
       <li>your name, email address, telephone number, company or organisation and job title;</li>
       <li>the business problem, process or system you describe, including documents, screenshots or data you choose to send;</li>
@@ -205,7 +212,7 @@
     <div class="foot">
       <p>Kirov Dynamics Technology (Pty) Ltd &middot; South Africa<br>
       <a href="mailto:info@kirovdynamics.co.za">info@kirovdynamics.co.za</a> &middot; <a href="tel:+27781172470">+27 78 117 2470</a></p>
-      <p>Last updated 28 September 2026.</p>
+      <p>Last updated 29 September 2026.</p>
     </div>
   </div>
 </body>
