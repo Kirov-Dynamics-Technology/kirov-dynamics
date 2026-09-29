@@ -917,6 +917,24 @@ ul{list-style:none}
 .chk svg{width:12px;height:12px;stroke:var(--navy);fill:none;stroke-width:3}
 .about-li h5{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:2px}
 .about-li p{font-size:.82rem;color:var(--muted)}
+#certifications{padding:72px 0;background:#fff;border-top:1px solid var(--border)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+.cert-card{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--off);border:1px solid var(--border);border-radius:var(--r-lg);transition:var(--ease)}
+.cert-card:hover{border-color:var(--teal);box-shadow:var(--sh-sm)}
+.cert-icon{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--navy),var(--navy-lt));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cert-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cert-card h4{font-size:.95rem;font-weight:800;color:var(--dark);margin-bottom:2px}
+.cert-card p{font-size:.8rem;color:var(--muted);line-height:1.5}
+.cert-note{margin-top:26px;display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted)}
+.cert-note a{color:var(--blue);font-weight:600;text-decoration:none}
+.cert-note a:hover{text-decoration:underline}
+@media(max-width:767px){
+  #certifications{padding:56px 0}
+  .cert-grid{grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-top:22px}
+  .cert-card{flex-direction:column;padding:16px;gap:10px}
+  .cert-icon{width:38px;height:38px;border-radius:10px}
+  .cert-icon svg{width:19px;height:19px}
+}
 
 /* ============================================================
    CTA BAND
@@ -2181,6 +2199,42 @@ HERO
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & COMPLIANCE -->
+<section id="certifications">
+  <div class="container">
+    <div class="tag">Certifications &amp; Compliance</div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--dark);margin-bottom:6px;">Registered, Compliant &amp; Bankable.</h2>
+    <p class="section-sub" style="margin-bottom:0;">Credentials that matter when your business or procurement team does its due diligence.</p>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M19 21l-7-4-7 4V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></div>
+        <div><h4>CIPC Registered</h4><p>Kirov Dynamics Technology (Pty) Ltd, registered under the Companies Act.</p></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
+        <div><h4>POPIA Compliant</h4><p>Data handled under the Protection of Personal Information Act, by default.</p></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div>
+        <div><h4>B-BBEE Level 2</h4><p>100% South African owned and operated contributor.</p></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div><h4>Africa-First</h4><p>Built for South African conditions — load-shedding, low bandwidth, local compliance.</p></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10M10 21V6M15 21V10M19 21V4"/></svg></div>
+        <div><h4>GovTech-Ready</h4><p>PFMA/MFMA-aware and familiar with CIDB and public sector procurement.</p></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div><h4>SA Data Residency</h4><p>Client data hosted in South Africa wherever platform options allow.</p></div>
+      </div>
+    </div>
+    <p class="cert-note">We are honest about our status: we work to the recognised security practice the standards describe but are not certified to ISO/IEC 27001, SOC 2 or PCI DSS. <a href="compliance.html">Read our full POPIA &amp; data compliance statement →</a></p>
   </div>
 </section>
 
