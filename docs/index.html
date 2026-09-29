@@ -118,8 +118,8 @@ ul{list-style:none}
 .tag::before{content:'';display:block;width:28px;height:2px;background:var(--teal);border-radius:2px}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:16px}
 .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:680px}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:none}
+.js-reveal .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.js-reveal .reveal.visible{opacity:1;transform:none}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;padding:13px 26px;border-radius:var(--r);transition:var(--ease);cursor:pointer;white-space:nowrap;line-height:1;position:relative;overflow:hidden}
@@ -702,25 +702,45 @@ ul{list-style:none}
 #solutions{padding:100px 0;background:var(--off)}
 .sol-head{text-align:center;margin-bottom:64px}
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.sol-card{
-  border-radius:var(--r-lg);overflow:hidden;
-  border:1px solid var(--border);background:#fff;transition:var(--ease);
-}
+/* Product imagery is a background layer rather than a block above the text, so
+   the photo no longer pushes every card's content further down the page. The top
+   of the frame stays light so the picture reads as a picture; the scrim only
+   reaches full strength where the text sits. */
+.sol-card{ position:relative;overflow:hidden;min-height:320px;display:flex;align-items:flex-end;
+  border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.14);
+  background-color:var(--navy);transition:var(--ease); }
+.sol-card::before{ content:'';position:absolute;inset:0;z-index:0;
+  background-image:var(--sol-bg);background-size:cover;background-position:center;
+  transition:transform .5s var(--ease); }
+.sol-card::after{ content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(10,22,40,.22),rgba(10,22,40,.55) 22%,rgba(10,22,40,.86) 34%,rgba(10,22,40,.93) 60%,rgba(10,22,40,.95)); }
+.sol-card:hover::before{transform:scale(1.06)}
 .sol-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
-.sol-img{height:190px;overflow:hidden;position:relative}
 .sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.sol-card:hover .sol-img img{transform:scale(1.06)}
-.sol-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.8),transparent 60%)}
-.sol-body{padding:24px}
-.sol-cat{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-ink);margin-bottom:8px}
-.sol-body h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:8px}
-.sol-body p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.sol-body{position:relative;z-index:2;padding:24px;width:100%}
+/* The text block carries its own solid scrim rather than relying on the card
+   gradient. On narrow screens the heading and body wrap to more lines, which
+   lifts the label up into the lighter top of the card gradient, and no
+   semi-transparent scrim kept the text at AA across all six photographs. An
+   opaque panel is the only way to guarantee that, and the photograph still
+   reads clearly across the uncovered upper half of the card. It must paint
+   above .sol-card::after (z-index 1), hence 2 here and 3 on the text. */
+.sol-body::before{content:'';position:absolute;inset:0;z-index:2;background:#0d1a2e}
+.sol-body>*{position:relative;z-index:3}
+/* Teal caps at .68rem could not reach 4.5:1 on this panel, so the label now
+   matches the rest of the card text. The teal accent stays on .sol-arrow:hover,
+   which is an interaction state rather than content. The shadow is a backstop
+   against the two brightest card photos. */
+.sol-cat{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:8px;
+  text-shadow:0 1px 2px rgba(10,22,40,.9),0 0 10px rgba(10,22,40,.75)}
+.sol-body h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:8px}
+.sol-body p{font-size:.86rem;color:rgba(255,255,255,.78);line-height:1.65;margin-bottom:14px}
 .sol-arrow{
   display:inline-flex;align-items:center;gap:6px;
-  font-size:.78rem;font-weight:700;color:var(--navy);
+  font-size:.78rem;font-weight:700;color:#fff;
   text-transform:uppercase;letter-spacing:.08em;transition:var(--ease);
 }
-.sol-arrow:hover{color:var(--teal-ink);gap:10px}
+.sol-arrow:hover{color:var(--teal-on-dark);gap:10px}
 .sol-arrow svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5}
 
 /* ============================================================
@@ -845,8 +865,10 @@ ul{list-style:none}
 ============================================================ */
 #about{padding:100px 0;background:var(--off)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-img-wrap{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
-.about-img-wrap img{width:100%;height:460px;object-fit:cover}
+.about-img-wrap{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);
+  min-height:320px;background-color:var(--navy);
+  background-image:linear-gradient(to top,rgba(10,22,40,.55),rgba(10,22,40,.12) 55%),var(--about-bg);
+  background-size:cover;background-position:center}
 .about-badge{
   position:absolute;bottom:24px;left:24px;
   background:#fff;border-radius:var(--r-lg);padding:14px 18px;
@@ -1799,8 +1821,7 @@ HERO
       <p class="section-sub" style="margin:0 auto;">Purpose-built platforms for specific industries and operational challenges — all built from real customer problems.</p>
     </div>
     <div class="sol-grid">
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&fit=crop&w=600&q=72" alt="BusinessOS"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Now Available · BusinessOS</div>
           <h3>Kirov BusinessOS</h3>
@@ -1808,8 +1829,7 @@ HERO
           <a href="#contact" class="sol-arrow">Explore Product <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Fleet Intelligence"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1501493870936-9c2e41625521?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Fleet</div>
           <h3>Fleet Intelligence</h3>
@@ -1817,8 +1837,7 @@ HERO
           <a href="#contact" class="sol-arrow">Join Waitlist <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Construction Intelligence"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Coming Next · Construction</div>
           <h3>Construction Intelligence</h3>
@@ -1826,8 +1845,7 @@ HERO
           <a href="#contact" class="sol-arrow">Join Waitlist <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=600&q=72" alt="Kirov Secure"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Later · Security</div>
           <h3>Kirov Secure</h3>
@@ -1835,8 +1853,7 @@ HERO
           <a href="#contact" class="sol-arrow">Express Interest <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fm=webp&fit=crop&w=600&q=72" alt="GovTech"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Future · Government</div>
           <h3>Kirov GovTech</h3>
@@ -1844,8 +1861,7 @@ HERO
           <a href="#contact" class="sol-arrow">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
-      <div class="sol-card reveal">
-        <div class="sol-img"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fm=webp&fit=crop&w=600&q=72" alt="AI Solutions"><div class="sol-img-ov"></div></div>
+      <div class="sol-card reveal" style="--sol-bg:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fm=webp&fit=crop&w=600&q=72')">
         <div class="sol-body">
           <div class="sol-cat">Ongoing · AI Services</div>
           <h3>AI &amp; Automation Services</h3>
@@ -2012,8 +2028,7 @@ HERO
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img-wrap reveal">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&w=800&q=76" alt="Kirov Dynamics team">
+      <div class="about-img-wrap reveal" role="img" aria-label="Kirov Dynamics team" style="--about-bg:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fm=webp&fit=crop&w=800&q=76')">
         <div class="about-badge">
           <div class="about-badge-icon"><svg class="sa-flag" viewBox="0 0 90 60" aria-hidden="true" focusable="false"><defs><clipPath id="saf-t"><path d="m0 0 45 30L0 60z"/></clipPath><clipPath id="saf-f"><path d="m0 0h90v60H0z"/></clipPath></defs><path fill="#E03C31" d="m0 0h90v30H45z"/><path fill="#001489" d="m0 60h90V30H45z"/><g clip-path="url(#saf-f)" fill="none"><path stroke="#FFF" stroke-width="20" d="m90 30H45L0 0v60l45-30"/><path fill="#000" stroke="#ffb81c" stroke-width="20" clip-path="url(#saf-t)" d="m0 0 45 30L0 60"/><path stroke="#007749" stroke-width="12" d="m0 0 45 30h45M0 60l45-30"/></g></svg></div>
           <div class="about-badge-text"><h5>Founded 2025</h5><p>Proudly South African</p></div>
@@ -2187,17 +2202,45 @@ HERO
      SCRIPTS
      ============================================================ -->
 <script>
-/* === Scroll Reveal === */
+/* === Scroll Reveal ===
+   Content must never be left invisible. The faded state is only armed once JS
+   has confirmed it can undo it, the stagger is capped so a long grid cannot
+   push a card's reveal seconds out, and a cheap per-frame sweep reveals
+   anything already in view that the observer happened to miss. */
 const ro = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
-    const idx = siblings.indexOf(e.target);
-    setTimeout(() => e.target.classList.add('visible'), idx * 75);
+    const idx = Math.min(Math.max(siblings.indexOf(e.target), 0), 5);
+    setTimeout(() => e.target.classList.add('visible'), idx * 60);
     ro.unobserve(e.target);
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+let sweepQueued = false;
+function sweepReveals() {
+  sweepQueued = false;
+  const limit = innerHeight * 0.95;
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < limit && r.bottom > 0) {
+      el.classList.add('visible');
+      ro.unobserve(el);
+    }
+  });
+}
+function queueSweep() {
+  if (sweepQueued) return;
+  sweepQueued = true;
+  requestAnimationFrame(sweepReveals);
+}
+addEventListener('scroll', queueSweep, { passive: true });
+addEventListener('resize', queueSweep);
+addEventListener('orientationchange', queueSweep);
+addEventListener('pageshow', queueSweep);
+queueSweep();
+setTimeout(queueSweep, 1200);
 
 /* === Navbar === */
 const nav = document.getElementById('navbar');
