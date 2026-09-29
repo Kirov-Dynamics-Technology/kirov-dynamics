@@ -47,16 +47,35 @@
     }
   }, true);
 
-  /* One-shot tool usage for the ROI calculator (real user input only). */
+  /* One-shot tool usage for the ROI calculator (real user input only).
+     First real interaction = tool_used + assessment_complete (the tool yields a
+     result instantly), so the funnel is: pageview → tool_used → assessment_complete. */
   var roiFired = false;
   var roiIds = ["roi-emp", "roi-hrs", "roi-rate", "roi-red"];
   document.addEventListener("input", function (ev) {
-    if (roiFired) return;
     if (ev.target && ev.target.id && roiIds.indexOf(ev.target.id) !== -1) {
-      roiFired = true;
-      track("tool_used", { tool: "roi" });
+      if (!roiFired) {
+        roiFired = true;
+        track("tool_used", { tool: "roi" });
+        track("assessment_complete", { tool: "roi" });
+      }
     }
   }, true);
+
+  /* Tech-score: fire assessment_start when the section is actually viewed
+     (it is a static readiness visual, so interaction = reading it). */
+  (function () {
+    if (!("IntersectionObserver" in window)) return;
+    var ts = document.getElementById("tech-score");
+    if (!ts) return;
+    var tsFired = false;
+    new IntersectionObserver(function (entries) {
+      if (!tsFired && entries[0].isIntersecting) {
+        tsFired = true;
+        track("assessment_start", { tool: "tech-score" });
+      }
+    }, { threshold: 0.4 }).observe(ts);
+  })();
 
   /* Generic hook: an element with data-track="name" fires named event on click. */
   document.addEventListener("click", function (ev) {
