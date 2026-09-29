@@ -1,15 +1,15 @@
-/* Kirov Dynamics — cookieless analytics (Umami).
-   Served from our own domain; inert until configured below.
+/* Kirov Dynamics — cookieless analytics (Umami Cloud).
+   Served from our own domain; loads Umami Cloud's script.js.
 
-   To activate: set CONFIG.host to your Umami instance (Umami Cloud or self-hosted)
-   and CONFIG.websiteId to the website id created in that instance. Until then this
-   file loads nothing and tracks nothing, so the site stays privacy-honest. */
+   CONFIG.host      = Umami Cloud (cloud.umami.is)
+   CONFIG.websiteId = the kirov-dynamics website created there
+   Other events (kdt.track) are opt-in and documented in events.md. */
 (function () {
   'use strict';
 
   var CONFIG = {
-    host: "",                          /* e.g. "https://analytics.example.com" or Umami Cloud URL */
-    websiteId: "",                     /* the website id from your Umami instance */
+    host: "https://cloud.umami.is",    /* Umami Cloud */
+    websiteId: "2710875c-7962-4d56-85e0-0d6af2c2e879",
     domains: "kirov-dynamics-technology.github.io"  /* restrict to our own domains */
   };
 
@@ -26,10 +26,10 @@
   kdt.track = track;
   window.kdt = kdt;
 
-  /* Load Umami only when configured with real values. */
+  /* Load Umami Cloud script.js. */
   if (CONFIG.host && CONFIG.websiteId) {
     var s = document.createElement("script");
-    s.async = true;
+    s.defer = true;
     s.src = CONFIG.host.replace(/\/+$/, "") + "/script.js";
     s.setAttribute("data-website-id", CONFIG.websiteId);
     s.setAttribute("data-host-url", CONFIG.host);
