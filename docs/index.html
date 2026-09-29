@@ -344,7 +344,13 @@ ul{list-style:none}
   .hero{min-height:0}
   .hero-slides{
     position:relative;inset:auto;
-    height:clamp(240px,36svh,320px);
+    /* 150-210px keeps the photo a real banner without pushing the copy and
+       trust bar off the first screen. Was 240-320px, which cost ~100px of
+       viewport for no layout reason. */
+    height:clamp(150px,26svh,210px);
+  }
+  @media(max-height:700px){
+    .hero-slides{height:clamp(120px,20svh,150px)}
   }
   .hero-slide{background-position:center 30%}
   /* a light film only, to settle the image against the panel below it */
@@ -360,7 +366,14 @@ ul{list-style:none}
     padding:0 20px;
     align-items:flex-start;
   }
-  .hero-left{max-width:none;padding:30px 0 40px}
+  /* copy sits tight below the banner: ~100px of gap between the photo and the
+     brand was all margins, so the trust bar ended up below the fold */
+  .hero-left{max-width:none;padding:16px 0 20px}
+  .hero-brand{margin-bottom:10px}
+  .hero-divider{margin-bottom:10px;min-height:17px}
+  .hero-headline{margin-bottom:12px}
+  .hero-desc{margin-bottom:14px;max-width:none}
+  .hero-btns{margin-bottom:12px}
   /* the copy no longer sits on a photograph, so it needs no shadow */
   .hero-brand .line1,.hero-brand .line2,.hero-headline,.hero-desc{text-shadow:none}
 }
@@ -1112,6 +1125,87 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
   .hero-desc{margin-bottom:14px}
   .t-text h5{font-size:.75rem}
   .trust-item{padding:10px 16px 10px 0}
+}
+/* Phones: the max-height rules above target small desktops and were tuned for
+   the old 240-320px hero banner. With the shorter banner the copy stack must
+   sit tight so the whole hero - photo, CTA and trust bar - fits the viewport.
+   This block comes after them so it wins on any phone. */
+@media(max-width:767px){
+  .hero-left{padding:14px 0 18px}
+  .hero-brand{margin-bottom:8px}
+  .hero-divider{margin-bottom:8px}
+  .hero-headline{margin-bottom:10px}
+  .hero-desc{margin-bottom:12px;line-height:1.6}
+  .hero-btns{margin-bottom:12px}
+  .hero-desc{font-size:.92rem}
+  /* trust bar: 42px icons + generous padding made each 2-up item 106px tall,
+     and four items = 197px, which is exactly what pushed the whole bar below
+     the fold on an 844px phone. Compact icons and tighter rows instead. */
+  .trust-inner{grid-template-columns:1fr 1fr;padding:0 20px}
+  .trust-item{padding:10px 10px!important}
+  .t-icon{width:32px;height:32px}
+  .t-icon svg{width:16px;height:16px}
+  /* the sub-label paragraphs double every trust item's height; the four labels
+     are the content the first screen must show, the sub-labels come back on the
+     taller phones below (wrapper, not the fold) */
+  .t-text p{display:none}
+  /* the trust-note ('No technical knowledge required...') is hero copy the
+     first screen must carry, so re-enable it here on real phones and keep it
+     compact; small desktops keep the max-height:680 hide above. */
+  .hero-trust-note{display:flex;align-items:flex-start;gap:8px;font-size:.74rem;line-height:1.45}
+  .hero-trust-note svg{width:14px;height:14px;margin-top:2px}
+  /* 950px and shorter: trim copy margins so narrow tall phones (e.g. 344x882)
+     that wrap the description to an extra row still keep the trust bar on the
+     first screen without shrinking the photo. */
+  @media(max-height:950px){
+    .hero-headline{margin-bottom:8px}
+    .hero-desc{margin-bottom:10px;line-height:1.55}
+    .hero-btns{margin-bottom:10px}
+    .hero-desc{font-size:.9rem}
+  }
+  /* under 820px tall the copy stack itself must shrink: the headline and
+     description were wrapping to 4-5 rows and alone ate 210px, putting the
+     trust bar 100px+ below the fold on 480-812px phones. */
+  @media(max-height:820px){
+    .hero-slides{height:clamp(96px,13svh,130px)}
+    .hero-left{padding:12px 0 14px}
+    .hero-brand .line1{font-size:clamp(1.5rem,7.5vw,2.2rem)}
+    .hero-brand .line2{font-size:clamp(1rem,4.5vw,1.4rem);letter-spacing:.14em}
+    .hero-headline{font-size:clamp(1.2rem,5vw,1.5rem);line-height:1.2}
+    .hero-desc{font-size:.84rem;line-height:1.45}
+    .hero-body{padding:0 16px}
+    .hero-divider{margin-bottom:6px}
+    .hero-divider span{font-size:.7rem;letter-spacing:.1em}
+    .hero-btns .btn{padding:10px 8px;font-size:.76rem}
+    .trust-item{padding:8px 8px!important}
+    .t-icon{width:28px;height:28px}
+    .t-icon svg{width:15px;height:15px}
+    .t-text h5{font-size:.72rem}
+  }
+  /* 600px and shorter (iPhone 5-class): every pixel counts, so drop the trust
+     bar to a single row of four, hide the note, and let the photo lean
+     against the nav. */
+  @media(max-height:600px){
+    .hero{min-height:0}
+    .hero-slides{height:clamp(84px,14svh,110px)}
+    .hero-left{padding:10px 0 12px}
+    .hero-brand{margin-bottom:6px}
+    .hero-divider{margin-bottom:5px}
+    .hero-headline{margin-bottom:8px}
+    .hero-desc{margin-bottom:8px}
+    .hero-btns{margin-bottom:8px}
+    .hero-divider span{font-size:.62rem;letter-spacing:.08em}
+    .hero-desc{font-size:.8rem;line-height:1.4}
+    .hero-btns .btn{padding:9px 6px;font-size:.72rem}
+    .trust-inner{grid-template-columns:repeat(4,1fr);padding:0 12px;gap:4px}
+    .trust-item{flex-direction:column;justify-content:center;text-align:center;padding:6px 4px!important}
+    .trust-item:not(:first-child){border-left:1px solid rgba(255,255,255,.07)}
+    .t-icon{width:20px;height:20px;margin-bottom:4px}
+    .t-icon svg{width:12px;height:12px}
+    .t-text p{display:none!important}
+    .t-text h5{font-size:.56rem;white-space:normal;line-height:1.1}
+    .hero-trust-note{display:none!important}
+  }
 }
 /* WCAG AA: brand teal #00c8f8 scores only 1.98:1 against white, so on light
    surfaces all teal text and icons fall back to --teal-ink (#007190, 5.58:1).
