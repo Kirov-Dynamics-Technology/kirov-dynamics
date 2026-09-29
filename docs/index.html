@@ -2,6 +2,13 @@
 <html lang="en" data-home="./">
 <head>
 <meta charset="UTF-8">
+<!-- The reveal animation hides .reveal elements until they are observed, which
+     is a risk if the class is ever missing: the content would stay invisible.
+     This sets the gate the CSS keys off (.js-reveal .reveal) and it must run
+     before the first paint, so it is inline and first in the document. Without
+     JS the class is never set, so .reveal is never hidden and the page is fully
+     readable. Do not move this below the stylesheet or rename the class. -->
+<script>document.documentElement.classList.add('js-reveal')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- The palette is a fixed light/navy brand, not a theme: telling the UA
      "light" stops iOS Safari, Android Chrome and Edge from force-inverting the
@@ -2207,27 +2214,31 @@ HERO
    has confirmed it can undo it, the stagger is capped so a long grid cannot
    push a card's reveal seconds out, and a cheap per-frame sweep reveals
    anything already in view that the observer happened to miss. */
+function revealNow(el) {
+  el.classList.add('visible');
+  ro.unobserve(el);
+}
 const ro = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
     const idx = Math.min(Math.max(siblings.indexOf(e.target), 0), 5);
-    setTimeout(() => e.target.classList.add('visible'), idx * 60);
-    ro.unobserve(e.target);
+    setTimeout(() => revealNow(e.target), idx * 60);
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
+/* The sweep is the backstop for the observer, and it also covers the case the
+   observer cannot: an element that the viewport has already scrolled past.
+   A card must never be left faded, so anything at or above the fold is
+   revealed. The earlier `r.bottom > 0` test meant an element that had been
+   skipped during a fast flick was never revisited and stayed at opacity 0. */
 let sweepQueued = false;
 function sweepReveals() {
   sweepQueued = false;
   const limit = innerHeight * 0.95;
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.top < limit && r.bottom > 0) {
-      el.classList.add('visible');
-      ro.unobserve(el);
-    }
+    if (el.getBoundingClientRect().top < limit) revealNow(el);
   });
 }
 function queueSweep() {
@@ -2239,8 +2250,19 @@ addEventListener('scroll', queueSweep, { passive: true });
 addEventListener('resize', queueSweep);
 addEventListener('orientationchange', queueSweep);
 addEventListener('pageshow', queueSweep);
+addEventListener('load', queueSweep);
 queueSweep();
 setTimeout(queueSweep, 1200);
+
+/* Last-resort net. If anything is still hidden by the time the page has been
+   read for a few seconds, show it. This cannot normally fire, because the
+   sweep already reveals everything the reader has passed, but it guarantees
+   no content is ever permanently invisible if layout or timing changes. */
+setTimeout(function revealBackstop() {
+  const hidden = document.querySelectorAll('.reveal:not(.visible)');
+  hidden.forEach(revealNow);
+  if (hidden.length) console.warn('reveal backstop released', hidden.length, 'element(s)');
+}, 4000);
 
 /* === Navbar === */
 const nav = document.getElementById('navbar');
