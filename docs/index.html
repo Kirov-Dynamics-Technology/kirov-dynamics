@@ -330,52 +330,37 @@ ul{list-style:none}
   }
 }
 
-/* PHONE LAYOUT: photo above, copy below.
-   On a 390px screen the brand line, headline, description and buttons cover
-   the entire hero, so any shade strong enough to hold white text at WCAG AA
-   also hides the photograph. That was measured rather than guessed: across
-   100 combinations of film, scrim and copy-trimming, the brightest shade that
-   still passed AA left the picture no brighter than the one it replaced. So on
-   phones the photograph becomes a full-bleed banner with no copy on it at all,
-   and the copy moves underneath onto a solid panel - the picture is then
-   completely unobstructed and the text contrast no longer depends on a photo
-   at all. Tablet and desktop keep the text-over-image hero. */
+/* PHONE HERO: image behind the copy, like tablet and desktop.
+   The previous phone layout was a photo banner on top and the copy moved down
+   onto a solid #080e1c panel. The trade-off: below the brand line the copy
+   spans the whole width, so a full-bleed shade strong enough for WCAG AA also
+   hid the picture, and the panel wasted most of a tall phone. The hero now
+   uses the same split shade as <=1279px (a light film over the whole hero so
+   the photograph reads, plus a radial scrim sized to the copy) so the image
+   fills the first screen again and the trust bar no longer leaves a void. */
 @media(max-width:767px){
-  .hero{min-height:0}
-  .hero-slides{
-    position:relative;inset:auto;
-    /* 150-210px keeps the photo a real banner without pushing the copy and
-       trust bar off the first screen. Was 240-320px, which cost ~100px of
-       viewport for no layout reason. */
-    height:clamp(150px,26svh,210px);
+  .hero{min-height:100svh}
+  .hero-slides{position:absolute;inset:0}
+  .hero-slide{background-position:center 32%}
+  /* keep the <=1279px vertical film for overlay (picture reads behind copy) */
+  .hero-left::before{
+    /* bleed past the text so the scrim has no visible edge, top to bottom */
+    inset:-28px -14px;
+    background:radial-gradient(135% 115% at 50% 46%,
+      rgba(8,14,28,.92) 0%,
+      rgba(8,14,28,.84) 42%,
+      rgba(8,14,28,.60) 68%,
+      rgba(8,14,28,0) 88%);
   }
-  @media(max-height:700px){
-    .hero-slides{height:clamp(120px,20svh,150px)}
-  }
-  .hero-slide{background-position:center 30%}
-  /* a light film only, to settle the image against the panel below it */
-  .hero-overlay{
-    background:linear-gradient(180deg,
-      rgba(8,14,28,.34) 0%,
-      rgba(8,14,28,.06) 55%,
-      rgba(8,14,28,.20) 100%);
-  }
-  .hero-left::before{display:none}
-  .hero-body{
-    background:#080e1c;
-    padding:0 20px;
-    align-items:flex-start;
-  }
-  /* copy sits tight below the banner: ~100px of gap between the photo and the
-     brand was all margins, so the trust bar ended up below the fold */
-  .hero-left{max-width:none;padding:16px 0 20px}
+  .hero-body{padding:0 20px}
+  /* copy sits tight: ~100px of gap between elements was all margins, so the
+     trust bar ended up below the fold */
+  .hero-left{max-width:none;padding:14px 0 18px}
   .hero-brand{margin-bottom:10px}
   .hero-divider{margin-bottom:10px;min-height:17px}
   .hero-headline{margin-bottom:12px}
   .hero-desc{margin-bottom:14px;max-width:none}
   .hero-btns{margin-bottom:12px}
-  /* the copy no longer sits on a photograph, so it needs no shadow */
-  .hero-brand .line1,.hero-brand .line2,.hero-headline,.hero-desc{text-shadow:none}
 }
 
 .hero-body{
@@ -1167,7 +1152,6 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
      description were wrapping to 4-5 rows and alone ate 210px, putting the
      trust bar 100px+ below the fold on 480-812px phones. */
   @media(max-height:820px){
-    .hero-slides{height:clamp(96px,13svh,130px)}
     .hero-left{padding:12px 0 14px}
     .hero-brand .line1{font-size:clamp(1.5rem,7.5vw,2.2rem)}
     .hero-brand .line2{font-size:clamp(1rem,4.5vw,1.4rem);letter-spacing:.14em}
@@ -1183,11 +1167,8 @@ footer{background:var(--navy);color:#fff;padding:80px 0 0}
     .t-text h5{font-size:.72rem}
   }
   /* 600px and shorter (iPhone 5-class): every pixel counts, so drop the trust
-     bar to a single row of four, hide the note, and let the photo lean
-     against the nav. */
+     bar to a single row of four and hide the note. */
   @media(max-height:600px){
-    .hero{min-height:0}
-    .hero-slides{height:clamp(84px,14svh,110px)}
     .hero-left{padding:10px 0 12px}
     .hero-brand{margin-bottom:6px}
     .hero-divider{margin-bottom:5px}
