@@ -45,6 +45,8 @@
     .cs-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-lite);background:rgba(74,144,217,0.1);border:1px solid var(--border);padding:6px 16px;border-radius:50px;margin-bottom:18px}
     .cs-hero h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--accent-lite) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .cs-hero p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto}
+.cs-hero-img{position:relative;height:280px;border-radius:var(--radius-lg);overflow:hidden;margin:0 auto 40px;max-width:900px;border:1px solid var(--border);background-color:var(--bg-card);background-size:cover;background-position:center}
+.cs-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,15,.75),rgba(6,8,15,.15) 60%,transparent)}
     .cs-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;padding:40px 0;border-bottom:1px solid var(--border)}
     .meta-item{text-align:center;padding:20px;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border)}
     .meta-item .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -145,6 +147,10 @@
     <p>IoT platform for real-time water quality monitoring and leak detection — helping a municipality reduce water losses by 40%.</p>
   </div>
 </section>
+
+  <div class="container">
+    <div class="cs-hero-img" role="img" aria-label="Project imagery" style="background-image:url('https://images.unsplash.com/photo-1566650554919-44ec6bbe2518?auto=format&fm=webp&fit=crop&w=1200&q=72')"></div>
+  </div>
 
 <div class="container">
   <div class="cs-meta">
