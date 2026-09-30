@@ -623,8 +623,9 @@ ul{list-style:none}
 
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .pkg-card{
-  border-radius:var(--r-xl);border:1px solid var(--border);
-  overflow:hidden;transition:var(--ease);background:#fff;
+border-radius:var(--r-xl);border:1px solid var(--border);
+overflow:hidden;transition:var(--ease);background:#fff;
+display:flex;flex-direction:column;
 }
 .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
 .pkg-card.featured{
@@ -645,8 +646,8 @@ ul{list-style:none}
 .pkg-card .pkg-price span{font-size:.9rem;font-weight:500;color:var(--muted)}
 .pkg-card .pkg-desc{font-size:.85rem;color:var(--muted);margin-bottom:20px}
 .pkg-divider{height:1px;background:var(--border)}
-.pkg-body{padding:24px 28px 28px}
-.pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.pkg-body{padding:24px 28px 28px;display:flex;flex-direction:column;flex:1}
+.pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1}
 .pkg-feat{
   display:flex;align-items:flex-start;gap:10px;
   font-size:.85rem;color:var(--mid);line-height:1.5;
@@ -2423,11 +2424,11 @@ HERO
         <div class="proj-photo"><span class="proj-metric">70%</span></div>
         <div class="proj-body"><h3>Construction ERP</h3><p>A CIDB-compliant ERP cutting tender preparation time with automated workflows.</p><a href="case-studies/construction-erp.html">Read case study <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a></div>
       </div>
-      <div class="proj-card reveal" style="--proj-bg:url('https://images.unsplash.com/photo-1532190234152-a2e422255cc9?auto=format&fm=webp&fit=crop&w=900&q=72')">
+      <div class="proj-card reveal" style="--proj-bg:url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fm=webp&fit=crop&w=900&q=72')">
         <div class="proj-photo"><span class="proj-metric">60%</span></div>
         <div class="proj-body"><h3>Municipal Complaint Portal</h3><p>A digital citizen portal that cut service-delivery resolution times by 60%.</p><a href="case-studies/municipal-complaint-portal.html">Read case study <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a></div>
       </div>
-      <div class="proj-card reveal" style="--proj-bg:url('https://images.unsplash.com/photo-1570126949493-b2b5e2b8a1c0?auto=format&fm=webp&fit=crop&w=900&q=72')">
+      <div class="proj-card reveal" style="--proj-bg:url('https://images.unsplash.com/photo-1566650554919-44ec6bbe2518?auto=format&fm=webp&fit=crop&w=900&q=72')">
         <div class="proj-photo"><span class="proj-metric">40%</span></div>
         <div class="proj-body"><h3>Smart Water Monitoring</h3><p>IoT leak detection and water-quality monitoring that cut municipal losses by 40%.</p><a href="case-studies/smart-water-monitoring.html">Read case study <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a></div>
       </div>
