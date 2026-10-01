@@ -903,7 +903,7 @@ display:flex;flex-direction:column;
 
 /* one path per logo, painted in the brand's own colour */
 
-@media(prefers-reduced-motion:reduce){.stack-belt-track{animation:none;flex-wrap:wrap;width:auto}}
+@media(prefers-reduced-motion:reduce){.stack-belt-track{animation:none;flex-wrap:wrap;width:auto}.stack-logo--clone{display:none}}
 
 /* ============================================================
    PROCESS
@@ -1438,6 +1438,7 @@ a[href^="mailto:"]:not(.btn):not(.soc-btn){
   .svc-link,.sol-arrow,.nav-links a,.c-item a{color:LinkText !important}
   :focus-visible{outline:3px solid Highlight !important}
   .stack-belt-track{animation:none}
+.stack-logo--clone{display:none}
 }
 
 /* ---- the six flywheel steps ----
@@ -2999,18 +3000,56 @@ form.addEventListener('submit', async function (e) {
   }
 });
 
-/* === Tech belt speed ===
-   The keyframes move each track by -50% of its own width, so a single fixed duration
-   made the widest belt race ahead of the narrowest. Duration is derived from one
-   shared px/s so every logo travels at the same speed, in the same direction, from
-   the same start. Re-measured on resize and once webfonts settle. */
-const BELT_PX_PER_SEC = 22;
-function syncBeltSpeed() {
+/* === Tech belt: repeat runs + speed ===
+The keyframes shift the track by -50%, which is seamless only when the track holds an
+even number of identical runs AND one run is at least as wide as the visible belt.
+The markup ships two runs, but a run is only ~730-845px while a desktop belt is
+~1240px wide, so on desktop the track ran out of content partway through the shift and
+the remainder scrolled across empty space - which is what stopped the belt looking
+like it rolled. Each belt is therefore topped up with extra copies of its first run
+until one run covers the viewport.
+
+Extra copies are cloned from the first run and marked aria-hidden with the list
+role dropped, so the accessible list stays exactly one run long and screen readers
+never announce the duplicates. */
+function fillBelts() {
   document.querySelectorAll('.stack-belt-track').forEach(tr => {
-    const half = tr.getBoundingClientRect().width / 2;
-    if (half > 0) tr.style.animationDuration = (half / BELT_PX_PER_SEC) + 's';
+    const runs = tr.children.length / 2;
+    if (!runs || tr.dataset.filled) return;
+    const runWidth = () => {
+      const first = tr.children[0];
+      return first ? first.getBoundingClientRect().width : 0;
+    };
+    // one chip plus its trailing margin is the repeatable unit
+    const unit = tr.children[0] ? tr.children[0].getBoundingClientRect().width : 0;
+    if (unit <= 0) return;
+    let need = Math.ceil((window.innerWidth + 80) / unit) - runs;
+    for (let i = 0; i < need; i++) {
+      for (let c = 0; c < runs; c++) {
+        const clone = tr.children[c].cloneNode(true);
+        clone.removeAttribute('role');
+        clone.setAttribute('aria-hidden', 'true');
+        clone.classList.add('stack-logo--clone');
+        tr.appendChild(clone);
+      }
+    }
+    tr.dataset.filled = '1';
   });
 }
+
+function beltPxPerSec() {
+  const w = window.innerWidth || 375;
+  return Math.min(Math.max(w * 0.055, 26), 92);
+}
+function syncBeltSpeed() {
+  const pps = beltPxPerSec();
+  document.querySelectorAll('.stack-belt-track').forEach(tr => {
+    // one loop shifts the track by -50%, so the distance travelled is half its width
+    const half = tr.getBoundingClientRect().width / 2;
+    if (half > 0) tr.style.animationDuration = (half / pps) + 's';
+  });
+}
+fillBelts();
 syncBeltSpeed();
 addEventListener('resize', syncBeltSpeed);
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncBeltSpeed);
